@@ -12,7 +12,7 @@ _counter = 0;
 _countActual = 0;
 _i = 0;
 
-while {_counter < 8} do // 8 helis spawn at the beginning
+while {_counter < 4} do // 8 helis spawn at the beginning
 {
 	_selectedMarker = floor (random 24);
     if(_selectedMarker in currentStaticHelis) then
@@ -29,13 +29,18 @@ while {_counter < 8} do // 8 helis spawn at the beginning
 	    
         _counter = _counter + 1;
 	    _countActual = _countActual + 1;
-        /*              
+        
+		
 	    _markerName = format["marker%1",_counter];
+		deleteMarkerLocal _markerName;
 		_marker = createMarkerLocal [_markerName, _newPos];
-		_markerName createMarkerLocal "mil_dot";
-		_markerName createMarkerLocal [1.25, 1.25];
-		_markerName createMarkerLocal "ColorRed";
-        */
+		_markerName setMarkerShapeLocal "ICON";
+		_markerName setMarkerTypeLocal "mil_dot";
+		_markerName setMarkerSizeLocal [1.25, 1.25];
+		_markerName setMarkerColorLocal "ColorRed";
+		_markerName setMarkerTextLocal "Mission Here";
+        
+		
     };
 };
 

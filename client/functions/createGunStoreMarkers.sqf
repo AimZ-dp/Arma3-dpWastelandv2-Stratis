@@ -6,10 +6,20 @@
 
 _gunStores = ["gunStore1","gunStore2","gunStore3"];
 
-//Creates the markers around general stores.
+//Creates the markers around gun stores.
 waitUntil {{!isNull(missionNamespace getVariable _x) && ((getPos(missionNamespace getVariable _x) distance [0,0,0]) > 100)} count _gunStores == count _gunStores};
 {
 	_unit = missionNamespace getVariable _x;
+
+	// Circle zone   
+    _markerName = format["marker_shop_zone_%1",_x];
+    deleteMarkerLocal _markerName;
+	_marker = createMarkerLocal [_markerName, getPos _unit];
+	_markerName setMarkerShapeLocal "ELLIPSE";
+    _markerName setMarkerColorLocal "ColorBlue";
+	_markerName setMarkerSizeLocal [80, 80];
+	_markerName setMarkerBrushLocal "Grid";
+	_markerName setMarkerAlphaLocal 0.5;
 
 	// Gun store title    
     _markerName = format["marker_shop_title_%1",_x];

@@ -15,7 +15,7 @@ disableSerialization;
 
 private ["_switch","_vehicleType","_vehicleSummary","_dialog","_vehicleListBox","_weaponText","_userText","_damageText","_speedText","_check"];
 _uid = getPlayerUID player;
-if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministrators)) then {
+if (_uid in serverdpAdministrators) then {
 	_switch = _this select 0;
 	_allVehicles = vehicles;
 	
@@ -102,7 +102,7 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 	    {
 	    	{
 	            _check = _x getVariable ["newVehicle",0];
-	            if(_check != 1) then 
+	            if(_check != vChecksum) then 
 	            {
 				    _vehicleType = Format["%1",typeOf _x];
 				    if(_vehicleType isKindOf "Car") then {

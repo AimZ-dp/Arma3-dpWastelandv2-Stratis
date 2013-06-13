@@ -1,16 +1,16 @@
 //	@file Version: 1.0
 //	@file Name: vehicleTestSpawn.sqf
-//	@file Author: [404] Deadbeat, [404] Costlyy
+//	@file Author: [404] Deadbeat, [404] Costlyy, AimZ =(dp)=
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
 if(!X_Server) exitWith {};
 
-private ["_counter","_pos","_type","_num","_markerName","_marker","_amountOfVehicles","_hint"];
+private ["_counter","_pos","_type","_num"];
 
 _counter = 0;
 
-for "_i" from 1 to 110 do
+for "_i" from 1 to 118 do
 {
 	_pos = getMarkerPos format ["Spawn_%1", _i];
 	_type = 0;

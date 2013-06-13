@@ -83,7 +83,7 @@ for [{_x=1},{_x<=_amount},{_x=_x+1}] do
 _amount = (player getVariable "camonet");
 for [{_x=1},{_x<=_amount},{_x=_x+1}] do
 {
-	playerInventory set [_index, "Camo Net"];
+	playerInventory set [_index, "Slum Canvas (Black)"];
 	_index = _index + 1;
 };
 

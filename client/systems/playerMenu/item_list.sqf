@@ -27,11 +27,11 @@ if(player getVariable "fuelEmpty" == 1) then {
 };
 if(player getVariable "camonet" > 0) then {
 	if(player getVariable "camonet" > 1) then {
-	    _str = format ["%1x - Camo Nets", player getVariable "camonet"];
+	    _str = format ["%1x - Slum Canvas (Black)", player getVariable "camonet"];
 	} else {
-	    _str = "Camo Net";
+	    _str = "Slum Canvas (Black)";
 	};
-	_itemListIndex = _itemList lbAdd format["%1x - Camo Net", player getVariable "camonet"];
+	_itemListIndex = _itemList lbAdd format["%1x - Slum Canvas (Black)", player getVariable "camonet"];
 	_itemList lbSetData [(lbSize _itemList)-1, "camonet"];
 };
 if(player getVariable "repairkits" > 0) then {
@@ -49,11 +49,11 @@ if(player getVariable "repairkits" > 0) then {
 };
 
 if(player getVariable "medkits" > 0) then {
-	_str = "Medkit";
+	_str = "Medical kit";
 	if(player getVariable "medkits" > 1) then {
-	    _str = format ["%1x - Medkit", player getVariable "medkits"];
+	    _str = format ["%1x - Medical kit", player getVariable "medkits"];
 	} else {
-	    _str = "Medkit";
+	    _str = "Medical kit";
 	};
 	_itemListIndex = _itemList lbAdd _str;
 	_itemList lbSetData [(lbSize _itemList)-1, "medkit"];

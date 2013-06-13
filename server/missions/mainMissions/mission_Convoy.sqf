@@ -25,6 +25,8 @@ _createVehicle = {
     _group = _this select 3;
     
     _vehicle = _type createVehicle _position;
+	_vehicle setVariable["newVehicle",vChecksum,true];
+	
     _vehicle setDir _direction;
     clearMagazineCargoGlobal _vehicle;
     clearWeaponCargoGlobal _vehicle;
@@ -143,6 +145,8 @@ if(_failed) then
 
     // Spawn loot at last marker position
     _ammobox = "Box_NATO_Wps_F" createVehicle getMarkerPos _marker;
+	_ammobox setVariable["newVehicle",vChecksum,true];
+	
     clearMagazineCargoGlobal _ammobox;
     clearWeaponCargoGlobal _ammobox;
     // TODO: Fine tune and balance loot.

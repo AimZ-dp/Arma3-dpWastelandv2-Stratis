@@ -13,7 +13,7 @@ disableSerialization;
 
 private ["_dialog","_playerListBox","_spectateButton","_switch","_index","_modSelect","_playerData","_target","_check","_spectating","_camadm","_rnum","_warnText","_targetUID","_playerName"];
 _uid = getPlayerUID player;
-if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministrators)) then {
+if (_uid in serverdpAdministrators) then {
 	_dialog = findDisplay playerMenuDialog;
 	_playerListBox = _dialog displayCtrl playerMenuPlayerList;
 	_spectateButton = _dialog displayCtrl playerMenuSpectateButton;
@@ -74,15 +74,11 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 		{
 			_warnText = ctrlText _warnMessage;
 	        _playerName = name player;
-			_target setVehicleInit format["if (name player == ""%2"") then {titleText [""Admin %3: %1"", ""plain""]; titleFadeOut 10;};",_warnText,name _target,_playerName];
-	        processInitCommands;
-	        clearVehicleInit _target;
+			[_target, format["if (name player == ""%2"") then {titleText [""Admin %3: %1"", ""plain""]; titleFadeOut 10;};",_warnText,name _target,_playerName], false] spawn fn_vehicleInit;
 		};
 	    case 2: //Slay
 	    {
-			_target setVehicleInit format["if (name player == ""%1"") then {player setdamage 1; Endmission ""END1"";failMission ""END1"";forceEnd; deletevehicle player;};",name _target];
-			processInitCommands;
-			clearVehicleInit _target;
+			[_target, format["if (name player == ""%1"") then {player setdamage 1; Endmission ""END1"";failMission ""END1"";forceEnd; deletevehicle player;};",name _target], false] spawn fn_vehicleInit;
 	    };
 	    case 3: //Unlock Team Switcher
 	    {      
@@ -94,13 +90,9 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 					pvar_teamSwitchList = pvar_teamSwitchList - ["REMOVETHISCRAP"];
 			        publicVariableServer "pvar_teamSwitchList";
 	                
-	                _target setVehicleInit format["if (name player == ""%1"") then {client_firstSpawn = nil;};",name _target];
-			        processInitCommands;
-			        clearVehicleInit _target;
-	                
-	                player setVehicleInit format["if isServer then {publicVariable 'pvar_teamSwitchList';};"];
-			        processInitCommands;
-			        clearVehicleInit player;         
+	                [_target, format["if (name player == ""%1"") then {client_firstSpawn = nil;};",name _target], false] spawn fn_vehicleInit;
+                
+	                [player, format["if isServer then {publicVariable 'pvar_teamSwitchList';};"], false] spawn fn_vehicleInit;
 			    };
 			}forEach pvar_teamSwitchList;			
 	    };
@@ -114,9 +106,7 @@ if ((_uid in moderators) OR (_uid in administrators) OR (_uid in serverAdministr
 					pvar_teamKillList = pvar_teamKillList - ["REMOVETHISCRAP"];
 			        publicVariableServer "pvar_teamKillList"; 
 	                
-	                player setVehicleInit format["if isServer then {publicVariable 'pvar_teamKillList';};"];
-			        processInitCommands;
-			        clearVehicleInit player;       
+	                [player, format["if isServer then {publicVariable 'pvar_teamKillList';};"], false] spawn fn_vehicleInit;
 			    };
 			}forEach pvar_teamKillList;       		
 	    };

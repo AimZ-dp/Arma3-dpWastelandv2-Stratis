@@ -36,7 +36,8 @@ _mIndex = _mvalue lbadd "$3000"; _mvalue lbSetData [(lbSize _mvalue)-1, "3000"];
 _mIndex = _mvalue lbadd "$4000"; _mvalue lbSetData [(lbSize _mvalue)-1, "4000"];
 _mIndex = _mvalue lbadd "$5000"; _mvalue lbSetData [(lbSize _mvalue)-1, "5000"];
 
-if(str(playerSide) == "west" || str(playerSide) == "east") then
-{
-	_groupButton ctrlShow false;    
-};
+//took out to give everyone the option for group management
+//if(str(playerSide) == "west" || str(playerSide) == "east") then
+//{
+//	_groupButton ctrlShow false;    
+//};

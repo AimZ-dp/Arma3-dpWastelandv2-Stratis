@@ -4,8 +4,11 @@
 //	@file Created: 20/11/2012 05:13
 //	@file Description: The main init.
 //	@file Args:
+
+// reset BIS_fnc_mp
+"BIS_fnc_MP_packet" addPublicVariableEventHandler {};
+
 #include "setup.sqf"
-//if (isnil "RE") then {[] execVM "\ca\Modules\MP\data\scripts\MPframework.sqf"};
 
 StartProgress = false;
 enableSaving[false,false];
@@ -14,7 +17,11 @@ X_Server = false;
 X_Client = false;
 X_JIP = false;
 hitStateVar = false;
-versionName = "v1.05 Alpha";
+versionName = "v1.0 Alpha";
+
+modVersion = "Blended-Wasteland-build-1003";
+vChecksum = 1;
+{vChecksum = vChecksum + _x;} forEach (toArray modVersion); 
 
 if(isServer) then { X_Server = true;};
 if(!isDedicated) then { X_Client = true;};
@@ -22,7 +29,7 @@ if(isNull player) then {X_JIP = true;};
 
 true spawn {
 	if(!isDedicated) then {
-		titleText ["Please wait for your player to setup", "BLACK", 0];
+		titleText ["Welcome to =(dp)= Wasteland, please wait for your player to setup", "BLACK", 0];
 		waitUntil {player == player};
 		client_initEH = player addEventHandler ["Respawn", {removeAllWeapons (_this select 0);}];
 	};
@@ -56,5 +63,14 @@ if(X_Server) then {
 
 //init 3rd Party Scripts
 [] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
-[] execVM "addons\proving_Ground\init.sqf";
-//[0.1, 0.5, 0.5] execVM "addons\scripts\DynamicWeatherEffects.sqf";
+
+if (X_Server) then
+{
+	[] execVM "server\functions\PartialAntiCheats.sqf";
+}
+else
+{
+	"THISIS437SPARTA" addPublicVariableEventHandler { [] spawn (_this select 1); };
+    dat4ClientStarted = player;
+    publicVariableServer "dat4ClientStarted";
+};

@@ -33,14 +33,14 @@ diag_log format["WASTELAND SERVER - Side Mission Resumed: %1",_missionType];
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-/*
+deleteMarkerLocal "AirWreck_Marker";
 _marker = createMarkerLocal ["AirWreck_Marker", _randomPos];
 "AirWreck_Marker" setMarkerShapeLocal "ICON";
 "AirWreck_Marker" setMarkerTypeLocal "mil_dot";
 "AirWreck_Marker" setMarkerColorLocal "ColorRed";
 "AirWreck_Marker" setMarkerSizeLocal [1,1];
 "AirWreck_Marker" setMarkerTextLocal "Mission Here";
-*/
+
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
 _vehicle = ["O_Ka60_Unarmed_F",[(_randomPos select 0) + 50, (_randomPos select 1) + 50,0],0,0,1,"NONE"] call createMissionVehicle;
@@ -51,6 +51,9 @@ _box = createVehicle ["Box_East_WpsSpecial_F",[(_randomPos select 0), (_randomPo
 _box2 = createVehicle ["Box_NATO_WpsSpecial_F",[(_randomPos select 0), (_randomPos select 1) - 10,0],[], 0, "NONE"];
 [_box2,"mission_Side_USSpecial"] call fn_refillbox;
 
+_box setVariable["newVehicle",vChecksum,true];
+_box2 setVariable["newVehicle",vChecksum,true];
+		
 _picture = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "picture");
 _vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName");
 _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A<t color='%4'> %3</t>, has come down under enemy fire!</t>", _missionType, _picture, _vehicleName, sideMissionColor, subTextColor];

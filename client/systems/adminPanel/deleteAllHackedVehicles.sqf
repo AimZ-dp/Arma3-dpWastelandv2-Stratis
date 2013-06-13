@@ -4,7 +4,7 @@ _allVehicles = vehicles;
 
 {
 	_check = _x getVariable ["newVehicle",0];
-	if(_check != 1) then 
+	if(_check != vChecksum) then 
 	{
 		_vehicleType = Format["%1",typeOf _x];
 		if(_vehicleType isKindOf "Car") then {

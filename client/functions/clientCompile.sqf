@@ -36,6 +36,6 @@ client_respawnDialog = compile preprocessFileLineNumbers "client\functions\loadR
 loadGeneralStore = compile preprocessFileLineNumbers "client\systems\generalStore\loadGenStore.sqf";
 loadGunStore = compile preprocessFileLineNumbers "client\systems\gunStore\loadGunStore.sqf";
 
-player groupChat "Client Compile Complete";
+player groupChat "=(dp)= Wasteland - Client Compile Complete";
 sleep 1;
 playerCompiledScripts = true;

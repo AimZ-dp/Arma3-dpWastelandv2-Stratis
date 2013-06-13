@@ -9,7 +9,7 @@ if(mutexScriptInProgress) exitWith {
 };
 
 mutexScriptInProgress = true;
-_camonet = (nearestobjects [getpos player, ["Land_CamoNet_NATO"],  5] select 0);
+_camonet = (nearestobjects [getpos player, ["Land_cargo_addon02_V2_F"],  5] select 0);
 
 deleteVehicle _camonet;
 player playmove "AinvPknlMstpSlayWrflDnon";

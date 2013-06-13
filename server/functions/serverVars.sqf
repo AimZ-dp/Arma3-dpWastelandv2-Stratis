@@ -62,23 +62,31 @@ militaryVehicles = ["c_offroad","O_Ifrit_F","B_Hunter_F"];
 armedMilitaryVehicles = ["B_Hunter_F","O_Ifrit_F"];
                             
 //Object List - Random Spawns.
-objectList = ["Land_Barrelwater_F",
+objectList = ["Land_Sacks_goods_F",
+			"Land_CanisterPlastic_F",
+			"Land_Barrelwater_F",
 			"Land_Fireplace_F",
 			"Land_WoodenBox_F",
+			"Land_JunkPile_F",
+			"Land_Tyres_F",
+			"Land_ToiletBox_F",
+			"Land_Coil_F",
+			"Land_Pipes_Large_F",
 			"Land_HBarrier_1_F",
 			"Land_HBarrier_1_F",
+			"Land_LampDecor_F",
+			"Land_LampShabby_F",
+			"Land_Stone_8m_F",
+			"Land_Mil_WallBig_4m_F",
 			"Land_HBarrier_5_F",
-			"Land_HBarrier_5_F",
-			"Land_HBarrierBig_F",
-			"Land_HBarrierBig_F",
 			"Land_HBarrier_3_F",
-//			"Land_CncBarrier_F", // broken map items
-//			"Land_Mound01_8m_F",
-//			"Land_Mound02_8m_F",
-			"Land_Scaffolding_F",
-//			"Land_Razorwire_F", //isnt currently able to be picked up
+			"Land_HBarrier_5_F",
 			"Land_HBarrierBig_F",
+			"Land_HBarrierBig_F",
+			"Land_MetalBarrel_F",
+			"Land_Scaffolding_F",
 			"Land_CargoBox_V1_F",
+			"Land_cargo_addon02_V2_F",
 			"RampConcrete",
 			"Land_Obstacle_Bridge_F"];
                                          
@@ -128,6 +136,7 @@ vehicleAddition = [
 
 vehicleAddition2 = [
 	"Chemlight_blue",
+	"Chemlight_red",
 	"Chemlight_green"
 ];
  

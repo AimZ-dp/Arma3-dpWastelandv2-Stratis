@@ -86,6 +86,20 @@ if((_player getVariable "repairkits") > 0) then {
 	};
 };
 
+if((_player getVariable "canfood") > 0) then {
+	for "_a" from 1 to (_player getVariable "canfood") do {	
+		_m = "Land_Basket_F" createVehicle (position _player);
+		_to_delete = _to_delete + [_m];
+	};
+};
+
+if((_player getVariable "water") > 0) then {
+	for "_b" from 1 to (_player getVariable "water") do {	
+		_m = "Land_Bucket_F" createVehicle (position _player);
+		_to_delete = _to_delete + [_m];
+	};
+};
+
 true spawn {
 	waitUntil {playerRespawnTime < 2};
 	titleText ["", "BLACK OUT", 1];
