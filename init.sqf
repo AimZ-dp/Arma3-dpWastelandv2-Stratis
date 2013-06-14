@@ -19,7 +19,7 @@ X_JIP = false;
 hitStateVar = false;
 versionName = "v1.0 Alpha";
 
-modVersion = "Blended-Wasteland-build-1003";
+modVersion = "build-1003";
 vChecksum = 1;
 {vChecksum = vChecksum + _x;} forEach (toArray modVersion); 
 
