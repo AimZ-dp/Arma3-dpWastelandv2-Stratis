@@ -49,8 +49,6 @@ private ["_unit","_delay","_deserted","_respawns","_run","_explode","_dynamic","
 
 diag_log format["VEHICLE SPAWN - Woop we are started"];
 
-#include "setup.sqf" 
-
 // Define variables
 _unit = _this select 0;
 _delay = if (count _this > 1) then {_this select 1} else {30};

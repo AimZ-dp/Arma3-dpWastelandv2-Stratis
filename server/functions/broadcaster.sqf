@@ -6,8 +6,6 @@
 
 if(!X_Server) exitWith {};
 
-#include "setup.sqf"
-
 while {true} do 
 {
     //To broadcast clientRaderMarkers to clients from the server due to clients not being able to broadcast server wide variables with eventhandlers.	

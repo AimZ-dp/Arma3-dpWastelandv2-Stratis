@@ -4,7 +4,6 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Description: The server init.
 //	@file Args:
-#include "setup.sqf"
 if(!X_Server) exitWith {};
 
 sideMissions = 0;

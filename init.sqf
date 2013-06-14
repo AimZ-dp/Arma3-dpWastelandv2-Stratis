@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: init.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, AimZ =(dp)=
 //	@file Created: 20/11/2012 05:13
 //	@file Description: The main init.
 //	@file Args:
@@ -8,9 +8,6 @@
 // reset BIS_fnc_mp
 "BIS_fnc_MP_packet" addPublicVariableEventHandler {};
 
-#include "setup.sqf"
-
-StartProgress = false;
 enableSaving[false,false];
 
 X_Server = false;
@@ -30,8 +27,8 @@ if(isNull player) then {X_JIP = true;};
 true spawn {
 	if(!isDedicated) then {
 		titleText ["Welcome to =(dp)= Wasteland, please wait for your player to setup", "BLACK", 0];
-		waitUntil {player == player};
-		client_initEH = player addEventHandler ["Respawn", {removeAllWeapons (_this select 0);}];
+		//waitUntil {player == player};
+		//client_initEH = player addEventHandler ["Respawn", {removeAllWeapons (_this select 0);}];
 	};
 };
 
@@ -52,18 +49,12 @@ if(X_Client) then {
 	[] execVM "client\init.sqf";
 };
 
-if(X_Server) then {
+if(X_Server) then 
+{
 	diag_log format ["############################# %1 #############################", missionName];
 	diag_log format ["T%1,DT%2,F%3", time, diag_tickTime, diag_frameno];
     diag_log format["WASTELAND SERVER - Initilizing Server"];
 	[] execVM "server\init.sqf";
-};
-
-//init 3rd Party Scripts
-[] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
-
-if (X_Server) then
-{
 	[] execVM "server\functions\PartialAntiCheats.sqf";
 }
 else
@@ -72,3 +63,9 @@ else
     dat4ClientStarted = player;
     publicVariableServer "dat4ClientStarted";
 };
+
+//init 3rd Party Scripts
+[] execVM "addons\R3F_ARTY_AND_LOG\init.sqf";
+
+
+

@@ -3,7 +3,6 @@
 //	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 08/12/2012 03:25
 //	@file Args:
-#include "setup.sqf"
 #include "mainMissionDefines.sqf";
 
 if(!isServer) exitwith {};

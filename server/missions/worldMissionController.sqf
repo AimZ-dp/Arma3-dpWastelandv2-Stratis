@@ -1,7 +1,6 @@
 if(!isServer) exitWith {};
 
 //waitUntil{sleep 1; staticGunSpawningComplete};
-#include "setup.sqf"
 diag_log format["WASTELAND SERVER - Started Mission State"];
 
 //Main Mission Array

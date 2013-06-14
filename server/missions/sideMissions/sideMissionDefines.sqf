@@ -7,7 +7,6 @@
 //Fail Mission Colour = #FF1717 - Light red
 //Fail Mission Colour = #17FF41 - Light green
 //Sub Colour = #FFF - White
-#include "setup.sqf"
 
 #define sideMissionTimeout 1200
 #define sideMissionDelayTime 300

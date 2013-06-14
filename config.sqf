@@ -1,15 +1,8 @@
 //	@file Version: 1.0
 //	@file Name: config.sqf
-//	@file Author: [404] Deadbeat, [404] Costlyy
+//	@file Author: [404] Deadbeat, [404] Costlyy, AimZ =(dp)=
 //	@file Created: 20/11/2012 05:13
 //	@file Description: Main config.
-
-// --------------------------------------------------------------------------------------------------- \\
-// ----------  !DO NOT CHANGE ANYTHING BELOW THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING!	---------- \\
-// ----------																				---------- \\
-// ----------			404Games are not responsible for anything that may happen 			---------- \\
-// ----------			 as a result of unauthorised modifications to this file.			---------- \\
-// --------------------------------------------------------------------------------------------------- \\
                                                                                                 
 //Gunstore Weapon List - Gun Store Base List
 // Text name, classname, buy cost, sell amount

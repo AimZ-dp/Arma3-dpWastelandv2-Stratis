@@ -5,7 +5,6 @@
 
 if(!isServer) exitWith {};
 
-#include "setup.sqf"
 #include "sideMissions\sideMissionDefines.sqf";
 
 private ["_SMarray","_lastMission","_randomIndex","_mission","_missionType","_newMissionArray","_lastMission"];

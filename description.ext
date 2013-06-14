@@ -18,14 +18,14 @@ author="AimZ =(dp)=";
 
 //Dialog includes
 #include "addons\R3F_ARTY_AND_LOG\desc_include.h"
-#include "client\systems\common.hpp"                                // *FINE FOR NOW - REDEFINE CLASS NAME TO STOP CUSTOM MENUS
-#include "client\systems\playerMenu\dialog\player_settings.hpp"     // FINE - CAN BE ACCESS ANYTIME ANYWAY
-#include "client\systems\groups\dialog\groupManagement.hpp"         // FINE - CAN BE ACCESS ANYTIME ANYWAY - GROUP TAGGING?!?
-#include "client\systems\gunStore\dialog\gunshop_settings.hpp"      // CHANGE - RENAME SCRIPTS, HOW DOES GUNSHOP DIALOG GET DISPLAYED?!? 
-#include "client\systems\generalStore\dialog\genstore_settings.hpp" // CHANGE - RENAME SCRIPTS, HOW DOES GUNSHOP DIALOG GET DISPLAYED?!?
-#include "client\systems\adminPanel\dialog\serverAdminMenu.hpp"		// CHANGE - RENAME SCRIPTS, CHECK IF ADMINLIST CHANGES
-#include "client\systems\adminPanel\dialog\playerMenu.hpp"			// CHANGE - RENAME SCRIPTS, CHECK IF ADMINLIST CHANGES		
-#include "client\systems\adminPanel\dialog\VehicleManagement.hpp"   // CHANGE - RENAME SCRIPTS, CHECK IF ADMINLIST CHANGES
+#include "client\systems\common.hpp"
+#include "client\systems\playerMenu\dialog\player_settings.hpp"
+#include "client\systems\groups\dialog\groupManagement.hpp"
+#include "client\systems\gunStore\dialog\gunshop_settings.hpp" 
+#include "client\systems\generalStore\dialog\genstore_settings.hpp"
+#include "client\systems\adminPanel\dialog\serverAdminMenu.hpp"	
+#include "client\systems\adminPanel\dialog\playerMenu.hpp"	
+#include "client\systems\adminPanel\dialog\VehicleManagement.hpp" 
 #include "client\systems\playerMenu\dialog\respawn_dialog.hpp"
 #include "client\systems\playerMenu\dialog\teamkill_dialog.hpp"
 

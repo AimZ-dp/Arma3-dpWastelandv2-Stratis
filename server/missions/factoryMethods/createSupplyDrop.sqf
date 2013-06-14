@@ -6,7 +6,6 @@
 // Modifications made by [404] Costlyy
 
 #include "mainMissionDefines.sqf";
-#include "setup.sqf";
 
 if(!isServer) exitwith {};
 

@@ -2,7 +2,6 @@
 //	@file Name: serverPlayerDied.sqf
 //	@file Author: [404] Pulse
 //	@file Created: 20/11/2012 05:19
-#include "setup.sqf"
 if(!X_Server) exitWith {};
 
 private["_newObject"];

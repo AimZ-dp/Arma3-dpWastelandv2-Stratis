@@ -4,7 +4,6 @@
 //	@file Created: 20/11/2012 05:19
 
 if(!X_Server) exitWith {};
-#include "setup.sqf"
 
 _dateStamp = Date;
 currentDate = _dateStamp;
