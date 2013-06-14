@@ -21,8 +21,6 @@ waitUntil{scriptDone _serverCompiledScripts};
 
 diag_log format["WASTELAND SERVER - Server Complie Finished"];
 
-#ifdef __DEBUG__
-#else
 //Execute Server Spawning.
 if (serverSpawning == 1) then {
     diag_log format["WASTELAND SERVER - Initilizing Server Spawning"];
@@ -35,7 +33,7 @@ if (serverSpawning == 1) then {
     _heliSpawn = [] ExecVM "server\functions\staticHeliSpawning.sqf";
     waitUntil{sleep 0.1; scriptDone _heliSpawn};
 };
-#endif
+
 //Execute Server Missions.
 if (sideMissions == 1) then {
 	diag_log format["WASTELAND SERVER - Initilizing Missions"];

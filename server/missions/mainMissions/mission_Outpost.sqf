@@ -13,11 +13,8 @@ private ["_result","_missionMarkerName","_missionType","_startTime","_returnData
 _result = 0;
 _missionMarkerName = "Outpost_Marker";
 _missionType = "Capture Outpost";
-#ifdef __A2NET__
-_startTime = floor(netTime);
-#else
+
 _startTime = floor(time);
-#endif
 
 diag_log format["WASTELAND SERVER - Main Mission Started: %1",_missionType];
 
@@ -43,20 +40,14 @@ CivGrpM = createGroup civilian;
 [CivGrpM,_randomPos] spawn createLargeGroup;
 
 diag_log format["WASTELAND SERVER - Main Mission Waiting to be Finished: %1",_missionType];
-#ifdef __A2NET__
-_startTime = floor(netTime);
-#else
 _startTime = floor(time);
-#endif
+
 waitUntil
 {
     sleep 1; 
 	_playerPresent = false;
-	#ifdef __A2NET__
-	_currTime = floor(netTime);
-	#else
     _currTime = floor(time);
-	#endif
+
     if(_currTime - _startTime >= mainMissionTimeout) then {_result = 1;};
     _unitsAlive = ({alive _x} count units CivGrpM);
     (_result == 1) OR (_unitsAlive < 1)

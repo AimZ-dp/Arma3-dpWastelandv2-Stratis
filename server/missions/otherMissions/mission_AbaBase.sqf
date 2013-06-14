@@ -50,19 +50,12 @@ _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>M
 
 //Wait till the mission is ready to be ran.
 diag_log format["WASTELAND SERVER - Mission Waiting to run"];
-#ifdef __A2NET__
-_startTime = floor(netTime);
-#else
 _startTime = floor(time);
-#endif
+
 waitUntil
 { 
     sleep 1;
-	#ifdef __A2NET__
-	_currTime = floor(netTime);
-	#else
     _currTime = floor(time);
-	#endif
     if(_currTime - _startTime >= _missionDelayTime) then {_result = 1;};	
     (_result == 1)
 };

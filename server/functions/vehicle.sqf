@@ -64,13 +64,8 @@ _run = true;
 _position = getPosASL _unit;
 _type = typeOf _unit;
 _dead = false;
-
-#ifdef __A2NET__
-_timeout = netTime;
-#else
 _timeout = time;
-#endif	 
-
+ 
 while {_run} do 
 {
 	_dammage = getDammage _unit;
@@ -82,11 +77,7 @@ while {_run} do
 	{
 		if (_distance > 20 and _alive == 0 and _dammage <= 0.95) then 
 		{
-			#ifdef __A2NET__
-			_curtime = netTime;
-			#else
 			_curtime = time;
-			#endif		
 
 			if (_timeout < _curtime) then
 			{
@@ -96,11 +87,7 @@ while {_run} do
 		}
 		else
 		{
-			#ifdef __A2NET__
-			_timeout = netTime + _deserted;
-			#else
 			_timeout = time + _deserted;
-			#endif
 		};
 	};
 

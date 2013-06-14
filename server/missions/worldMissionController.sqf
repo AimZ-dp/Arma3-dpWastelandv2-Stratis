@@ -8,11 +8,7 @@ diag_log format["WASTELAND SERVER - Started Mission State"];
 _MMarray = [];
 
 worldMissionRunning = false;
-#ifdef __A2NET__
-_startTime = floor(netTime);
-#else
 _startTime = floor(time);
-#endif
 _result = 0;
 
 while {true} do
@@ -32,11 +28,7 @@ while {true} do
         execVM format ["server\missions\otherMissions\%1.sqf",_mission];
 		worldMissionRunning = true;
         diag_log format["WASTELAND SERVER - Execute New Mission"];
-		#ifdef __A2NET__
-		_startTime = floor(netTime);
-		#else
 		_startTime = floor(time);
-		#endif
         _result = 0;
     } else {
     	sleep 1;  
