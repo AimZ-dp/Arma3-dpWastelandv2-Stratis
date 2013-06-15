@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: broadcaster.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, AimZ =(dp)=
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
@@ -8,9 +8,9 @@ if(!X_Server) exitWith {};
 
 while {true} do 
 {
-    //To broadcast clientRaderMarkers to clients from the server due to clients not being able to broadcast server wide variables with eventhandlers.	
+    //To broadcast clientRadarMarkers to clients from the server due to clients not being able to broadcast server wide variables with eventhandlers.	
 	publicVariable "currentInvites";
-    publicVariable "clientRadarMarkers";
+    //publicVariable "clientRadarMarkers";
 	serverFPS = str(diag_fpsmin);
 	publicVariable "serverFPS";
     sleep 1; 

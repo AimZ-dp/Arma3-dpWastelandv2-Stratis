@@ -155,7 +155,7 @@ class VehicleManagement {
 		{
 			idc = -1;
 			onButtonClick = "[4] execVM 'client\systems\adminPanel\populateVehicles.sqf'";
-			text = "Hacked Vehicles";
+			text = "Hacked Objects";
 			x = 0.455 * safezoneW + safezoneX;
 			y = 0.72 * safezoneH + safezoneY;
 			w = 0.065 * safezoneW;

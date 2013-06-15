@@ -1,30 +1,26 @@
 //	@file Version: 1.0
 //	@file Name: serverVars.sqf
-//	@file Author: [404] Deadbeat, [404] Costlyy, [404] Pulse
+//	@file Author: [404] Deadbeat, [404] Costlyy, [404] Pulse, AimZ =(dp)= 
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
-// --------------------------------------------------------------------------------------------------- \\
-// ----------  !DO NOT CHANGE ANYTHING BELOW THIS POINT UNLESS YOU KNOW WHAT YOU ARE DOING!	---------- \\
-// ----------																				---------- \\
-// ----------			404Games are not responsible for anything that may happen 			---------- \\
-// ----------			 as a result of unauthorised modifications to this file.			---------- \\
-// --------------------------------------------------------------------------------------------------- \\
+
 if(!X_Server) exitWith {};
 
 diag_log format["WASTELAND SERVER - Initilizing Server Vars"];
 
-CVG_weapons = [];
-CVG_weapons = CVG_rifles;
-CVG_weapons = CVG_weapons + CVG_Scoped;
-CVG_weapons = CVG_weapons + CVG_Heavy;
-CVG_weapons = CVG_weapons + CVG_pistols;
-CVG_weapons = CVG_weapons + CVG_Launchers;
+burningTimeLimit = 60;
+desertedTimeLimit = 1200;
 
-sideMissionPos = "";
-mainMissionPos = "";
+//CVG_weapons = [];
+//CVG_weapons = CVG_rifles;
+//CVG_weapons = CVG_weapons + CVG_Scoped;
+//CVG_weapons = CVG_weapons + CVG_Heavy;
+//CVG_weapons = CVG_weapons + CVG_pistols;
+//CVG_weapons = CVG_weapons + CVG_Launchers;
 
-currentVehicles = [];
-publicVariable "currentVehicles";
+//sideMissionPos = "";
+//mainMissionPos = "";
+
 pvar_teamSwitchList = [];
 publicVariable "pvar_teamSwitchList";
 pvar_teamKillList = [];
@@ -42,10 +38,6 @@ publicVariable "currentDate";
 currentInvites = [];
 publicVariable "currentInvites";
                   
-"PlayerCDeath" addPublicVariableEventHandler {_id = (_this select 1) spawn server_playerDied};
-
-currentStaticHelis = []; // Storage for the heli marker numbers so that we don't spawn wrecks on top of live helis
-
 //Civilian Vehicle List - Random Spawns
 civilianVehicles = ["c_offroad","B_Quadbike_F", "O_Quadbike_F"];
 
@@ -67,15 +59,12 @@ objectList = ["Land_Sacks_goods_F",
 			"Land_Coil_F",
 			"Land_Pipes_Large_F",
 			"Land_HBarrier_1_F",
-			"Land_HBarrier_1_F",
 			"Land_LampDecor_F",
 			"Land_LampShabby_F",
 			"Land_Stone_8m_F",
 			"Land_Mil_WallBig_4m_F",
 			"Land_HBarrier_5_F",
 			"Land_HBarrier_3_F",
-			"Land_HBarrier_5_F",
-			"Land_HBarrierBig_F",
 			"Land_HBarrierBig_F",
 			"Land_MetalBarrel_F",
 			"Land_Scaffolding_F",
@@ -134,6 +123,14 @@ vehicleAddition2 = [
 	"Chemlight_green"
 ];
  
+ammoBoxes = [
+	"Box_East_Support_F",
+	"Box_East_Wps_F",
+	"Box_East_WpsSpecial_F",
+	"Box_NATO_Support_F",
+	"Box_NATO_Wps_F",
+	"Box_NATO_WpsSpecial_F"
+];
                 
 MissionSpawnMarkers = [
             ["Mission_1",false],

@@ -23,5 +23,5 @@ while{true} do
 		publicVariable "currentDate";
 		_startTime = time;    
     };
-	sleep 10;
+	sleep 100;
 };

@@ -16,7 +16,7 @@
 	_marker setMarkerAlphaLocal 0.3;   
 }forEach cityList;
 
-
+/*
 for "_x" from 1 to 118 do
 {
 	_pos = getMarkerPos format ["Spawn_%1", _x];
@@ -41,3 +41,18 @@ for "_x" from 1 to 118 do
 	_markerName setMarkerSizeLocal [1,1];
 	_markerName setMarkerTextLocal format["marker_spawn_%1",_x];
 };
+
+for "_i" from 0 to 24 do
+{
+	_pos = getMarkerPos format ["heliSpawn_%1", _i];
+		
+    _markerName = format["marker_spawnheli_%1",_i];
+	deleteMarkerLocal _markerName;
+	_marker = createMarkerLocal [_markerName, _pos];
+	_markerName setMarkerShapeLocal "ICON";
+	_markerName setMarkerTypeLocal "mil_dot";
+	_markerName setMarkerColorLocal "ColorRed";
+	_markerName setMarkerSizeLocal [1.25, 1.25];
+	_markerName setMarkerTextLocal format["Heli %1", _i];
+};
+*/

@@ -1,26 +1,35 @@
 
 //	@file Version: 1.0
-//	@file Name: Script Name
+//	@file Name: objectCreation.sqf
 //	@file Author: [404] Deadbeat
 //	@file Created: DD/MM/YYYY HH:MM
 //	@file Args:
 
 if(!X_Server) exitWith {};
 
-_objPos = _this select 0;
-_Objtype = objectList select (random (count objectList - 1));
-_obj = createVehicle [_Objtype,_objPos,[], 50,"None"]; 
+private ["_objtype","_obj","_type","_pos"];
+_type = _this select 1;
+_pos = _this select 0;
 
-if(_Objtype == "Land_CanisterPlastic_F") then 
+_objtype = objectList select _type;
+
+_obj = createVehicle [_objtype,_pos,[], 10, "NONE"]; 
+_obj setVariable["newVehicle",vChecksum,true];
+[_obj, 10, desertedTimeLimit] execVM "server\spawning\object.sqf"; 
+
+// Set Attributes
+if(_objtype == "Land_CanisterPlastic_F") then 
 {
     _obj setVariable["water",20,true];
 };
-
-if(_Objtype == "Land_Sacks_goods_F") then 
+if(_objtype == "Land_Sacks_goods_F") then 
 {
     _obj setVariable["food",20,true];
 };
 
-_obj setpos [getpos _obj select 0,getpos _obj select 1,0];
+// position
+_obj setPosATL [getpos _obj select 0,getpos _obj select 1,0.5];
+_obj setVelocity [0,0,0];
+_obj setDir (random 360);
 
-_obj setVariable["newVehicle",vChecksum,true];
+

@@ -1,12 +1,12 @@
 //	@file Version: 1.0
 //	@file Name: init.sqf
-//	@file Author: [404] Deadbeat
+//	@file Author: [404] Deadbeat, AimZ =(dp)=
 //	@file Created: 20/11/2012 05:19
 //	@file Description: The server init.
 //	@file Args:
 if(!X_Server) exitWith {};
 
-sideMissions = 0;
+sideMissions = 1;
 serverSpawning = 1;
 
 //Execute Server Side Scripts.
@@ -18,18 +18,20 @@ _serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
 [] execVM "server\functions\serverTimeSync.sqf";
 waitUntil{scriptDone _serverCompiledScripts};
 
-diag_log format["WASTELAND SERVER - Server Complie Finished"];
+diag_log format["WASTELAND SERVER - Server Compile Finished"];
+
+"PlayerCDeath" addPublicVariableEventHandler {_id = (_this select 1) spawn server_playerDied};
 
 //Execute Server Spawning.
 if (serverSpawning == 1) then {
     diag_log format["WASTELAND SERVER - Initilizing Server Spawning"];
-	_vehSpawn = [] ExecVM "server\functions\vehicleSpawning.sqf";
+	_vehSpawn = [] ExecVM "server\spawning\vehicleSpawning.sqf";
 	waitUntil{sleep 0.1; scriptDone _vehSpawn};
-    _objSpawn = [] ExecVM "server\functions\objectsSpawning.sqf";
+    _objSpawn = [] ExecVM "server\spawning\objectsSpawning.sqf";
 	waitUntil{sleep 0.1; scriptDone _objSpawn};
-    _boxSpawn = [] ExecVM "server\functions\boxSpawning.sqf";
+    _boxSpawn = [] ExecVM "server\spawning\boxSpawning.sqf";
 	waitUntil{sleep 0.1; scriptDone _boxSpawn};
-    _heliSpawn = [] ExecVM "server\functions\staticHeliSpawning.sqf";
+    _heliSpawn = [] ExecVM "server\spawning\staticHeliSpawning.sqf";
     waitUntil{sleep 0.1; scriptDone _heliSpawn};
 };
 

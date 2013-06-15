@@ -73,7 +73,7 @@ while {_run} do
 	// Check if the vehicle is deserted
 	if (_deserted > 0) then
 	{
-		if (_distance > 20 and _alive == 0 and _dammage <= 0.95) then 
+		if (_distance > 20 and _alive == 0 and _dammage <= 0.90) then 
 		{
 			_curtime = time;
 
@@ -90,7 +90,7 @@ while {_run} do
 	};
 
 	// check for badly broken
-	if ((_dammage > 0.95 and _alive == 0) or !alive _unit) then 
+	if ((_dammage > 0.90 and _alive == 0) or !alive _unit) then 
 	{
 		_dead = true;
 	};
@@ -103,11 +103,9 @@ while {_run} do
 		deleteVehicle _unit;
 		sleep 2;
 		
-		_num = floor (random 100);
-		if (_num < 100) then {_type = 0;};
-		if (_num < 35) then {_type = 1;};
-		if (_num < 10) then {_type = 2;};
-		[_position, _type] call vehicleCreation;
+		_type = random (count staticHeliList - 1);
+		[_position, _type] call staticHeliCreation;
+		
 		_run = false;
 	};
 	

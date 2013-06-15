@@ -105,7 +105,8 @@ if (_uid in serverdpAdministrators) then {
 	            if(_check != vChecksum) then 
 	            {
 				    _vehicleType = Format["%1",typeOf _x];
-				    if(_vehicleType isKindOf "Car") then {
+				    /*
+					if(_vehicleType isKindOf "Car") then {
 		            	if(_vehicleType isKindOf "MotorCycle") then {
 		                	_vehicleSummary = format["[Class: MotorCycle] [Type: %1]",_vehicleType];
 				        	_index = _vehicleListBox lbAdd format["%1",_vehicleSummary];
@@ -142,6 +143,10 @@ if (_uid in serverdpAdministrators) then {
 				        _index = _vehicleListBox lbAdd format["%1",_vehicleSummary];
 				        _vehicleListBox lbSetData [_index, str(_x)];
 				    };
+					*/
+					_vehicleSummary = format["[Type: %1]",_vehicleType];
+				    _index = _vehicleListBox lbAdd format["%1",_vehicleSummary];
+				    _vehicleListBox lbSetData [_index, str(_x)];
 	            };
 			} forEach _allVehicles;    
 	    };

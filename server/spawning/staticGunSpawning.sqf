@@ -6,7 +6,7 @@
 
 if(!X_Server) exitWith {};
 
-private ["_counter","_pos","_markerName","_marker","_hint","_newpos"];
+private ["_counter","_pos","_newpos"];
 _counter = 0;
 
 for "_i" from 1 to 770 step 20 do

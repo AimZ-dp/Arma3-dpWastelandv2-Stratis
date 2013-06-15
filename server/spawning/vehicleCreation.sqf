@@ -19,11 +19,8 @@ switch (_type) do
 };
 
 _car = createVehicle [_cartype,_pos,[], 30,"NONE"];
-[_car] spawn fn_vehicleInit;  
-_handle = [_car, 60, 120, 0, false] execVM "server\functions\vehicle.sqf"; 
-
-// add checksum to detect hacked vehicles
 _car setVariable["newVehicle",vChecksum,true];
+[_car, burningTimeLimit, desertedTimeLimit, 0, false] execVM "server\spawning\vehicle.sqf"; 
 
 //Clear Cars Inventory
 clearMagazineCargoGlobal _car;
@@ -31,21 +28,19 @@ clearWeaponCargoGlobal _car;
 	
 //Set Cars Attributes
 _car setFuel (0.50);
-_car setDamage (random 0.5) + 0.5;
+_car setDamage (random 0.25) + 0.5;
+
+// position car
+_car setPosATL [getpos _car select 0,getpos _car select 1,0.5];
+_car setVelocity [0,0,0];
 _car setDir (random 360);
+
 if (_type == 1) then {
     _car setVehicleAmmo (random 0.90);
 	_car disableTIEquipment true;
     [_car] call randomWeapons;
-
-	//Set original posistion then add to vehicle array
-	_car setVariable["newVehicle",1,true];
-    _car setPosATL [getpos _car select 0,getpos _car select 1,0];
-	_car setVelocity [0,0,0.1];
 };
+
 _car disableTIEquipment true;
 [_car] call randomWeapons;
 
-// position car
-_car setPosATL [getpos _car select 0,getpos _car select 1,1];
-_car setVelocity [0,0,0];

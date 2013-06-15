@@ -27,7 +27,7 @@ if(isNull player) then {X_JIP = true;};
 true spawn {
 	if(!isDedicated) then {
 		titleText ["Welcome to =(dp)= Wasteland, please wait for your player to setup", "BLACK", 0];
-		//waitUntil {player == player};
+		waitUntil {player == player};
 		//client_initEH = player addEventHandler ["Respawn", {removeAllWeapons (_this select 0);}];
 	};
 };

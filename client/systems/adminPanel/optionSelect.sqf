@@ -17,7 +17,7 @@ if (_uid in serverdpAdministrators) then {
 	
 	switch (_panelType) do
 	{
-	    case 152: //Server dp Administrator panel
+	    case 2: //Server dp Administrator panel
 	    {
 			switch (lbCurSel _serverAdminSelect) do
 			{

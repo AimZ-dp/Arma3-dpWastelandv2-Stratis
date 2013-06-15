@@ -1,43 +1,31 @@
 //	@file Version: 1.0
 //	@file Name: staticHeliCreation.sqf
-//	@file Author: [404] Costlyy
+//	@file Author: [404] Costlyy, AimZ =(dp)=
 //	@file Created: 20/12/2012 21:00
 //	@file Description: Random static helis
 //	@file Args: [int (0 = not wreck | 1 = wreck), array (position)]
 
 if(!X_Server) exitWith {};
 
-private["_spawnPos", "_spawnType", "_currHeli"];
+private ["_helitype","_heli","_type","_pos"];
+_type = _this select 1;
+_pos = _this select 0;
 
-_isWreck = _this select 0;
-_spawnPos = _this select 1;
+_helitype = staticHeliList select _type;
 
-if (_isWreck == 0) then {
-	//diag_log "Spawning heli complete...";
-	_spawnType = staticHeliList select (random (count staticHeliList - 1));
-	_currHeli = createVehicle [_spawnType,_spawnPos,[], 50,"None"]; 
-	
-	_currHeli setpos [getpos _currHeli select 0,getpos _currHeli select 1,0];
-	
-	clearMagazineCargoGlobal _currHeli;
-	clearWeaponCargoGlobal _currHeli;
-	
-	//Set original status to stop ner-do-wells
-	_currHeli setVariable["newVehicle",vChecksum,true];
-} else {
-	//diag_log "Spawning heli wreck...";
-    /*
-	_spawnType = staticHeliList select (random (count staticHeliList - 1));
-	_currHeli = createVehicle [_spawnType,_spawnPos,[], 50,"None"]; 
-	
-	_currHeli setpos [getpos _currHeli select 0,getpos _currHeli select 1,0];
-	
-	clearMagazineCargoGlobal _currHeli;
-	clearWeaponCargoGlobal _currHeli;
-	
-	//Set original status to stop ner-do-wells
-	_currHeli setVariable["newVehicle",vChecksum,true];
-    
-    _currHeli setDamage 1; // Destroy this heli on the spot so it looks like a realistic crash.
-   	*/
-};
+_heli = createVehicle [_helitype, _pos,[], 50, "NONE"];
+_heli setVariable["newVehicle",vChecksum,true];
+[_heli, burningTimeLimit, desertedTimeLimit, 0, false] execVM "server\spawning\staticHeli.sqf"; 
+
+clearMagazineCargoGlobal _heli;
+clearWeaponCargoGlobal _heli;
+
+//Set Attributes
+_heli setFuel (0.50);
+_heli setDamage (random 0.25) + 0.5;
+
+// position
+_heli setPosATL [getpos _heli select 0,getpos _heli select 1,0.5];
+_heli setVelocity [0,0,0];
+_heli setDir (random 360);
+
