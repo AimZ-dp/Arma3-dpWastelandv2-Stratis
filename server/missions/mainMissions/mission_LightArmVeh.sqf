@@ -5,6 +5,8 @@
 //	@file Args:
 #include "mainMissionDefines.sqf";
 
+diag_log format["WASTELAND SERVER - Main Mission!!!"];
+
 if(!isServer) exitwith {};
 
 private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_vehicleClass","_vehicle","_picture","_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive"];
@@ -16,7 +18,7 @@ _missionType = "Light Armored Vehicle";
 _startTime = floor(time);
 
 diag_log format["WASTELAND SERVER - Main Mission Started: %1",_missionType];
-
+/*
 //Get Mission Location
 _returnData = call createMissionLocation;
 _randomPos = _returnData select 0;
@@ -80,7 +82,7 @@ if(_result == 1) then
 	publicVariable "messageSystem";
     diag_log format["WASTELAND SERVER - Main Mission Success: %1",_missionType];
 };
-
+*/
 //Reset Mission Spot.
 MissionSpawnMarkers select _randomIndex set[1, false];
 [_missionMarkerName] call deleteClientMarker;

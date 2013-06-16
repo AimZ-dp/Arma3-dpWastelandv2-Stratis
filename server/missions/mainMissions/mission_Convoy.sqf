@@ -135,6 +135,10 @@ waitUntil
 if(_failed) then
 {
     // Mission failed
+	{deleteVehicle _x;} foreach _vehicles;
+    {deleteVehicle _x;} forEach units _group;
+	deleteGroup _group;
+		
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>Objective failed, better luck next time</t>", _missionType, _picture, _vehicleName, failMissionColor, subTextColor];
     messageSystem = _hint;
     if (!isDedicated) then { call serverMessage };
@@ -142,7 +146,8 @@ if(_failed) then
     diag_log format["WASTELAND SERVER - Main Mission Failed: %1",_missionType];
 } else {
     // Mission complete
-
+    deleteGroup _group;
+	
     // Spawn loot at last marker position
     _ammobox = "Box_NATO_Wps_F" createVehicle getMarkerPos _marker;
 	_ammobox setVariable["newVehicle",vChecksum,true];

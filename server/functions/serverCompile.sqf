@@ -13,9 +13,9 @@ diag_log format["WASTELAND SERVER - Initilizing Server Compile"];
 mission_ArmedHeli = compileFinal preprocessFileLineNumbers "server\missions\mainMissions\mission_ArmedHeli.sqf";
 mission_CivHeli = compileFinal preprocessFileLineNumbers "server\missions\mainMissions\mission_CivHeli.sqf";
 mission_Convoy = compileFinal preprocessFileLineNumbers "server\missions\mainMissions\mission_Convoy.sqf";
+mission_LightArmVeh = compileFinal preprocessFileLineNumbers "server\missions\mainMissions\mission_LightArmVeh.sqf";
 /*
 mission_APC = compileFinal preprocessFileLineNumbers "server\missions\mainMissions\mission_APC.sqf";
-mission_LightArmVeh = compileFinal preprocessFileLineNumbers "server\missions\mainMissions\mission_LightArmVeh.sqf";
 mission_LightTank = compileFinal preprocessFileLineNumbers "server\missions\mainMissions\mission_LightTank.sqf";
 mission_MBT = compileFinal preprocessFileLineNumbers "server\missions\mainMissions\mission_MBT.sqf";
 mission_Outpost = compileFinal preprocessFileLineNumbers "server\missions\mainMissions\mission_Outpost.sqf";

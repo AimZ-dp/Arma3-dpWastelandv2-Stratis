@@ -74,7 +74,7 @@ if (_uid in serverdpAdministrators) then {
 		{
 			_warnText = ctrlText _warnMessage;
 	        _playerName = name player;
-			[_target, format["if (name player == ""%2"") then {titleText [""Admin %3: %1"", ""plain""]; titleFadeOut 10;};",_warnText,name _target,_playerName], false] spawn fn_vehicleInit;
+			//[_target, format["if (name player == ""%2"") then {titleText [""Admin %3: %1"", ""plain""]; titleFadeOut 10;};",_warnText,name _target,_playerName], false] spawn fn_vehicleInit;
 		};
 	    case 2: //Slay
 	    {

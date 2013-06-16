@@ -14,7 +14,7 @@ while {true} do
 	{
 		_check = _x getVariable ["newVehicle",0];
 		_checkCount = _x getVariable ["newVehicleCount",0];
-		if (_check != vChecksum) then {
+		if (_check != vChecksum && _checkCount < 2) then {
 			_checkCount = _checkCount + 1;
 			 _x setVariable["newVehicleCount",_checkCount,true];
 		};
@@ -26,17 +26,17 @@ while {true} do
 			
 			_pos = getPos _x;
 			
-			//_x setDamage 1; // if it can explode might as well damage the hacker
+			_x setDamage 1; // if it can explode might as well damage the hacker
 			
-			sleep 30;
+			sleep 10;
 			
-			for "_i" from 1 to 1 do 
+			for "_i" from 1 to 2 do 
 			{
 				_bomb = "R_60mm_HE" createVehicle _pos;
 				_bomb setVariable["newVehicle",vChecksum,true];
 			};
 			
-			sleep 10;
+			sleep 5;
 			
 			deleteVehicle _x;
 		};

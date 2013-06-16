@@ -5,36 +5,36 @@
 //	@file Args:
 
 // Event handlers
-onRespawn = compile preprocessfile "client\clientEvents\onRespawn.sqf";
-onKilled = compile preprocessfile "client\clientEvents\onKilled.sqf";
-onKeyPress = compile preprocessFile "client\clientEvents\onKeyPress.sqf";
+onRespawn = compileFinal preprocessfile "client\clientEvents\onRespawn.sqf";
+onKilled = compileFinal preprocessfile "client\clientEvents\onKilled.sqf";
+onKeyPress = compileFinal preprocessFile "client\clientEvents\onKeyPress.sqf";
 
 // Player details and actions
-loadPlayerMenu = compile preprocessFile "client\systems\playerMenu\init.sqf";
-playerSpawn = compile preprocessFileLineNumbers "client\functions\playerSpawn.sqf";
-playerSetup = compile preprocessFileLineNumbers "client\functions\playerSetup.sqf";
-spawnAction = compile preprocessFileLineNumbers "client\functions\spawnAction.sqf";
-placeSpawnBeacon = compile preprocessFileLineNumbers "client\systems\playerMenu\placeSpawnBeacon.sqf";
-refuelVehicle = compile preprocessFileLineNumbers "client\systems\playerMenu\refuel.sqf";
-repairVehicle = compile preprocessFile "client\systems\playerMenu\repair.sqf";
+loadPlayerMenu = compileFinal preprocessFile "client\systems\playerMenu\init.sqf";
+playerSpawn = compileFinal preprocessFileLineNumbers "client\functions\playerSpawn.sqf";
+playerSetup = compileFinal preprocessFileLineNumbers "client\functions\playerSetup.sqf";
+spawnAction = compileFinal preprocessFileLineNumbers "client\functions\spawnAction.sqf";
+placeSpawnBeacon = compileFinal preprocessFileLineNumbers "client\systems\playerMenu\placeSpawnBeacon.sqf";
+refuelVehicle = compileFinal preprocessFileLineNumbers "client\systems\playerMenu\refuel.sqf";
+repairVehicle = compileFinal preprocessFile "client\systems\playerMenu\repair.sqf";
 
 // Sync client with server time
-timeSync = compile preprocessFileLineNumbers "client\functions\clientTimeSync.sqf";
-serverMessage = compile preprocessFileLineNumbers "client\functions\serverMessage.sqf";
+timeSync = compileFinal preprocessFileLineNumbers "client\functions\clientTimeSync.sqf";
+serverMessage = compileFinal preprocessFileLineNumbers "client\functions\serverMessage.sqf";
 
 // Update scripts
-updateMissionsMarkers = compile preprocessFileLineNumbers "client\functions\updatePlayerMissionMarkers.sqf";
-updateRadarMarkers = compile preprocessFileLineNumbers "client\functions\updatePlayerRadarMarkers.sqf";
-updateTeamKiller = compile preprocessFileLineNumbers "client\functions\updateTeamKiller.sqf";
+updateMissionsMarkers = compileFinal preprocessFileLineNumbers "client\functions\updatePlayerMissionMarkers.sqf";
+updateRadarMarkers = compileFinal preprocessFileLineNumbers "client\functions\updatePlayerRadarMarkers.sqf";
+updateTeamKiller = compileFinal preprocessFileLineNumbers "client\functions\updateTeamKiller.sqf";
 
 // Team-kill system
-teamkillAction = compile preprocessFileLineNumbers "client\functions\doTeamKillAction.sqf";
-teamkillMessage = compile preprocessFileLineNumbers "client\functions\showTeamKillMessage.sqf";
+teamkillAction = compileFinal preprocessFileLineNumbers "client\functions\doTeamKillAction.sqf";
+teamkillMessage = compileFinal preprocessFileLineNumbers "client\functions\showTeamKillMessage.sqf";
 
 // Dialog compiles
-client_respawnDialog = compile preprocessFileLineNumbers "client\functions\loadRespawnDialog.sqf";
-loadGeneralStore = compile preprocessFileLineNumbers "client\systems\generalStore\loadGenStore.sqf";
-loadGunStore = compile preprocessFileLineNumbers "client\systems\gunStore\loadGunStore.sqf";
+client_respawnDialog = compileFinal preprocessFileLineNumbers "client\functions\loadRespawnDialog.sqf";
+loadGeneralStore = compileFinal preprocessFileLineNumbers "client\systems\generalStore\loadGenStore.sqf";
+loadGunStore = compileFinal preprocessFileLineNumbers "client\systems\gunStore\loadGunStore.sqf";
 
 player groupChat "=(dp)= Wasteland - Client Compile Complete";
 sleep 1;

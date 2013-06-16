@@ -17,7 +17,7 @@ waitUntil {{!isNull(missionNamespace getVariable _x) && ((getPos(missionNamespac
 	_marker = createMarkerLocal [_markerName, getPos _unit];
 	_markerName setMarkerShapeLocal "ELLIPSE";
     _markerName setMarkerColorLocal "ColorBlue";
-	_markerName setMarkerSizeLocal [80, 80];
+	_markerName setMarkerSizeLocal [100, 100];
 	_markerName setMarkerBrushLocal "Grid";
 	_markerName setMarkerAlphaLocal 0.5;
 

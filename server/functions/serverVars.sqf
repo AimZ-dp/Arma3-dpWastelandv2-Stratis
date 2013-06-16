@@ -220,7 +220,7 @@ objectList = [
 			//"Land_Laptop_F", 
 			//"Land_Laptop_unfolded_F", 
 			//"Land_LaptopMil_F", 
-			"Land_MobilePhone_old_F", 
+			//"Land_MobilePhone_old_F", 
 			//"Land_MobilePhone_smart_F", 
 			//"Land_PortableLongRangeRadio_F", 
 			//"Land_Probe_F", 

@@ -92,7 +92,7 @@ class Mission
 	randomSeed=4593667;
 	class Intel
 	{
-		briefingName="=(dp)= Wasteland";
+		briefingName="dp Wasteland";
 		briefingDescription="A harsh survival sandbox";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
