@@ -7,7 +7,7 @@
 
 if(!isServer) exitwith {};
 
-private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_vehicleClass","_box","_box2","_picture","_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive"];
+private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_vehicleClass","_box","_box1","_box2","_picture","_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive"];
 
 //Mission Initialization.
 _result = 0;
@@ -28,25 +28,13 @@ diag_log format["WASTELAND SERVER - Side Mission Resumed: %1",_missionType];
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
+_box1 = createVehicle ["Box_NATO_Support_F",[(_randomPos select 0), (_randomPos select 1),0],[], 0, "NONE"];
+_box1 setVariable["newVehicle",vChecksum,true];
+//[_box1,"mission_Side_USLaunchers"] call fn_refillbox;
 
-deleteMarkerLocal "WeaponCache_Marker";
-_marker = createMarkerLocal ["WeaponCache_Marker", _randomPos];
-"WeaponCache_Marker" setMarkerShapeLocal "ICON";
-"WeaponCache_Marker" setMarkerTypeLocal "mil_dot";
-"WeaponCache_Marker" setMarkerColorLocal "ColorRed";
-"WeaponCache_Marker" setMarkerSizeLocal [1,1];
-"WeaponCache_Marker" setMarkerTextLocal "Mission Here";
-
-
-_box = createVehicle ["Box_NATO_Support_F",[(_randomPos select 0), (_randomPos select 1),0],[], 0, "NONE"];
-[_box,"mission_Side_USLaunchers"] call fn_refillbox;
-
-_box2 = createVehicle ["Box_East_Support_F",[(_randomPos select 0), (_randomPos select 1) - 10,0],[], 0, "NONE"];
-[_box2,"mission_Side_USSpecial"] call fn_refillbox;
-
-_box setVariable["newVehicle",vChecksum,true];
+_box2 = createVehicle ["Box_East_Support_F",[(_randomPos select 0), (_randomPos select 1)-10,0],[], 0, "NONE"];
 _box2 setVariable["newVehicle",vChecksum,true];
-
+//[_box2,"mission_Side_USSpecial"] call fn_refillbox;
 
 _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>A supply drop has been spotted near the marker</t>", _missionType,  sideMissionColor, subTextColor];
 messageSystem = _hint;
@@ -64,15 +52,15 @@ waitUntil
 	_playerPresent = false;
     _currTime = floor(time);
     if(_currTime - _startTime >= sideMissionTimeout) then {_result = 1;};
-    {if((isPlayer _x) AND (_x distance _box <= missionRadiusTrigger)) then {_playerPresent = true};}forEach playableUnits;
+    {if((isPlayer _x) AND (_x distance _box1 <= missionRadiusTrigger)) then {_playerPresent = true};}forEach playableUnits;
     _unitsAlive = ({alive _x} count units CivGrpS);
-    (_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1)) OR ((damage _box) == 1)
+    (_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1)) OR ((damage _box1) == 1)
 };
 
 if(_result == 1) then
 {
 	//Mission Failed.
-    deleteVehicle _box;
+    deleteVehicle _box1;
     deleteVehicle _box2;
     {deleteVehicle _x;}forEach units CivGrps;
     deleteGroup CivGrpS;
@@ -82,6 +70,13 @@ if(_result == 1) then
     diag_log format["WASTELAND SERVER - Side Mission Failed: %1",_missionType];
 } else {
 	//Mission Complete.
+	if ((damage _box1) == 1) then {
+		    deleteVehicle _box1;
+	};
+	if ((damage _box2) == 1) then {
+		    deleteVehicle _box2;
+	};
+	{deleteVehicle _x;}forEach units CivGrpS;
     deleteGroup CivGrpS;
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>The ammo caches have been collected well done team</t>", _missionType, successMissionColor, subTextColor];
 	messageSystem = _hint;

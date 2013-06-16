@@ -97,7 +97,8 @@ for "_iteration" from 1 to _actionDuration do {
                                                                                                                                                                                     	
 		_playerPos = getPosATL player;
         _tankPos = position _radarTank;       
-		_radarStation = "M1130_HQ_unfolded_Base_EP1" createVehicle ([_tankPos select 0, (_tankPos select 1) - 4, 0]);    
+		_radarStation = "M1130_HQ_unfolded_Base_EP1" createVehicle ([_tankPos select 0, (_tankPos select 1) - 4, 0]);  
+		_radarStation setVariable["newVehicle",vChecksum,true];		
         _radarStation addEventHandler["handleDamage", {false}];
 		_radarStation setVariable["R3F_LOG_disabled", true]; 
         _radarStation setVariable["UID", _uniqueID, true];          

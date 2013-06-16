@@ -19,37 +19,36 @@ switch(_switch) do
     };
 };
 
-if(isNil{client_firstSpawn}) then {
+if(isNil{client_firstSpawn}) then 
+{
 	client_firstSpawn = true;
 	[] execVM "client\functions\welcomeMessage.sqf";
     
-    true spawn {      
-        _startTime = floor(time);
-        _result = 0;
-		waitUntil
-		{ 
-		    _currTime = floor(time);
-		    if(_currTime - _startTime >= 180) then 
-		    {
-		    	_result = 1;    
-		    };
-		    (_result == 1)
-		};
-		if(playerSide in [west, east]) then {
+    true spawn 
+	{      
+		sleep 180;
+		if(playerSide in [west, east]) then 
+		{
 			_found = false;
 			{
-				if(_x select 0 == playerUID) then {_found = true;};
+				if(_x select 0 == playerUID) then 
+				{
+					_found = true;
+				};
 			} forEach pvar_teamSwitchList;
-			if(!_found) then {
+			if(!_found) then 
+			{
 				pvar_teamSwitchList set [count pvar_teamSwitchList, [playerUID, playerSide]];
 				publicVariable "pvar_teamSwitchList";
                 
                 _side = "";
-                if(str(playerSide) == "WEST") then {
+                if(str(playerSide) == "WEST") then 
+				{
                     _side = "Blufor";
                 };
                 
-                if(str(playerSide) == "EAST") then {
+                if(str(playerSide) == "EAST") then 
+				{
                     _side = "Opfor";
                 };
                 

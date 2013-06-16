@@ -28,16 +28,6 @@ diag_log format["WASTELAND SERVER - Main Mission Resumed: %1",_missionType];
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-
-deleteMarkerLocal "CivHeli_Marker";
-_marker = createMarkerLocal ["CivHeli_Marker", _randomPos];
-"CivHeli_Marker" setMarkerShapeLocal "ICON";
-"CivHeli_Marker" setMarkerTypeLocal "mil_dot";
-"CivHeli_Marker" setMarkerColorLocal "ColorRed";
-"CivHeli_Marker" setMarkerSizeLocal [1,1];
-"CivHeli_Marker" setMarkerTextLocal "Mission Here";
-
-
 _vehicleClass = ["O_Ka60_Unarmed_F","B_MH9_F"] call BIS_fnc_selectRandom;
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage

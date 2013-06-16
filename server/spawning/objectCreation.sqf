@@ -28,8 +28,8 @@ if(_objtype == "Land_Sacks_goods_F") then
 };
 
 // position
-_obj setPosATL [getpos _obj select 0,getpos _obj select 1,0.5];
-_obj setVelocity [0,0,0];
+_obj setPosATL [getpos _obj select 0,getpos _obj select 1,0];
+//_obj setVelocity [0,0,0];
 _obj setDir (random 360);
 
 

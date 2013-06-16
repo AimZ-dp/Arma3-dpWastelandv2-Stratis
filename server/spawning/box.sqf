@@ -47,7 +47,7 @@ if (!isServer) exitWith {};
 
 private ["_unit","_delay","_deserted","_respawns","_run","_explode","_dynamic","_position","_type","_dead"];
 
-diag_log format["BOX SPAWN - Woop we are started"];
+diag_log format["SPAWN - Box has just been spawned: %1", typeOf _unit];
 
 // Define variables
 _unit = _this select 0;
@@ -85,7 +85,7 @@ while {_run} do
 		deleteVehicle _unit;
 		sleep _delay;
 
-		_type = random (count ammoBoxes - 1);
+		_type = floor (random (count ammoBoxes - 1));
 		[_position, _type] call boxCreation;	
 		_run = false;
 	};

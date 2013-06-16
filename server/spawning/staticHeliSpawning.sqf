@@ -10,13 +10,13 @@ if(!X_Server) exitWith {};
 private ["_counter","_pos","_start","_step"];
 
 _counter = 0;
-_step = 6;
+_step = 2;// 6;
 _start = floor (random _step);
 
 for "_i" from _start to 24 step _step do
 {
 	_pos = getMarkerPos format ["heliSpawn_%1", _i];
-	_type = random (count staticHeliList - 1);
+	_type = floor (random (count staticHeliList - 1));
 	[_pos, _type] call staticHeliCreation;
    
 	_counter = _counter + 1;

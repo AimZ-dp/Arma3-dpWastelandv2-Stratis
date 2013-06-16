@@ -35,6 +35,7 @@ while {true} do
 	_mission = _MMarray select _randomIndex select 0;
     _missionType = _MMarray select _randomIndex select 1;
 
+	/*
 	//Select new mission if the same
     if(str(_missionType) == _lastMission) then
     {
@@ -45,7 +46,8 @@ while {true} do
         _missionType = _newMissionArray select _randomIndex select 1;
         _mission = _newMissionArray select _randomIndex select 0;    
     };
-    
+    */
+	
 	_missionRunning = [] spawn _mission;
     diag_log format["WASTELAND SERVER - Execute New Main Mission: %1",_missionType];
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 Minutes</t>", mainMissionDelayTime / 60, mainMissionColor, subTextColor];

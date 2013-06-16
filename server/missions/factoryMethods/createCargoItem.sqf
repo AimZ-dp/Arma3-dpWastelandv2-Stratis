@@ -12,7 +12,9 @@ _dropPosition = _this select 1;
 _itemClass = _this select 2;
 
 _parachute = createVehicle [_parachuteClass, _dropPosition, [], 0, "NONE"];
+_parachute setVariable["newVehicle",vChecksum,true];
 _cargo = createVehicle [_itemClass, _dropPosition, [], 0, "NONE"];
+_cargo setVariable["newVehicle",vChecksum,true];
 _cargo attachTo [_parachute, [0,0,3]];
 _parachute setpos _dropPosition;
 
@@ -22,4 +24,5 @@ if(_itemClass == "Land_stand_small_EP1") then
 };
 
 _effectSmoke = "smokeShellPurple" createVehicle _dropPosition;
+_effectSmoke setVariable["newVehicle",vChecksum,true];
 _effectSmoke attachto [_cargo, [0,0,0]];

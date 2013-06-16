@@ -40,9 +40,11 @@ if (sideMissions == 1) then {
 	diag_log format["WASTELAND SERVER - Initilizing Missions"];
     [] execVM "server\missions\sideMissionController.sqf";
     sleep 5;
-    [] execVM "server\missions\mainMissionController.sqf";
+    //[] execVM "server\missions\mainMissionController.sqf";
     //[] execVM "server\missions\worldMissionController.sqf";
 };
+
+[] ExecVM "server\functions\cleanObjects.sqf";
 
 if (isDedicated) then {
 	_id = [] execFSM "server\WastelandServClean.fsm";

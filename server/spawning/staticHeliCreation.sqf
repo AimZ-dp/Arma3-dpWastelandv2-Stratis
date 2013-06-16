@@ -13,7 +13,7 @@ _pos = _this select 0;
 
 _helitype = staticHeliList select _type;
 
-_heli = createVehicle [_helitype, _pos,[], 50, "NONE"];
+_heli = createVehicle [_helitype, _pos, [], 30, "NONE"];
 _heli setVariable["newVehicle",vChecksum,true];
 [_heli, burningTimeLimit, desertedTimeLimit, 0, false] execVM "server\spawning\staticHeli.sqf"; 
 
@@ -25,7 +25,7 @@ _heli setFuel (0.50);
 _heli setDamage (random 0.25) + 0.5;
 
 // position
-_heli setPosATL [getpos _heli select 0,getpos _heli select 1,0.5];
-_heli setVelocity [0,0,0];
+_heli setPosATL [getpos _heli select 0,getpos _heli select 1,0];
+_heli setVelocity [0,0,0.5];
 _heli setDir (random 360);
 
