@@ -117,7 +117,7 @@ objectList = [
 			//"Land_HumanDead_diver_F", 
 			//"Land_HumanDead_F", 
 			//"Land_HumanDead_sitting_F", 
-			"Land_HumanSkeleton_burned_F", 
+			//"Land_HumanSkeleton_burned_F", 
 			"Land_HumanSkeleton_F", 
 			"Land_HumanSkull_F", 
 			//"Land_MilGrave_East_F", 

@@ -23,7 +23,7 @@ _lastMission = "nomission";
 while {true} do
 {
 	//Select Mission
-    _randomIndex = floor (random (count _SMarray - 1));
+    _randomIndex = floor (random (count _SMarray));
 	_mission = _SMarray select _randomIndex select 0;
     _missionType = _SMarray select _randomIndex select 1;
 
@@ -34,7 +34,7 @@ while {true} do
         _newMissionArray = _SMarray;
         _newMissionArray set [_randomIndex, "REMOVETHISCRAP"];
         _newMissionArray = _newMissionArray - ["REMOVETHISCRAP"];
-        _randomIndex = floor (random (count _newMissionArray - 1));
+        _randomIndex = floor (random (count _newMissionArray));
         _missionType = _newMissionArray select _randomIndex select 1;
         _mission = _newMissionArray select _randomIndex select 0;   
     };

@@ -28,7 +28,7 @@ _missionPlayerRadius = 50;
 _GotLoc = false;
 while {!_GotLoc} do 
 {
-	_randomIndex = random (count MissionSpawnMarkers - 1);
+	_randomIndex = floor (random (count MissionSpawnMarkers));
 
 	//If the index of the mission markers array is false then break the loop and finish up doing the mission
 	if (!((MissionSpawnMarkers select _randomIndex) select 1)) then 

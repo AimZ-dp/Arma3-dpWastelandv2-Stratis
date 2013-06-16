@@ -47,8 +47,6 @@ if (!isServer) exitWith {};
 
 private ["_unit","_delay","_deserted","_respawns","_run","_explode","_dynamic","_position","_type","_dead"];
 
-diag_log format["SPAWN - Helicopter has just been spawned: %1", typeOf _unit];
-
 // Define variables
 _unit = _this select 0;
 _delay = if (count _this > 1) then {_this select 1} else {30};
@@ -56,6 +54,8 @@ _deserted = if (count _this > 2) then {_this select 2} else {120};
 _respawns = if (count _this > 3) then {_this select 3} else {0};
 _explode = if (count _this > 4) then {_this select 4} else {false};
 _dynamic = if (count _this > 5) then {_this select 5} else {false};
+
+diag_log format["SPAWN - Helicopter has just been spawned: %1", typeOf _unit];
 
 _run = true;
 
@@ -73,7 +73,7 @@ while {_run} do
 	// Check if the vehicle is deserted
 	if (_deserted > 0) then
 	{
-		if (_distance > 20 and _alive == 0 and _dammage <= 0.90) then 
+		if (_distance > 20 and _alive == 0 and _dammage <= 0.95) then 
 		{
 			_curtime = time;
 
@@ -90,7 +90,7 @@ while {_run} do
 	};
 
 	// check for badly broken
-	if ((_dammage > 0.90 and _alive == 0) or !alive _unit) then 
+	if ((_dammage > 0.95 and _alive == 0) or !alive _unit) then 
 	{
 		_dead = true;
 	};
@@ -98,12 +98,14 @@ while {_run} do
 	// Respawn vehicle
 	if (_dead) then 
 	{	
+		diag_log format["SPAWN - Helicopter dead: %1", typeOf _unit];
+		
 		// there is a maximum of 10 seconds, before the damage is detected...
 		sleep _delay;
 		deleteVehicle _unit;
 		sleep 2;
 		
-		_type = floor (random (count staticHeliList - 1));
+		_type = floor (random (count staticHeliList));
 		[_position, _type] call staticHeliCreation;
 		
 		_run = false;

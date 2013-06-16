@@ -15,14 +15,14 @@ if (random 1 < 0.75) then { _car addWeaponCargoGlobal ["Binocular", 1]};
 //if (random 1 < 0.15) then { _car addItemCargoGlobal ["NVGoggles", 1]};
 
 //Get Random Gun From randomWeapons Array.
-_weapon = vehicleWeapons select (random (count vehicleWeapons - 1));
+_weapon = vehicleWeapons select floor(random (count vehicleWeapons));
 _mag = (getArray (configFile >> "Cfgweapons" >> _weapon >> "magazines")) select 0;
 
-_additionOne = _additionArray select (random (count _additionArray -1));
+_additionOne = _additionArray select floor(random (count _additionArray));
 _additionArray = _additionArray - [_additionOne];
-_additionTwo = _additionArray select (random (count _additionArray -1));
+_additionTwo = _additionArray select floor(random (count _additionArray));
 _additionArray = _additionArray - [_additionTwo];
-_additionThree = vehicleAddition2 select (random (count vehicleAddition2 -1));
+_additionThree = vehicleAddition2 select floor(random (count vehicleAddition2));
 
 //Add guns and magazines, note the Global at the end..
 _car addMagazineCargoGlobal [_mag,1];

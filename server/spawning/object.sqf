@@ -47,8 +47,6 @@ if (!isServer) exitWith {};
 
 private ["_unit","_delay","_deserted","_respawns","_run","_explode","_dynamic","_position","_type","_dead"];
 
-diag_log format["SPAWN - Object has just been spawned: %1", typeOf _unit];
-
 // Define variables
 _unit = _this select 0;
 _delay = if (count _this > 1) then {_this select 1} else {30};
@@ -56,6 +54,8 @@ _deserted = if (count _this > 2) then {_this select 2} else {120};
 _respawns = if (count _this > 3) then {_this select 3} else {0};
 _explode = if (count _this > 4) then {_this select 4} else {false};
 _dynamic = if (count _this > 5) then {_this select 5} else {false};
+
+diag_log format["SPAWN - Object has just been spawned: %1", typeOf _unit];
 
 _run = true;
 
@@ -77,12 +77,14 @@ while {_run} do
 	// Respawn vehicle
 	if (_dead) then 
 	{	
+		diag_log format["SPAWN - Object dead: %1", typeOf _unit];
+		
 		// there is a maximum of 10 seconds, before the damage is detected...
 		sleep _deserted;
 		deleteVehicle _unit;
 		sleep _delay;
 
-		_type = floor (random (count objectList - 1));
+		_type = floor (random (count objectList));
 		[_position, _type] call objectCreation;	
 		_run = false;
 	};

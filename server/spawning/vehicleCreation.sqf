@@ -13,9 +13,9 @@ _pos = _this select 0;
 
 switch (_type) do 
 { 
-  case 0: {_cartype = civilianVehicles select (random (count civilianVehicles - 1));}; 
-  case 1: {_cartype = militaryVehicles select (random (count militaryVehicles - 1));}; 
-  case 2: {_cartype = armedMilitaryVehicles select (random (count armedMilitaryVehicles - 1));}; 
+  case 0: {_cartype = civilianVehicles select floor(random (count civilianVehicles));}; 
+  case 1: {_cartype = militaryVehicles select floor(random (count militaryVehicles));}; 
+  case 2: {_cartype = armedMilitaryVehicles select floor(random (count armedMilitaryVehicles));}; 
 };
 
 _car = createVehicle [_cartype,_pos,[], 30,"NONE"];

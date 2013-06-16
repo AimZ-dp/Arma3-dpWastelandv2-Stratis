@@ -42,7 +42,7 @@ for [{_x=1},{_x<=_amount},{_x=_x+1}] do
 _amount = (player getVariable "water");
 for [{_x=1},{_x<=_amount},{_x=_x+1}] do
 {
-	playerInventory set [_index, "Water"];
+	playerInventory set [_index, "Bottled Water"];
 	_index = _index + 1;
 };
 

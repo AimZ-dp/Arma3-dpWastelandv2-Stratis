@@ -22,7 +22,7 @@ _size = lbSize _cartlist;
 for [{_x=0},{_x<=_size},{_x=_x+1}] do
 {
 	_itemText = _cartlist lbText _x;
-	if(_itemText == "Water") then {player setVariable["water",(player getVariable "water") - 1,false];};
+	if(_itemText == "Bottled Water") then {player setVariable["water",(player getVariable "water") - 1,false];};
 	if(_itemText == "Canned Food") then {player setVariable["canfood",(player getVariable "canfood") - 1,false];};
 	if(_itemText == "Medical Kit") then {player setVariable["medkits",(player getVariable "medkits") - 1,false];};
 	if(_itemText == "Repair Kit") then {player setVariable["repairkits",(player getVariable "repairkits") - 1,false];};

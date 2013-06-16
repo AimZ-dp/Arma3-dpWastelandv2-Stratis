@@ -10,7 +10,7 @@ private ["_counter","_pos","_type","_num","_start","_step"];
 
 _counter = 0;
 _step = 1; //4;
-_start = floor (random _step);
+_start = floor (random _step) + 1;
 
 for "_i" from _start to 118 step _step do
 {
@@ -27,4 +27,5 @@ for "_i" from _start to 118 step _step do
 	_counter = _counter + 1;
 };
 
+sleep 2;
 diag_log format["WASTELAND SERVER - %1 Vehicles Spawned",_counter];

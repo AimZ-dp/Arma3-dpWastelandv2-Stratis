@@ -17,4 +17,5 @@ for "_i" from 1 to 770 step 20 do
     _counter = _counter + 1;
 };
 
+sleep 2;
 diag_log format["WASTELAND SERVER - %1 Static Guns Spawned",_counter];
