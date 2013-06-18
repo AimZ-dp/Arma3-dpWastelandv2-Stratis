@@ -28,13 +28,13 @@ if (_uid in serverdpAdministrators) then {
 	_uid = getPlayerUID player;
 	_vehicleCount = 0;
 	{
-	    _vehicleType = Format["%1",typeOf _x];
-		if(((_vehicleType isKindOf "LandVehicle") OR (_vehicleType isKindOf "Air")) AND !(_vehicleType isKindOf "StaticWeapon")) then {
+	    //_vehicleType = Format["%1",typeOf _x];
+		//if(((_vehicleType isKindOf "LandVehicle") OR (_vehicleType isKindOf "Air")) AND !(_vehicleType isKindOf "StaticWeapon")) then {
 	        _vehicleCount = _vehicleCount + 1;
-		};
-	}forEach vehicles;
+		//};
+	}forEach entities "All";//;vehicles;
 	
-	_vehicleCountText ctrlSetText format["Vehicles on Server: %1", _vehicleCount];
+	_vehicleCountText ctrlSetText format["Objects on Server: %1", _vehicleCount];
 	
 	if((_uid in moderators)) then
 	{

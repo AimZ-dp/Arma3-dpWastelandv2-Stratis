@@ -7,6 +7,8 @@ _allVehicles = vehicles;
 	if(_check != vChecksum) then 
 	{
 		_vehicleType = Format["%1",typeOf _x];
+		
+		/*
 		if(_vehicleType isKindOf "Car") then {
 			if(_vehicleType isKindOf "MotorCycle") then {
 				deleteVehicle _x;
@@ -30,6 +32,9 @@ _allVehicles = vehicles;
 		if(_vehicleType isKindOf "Wheeled_APC") then {
 			deleteVehicle _x;
 		};
+		*/
+		
+		deleteVehicle _x;
 	};
 } forEach _allVehicles;
 

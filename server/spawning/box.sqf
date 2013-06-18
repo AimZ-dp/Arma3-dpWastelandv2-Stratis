@@ -69,12 +69,23 @@ while {_run} do
 	_dammage = getDammage _unit;
 
 	// check if empty
-	
-	
-	// check for badly broken
-	if (_dammage > 0.95 or !alive _unit) then 
+	_contentWeapon = (getWeaponCargo _unit) select 0;
+	diag_log format["SPAWN - WeaponCount: %1", _contentWeapon];
+	_contentMagazine = (getMagazineCargo _unit) select 0;
+	diag_log format["SPAWN - Mag Count: %1", _contentMagazine];
+	if (count _contentWeapon < 1
+		and count _contentMagazine < 1) then 
 	{
 		_dead = true;
+		_deserted = 2;
+		_delay = 2;
+	};
+	
+	// check for badly broken
+	if (_dammage > 0.90 or !alive _unit) then 
+	{
+		_dead = true;
+		_deserted = 2;
 	};
 	
 	// Respawn vehicle
@@ -83,9 +94,9 @@ while {_run} do
 		diag_log format["SPAWN - Box dead: %1", typeOf _unit];
 		
 		// there is a maximum of 10 seconds, before the damage is detected...
-		sleep _deserted;
-		deleteVehicle _unit;
 		sleep _delay;
+		deleteVehicle _unit;
+		sleep _deserted;
 
 		_type = floor (random (count ammoBoxes));
 		[_position, _type] call boxCreation;	

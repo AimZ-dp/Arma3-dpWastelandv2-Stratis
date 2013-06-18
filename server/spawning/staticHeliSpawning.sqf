@@ -16,7 +16,7 @@ _start = floor (random _step) + 1;
 for "_i" from _start to 24 step _step do
 {
 	_pos = getMarkerPos format ["heliSpawn_%1", _i];
-	_type = floor (random (count staticHeliList));
+	_type = floor (random (count militaryHelis));
 	[_pos, _type] call staticHeliCreation;
    
 	_counter = _counter + 1;

@@ -19,7 +19,7 @@ _box setVariable["newVehicle",vChecksum,true];
 [_box, 10, desertedTimeLimit] execVM "server\spawning\box.sqf"; 
 
 // position
-_box setPosATL [getpos _box select 0,getpos _box select 1,0];
+//_box setPosATL [getpos _box select 0,getpos _box select 1,0.1];
 //_box setVelocity [0,0,0];
 _box setDir (random 360);
 

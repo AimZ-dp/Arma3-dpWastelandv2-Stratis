@@ -13,22 +13,24 @@ _pos = _this select 0;
 
 _objtype = objectList select _type;
 
-_obj = createVehicle [_objtype,_pos,[], 10, "NONE"]; 
+_obj = createVehicle [_objtype,_pos,[], 50, "NONE"]; 
 _obj setVariable["newVehicle",vChecksum,true];
-[_obj, 10, desertedTimeLimit] execVM "server\spawning\object.sqf"; 
+//[_obj, 10, desertedTimeLimit] execVM "server\spawning\object.sqf"; 
 
 // Set Attributes
 if(_objtype == "Land_CanisterPlastic_F") then 
 {
     _obj setVariable["water",20,true];
+	[_obj, 10, desertedTimeLimit] execVM "server\spawning\object.sqf"; 
 };
 if(_objtype == "Land_Sacks_goods_F") then 
 {
     _obj setVariable["food",20,true];
+	[_obj, 10, desertedTimeLimit] execVM "server\spawning\object.sqf"; 
 };
 
 // position
-_obj setPosATL [getpos _obj select 0,getpos _obj select 1,0];
+//_obj setPosATL [getpos _obj select 0,getpos _obj select 1,0.0];
 //_obj setVelocity [0,0,0];
 _obj setDir (random 360);
 

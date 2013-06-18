@@ -63,4 +63,19 @@ switch(_switch) do
 			_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
 		} forEach accessoriesArray;	
 	};
+	
+	case 3:
+	{
+		//Clear the list
+		lbClear _gunlist;
+		_gunlist lbSetCurSel -1;
+		_gunpicture ctrlSettext "";
+		_gunlisttext ctrlSettext "";
+        _gunInfo ctrlSetStructuredText parseText "";
+
+		// Populate the gun shop weapon list
+		{
+			_gunlistIndex = _gunlist lbAdd format["%1",_x select 0];
+		} forEach uniformArray;	
+	};
 };

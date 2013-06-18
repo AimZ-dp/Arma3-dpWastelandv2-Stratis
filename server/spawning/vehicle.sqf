@@ -107,8 +107,8 @@ while {_run} do
 		
 		_num = floor (random 100);
 		if (_num < 100) then {_type = 0;};
-		if (_num < 35) then {_type = 1;};
-		if (_num < 10) then {_type = 2;};
+		if (_num < 50) then {_type = 1;};
+		if (_num < 5) then {_type = 2;};
 		[_position, _type] call vehicleCreation;
 		_run = false;
 	};

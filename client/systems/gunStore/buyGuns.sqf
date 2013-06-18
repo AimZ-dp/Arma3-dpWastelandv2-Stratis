@@ -236,6 +236,20 @@ switch(_switch) do
                         {
                             player addItem _class;
                         };
+                        case default
+                        {
+                            
+                        };
+                    };
+				};
+            }forEach accessoriesArray;
+			
+			{
+                if(_itemText == _x select 0) then
+                {
+                    _class = _x select 1;
+					switch((_x select 3)) do
+                    {
                         case "vest":
                         {
                             _vestName = vest player;
@@ -245,7 +259,7 @@ switch(_switch) do
                             }
                             else
                             {
-                               {if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach accessoriesArray;
+                               {if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach uniformArray;
 								gunStoreCart = gunStoreCart - _price;
 								hint format["You already have a vest please drop it before buying a new one"]; 
                             };
@@ -259,7 +273,7 @@ switch(_switch) do
                             }
                             else
                             {
-                               {if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach accessoriesArray;
+                               {if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach uniformArray;
 								gunStoreCart = gunStoreCart - _price;
 								hint format["You already have a uniform on please drop it before buying a new one"]; 
                             };
@@ -273,9 +287,23 @@ switch(_switch) do
                             }
                             else
                             {
-                               {if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach accessoriesArray;
+                               {if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach uniformArray;
 								gunStoreCart = gunStoreCart - _price;
 								hint format["You something in the headgear slot please drop it before buying a new one"]; 
+                            };
+                        };
+                        case "backpack":
+                        {
+                            _backpackName = backpack player;
+                            if(_backpackName == "") then
+                            {
+                                player addBackpack _class;
+                            }
+                            else
+                            {
+                               {if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach uniformArray;
+								gunStoreCart = gunStoreCart - _price;
+								hint format["You something in the backpack slot please drop it before buying a new one"]; 
                             };
                         };
                         case default
@@ -284,7 +312,7 @@ switch(_switch) do
                         };
                     };
 				};
-            }forEach accessoriesArray;
+            }forEach uniformArray;
 		};
 
 		player setVariable["cmoney",_playerMoney - gunStoreCart,true];

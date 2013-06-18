@@ -14,7 +14,7 @@ class Header
 OnLoadMission = "Wasteland is a harsh survival sandbox where 2 teams and independent players fight for survival";
 loadScreen = "Loading.jpg";
 OnLoadName = "dp Wasteland";
-author="AimZ =(dp)=";
+author="=(dp)= Server, (AimZ)";
 
 //Dialog includes
 #include "addons\R3F_ARTY_AND_LOG\desc_include.h"

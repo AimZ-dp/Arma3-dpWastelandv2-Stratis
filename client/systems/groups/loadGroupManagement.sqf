@@ -101,7 +101,7 @@ while{groupManagmentActive} do
 		_groupListBox lbSetData [_index, str(_x)];	    
     }forEach units group player;
      
-	sleep 0.5;
+	sleep 1.5;
     _hasInvite = false;
     lbClear _playerListBox;
     lbClear _groupListBox;

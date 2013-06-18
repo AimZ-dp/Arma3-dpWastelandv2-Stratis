@@ -94,9 +94,9 @@ class gunshopd {
 			idc = gunshop_gun_list;
 			onLBSelChanged = "[] execvm 'client\systems\gunStore\weaponInfo.sqf'";
 
-			x = 0.3125 * safezoneW + safezoneX;
+			x = 0.3625 * safezoneW + safezoneX;
 			y = 0.225 * safezoneH + safezoneY;
-			w = 0.0916666 * safezoneW;
+			w = 0.1416666 * safezoneW; // 0.0916666
 			h = 0.422222 * safezoneH;
 		};
 
@@ -105,9 +105,9 @@ class gunshopd {
 			idc = gunshop_cart;
 			onLBSelChanged = "[] execvm 'client\systems\gunStore\weaponInfo.sqf'";
 
-			x = 0.690104 * safezoneW + safezoneX;
+			x = 0.590104 * safezoneW + safezoneX;
 			y = 0.225 * safezoneH + safezoneY;
-			w = 0.0916666 * safezoneW;
+			w = 0.1416666 * safezoneW;
 			h = 0.422222 * safezoneH;
 		};
 
@@ -226,6 +226,19 @@ class gunshopd {
 
 			x = 0.203125 * safezoneW + safezoneX;
 			y = 0.325 * safezoneH + safezoneY;
+			w = 0.088 * safezoneW;
+			h = 0.040 * safezoneH;
+
+		};
+		
+		class StoreButton3: w_RscButton
+		{
+			idc = -1;
+			onButtonClick = "[3] execVM 'client\systems\gunStore\populateGunStore.sqf'";
+			text = "Uniform";
+
+			x = 0.203125 * safezoneW + safezoneX;
+			y = 0.375 * safezoneH + safezoneY;
 			w = 0.088 * safezoneW;
 			h = 0.040 * safezoneH;
 

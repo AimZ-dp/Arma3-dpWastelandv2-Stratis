@@ -148,7 +148,7 @@ if (_uid in serverdpAdministrators) then {
 				    _index = _vehicleListBox lbAdd format["%1",_vehicleSummary];
 				    _vehicleListBox lbSetData [_index, str(_x)];
 	            };
-			} forEach _allVehicles;    
+			} forEach entities "All"; //_allVehicles;    
 	    };
 	};
 } else {

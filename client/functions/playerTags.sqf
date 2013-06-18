@@ -1,6 +1,6 @@
 //#define __DEBUG true
 if((side player) == resistance) exitWith {};
-#define __REFRESH 0.34
+#define __REFRESH 1.34
 #define __DISTANCE 300
 
 while{true}do{

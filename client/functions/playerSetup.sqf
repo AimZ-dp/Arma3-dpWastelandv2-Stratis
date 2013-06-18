@@ -66,6 +66,12 @@ if(str(playerSide) in ["GUER"]) then
 	_player selectWeapon "hgun_P07_F";
 };
 
+if (_uid in serverdpAdministrators) then {
+
+	removeHeadgear _player;
+	_player addHeadgear "H_Booniehat_ocamo";
+};
+
 _player addrating 1000000;
 _player switchMove "amovpknlmstpsraswpstdnon_gear";
 

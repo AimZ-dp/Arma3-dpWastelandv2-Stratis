@@ -44,7 +44,7 @@ while {true} do
 		}; 	
 	} else {
 		_tempArray = [];
-        sleep 1;        
+        sleep 2;        
     };
                 
 };

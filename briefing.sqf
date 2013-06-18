@@ -8,12 +8,7 @@ player createDiaryRecord["changelog",
 "=(dp)=",
 "
 <br/>1.0<br/>
-		[Added] Sniper riffles and ghillie suits<br/>
-		[Added] Checks for illegal scripts<br/>
-		[Fixed] Vehicle spawn.<br/>
-		[Added] Added general stores.<br/>
-		[Added] Changed cost of some items.<br/>
-		[Added] Start with a medkit and repairkit.<br/>
+		[Note] Added and modified lots of issues, some things might not be so obvious.<br/>
 		<br/>
 "
 ]

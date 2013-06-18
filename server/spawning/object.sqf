@@ -67,9 +67,22 @@ _timeout = time;
 while {_run} do 
 {
 	_dammage = getDammage _unit;
+
+	if(_objtype == "Land_CanisterPlastic_F" and (_unit getVariable "water") <= 0) then 
+	{
+		_dead = true;
+		_delay = 2;
+		_deserted = 2;
+	};
+	if(_objtype == "Land_Sacks_goods_F" and (_unit getVariable "food") <= 0) then 
+	{
+		_dead = true;
+		_delay = 2;
+		_deserted = 2;
+	};
 	
 	// check for badly broken
-	if (_dammage > 0.95 or !alive _unit) then 
+	if (_dammage > 0.90 or !alive _unit) then 
 	{
 		_dead = true;
 	};
@@ -80,11 +93,11 @@ while {_run} do
 		diag_log format["SPAWN - Object dead: %1", typeOf _unit];
 		
 		// there is a maximum of 10 seconds, before the damage is detected...
-		sleep _deserted;
-		deleteVehicle _unit;
 		sleep _delay;
+		deleteVehicle _unit;
+		sleep _deserted;
 
-		_type = floor (random (count objectList));
+		//_type = floor (random (count objectList));
 		[_position, _type] call objectCreation;	
 		_run = false;
 	};

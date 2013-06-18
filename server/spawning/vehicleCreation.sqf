@@ -28,11 +28,11 @@ clearWeaponCargoGlobal _car;
 	
 //Set Cars Attributes
 _car setFuel (0.50);
-_car setDamage (random 0.25) + 0.5;
+_car setDamage (random 0.25) + 0.25;
 
 // position car
-_car setPosATL [getpos _car select 0,getpos _car select 1,0];
-_car setVelocity [0,0,0.5];
+//_car setPosATL [getpos _car select 0,getpos _car select 1,0.5];
+//_car setVelocity [0,0,0.5];
 _car setDir (random 360);
 
 if (_type == 1) then {

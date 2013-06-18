@@ -11,7 +11,7 @@ private ["_helitype","_heli","_type","_pos"];
 _type = _this select 1;
 _pos = _this select 0;
 
-_helitype = staticHeliList select _type;
+_helitype = militaryHelis select _type;
 
 _heli = createVehicle [_helitype, _pos, [], 30, "NONE"];
 _heli setVariable["newVehicle",vChecksum,true];
@@ -22,10 +22,10 @@ clearWeaponCargoGlobal _heli;
 
 //Set Attributes
 _heli setFuel (0.50);
-_heli setDamage (random 0.25) + 0.5;
+_heli setDamage (random 0.25) + 0.25;
 
 // position
-_heli setPosATL [getpos _heli select 0,getpos _heli select 1,0];
-_heli setVelocity [0,0,0.5];
+//_heli setPosATL [getpos _heli select 0,getpos _heli select 1,0.5];
+//_heli setVelocity [0,0,0.5];
 _heli setDir (random 360);
 
