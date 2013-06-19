@@ -48,7 +48,7 @@ while {true} do
 		_bodyType = Format["%1",typeOf _x];	
 		if(_bodyCount >= _objectTimeOut) then  
 		{
-			diag_log format["CHECK HACKS - Found body objects %1", _bodyType];
+			if (DEBUG_MESSAGES) then {diag_log format["CHECK HACKS - Found body objects %1", _bodyType];};
 			deleteVehicle _x;
 		};
 	} forEach allDead;

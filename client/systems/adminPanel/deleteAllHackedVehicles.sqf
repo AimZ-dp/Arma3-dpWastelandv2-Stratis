@@ -33,8 +33,9 @@ _allVehicles = vehicles;
 			deleteVehicle _x;
 		};
 		*/
-		
-		deleteVehicle _x;
+		if(!(_vehicleType isKindOf "Civilian") and !(_vehicleType isKindOf "SoldierWB") and !(_vehicleType isKindOf "SoldierEB") and !(_vehicleType isKindOf "Logic")) then {
+			deleteVehicle _x;
+		};
 	};
 } forEach _allVehicles;
 

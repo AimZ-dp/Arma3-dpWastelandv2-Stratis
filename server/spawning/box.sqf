@@ -55,7 +55,7 @@ _respawns = if (count _this > 3) then {_this select 3} else {0};
 _explode = if (count _this > 4) then {_this select 4} else {false};
 _dynamic = if (count _this > 5) then {_this select 5} else {false};
 
-diag_log format["SPAWN - Box has just been spawned: %1", typeOf _unit];
+if (DEBUG_MESSAGES) then {diag_log format["SPAWN - Box has just been spawned: %1", typeOf _unit];};
 
 _run = true;
 
@@ -70,28 +70,24 @@ while {_run} do
 
 	// check if empty
 	_contentWeapon = (getWeaponCargo _unit) select 0;
-	diag_log format["SPAWN - WeaponCount: %1", _contentWeapon];
-	_contentMagazine = (getMagazineCargo _unit) select 0;
-	diag_log format["SPAWN - Mag Count: %1", _contentMagazine];
-	if (count _contentWeapon < 1
-		and count _contentMagazine < 1) then 
+	if (count _contentWeapon < 1) then 
 	{
 		_dead = true;
-		_deserted = 2;
-		_delay = 2;
+		_deserted = 120;
+		_delay = 240;
 	};
 	
 	// check for badly broken
 	if (_dammage > 0.90 or !alive _unit) then 
 	{
 		_dead = true;
-		_deserted = 2;
+		_deserted = 120;
 	};
 	
 	// Respawn vehicle
 	if (_dead) then 
 	{	
-		diag_log format["SPAWN - Box dead: %1", typeOf _unit];
+		if (DEBUG_MESSAGES) then {diag_log format["SPAWN - Box dead: %1", typeOf _unit];};
 		
 		// there is a maximum of 10 seconds, before the damage is detected...
 		sleep _delay;

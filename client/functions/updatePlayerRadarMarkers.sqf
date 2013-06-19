@@ -11,7 +11,9 @@ currentRadarMarkers = [];
     private ["_marker", "_colorEmpty", "_colorEnemy", "_colorFriendly", "_colorBoth", "_playerSide", "_markerState", "_colorSelected", "_textSelected"]; 
      
     _playerSide = str(playerSide);
-    if(_playerSide != (_x select 2)) exitWith {diag_log "faction mis-match, exiting loop";};
+    if(_playerSide != (_x select 2)) exitWith {
+		if (DEBUG_MESSAGES) then {diag_log "faction mis-match, exiting loop";};
+	};
     
     _markerState = _x select 3;
     

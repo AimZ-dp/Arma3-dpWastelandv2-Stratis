@@ -144,9 +144,11 @@ if (_uid in serverdpAdministrators) then {
 				        _vehicleListBox lbSetData [_index, str(_x)];
 				    };
 					*/
-					_vehicleSummary = format["[Type: %1]",_vehicleType];
-				    _index = _vehicleListBox lbAdd format["%1",_vehicleSummary];
-				    _vehicleListBox lbSetData [_index, str(_x)];
+					if(!(_vehicleType isKindOf "Civilian") and !(_vehicleType isKindOf "SoldierWB") and !(_vehicleType isKindOf "SoldierEB") and !(_vehicleType isKindOf "Logic")) then {
+						_vehicleSummary = format["[Type: %1]",_vehicleType];
+						_index = _vehicleListBox lbAdd format["%1",_vehicleSummary];
+						_vehicleListBox lbSetData [_index, str(_x)];
+					};
 	            };
 			} forEach entities "All"; //_allVehicles;    
 	    };

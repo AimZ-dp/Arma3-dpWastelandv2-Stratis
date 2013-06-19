@@ -10,7 +10,7 @@ playerSetupComplete = false;
 _player = (_this select 0) select 0;
 _corpse = (_this select 0) select 1;
 
-diag_log (unitBackpack _corpse);
+if (DEBUG_MESSAGES) then {diag_log (unitBackpack _corpse);};
 
 _corpse removeAction playerMenuId;
 {

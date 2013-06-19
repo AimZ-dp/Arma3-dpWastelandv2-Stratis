@@ -10,6 +10,8 @@
 
 enableSaving[false,false];
 
+DEBUG_MESSAGES = false;
+
 X_Server = false;
 X_Client = false;
 X_JIP = false;

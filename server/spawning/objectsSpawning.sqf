@@ -23,6 +23,14 @@ for "_i" from _start to 118 step _step do
 	_type = floor (random (count objectList));
 	[_pos, _type] call objectCreation;	
     _counter = _counter + 1;
+	
+	_type = floor (random (count objectList));
+	[_pos, _type] call objectCreation;	
+    _counter = _counter + 1;
+
+	_type = floor (random (count objectList));
+	[_pos, _type] call objectCreation;	
+    _counter = _counter + 1;
 };
 
 sleep 2;

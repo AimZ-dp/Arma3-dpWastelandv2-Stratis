@@ -20,7 +20,7 @@ for "_i" from _start to 118 step _step do
     _num = floor (random 100);
 	if (_num < 100) then {_type = 0;};
 	if (_num < 50) then {_type = 1;};
-	if (_num < 5) then {_type = 2;};
+	if (_num < 2) then {_type = 2;};
 	
 	[_pos, _type] call vehicleCreation;
 

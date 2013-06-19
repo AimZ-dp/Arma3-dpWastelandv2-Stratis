@@ -55,7 +55,7 @@ _respawns = if (count _this > 3) then {_this select 3} else {0};
 _explode = if (count _this > 4) then {_this select 4} else {false};
 _dynamic = if (count _this > 5) then {_this select 5} else {false};
 
-diag_log format["SPAWN - Vehicle has just been spawned: %1", typeOf _unit];
+if (DEBUG_MESSAGES) then {diag_log format["SPAWN - Vehicle has just been spawned: %1", typeOf _unit];};
 
 _run = true;
 
@@ -98,7 +98,7 @@ while {_run} do
 	// Respawn vehicle
 	if (_dead) then 
 	{	
-		diag_log format["SPAWN - Vehicle dead: %1", typeOf _unit];
+		if (DEBUG_MESSAGES) then {diag_log format["SPAWN - Vehicle dead: %1", typeOf _unit];};
 		
 		// there is a maximum of 10 seconds, before the damage is detected...
 		sleep _delay;
@@ -108,7 +108,7 @@ while {_run} do
 		_num = floor (random 100);
 		if (_num < 100) then {_type = 0;};
 		if (_num < 50) then {_type = 1;};
-		if (_num < 5) then {_type = 2;};
+		if (_num < 2) then {_type = 2;};
 		[_position, _type] call vehicleCreation;
 		_run = false;
 	};

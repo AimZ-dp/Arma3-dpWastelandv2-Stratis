@@ -66,6 +66,7 @@ if(str(playerSide) in ["GUER"]) then
 	_player selectWeapon "hgun_P07_F";
 };
 
+_uid = getPlayerUID _player;
 if (_uid in serverdpAdministrators) then {
 
 	removeHeadgear _player;
