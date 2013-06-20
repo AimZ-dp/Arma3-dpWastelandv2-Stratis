@@ -1,14 +1,14 @@
 respawn="BASE";
 respawnDelay=15;
 disabledAI=1;
-disableChannels[]={0,2,6};
+disableChannels[]={};
 enableItemsDropping = 0;
 aiKills = 1;
 class Header
 {
 	gameType=Wasteland;
 	minPlayers=1;
-	maxPlayers=64;
+	maxPlayers=65;
 };
 
 OnLoadMission = "Wasteland is a harsh survival sandbox where 2 teams and independent players fight for survival";

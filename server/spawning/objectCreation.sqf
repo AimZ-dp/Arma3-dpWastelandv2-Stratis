@@ -17,6 +17,9 @@ _obj = createVehicle [_objtype,_pos,[], 50, "NONE"];
 _obj setVariable["newVehicle",vChecksum,true];
 //[_obj, 10, desertedTimeLimit] execVM "server\spawning\object.sqf"; 
 
+_obj addeventhandler ["hit", {(_this select 0) setdamage 0;}];
+_obj addeventhandler ["dammaged", {(_this select 0) setdamage 0;}];
+
 // Set Attributes
 if(_objtype == "Land_CanisterPlastic_F") then 
 {
@@ -28,6 +31,8 @@ if(_objtype == "Land_Sacks_goods_F") then
     _obj setVariable["food",20,true];
 	[_obj, 10, desertedTimeLimit] execVM "server\spawning\object.sqf"; 
 };
+
+_obj setVariable["R3F_LOG_disabled",false];
 
 // position
 //_obj setPosATL [getpos _obj select 0,getpos _obj select 1,0.0];

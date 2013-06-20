@@ -7,6 +7,11 @@ player createDiaryRecord["changelog",
 [
 "=(dp)=",
 "
+<br/>1.1<br/>
+		[Fixed] Updated load in issue with losing ammo and scopes.<br/>
+		[Update] Lots of tweaks to spawning and types of objects.<br/>
+		[Update] Changed lots of scripts to keep server running smooth without need for restarts every day.<br/>
+		<br/>
 <br/>1.0<br/>
 		[Note] Added and modified lots of issues, some things might not be so obvious.<br/>
 		<br/>

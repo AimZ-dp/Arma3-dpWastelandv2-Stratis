@@ -35,10 +35,8 @@ _car setPosATL [getpos _car select 0,getpos _car select 1,0.5];
 //_car setVelocity [0,0,0.5];
 _car setDir (random 360);
 
-if (_type == 1) then {
-    _car setVehicleAmmo (random 0.90);
-	_car disableTIEquipment true;
-    [_car] call randomWeapons;
+if (_type > 0) then {
+	_car setVehicleAmmo (random 0.90);
 };
 
 _car disableTIEquipment true;

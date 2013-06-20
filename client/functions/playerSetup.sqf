@@ -20,55 +20,45 @@ removeBackpack _player;
 //Default case means something fucked up.
 _player unassignItem "NVGoggles"; 
 _player removeItem "NVGoggles";
-removeAllWeapons _player;
-_player addBackpack "B_AssaultPack_Base";
+removeUniform _player;
+removeVest _player;
+removeHeadgear _player;
+removeGoggles _player;
+
+
+if(str(playerSide) in ["WEST"]) then
+{
+	_player addUniform "U_B_CombatUniform_mcam_tshirt";
+	_player addVest "V_Rangemaster_belt";
+	_player addHeadgear "H_Cap_brn_SERO";
+	_player addBackpack "B_AssaultPack_blk";
+};
+
+if(str(playerSide) in ["EAST"]) then
+{
+	_player addUniform "U_B_CombatUniform_mcam_tshirt";
+	_player addVest "V_Rangemaster_belt";
+	_player addHeadgear "H_Cap_brn_SERO";
+	_player addBackpack "B_AssaultPack_blk";
+};
+
+if(str(playerSide) in ["GUER"]) then
+{
+	_player addUniform "U_B_CombatUniform_mcam_tshirt";
+	_player addVest "V_Rangemaster_belt";
+	_player addHeadgear "H_Cap_brn_SERO";
+	_player addBackpack "B_AssaultPack_blk";
+
+};
+
+_player addMagazine "16Rnd_9x21_Mag";
 _player addMagazine "16Rnd_9x21_Mag";
 _player addMagazine "16Rnd_9x21_Mag";
 _player addWeapon "hgun_P07_F";
 _player selectWeapon "hgun_P07_F";
 
-if(str(playerSide) in ["WEST"]) then
-{
-   	_player unassignItem "NVGoggles"; 
-	_player removeItem "NVGoggles";
-	removeAllWeapons _player;
-    _player addBackpack "B_AssaultPack_Base";
-	_player addMagazine "16Rnd_9x21_Mag";
-	_player addMagazine "16Rnd_9x21_Mag";
-	_player addWeapon "hgun_P07_F";
-	_player selectWeapon "hgun_P07_F"; 
-};
-
-if(str(playerSide) in ["EAST"]) then
-{
-    _player unassignItem "NVGoggles"; 
-	_player removeItem "NVGoggles";
-	removeAllWeapons _player;
-    _player addBackpack "B_AssaultPack_Base";
-    _player addMagazine "16Rnd_9x21_Mag";
-    _player addMagazine "16Rnd_9x21_Mag";
-	_player addWeapon "hgun_P07_F";
-	_player selectWeapon "hgun_P07_F";
-};
-
-if(str(playerSide) in ["GUER"]) then
-{
-    _player unassignItem "NVGoggles"; 
-	_player removeItem "NVGoggles"; 
-	removeAllWeapons _player;
-	removeUniform _player;
-	_uniform = ["U_C_Poloshirt_tricolour","U_C_Poloshirt_salmon","U_C_Commoner1_3","U_C_Commoner1_2"] call BIS_fnc_selectRandom;
-	_player addUniform _uniform;
-    _player addBackpack "B_AssaultPack_Base";
-    _player addMagazine "16Rnd_9x21_Mag";
-    _player addMagazine "16Rnd_9x21_Mag";
-	_player addWeapon "hgun_P07_F";
-	_player selectWeapon "hgun_P07_F";
-};
-
 _uid = getPlayerUID _player;
 if (_uid in serverdpAdministrators) then {
-
 	removeHeadgear _player;
 	_player addHeadgear "H_Booniehat_ocamo";
 };
@@ -79,7 +69,7 @@ _player switchMove "amovpknlmstpsraswpstdnon_gear";
 thirstLevel = 100;
 hungerLevel = 100;
 
-_player setVariable["cmoney",200,true];
+_player setVariable["cmoney",250,true];
 _player setVariable["canfood",1,false];
 _player setVariable["medkits",1,false];
 _player setVariable["water",1,false];
