@@ -7,7 +7,7 @@
 
 if(!isServer) exitwith {};
 
-private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_vehicleClass","_box","_box1","_box2","_picture","_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive"];
+private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_vehicleClass","_boxtype","_box","_box1","_box2","_picture","_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive"];
 
 //Mission Initialization.
 _result = 0;
@@ -28,13 +28,13 @@ if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Resum
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-_box1 = createVehicle ["Box_NATO_Support_F",[(_randomPos select 0), (_randomPos select 1),0],[], 0, "NONE"];
+_boxtype = floor (random (count ammoBoxes));
+_box1 = createVehicle [ammoBoxes select _boxtype,[(_randomPos select 0),(_randomPos select 1),0],[],0,"NONE"];
 _box1 setVariable["newVehicle",vChecksum,true];
-[_box1,"mission_Side_USLaunchers"] call fn_refillbox;
 
-_box2 = createVehicle ["Box_East_Support_F",[(_randomPos select 0), (_randomPos select 1)-10,0],[], 0, "NONE"];
+_boxtype = floor (random (count ammoBoxes));
+_box2 = createVehicle [ammoBoxes select _boxtype,[(_randomPos select 0),(_randomPos select 1)-10,0],[],0,"NONE"];
 _box2 setVariable["newVehicle",vChecksum,true];
-[_box2,"mission_Side_USSpecial"] call fn_refillbox;
 
 _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>A supply drop has been spotted near the marker</t>", _missionType,  sideMissionColor, subTextColor];
 messageSystem = _hint;

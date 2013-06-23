@@ -37,6 +37,6 @@ _obj setVariable["R3F_LOG_disabled",false];
 // position
 //_obj setPosATL [getpos _obj select 0,getpos _obj select 1,0.0];
 //_obj setVelocity [0,0,0];
-_obj setDir (random 360);
+//_obj setDir (random 360);
 
 

@@ -33,7 +33,7 @@ class VehicleManagement {
 		class menuTitle: w_RscText
 		{
 			idc = -1;
-			text = "Vehicle Management";
+			text = "Object Management";
 			x = 0.453 * safezoneW + safezoneX;
 			y = 0.248 * safezoneH + safezoneY;
 			w = 0.091 * safezoneW;
@@ -166,7 +166,7 @@ class VehicleManagement {
 		{
 			idc = -1;
 			onButtonClick = "execVM 'client\systems\adminPanel\deleteVehicle.sqf'";
-			text = "Delete Vehicle";
+			text = "Delete Object";
 			x = 0.62 * safezoneW + safezoneX;
 			y = 0.72 * safezoneH + safezoneY;
 			w = 0.065 * safezoneW;

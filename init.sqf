@@ -8,39 +8,51 @@
 // reset BIS_fnc_mp
 "BIS_fnc_MP_packet" addPublicVariableEventHandler {};
 
-enableSaving[false,false];
+enableSaving[false,false]; 
 
-DEBUG_MESSAGES = false;
-
-X_Server = false;
-X_Client = false;
-X_JIP = false;
-hitStateVar = false;
+DEBUG_MESSAGES = true;
 versionName = "v1.1";
-
 modVersion = "build-1004";
 vChecksum = 1;
 {vChecksum = vChecksum + _x;} forEach (toArray modVersion); 
 
+X_Server = false;
+X_Client = false;
 if(isServer) then { X_Server = true;};
 if(!isDedicated) then { X_Client = true;};
-if(isNull player) then {X_JIP = true;};
 
-true spawn {
-	if(!isDedicated) then {
-		titleText ["Welcome to =(dp)= Wasteland, please wait for your player to setup", "BLACK", 0];
-		waitUntil {player == player};
-		client_initEH = player addEventHandler ["Respawn", {removeAllWeapons (_this select 0);}];
-	};
-};
+diag_log format ["####### init.sqf - briefing ######"];
 
 //init Wasteland Core
 [] execVM "config.sqf";
 [] execVM "briefing.sqf";
 
-if(X_Client) then {
-	waitUntil {player == player};
+if(X_Server) then 
+{
+	diag_log format ["####### init.sqf - server setup ######"];
+	diag_log format ["####### %1 #######", missionName];
+	diag_log format ["T%1,DT%2,F%3", time, diag_tickTime, diag_frameno];
+    diag_log format["WASTELAND SERVER - Initilizing Server"];
+	[] execVM "server\init.sqf";
+	diag_log format ["####### init.sqf - server anticheat ######"];
+	[] execVM "server\functions\PartialAntiCheats.sqf";
+};
 
+if(X_Client) then {
+	diag_log format ["####### init.sqf - client setup ######"];
+
+	true spawn {
+		titleText ["Welcome to =(dp)= Wasteland, please wait for your player to setup", "BLACK", 0];
+		waitUntil {player == player};
+		client_initEH = player addEventHandler ["Respawn", {removeAllWeapons (_this select 0);}];
+	};
+
+	waitUntil {player == player};
+	
+	"THISIS437SPARTA" addPublicVariableEventHandler { [] spawn (_this select 1); };
+    dat4ClientStarted = player;
+    publicVariableServer "dat4ClientStarted";
+	
 	//Wipe Group.
 	if(count units group player > 1) then
 	{  
@@ -49,21 +61,6 @@ if(X_Client) then {
 	};
 
 	[] execVM "client\init.sqf";
-};
-
-if(X_Server) then 
-{
-	diag_log format ["############################# %1 #############################", missionName];
-	diag_log format ["T%1,DT%2,F%3", time, diag_tickTime, diag_frameno];
-    diag_log format["WASTELAND SERVER - Initilizing Server"];
-	[] execVM "server\init.sqf";
-	[] execVM "server\functions\PartialAntiCheats.sqf";
-}
-else
-{
-	"THISIS437SPARTA" addPublicVariableEventHandler { [] spawn (_this select 1); };
-    dat4ClientStarted = player;
-    publicVariableServer "dat4ClientStarted";
 };
 
 //init 3rd Party Scripts

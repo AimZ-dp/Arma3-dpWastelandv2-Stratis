@@ -1,6 +1,6 @@
 // TODO: Fix that convoy get sometimes stuck ob objects on the road.
 
-private ["_missionMarkerName","_missionType","_picture","_vehicleName","_hint","_waypoint","_waypoints","_group","_vehicles","_marker","_failed","_startTime","_numWaypoints","_ammobox","_createVehicle","_leader"];
+private ["_missionMarkerName","_missionType","_picture","_vehicleName","_hint","_waypoint","_waypoints","_group","_vehicles","_marker","_failed","_startTime","_numWaypoints","_boxtype","_ammobox","_createVehicle","_leader"];
 
 #include "mainMissionDefines.sqf"
 
@@ -149,22 +149,23 @@ if(_failed) then
     deleteGroup _group;
 	
     // Spawn loot at last marker position
-    _ammobox = "Box_NATO_Wps_F" createVehicle getMarkerPos _marker;
+	_boxtype = floor (random (count ammoBoxes));
+    _ammobox = (ammoBoxes select _boxtype) createVehicle getMarkerPos _marker;
 	_ammobox setVariable["newVehicle",vChecksum,true];
 	
-    clearMagazineCargoGlobal _ammobox;
-    clearWeaponCargoGlobal _ammobox;
+    //clearMagazineCargoGlobal _ammobox;
+    //clearWeaponCargoGlobal _ammobox;
     // TODO: Fine tune and balance loot.
     // Rocket launchers
-    [_ammobox, "launch_NLAW_F", 2] call BIS_fnc_addWeapon;
-    [_ammobox, "launch_NLAW_F", 2] call BIS_fnc_addWeapon;
+    //[_ammobox, "launch_NLAW_F", 2] call BIS_fnc_addWeapon;
+    //[_ammobox, "launch_NLAW_F", 2] call BIS_fnc_addWeapon;
     // Guns
-    [_ammobox, "arifle_TRG21_GL_F", 3] call BIS_fnc_addWeapon;
-    [_ammobox, "arifle_TRG21_F", 3] call BIS_fnc_addWeapon;
-    [_ammobox, "arifle_MX_SW_F", 3] call BIS_fnc_addWeapon;
-    [_ammobox, "arifle_MX_GL_F", 3] call BIS_fnc_addWeapon;
+    //[_ammobox, "arifle_TRG21_GL_F", 3] call BIS_fnc_addWeapon;
+    //[_ammobox, "arifle_TRG21_F", 3] call BIS_fnc_addWeapon;
+    //[_ammobox, "arifle_MX_SW_F", 3] call BIS_fnc_addWeapon;
+    //[_ammobox, "arifle_MX_GL_F", 3] call BIS_fnc_addWeapon;
     // Grenades
-    _ammobox addMagazine ["HandGrenade", 5];
+    //_ammobox addMagazine ["HandGrenade", 5];
     
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>The convoy has been sucessfully stopped. Now the weapons and cars are yours.</t>", _missionType, _picture, _vehicleName, successMissionColor, subTextColor];
     messageSystem = _hint;

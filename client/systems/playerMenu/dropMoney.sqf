@@ -21,7 +21,6 @@ mutexScriptInProgress = true;
 _pos = getPosATL player;
 player playmove "AinvPknlMstpSlayWrflDnon";
 _cash = "Land_Sack_F" createVehicle (position player); 
-_cash setVariable["newVehicle",vChecksum,true];
 _cash setPos _pos;
 _cash setVariable["money",_money,true];
 _cash setVariable["owner","world",true];

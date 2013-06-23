@@ -41,8 +41,8 @@ createSmallGroup = compileFinal preprocessFileLineNumbers "server\missions\facto
 createMidGroup = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createUnits\midGroup.sqf";
 createLargeGroup = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createUnits\largeGroup.sqf";
 createMissionVehicle = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createMissionVehicle.sqf";
-createSupplyDrop = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createSupplyDrop.sqf";
-createCargoItem = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createCargoItem.sqf";
+//createSupplyDrop = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createSupplyDrop.sqf";
+//createCargoItem = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createCargoItem.sqf";
 defendArea = compileFinal preprocessFileLineNumbers "server\functions\defendArea.sqf";
 
 //Spawning Compiles
@@ -50,9 +50,8 @@ randomWeapons = compileFinal preprocessFileLineNumbers "server\spawning\randomWe
 boxCreation = compileFinal preprocessFileLineNumbers "server\spawning\boxCreation.sqf";
 vehicleCreation = compileFinal preprocessFileLineNumbers "server\spawning\vehicleCreation.sqf";
 objectCreation = compileFinal preprocessFileLineNumbers "server\spawning\objectCreation.sqf";
-staticGunCreation = compileFinal preprocessFileLineNumbers "server\spawning\staticGunCreation.sqf";
 staticHeliCreation = compileFinal preprocessFileLineNumbers "server\spawning\staticHeliCreation.sqf";
-fn_refillbox = compileFinal preprocessFileLineNumbers "server\functions\fn_refillbox.sqf";
+//fn_refillbox = compileFinal preprocessFileLineNumbers "server\functions\fn_refillbox.sqf";
 
 //Player Management
 server_playerDied = compileFinal preprocessFileLineNumbers "server\functions\serverPlayerDied.sqf";

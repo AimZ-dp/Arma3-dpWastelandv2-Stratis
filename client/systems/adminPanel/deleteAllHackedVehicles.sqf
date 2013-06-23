@@ -1,7 +1,8 @@
-private ["_allVehicles","_check","_vehicleType"];
+private ["_allVehicles","_allMObjects","_check","_vehicleType"];
 
 _allVehicles = vehicles;
-
+_allMObjects = allMissionObjects "All";
+	
 {
 	_check = _x getVariable ["newVehicle",0];
 	if(_check != vChecksum) then 
@@ -37,7 +38,7 @@ _allVehicles = vehicles;
 			deleteVehicle _x;
 		};
 	};
-} forEach _allVehicles;
+} forEach _allMObjects; //_allVehicles;
 
 player commandChat "All Hacked Vehicles Deleted";
 

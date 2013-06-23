@@ -16,7 +16,7 @@ if (_uid in serverdpAdministrators) then {
 	_serverAdminSelect = _displayServerAdmin displayCtrl serverAdminMenu_option;
 	
 	_panelOptions = ["Player Menu",
-					"Vehicle Management",
+					"Object Management",
 					"Tags",
 					"Teleport",
 	                "Money"

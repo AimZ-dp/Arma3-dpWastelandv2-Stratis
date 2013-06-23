@@ -25,7 +25,7 @@ _heli setFuel (0.50);
 _heli setDamage (random 0.25) + 0.25;
 
 // position
-//_heli setPosATL [getpos _heli select 0,getpos _heli select 1,0.5];
-//_heli setVelocity [0,0,0.5];
+_heli setPosATL [getpos _heli select 0,getpos _heli select 1,0.5];
+_heli setVelocity [0,0,0.5];
 _heli setDir (random 360);
 

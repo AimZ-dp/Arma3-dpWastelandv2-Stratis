@@ -21,10 +21,14 @@ class PlayersMenu
 		{
 			idc = -1;
 			text = "client\ui\ui_background_controlers_ca.paa";
-			x = 0.1875 * safezoneW + safezoneX;
-			y = 0.15 * safezoneH + safezoneY;
-			w = 0.837499 * safezoneW;
-			h = 0.661111 * safezoneH;
+			//x = 0.1875 * safezoneW + safezoneX;
+			//y = 0.15 * safezoneH + safezoneY;
+			//w = 0.837499 * safezoneW;
+			//h = 0.661111 * safezoneH;
+			x = safezoneX;
+			y = safezoneY + 0.25;
+			w = safezoneW * 0.25;
+			h = safezoneH * 0.75;
 		};
 
 		class DialogTitleText: w_RscText

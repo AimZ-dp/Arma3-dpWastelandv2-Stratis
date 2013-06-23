@@ -13,11 +13,12 @@
 
 disableSerialization;
 
-private ["_switch","_vehicleType","_vehicleSummary","_dialog","_vehicleListBox","_weaponText","_userText","_damageText","_speedText","_check"];
+private ["_allVehicles","_allMObjects","_switch","_vehicleType","_vehicleSummary","_dialog","_vehicleListBox","_weaponText","_userText","_damageText","_speedText","_check"];
 _uid = getPlayerUID player;
 if (_uid in serverdpAdministrators) then {
 	_switch = _this select 0;
 	_allVehicles = vehicles;
+	_allMObjects = allMissionObjects "All";
 	
 	_dialog = findDisplay vehicleManagementDialog;
 	_vehicleListBox = _dialog displayCtrl vehicleManagementListBox;
@@ -31,7 +32,7 @@ if (_uid in serverdpAdministrators) then {
 	_speedText ctrlSetText format["Speed:"];
 	_userText ctrlSetText format["Users:"];
 	_damageText ctrlSetText format["Damage:"];
-	
+			
 	switch (_switch) do
 	{
 	    case 0:
@@ -145,12 +146,12 @@ if (_uid in serverdpAdministrators) then {
 				    };
 					*/
 					if(!(_vehicleType isKindOf "Civilian") and !(_vehicleType isKindOf "SoldierWB") and !(_vehicleType isKindOf "SoldierEB") and !(_vehicleType isKindOf "Logic")) then {
-						_vehicleSummary = format["[Type: %1]",_vehicleType];
+						_vehicleSummary = format["[Type: %1] [time left: %2]",_vehicleType, 24 - (_x getVariable ["newVehicleCount",0])];
 						_index = _vehicleListBox lbAdd format["%1",_vehicleSummary];
 						_vehicleListBox lbSetData [_index, str(_x)];
 					};
 	            };
-			} forEach entities "All"; //_allVehicles;    
+			} forEach _allMObjects; //entities "All"; //_allVehicles;    
 	    };
 	};
 } else {

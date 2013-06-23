@@ -31,13 +31,13 @@ if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Resum
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
 _vehicle = ["O_Ka60_Unarmed_F",[(_randomPos select 0) + 50, (_randomPos select 1) + 50,0],0,0,1,"NONE"] call createMissionVehicle;
 
-_box = createVehicle ["Box_East_WpsSpecial_F",[(_randomPos select 0), (_randomPos select 1),0],[], 0, "NONE"];
+_boxtype = floor (random (count ammoBoxes));
+_box = createVehicle [ammoBoxes select _boxtype,[(_randomPos select 0),(_randomPos select 1),0],[],0,"NONE"];
 _box setVariable["newVehicle",vChecksum,true];
-[_box,"mission_Side_USLaunchers"] call fn_refillbox;
 
-_box2 = createVehicle ["Box_NATO_WpsSpecial_F",[(_randomPos select 0), (_randomPos select 1) - 10,0],[], 0, "NONE"];
+_boxtype = floor (random (count ammoBoxes));
+_box2 = createVehicle [ammoBoxes select _boxtype,[(_randomPos select 0),(_randomPos select 1)-10,0],[],0,"NONE"];
 _box2 setVariable["newVehicle",vChecksum,true];
-[_box2,"mission_Side_USSpecial"] call fn_refillbox;
 		
 _picture = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "picture");
 _vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName");

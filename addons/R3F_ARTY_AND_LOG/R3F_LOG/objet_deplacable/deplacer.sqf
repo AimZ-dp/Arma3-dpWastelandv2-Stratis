@@ -185,7 +185,6 @@ else
 			{
 				if(primaryWeapon player != "") then {
 					_o = createVehicle ["WeaponHolder", player modelToWorld [0,0,0], [], 0, "NONE"];
-					_o setVariable["newVehicle",vChecksum,true];
 					_o addWeaponCargoGlobal [_arme_principale, 1];
 				}
 				else {

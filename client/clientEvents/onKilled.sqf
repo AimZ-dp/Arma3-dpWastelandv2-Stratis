@@ -60,31 +60,24 @@ if(!isNull(pvar_PlayerTeamKiller)) then {
 	publicVariable "publicVar_teamkillMessage";
 };
 
-private["_a","_b","_c","_d","_e","_f","_m","_player","_killer", "_to_delete"];
-
-_to_delete = [];
-_to_delete_quick = [];
+private["_a","_b","_c","_d","_e","_f","_m","_player","_killer"];
 
 if((_player getVariable "cmoney") > 0) then {
 	_m = "Land_Sack_F" createVehicle (position _player);
-	_m setVariable["newVehicle",vChecksum,true];
 	_m setVariable["money", (_player getVariable "cmoney"), true];
 	_m setVariable ["owner", "world", true];
-	_to_delete = _to_delete + [_m];
 };
 
 /*
 if((_player getVariable "medkits") > 0) then {
 	for "_a" from 1 to (_player getVariable "medkits") do {	
 		_m = "CZ_VestPouch_EP1" createVehicle (position _player);
-		_to_delete = _to_delete + [_m];
 	};
 };
 
 if((_player getVariable "repairkits") > 0) then {
 	for "_b" from 1 to (_player getVariable "repairkits") do {	
 		_m = "Suitcase" createVehicle (position _player);
-		_to_delete = _to_delete + [_m];
 	};
 };
 */
@@ -92,16 +85,12 @@ if((_player getVariable "repairkits") > 0) then {
 if((_player getVariable "canfood") > 0) then {
 	for "_a" from 1 to (_player getVariable "canfood") do {	
 		_m = "Land_Basket_F" createVehicle (position _player);
-		_m setVariable["newVehicle",vChecksum,true];
-		_to_delete = _to_delete + [_m];
 	};
 };
 
 if((_player getVariable "water") > 0) then {
 	for "_b" from 1 to (_player getVariable "water") do {	
 		_m = "Land_Bucket_F" createVehicle (position _player);
-		_m setVariable["newVehicle",vChecksum,true];
-		_to_delete = _to_delete + [_m];
 	};
 };
 

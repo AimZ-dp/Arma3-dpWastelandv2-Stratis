@@ -32,7 +32,7 @@ _car setDamage (random 0.50) + 0.25;
 
 // position car
 _car setPosATL [getpos _car select 0,getpos _car select 1,0.5];
-//_car setVelocity [0,0,0.5];
+_car setVelocity [0,0,0.1];
 _car setDir (random 360);
 
 if (_type > 0) then {

@@ -6,7 +6,7 @@
 
 if(!X_Server) exitWith {};
 
-private ["_counter","_pos","_type","_num","_start","_step"];
+private ["_handler","_counter","_pos","_type","_num","_start","_step"];
 
 _counter = 0;
 _step = 1; //4;
@@ -23,7 +23,7 @@ for "_i" from _start to 118 step _step do
 	if (_num < 2) then {_type = 2;};
 	
 	[_pos, _type] call vehicleCreation;
-
+		
 	_counter = _counter + 1;
 };
 

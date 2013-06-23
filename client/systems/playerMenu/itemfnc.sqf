@@ -158,20 +158,13 @@ switch(_switch) do
 		//Drops the item and sets values & variables
 		switch(_data) do 
 		{
-			case "canfood": {player setVariable["canfood",(player getVariable "canfood")-1,true]; _temp = "Land_Basket_F" createVehicle (position player); _temp setVariable["newVehicle",vChecksum,true]; _temp setPos [(_pos select 0)+1, _pos select 1, _pos select 2]; _temp setVariable["food",10,true];};
-			case "fuelFull": {player setVariable["fuelFull",(player getVariable "fuelFull")-1,true]; _temp = "Fuel_can" createVehicle (position player); _temp setVariable["newVehicle",vChecksum,true]; _temp setVariable["fuel", true, true]; _temp setPos _pos;};
-			case "fuelEmpty": {player setVariable["fuelEmpty", (player getVariable "fuelEmpty")-1,true]; _temp = "Fuel_can" createVehicle (position player); _temp setVariable["newVehicle",vChecksum,true]; _temp setVariable["fuel", false, true]; _temp setPos _pos;};
-			case "repairkits": {player setVariable["repairkits", (player getVariable "repairkits")-1,true]; _temp = "Suitcase" createVehicle (position player); _temp setVariable["newVehicle",vChecksum,true]; _temp setPos _pos;};
-			case "water": {player setVariable["water", (player getvariable "water")-1,true]; _temp = "Land_Bucket_F" createVehicle (position player); _temp setVariable["newVehicle",vChecksum,true]; _temp setPos _pos;};
-			case "medkit": {player setVariable["medkits", (player getVariable "medkits")-1,true]; _temp = "CZ_VestPouch_EP1" createVehicle (position player); _temp setVariable["newVehicle",vChecksum,true]; _temp setPos _pos;};
-            case "spawnBeacon": {
-            player setVariable["spawnBeacon", (player getVariable "spawnBeacon")-1,true]; 
-				_droppedBeacon = "Satelit" createVehicle (position player);
-				_droppedBeacon setVariable["newVehicle",vChecksum,true];
-				_droppedBeacon setVariable["spawnsRemaining", 100, true];
-				_droppedBeacon setVariable["faction","WORLD",true];
-				_droppedBeacon setPos _pos;
-            };
+			case "canfood": {player setVariable["canfood",(player getVariable "canfood")-1,true]; _temp = "Land_Basket_F" createVehicle (position player); _temp setPos [(_pos select 0)+1, _pos select 1, _pos select 2]; _temp setVariable["food",10,true];};
+			case "fuelFull": {player setVariable["fuelFull",(player getVariable "fuelFull")-1,true]; _temp = "Fuel_can" createVehicle (position player); _temp setVariable["fuel", true, true]; _temp setPos _pos;};
+			case "fuelEmpty": {player setVariable["fuelEmpty", (player getVariable "fuelEmpty")-1,true]; _temp = "Fuel_can" createVehicle (position player); _temp setVariable["fuel", false, true]; _temp setPos _pos;};
+			case "repairkits": {player setVariable["repairkits", (player getVariable "repairkits")-1,true]; _temp = "Suitcase" createVehicle (position player); _temp setPos _pos;};
+			case "water": {player setVariable["water", (player getvariable "water")-1,true]; _temp = "Land_Bucket_F" createVehicle (position player); _temp setPos _pos;};
+			case "medkit": {player setVariable["medkits", (player getVariable "medkits")-1,true]; _temp = "CZ_VestPouch_EP1" createVehicle (position player); _temp setPos _pos;};
+            case "spawnBeacon": {player setVariable["spawnBeacon", (player getVariable "spawnBeacon")-1,true];_droppedBeacon = "Satelit" createVehicle (position player);_droppedBeacon setVariable["spawnsRemaining", 100, true];_droppedBeacon setVariable["faction","WORLD",true];_droppedBeacon setPos _pos;};
 		};
         mutexScriptInProgress = false;
         player SwitchMove "amovpknlmstpslowwrfldnon_amovpercmstpsraswrfldnon"; // Redundant reset of animation state to avoid getting locked in animation. 

@@ -90,7 +90,6 @@ for "_iteration" from 1 to _lockDuration do {
 				
 		_playerPos = getPosATL player;
 		_placedBeacon = "Satelit" createVehicle (position player); _placedBeacon setPos _playerPos;
-		_placedBeacon setVariable["newVehicle",vChecksum,true];
 		_placedBeacon addEventHandler["handleDamage", {false}];
 		_placedBeacon setVariable["R3F_LOG_disabled", true];      
 		_placedBeacon setVariable["faction",_playerSide,true];

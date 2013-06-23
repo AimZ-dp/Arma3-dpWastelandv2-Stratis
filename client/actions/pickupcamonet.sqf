@@ -1,11 +1,12 @@
 //	@file Version: 1.1
 //	@file Name: pickupcamonet.sqf
-//	@file Author: Sixty8 Pulse
+//	@file Author: Sixty8 Pulse, AimZ =(dp)=
 //	@file Date modified: 17/12/2012 20:19
 //	@file Args:
 
 // Check if mutex lock is active.
 if(mutexScriptInProgress) exitWith {
+	player globalChat "YOU ARE ALREADY PERFORMING ANOTHER ACTION!";
 };
 
 mutexScriptInProgress = true;
