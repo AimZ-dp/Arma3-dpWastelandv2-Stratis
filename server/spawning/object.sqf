@@ -87,7 +87,7 @@ while {_run} do
 	// check for badly broken
 	if (_dammage > 0.90 or !alive _unit) then 
 	{
-		_dead = true;
+		//_dead = true;
 	};
 	
 	// Respawn vehicle

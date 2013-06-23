@@ -105,7 +105,7 @@ class gunshopd {
 			idc = gunshop_cart;
 			onLBSelChanged = "[] execvm 'client\systems\gunStore\weaponInfo.sqf'";
 
-			x = 0.690104 * safezoneW + safezoneX;
+			x = 0.640104 * safezoneW + safezoneX;
 			y = 0.225 * safezoneH + safezoneY;
 			w = 0.1416666 * safezoneW;
 			h = 0.422222 * safezoneH;

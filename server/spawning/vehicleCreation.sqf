@@ -39,6 +39,6 @@ if (_type > 0) then {
 	_car setVehicleAmmo (random 0.90);
 };
 
-_car disableTIEquipment true;
+//_car disableTIEquipment true;
 [_car] call randomWeapons;
 

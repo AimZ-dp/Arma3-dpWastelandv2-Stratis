@@ -3,91 +3,62 @@ class Mission
 {
 	addOns[]=
 	{
-		"a3_map_stratis",
-		"A3_Data_F",
-		"A3_Weapons_F", 
-		"A3_Characters_F", 
-		"A3_Anims_F", 
-		"A3_Anims_F_Config_Sdr",
-		"A3_Air_F",
-		"a3_air_f_mh9",
-		"a3_air_f_ka60",
-		"A3_UI_F", 
 		"A3_Characters_F_BLUFOR",
+		"a3_map_stratis",
 		"A3_Characters_F_OPFOR",
-		"A3_Characters_F_Civil",
-		"A3_Structures_F",
-		"A3_Structures_F_Civ",
-		"A3_Structures_F_Items",
-		"A3_Structures_F_Walls",
-		"A3_Structures_F_Training",
-		"A3_Structures_F_Items_Vessels",
-		"A3_Structures_F_Items_Tools",
-		"A3_Structures_F_Items_Luggage",
-		"A3_Structures_F_Items_Electronics",
-		"A3_Structures_F_Items_Cans",
-		"A3_Structures_F_Furniture",
-		"A3_Structures_F_Civ_Statues",
-		"A3_Structures_F_Civ_SportsGrounds",
-		"A3_Structures_F_Civ_PlayGround",
-		"A3_Structures_F_Civ_Pavements",
+		"A3_Soft_F_Offroad",
+		"A3_Soft_F_Hunter",
+		"A3_Soft_F_Quadbike",
+		"A3_Soft_F_Ifrit",
+		"A3_Air_F_MH9",
+		"A3_Air_F_Ka60",
+		"A3_Weapons_F_Ammoboxes",
+		"A3_Static_F_Mk6",
 		"A3_Structures_F_Civ_Market",
-		"A3_Structures_F_Civ_Lamps",
-		"A3_Structures_F_Civ_InfoBoards",
-		"A3_Structures_F_Civ_Garbage",
-		"A3_Structures_F_Civ_Dead",
 		"A3_Structures_F_Civ_Constructions",
-		"A3_Structures_F_Civ_Chapels",
+		"A3_Structures_F_Items_Vessels",
 		"A3_Structures_F_Civ_Camping",
-		"A3_Structures_F_Civ_Calvaries",
-		"A3_Structures_F_Civ_BellTowers",
-		"A3_Structures_F_Civ_Accessories",
-		"A3_Structures_F_Mil",
-		"A3_Structures_F_Mil_Fortification"
+		"A3_Structures_F_Ind_Cargo",
+		"A3_Structures_F_Mil_BagFence",
+		"A3_Structures_F_Mil_BagBunker",
+		"A3_Structures_F_Walls",
+		"A3_Structures_F_Mil_Fortification",
+		"a3_structures_f_civ_lamps",
+		"A3_Structures_F_Items_Cans",
+		"A3_Structures_F_Items_Luggage",
+		"A3_Boat_F_Assault_Boat",
+		"A3_Boat_F_Speedboat",
+		"A3_Characters_F_Civil",
+		"a3_structures_f_training"
 	};
 	addOnsAuto[]=
 	{
-		"a3_map_stratis",
-		"A3_Data_F",
-		"A3_Weapons_F", 
-		"A3_Characters_F", 
-		"A3_Anims_F", 
-		"A3_Anims_F_Config_Sdr",
-		"A3_Air_F",
-		"a3_air_f_mh9",
-		"a3_air_f_ka60",
-		"A3_UI_F", 
 		"A3_Characters_F_BLUFOR",
 		"A3_Characters_F_OPFOR",
 		"A3_Characters_F_Civil",
-		"A3_Structures_F",
-		"A3_Structures_F_Civ",
-		"A3_Structures_F_Items",
-		"A3_Structures_F_Walls",
-		"A3_Structures_F_Training",
-		"A3_Structures_F_Items_Vessels",
-		"A3_Structures_F_Items_Tools",
-		"A3_Structures_F_Items_Luggage",
-		"A3_Structures_F_Items_Electronics",
-		"A3_Structures_F_Items_Cans",
-		"A3_Structures_F_Furniture",
-		"A3_Structures_F_Civ_Statues",
-		"A3_Structures_F_Civ_SportsGrounds",
-		"A3_Structures_F_Civ_PlayGround",
-		"A3_Structures_F_Civ_Pavements",
+		"a3_structures_f_training",
+		"A3_Soft_F_Offroad",
+		"A3_Soft_F_Hunter",
+		"A3_Soft_F_Quadbike",
+		"A3_Soft_F_Ifrit",
+		"A3_Air_F_MH9",
+		"A3_Air_F_Ka60",
+		"A3_Weapons_F_Ammoboxes",
 		"A3_Structures_F_Civ_Market",
-		"A3_Structures_F_Civ_Lamps",
-		"A3_Structures_F_Civ_InfoBoards",
-		"A3_Structures_F_Civ_Garbage",
-		"A3_Structures_F_Civ_Dead",
 		"A3_Structures_F_Civ_Constructions",
-		"A3_Structures_F_Civ_Chapels",
+		"A3_Structures_F_Items_Vessels",
 		"A3_Structures_F_Civ_Camping",
-		"A3_Structures_F_Civ_Calvaries",
-		"A3_Structures_F_Civ_BellTowers",
-		"A3_Structures_F_Civ_Accessories",
-		"A3_Structures_F_Mil",
-		"A3_Structures_F_Mil_Fortification"
+		"A3_Structures_F_Ind_Cargo",
+		"A3_Structures_F_Mil_BagFence",
+		"A3_Structures_F_Mil_BagBunker",
+		"A3_Structures_F_Walls",
+		"A3_Structures_F_Mil_Fortification",
+		"a3_structures_f_civ_lamps",
+		"A3_Structures_F_Items_Cans",
+		"A3_Structures_F_Items_Luggage",
+		"A3_Boat_F_Assault_Boat",
+		"A3_Boat_F_Speedboat",
+		"a3_map_stratis"
 	};
 	randomSeed=4593667;
 	class Intel
@@ -1152,7 +1123,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="gunStore1";
-					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'Store_Gun_1'); this addAction [""Use The Gun Store"",""client\systems\gunStore\loadGunStore.sqf""];";
+					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'Store_Gun_1');";
 				};
 			};
 		};
@@ -1172,7 +1143,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="gunStore2";
-					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'Store_Gun_2'); this addAction [""Use The Gun Store"",""client\systems\gunStore\loadGunStore.sqf""];";
+					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'Store_Gun_2');";
 				};
 			};
 		};
@@ -1192,7 +1163,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="gunStore3";
-					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'Store_Gun_3'); this addAction [""Use The Gun Store"",""client\systems\gunStore\loadGunStore.sqf""];";
+					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'Store_Gun_3');";
 				};
 			};
 		};
@@ -1212,7 +1183,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="generalStore1";
-					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'General_Store_1'); this addAction [""Use The General Store"",""client\systems\generalStore\loadGenStore.sqf""];";
+					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'General_Store_1');";
 				};
 			};
 		};
@@ -1231,7 +1202,7 @@ class Mission
 					vehicle="C_man_polo_3_F";
 					leader=1;
 					text="generalStore2";
-					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'General_Store_2'); this addAction [""Use The General Store"",""client\systems\generalStore\loadGenStore.sqf""];";
+					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'General_Store_2');";
 				};
 			};
 		};
@@ -1252,7 +1223,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="generalStore3";
-					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'General_Store_3'); this addAction [""Use The General Store"",""client\systems\generalStore\loadGenStore.sqf""];";
+					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'General_Store_3');";
 				};
 			};
 		};

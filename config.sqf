@@ -186,37 +186,33 @@ uniformArray = [
     ["Pilot Cap","H_Cap_headphones", 100,"hat"],
 
 	["Assault Pack (Black)","B_AssaultPack_blk",300,"backpack"],
-	["Assault Pack (DiverTL)","B_AssaultPack_blk_DiverTL",300,"backpack"],
-	["Assault Pack (Diver)","B_AssaultPack_blk_DiverExp",300,"backpack"],
-	["Assault Pack (cbr)","B_AssaultPack_cbr",300,"backpack"],
-	["Assault Pack (dgtl)","B_AssaultPack_dgtl",300,"backpack"],
-	["Assault Pack (rgr)","B_AssaultPack_rgr",300,"backpack"],	
-	["Assault Pack (ocamo)","B_AssaultPack_ocamo",300,"backpack"],
-	["Assault Pack (khk)","B_AssaultPack_khk",300,"backpack"],
-	["Assault Pack (mcamo)","B_AssaultPack_mcamo",300,"backpack"],
-	["Assault Pack (sgg)","B_AssaultPack_sgg",1500,"backpack"],
+	["Assault Pack (Coyote)","B_AssaultPack_cbr",300,"backpack"],
+	["Assault Pack (Digi)","B_AssaultPack_dgtl",300,"backpack"],
+	["Assault Pack (Green)","B_AssaultPack_rgr",300,"backpack"],	
+	["Assault Pack (Hex)","B_AssaultPack_ocamo",300,"backpack"],
+	["Assault Pack (Khaki)","B_AssaultPack_khk",300,"backpack"],
+	["Assault Pack (MTP)","B_AssaultPack_mcamo",300,"backpack"],
+	["Assault Pack (Sage)","B_AssaultPack_sgg",1500,"backpack"],
+	
 	["Assault Pack (Medic)","B_AssaultPack_rgr_Medic",400,"backpack"],
 	["Assault Pack (Repair)","B_AssaultPack_rgr_Repair",400,"backpack"],	
 	
-	["Bergen (sgg Exp)","B_Bergen_sgg_Exp",400,"backpack"],
-	["Bergen (sgg)","B_Bergen_sgg",400,"backpack"],
+	["Bergen (Sage)","B_Bergen_sgg",400,"backpack"],
 	
-	["Carryall (ocamo)","B_Carryall_ocamo",400,"backpack"],
-	["Carryall (ocamo Exp)","B_Carryall_ocamo_Exp",400,"backpack"],
-	["Carryall (oucamo)","B_Carryall_oucamo",400,"backpack"],
+	["Carryall Backpack (Hex)","B_Carryall_ocamo",400,"backpack"],
+	["Carryall Backpack (Urban)","B_Carryall_oucamo",400,"backpack"],
 	
 	["Field Pack (Black)","B_FieldPack_blk",350,"backpack"],
-	["Field Pack (DiverTL)","B_FieldPack_blk_DiverTL",350,"backpack"],
-	["Field Pack (DiverExp)","B_FieldPack_blk_DiverExp",350,"backpack"],	
-	["Field Pack (cbr)","B_FieldPack_cbr",350,"backpack"],
-	["Field Pack (cbr AT)","B_FieldPack_cbr_AT",350,"backpack"],
-	["Field Pack (ocamo)","B_FieldPack_ocamo",350,"backpack"],
-	["Field Pack (oucamo)","B_FieldPack_oucamo",350,"backpack"],
+	["Field Pack (Coyote)","B_FieldPack_cbr",350,"backpack"],
+	["Field Pack (Hex)","B_FieldPack_ocamo",350,"backpack"],
+	["Field Pack (Urban)","B_FieldPack_oucamo",350,"backpack"],
+	
 	["Field Pack (Medic)","B_FieldPack_ocamo_Medic",450,"backpack"],
 	["Field Pack (Repair)","B_FieldPack_cbr_Repair",450,"backpack"],
-	
-	["Kit Bag (mcamo)","B_Kitbag_mcamo",450,"backpack"],
-	["Kit Bag (sgg)","B_Kitbag_sgg",450,"backpack"]
+
+	["Kitbag (Coyote)","B_Kitbag_cbr",450,"backpack"],	
+	["Kitbag (MTP)","B_Kitbag_mcamo",450,"backpack"],
+	["Kitbag (Sage)","B_Kitbag_sgg",450,"backpack"]
 ];
 
 //General Store Item List

@@ -7,6 +7,15 @@
 //	@file Args:
 
 aActionsIDs = [];
+aActionsIDs = aActionsIDs + [player addAction["Use The Gun Store", "client\systems\gunStore\loadGunStore.sqf", [], 1, false, false, "", 'player distance (nearestobjects [player, ["C_man_1_1_F"],  5] select 0) < 5']];
+aActionsIDs = aActionsIDs + [player addAction["Use The General Store", "client\systems\generalStore\loadGenStore.sqf", [], 1, false, false, "", 'player distance (nearestobjects [player, ["C_man_polo_3_F"],  5] select 0) < 5']];
+
+//aActionsIDs = aActionsIDs + [player addAction[("<t color=""#E01B1B"">Destroy Proximity Detector</t>"), "client\actions\proximityDetector.sqf", 1, 1, false, false, "", 
+//											'_currProx = (nearestobjects [player, ["Satelit"],  5]); 
+//											player distance (_currProx select 0) < 5; 
+//											((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "ownerUID") == (getPlayerUID player) 
+//												OR str(playerSide) != ((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "faction") 
+//												OR ((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "faction") == "WORLD"']];
 
 //Fuel can actions.
 //aActionsIDs = aActionsIDs + [player addAction["Take Jerry Can", "noscript.sqf", 'deleteVehicle (nearestobjects [player, ["Fuel_can"],  5] select 0); player setVariable["fuelFull",1,true]; hint "You have taken a fuel can."; player playmove "AinvPknlMstpSlayWrflDnon"',0,false,false,"",'player distance (nearestobjects [player, ["Fuel_can"],  5] select 0) < 4 AND ((player getVariable "fuelFull") == 0) AND ((player getVariable "fuelEmpty") == 0) AND ((nearestObjects[player, ["Fuel_can"], 3] select 0) getVariable "fuel")']];
