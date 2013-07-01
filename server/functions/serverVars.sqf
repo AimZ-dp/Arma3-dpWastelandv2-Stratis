@@ -37,49 +37,45 @@ currentDate = [];
 publicVariable "currentDate";
 currentInvites = [];
 publicVariable "currentInvites";
-                  
+
+/*                 
 //Civilian Vehicle List - Random Spawns
-civilianVehicles = ["c_offroad"];
-civilianBoats = ["C_Rubberboat","O_Lifeboat", "B_Lifeboat"];
+civilianVehicles = ["C_Offroad_01_F", "C_Quadbike_01_F"];
+//civilianBoats = ["C_Rubberboat","O_Lifeboat", "B_Lifeboat"];
 
 //Military Vehicle List - Random Spawns
-militaryVehicles = ["B_Quadbike_F", "O_Quadbike_F", "B_Hunter_F", "O_Ifrit_F"];
-militaryBoats = ["O_Assaultboat", "B_Assaultboat"];
-militaryHelis = ["B_MH9_F", "O_Ka60_Unarmed_F"];
+militaryVehicles = ["B_Quadbike_01_F", "O_Quadbike_01_F", "I_Quadbike_01_F", "B_MRAP_01_F", "O_MRAP_02_F", "I_MRAP_03_F", "B_Truck_01_transport_F", "B_Truck_01_covered_F", "O_Truck_02_covered_F", "O_Truck_02_transport_F", "I_Truck_02_covered_F", "I_Truck_02_transport_F"];
+//militaryBoats = ["O_Assaultboat", "B_Assaultboat"];
+militaryHelis = ["B_Heli_Light_01_F", "B_Heli_Transport_01_F", "O_Heli_Attack_02_black_F", "O_Heli_Light_02_unarmed_F", "I_Heli_Transport_02_F"];
 
 //Armed Military Vehicle List - Random Spawns
-armedMilitaryVehicles = ["B_Hunter_RCWS_F", "O_Ifrit_GMG_F", "B_Hunter_HMG_F", "O_Ifrit_MG_F"];
-armedMilitaryBoats = ["O_SpeedBoat", "B_SpeedBoat"];
-armedMilitaryHelis = ["B_AH9_F", "O_Ka60_F"];
+armedMilitaryVehicles = ["B_MRAP_01_gmg_F", "B_MRAP_01_hmg_F", "O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F", "I_MRAP_03_gmg_F", "I_MRAP_03_hmg_F", "B_APC_Wheeled_01_cannon_F", "O_APC_Wheeled_02_rcws_F"];
+//armedMilitaryBoats = ["O_SpeedBoat", "B_SpeedBoat"];
+armedMilitaryHelis = ["B_Heli_Light_01_armed_F", "B_Heli_Attack_01_F", "O_Heli_Attack_02_F", "O_Heli_Light_02_F"];
+*/
 
-//Object List - Random Spawns.
-staticWeaponsList = ["B_MK6"];
+//Civilian Vehicle List - Random Spawns
+civilianVehicles = ["C_Offroad_01_F", "C_Quadbike_01_F"];
+
+//Military Vehicle List - Random Spawns
+militaryVehicles = ["B_Quadbike_01_F", "O_Quadbike_01_F", "I_Quadbike_01_F", "B_MRAP_01_F", "O_MRAP_02_F", "I_MRAP_03_F", "B_Truck_01_transport_F", "B_Truck_01_covered_F", "O_Truck_02_covered_F", "O_Truck_02_transport_F", "I_Truck_02_covered_F", "I_Truck_02_transport_F"];
+militaryHelis = ["B_Heli_Light_01_F", "O_Heli_Light_02_unarmed_F", "B_Heli_Transport_01_F", "I_Heli_Transport_02_F"];
+
+//Armed Military Vehicle List - Random Spawns
+armedMilitaryVehicles = ["B_MRAP_01_gmg_F", "B_MRAP_01_hmg_F", "O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F", "I_MRAP_03_gmg_F", "I_MRAP_03_hmg_F", "B_APC_Wheeled_01_cannon_F", "O_APC_Wheeled_02_rcws_F"];
+armedMilitaryHelis = ["B_Heli_Light_01_armed_F", "O_Heli_Light_02_F", "B_Heli_Attack_01_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F"];
 
 //Object List - Random Spawns.
 objectList = [
-	//"Land_Basket_F",
-	//"Land_CratesWooden_F",
-	//"Land_Sack_F",
 	"Land_Sacks_goods_F",
-	//"Land_Sacks_heap_F",
-	//"Land_WoodenBox_F",
-	//"Land_Bricks_V4_F",
-	//"Land_Bricks_V3_F",
-	//"Land_Bricks_V2_F",
-	//"Land_Bricks_V1_F",
 	"Land_Pipes_small_F",
 	"Land_Pipes_large_F",
-	//"Land_MetalBarrel_empty_F",
 	"Land_MetalBarrel_F",
 	"Land_IronPipes_F",
-	//"Land_FirePlace_F",
 	"Land_ConcretePipe_F",
 	"Land_Coil_F",
 	"Land_CinderBlocks_F",
 	"Land_CargoBox_V1_F",
-	//"Land_BarrelEmpty_F",
-	//"Land_BarrelSand_F",
-	//"Land_BarrelWater_F",
 	"Land_BagFence_Corner_F",
 	"Land_BagFence_End_F",
 	"Land_BagFence_Long_F",
@@ -95,17 +91,11 @@ objectList = [
 	"Land_HBarrier_5_F",
 	"Land_HBarrierBig_F",
 	"Land_HBarrier_1_F",
-	//"Land_Razorwire_F",
 	"Land_Crash_barrier_F",
-	"Land_LampHalogen_on_F",
-	//"Land_Bucket_F",
-	//"Land_Can_V3_F",
+	"Land_LampHalogen_F",
 	"Land_CanisterFuel_F",
 	"Land_CanisterPlastic_F",
-	//"Land_BottlePlastic_V1_F",
-	//"Land_Suitcase_F",
 	"Land_FieldToilet_F",
-	//"Land_RedWhitePole_F",
 	"Land_ToiletBox_F"
 ];
 
@@ -119,9 +109,9 @@ vehicleWeapons = ["arifle_SDAR_F",
                 "arifle_MX_GL_F",
                 "arifle_TRG21_GL_F",
                 "arifle_MX_F",
-                "arifle_Khaybar_F",
-                "arifle_Khaybar_C_F",
-                "arifle_Khaybar_GL_F",
+                "arifle_Katiba_F",
+                "arifle_Katiba_C_F",
+                "arifle_Katiba_GL_F",
                 "arifle_SDAR_F",
                 "srifle_EBR_F",
                 "LMG_Mk200_F",
@@ -156,15 +146,26 @@ ammoBoxes = [
 	"Box_NATO_Ammo_F",
 	"Box_NATO_Wps_F",
 	"Box_NATO_Grenades_F",
+//	"Box_NATO_WpsLaunch_F",
 	"Box_NATO_AmmoOrd_F",
 	"Box_NATO_WpsSpecial_F",
 	"Box_NATO_Support_F",
 	"Box_East_Ammo_F",
 	"Box_East_Wps_F",
 	"Box_East_Grenades_F",
+//	"Box_East_WpsLaunch_F",
 	"Box_East_AmmoOrd_F",
 	"Box_East_WpsSpecial_F",
-	"Box_East_Support_F"
+	"Box_East_Support_F",
+//	"Box_East_AmmoVeh_F",
+	"Box_IND_Ammo_F",
+	"Box_IND_Wps_F",
+	"Box_IND_Grenades_F",
+//	"Box_IND_WpsLaunch_F",
+	"Box_IND_AmmoOrd_F",
+	"Box_IND_WpsSpecial_F",
+	"Box_IND_Support_F"
+//	"Box_IND_AmmoVeh_F"
 ];
                 
 MissionSpawnMarkers = [

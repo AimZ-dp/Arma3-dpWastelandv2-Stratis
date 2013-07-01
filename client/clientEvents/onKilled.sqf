@@ -95,6 +95,6 @@ if((_player getVariable "water") > 0) then {
 };
 
 true spawn {
-	waitUntil {playerRespawnTime < 2};
+	waitUntil {playerRespawnTime < 1};
 	titleText ["", "BLACK OUT", 1];
 };

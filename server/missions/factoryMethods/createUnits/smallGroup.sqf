@@ -18,9 +18,9 @@ _leader addVest "V_PlateCarrier1_cbr";
 _leader addMagazine "RPG32_F";
 _leader addMagazine "RPG32_F";
 _leader addWeapon "launch_RPG32_F";
-_leader addMagazine "30Rnd_65x39_case_mag";
-_leader addMagazine "30Rnd_65x39_case_mag";
-_leader addMagazine "30Rnd_65x39_case_mag";
+_leader addMagazine "30Rnd_556x45_Stanag";
+_leader addMagazine "30Rnd_556x45_Stanag";
+_leader addMagazine "30Rnd_556x45_Stanag";
 _leader addWeapon "arifle_TRG20_F";
 
 //Support
@@ -35,17 +35,17 @@ _man2 addWeapon "LMG_Mk200_F";
 _man3 = _group createunit ["C_man_polo_3_F", [_pos select 0, (_pos select 1) + 30, 0], [], 0.5, "Form"];
 _man3 addUniform "U_B_CombatUniform_mcam";
 _man3 addVest "V_PlateCarrier1_cbr";
-_man3 addMagazine "30Rnd_65x39_case_mag";
-_man3 addMagazine "30Rnd_65x39_case_mag";
-_man3 addMagazine "30Rnd_65x39_case_mag";
+_man3 addMagazine "30Rnd_556x45_Stanag";
+_man3 addMagazine "30Rnd_556x45_Stanag";
+_man3 addMagazine "30Rnd_556x45_Stanag";
 _man3 addWeapon "arifle_TRG20_F";
 
 //Sniper
 _man4 = _group createunit ["C_man_polo_4_F", [_pos select 0, (_pos select 1) - 30, 0], [], 0.5, "Form"];
 _man4 addUniform "U_B_CombatUniform_mcam_vest";
 _man4 addVest "V_PlateCarrier1_rgr";
-_man4 addMagazine "20Rnd_762x51_Mag";
-_man4 addMagazine "20Rnd_762x51_Mag";
+_man4 addMagazine "30Rnd_65x39_caseless_mag";
+_man4 addMagazine "30Rnd_65x39_caseless_mag";
 _man4 addWeapon "arifle_MXM_F";
 
 _leader = leader _group;

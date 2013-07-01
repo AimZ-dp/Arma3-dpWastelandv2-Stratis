@@ -29,7 +29,7 @@ if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Resum
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
-_vehicle = ["O_Ka60_Unarmed_F",[(_randomPos select 0) + 50, (_randomPos select 1) + 50,0],0,0,1,"NONE"] call createMissionVehicle;
+_vehicle = [militaryHelis call BIS_fnc_selectRandom,[(_randomPos select 0) + 50, (_randomPos select 1) + 50,0],0,0,1,"NONE"] call createMissionVehicle;
 
 _boxtype = floor (random (count ammoBoxes));
 _box = createVehicle [ammoBoxes select _boxtype,[(_randomPos select 0),(_randomPos select 1),0],[],0,"NONE"];

@@ -45,7 +45,7 @@
 
 if (!isServer) exitWith {};
 
-private ["_unit","_delay","_deserted","_respawns","_run","_explode","_dynamic","_position","_type","_dead"];
+private ["_unit","_delay","_deserted","_respawns","_run","_explode","_dynamic","_position","_type","_dead","_objtype"];
 
 // Define variables
 _unit = _this select 0;
@@ -70,7 +70,7 @@ _timeout = time;
 while {_run} do 
 {
 	_dammage = getDammage _unit;
-
+	_objtype = typeOf _unit;
 	if(_objtype == "Land_CanisterPlastic_F" and (_unit getVariable "water") <= 0) then 
 	{
 		_dead = true;

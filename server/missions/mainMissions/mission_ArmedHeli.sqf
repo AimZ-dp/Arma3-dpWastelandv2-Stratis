@@ -28,7 +28,7 @@ if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Main Mission Resum
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-_vehicleClass = ["O_Ka60_F","B_AH9_F"] call BIS_fnc_selectRandom;
+_vehicleClass = armedMilitaryHelis call BIS_fnc_selectRandom;
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
 _vehicle = [_vehicleClass,_randomPos,0.25,1,0.50,"NONE"] call createMissionVehicle;

@@ -1,6 +1,6 @@
 // TODO: Fix that convoy get sometimes stuck ob objects on the road.
 
-private ["_missionMarkerName","_missionType","_picture","_vehicleName","_hint","_waypoint","_waypoints","_group","_vehicles","_marker","_failed","_startTime","_numWaypoints","_boxtype","_ammobox","_createVehicle","_leader"];
+private ["_missionMarkerName","_missionType","_picture","_vehicleName","_target","_hint","_waypoint","_waypoints","_group","_vehicles","_marker","_failed","_startTime","_numWaypoints","_boxtype","_ammobox","_createVehicle","_leader"];
 
 #include "mainMissionDefines.sqf"
 
@@ -17,12 +17,13 @@ _group = createGroup civilian;
 
 // Factory function for vehicle creation
 _createVehicle = {
-    private ["_type","_position","_direction","_group","_vehicle","_soldier"];
+    private ["_type","_turret","_position","_direction","_group","_vehicle","_soldier"];
     
     _type = _this select 0;
-    _position = _this select 1;
-    _direction = _this select 2;
-    _group = _this select 3;
+	_turret = _this select 1;
+    _position = _this select 2;
+    _direction = _this select 3;
+    _group = _this select 4;
     
     _vehicle = _type createVehicle _position;
 	_vehicle setVariable["newVehicle",vChecksum,true];
@@ -40,7 +41,7 @@ _createVehicle = {
     _soldier = [_group, _position] call createRandomSoldier; 
     _soldier moveInCargo [_vehicle, 1];
     _soldier = [_group, _position] call createRandomSoldier; 
-    if (_vehicle isKindOf "B_Hunter_F") then {
+    if (_turret == 0) then {
         _soldier moveInCargo [_vehicle, 2];
     } else {
         _soldier moveInTurret [_vehicle, [0]];
@@ -50,10 +51,11 @@ _createVehicle = {
 };
 
 // Create vehicles
+_target = militaryVehicles call BIS_fnc_selectRandom
 _vehicles = [];
-_vehicles set [0, ["B_Hunter_HMG_F", [3272.0862, 6818.0166, 4.1839767], 110, _group] call _createVehicle];
-_vehicles set [1, ["B_Hunter_F", [3256.6409, 6823.4746, 3.8003173], 110, _group] call _createVehicle];
-_vehicles set [2, ["B_Hunter_RCWS_F", [3240.3447, 6829.6089, 4.275979], 110, _group] call _createVehicle];
+_vehicles set [0, [armedMilitaryVehicles call BIS_fnc_selectRandom, 1, [3272.0862, 6818.0166, 4.1839767], 110, _group] call _createVehicle];
+_vehicles set [1, [_target, 0, [3256.6409, 6823.4746, 3.8003173], 110, _group] call _createVehicle];
+_vehicles set [2, [armedMilitaryVehicles call BIS_fnc_selectRandom, 1, [3240.3447, 6829.6089, 4.275979], 110, _group] call _createVehicle];
 
 // Set the driver of the first vehicle as leader
 _leader = driver (_vehicles select 0);
@@ -105,8 +107,8 @@ _marker setMarkerColor "ColorRed";
 _marker setMarkerText "Convoy";
 
 // Display mission message
-_picture = getText (configFile >> "CfgVehicles" >> "B_Hunter_F" >> "picture");
-_vehicleName = getText (configFile >> "cfgVehicles" >> "B_Hunter_F" >> "displayName");
+_picture = getText (configFile >> "CfgVehicles" >> _target >> "picture");
+_vehicleName = getText (configFile >> "cfgVehicles" >> _target >> "displayName");
 _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A <t color='%4'>%3</t> is convoyed by two armored vehicles. Stop them!</t>", _missionType, _picture, _vehicleName, mainMissionColor, subTextColor];
 messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };

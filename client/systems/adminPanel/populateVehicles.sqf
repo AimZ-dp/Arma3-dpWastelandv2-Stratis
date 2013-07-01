@@ -146,7 +146,7 @@ if (_uid in serverdpAdministrators) then {
 				    };
 					*/
 					if(!(_vehicleType isKindOf "Civilian") and !(_vehicleType isKindOf "SoldierWB") and !(_vehicleType isKindOf "SoldierEB") and !(_vehicleType isKindOf "Logic")) then {
-						_vehicleSummary = format["[Type: %1] [time left: %2]",_vehicleType, 24 - (_x getVariable ["newVehicleCount",0])];
+						_vehicleSummary = format["[Type: %1] [time left: %2]",_vehicleType, objectTimeOut - (_x getVariable ["newVehicleCount",0])];
 						_index = _vehicleListBox lbAdd format["%1",_vehicleSummary];
 						_vehicleListBox lbSetData [_index, str(_x)];
 					};

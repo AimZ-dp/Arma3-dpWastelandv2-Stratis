@@ -7,7 +7,10 @@ player createDiaryRecord["changelog",
 [
 "=(dp)=",
 "
+<br/>1.2<br/>
+		[Updates] Updated the vehicle classes for beta version.<br/>
 <br/>1.1<br/>
+		[Added] Clean up scripts to try keep server smoother.<br/>
 		[Fixed] Updated load in issue with losing ammo and scopes.<br/>
 		[Update] Lots of tweaks to spawning and types of objects.<br/>
 		[Update] Changed lots of scripts to keep server running smooth without need for restarts every day.<br/>

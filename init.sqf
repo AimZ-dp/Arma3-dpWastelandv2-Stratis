@@ -10,9 +10,9 @@
 
 enableSaving[false,false]; 
 
-DEBUG_MESSAGES = true;
-versionName = "v1.1";
-modVersion = "build-1004";
+DEBUG_MESSAGES = false;
+versionName = "v1.2";
+modVersion = "build-1006";
 vChecksum = 1;
 {vChecksum = vChecksum + _x;} forEach (toArray modVersion); 
 
@@ -26,6 +26,9 @@ diag_log format ["####### init.sqf - briefing ######"];
 //init Wasteland Core
 [] execVM "config.sqf";
 [] execVM "briefing.sqf";
+
+objectTimeOut = 10; 
+objectCheckDelay = 10;
 
 if(X_Server) then 
 {

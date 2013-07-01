@@ -6,12 +6,9 @@
 
 if(!X_Server) exitWith {};
 
-private ["_objectTimeOut","_objectCheckDelay","_allMObjects","_vehicleType","_check","_checkCount","_bodyCount","_bodyType"];
+private ["_allMObjects","_vehicleType","_check","_checkCount","_bodyCount","_bodyType"];
 
 diag_log "WASTELAND SERVER - Looking for removeable objects to clean up";
-
-_objectTimeOut = 12; 
-_objectCheckDelay = 10; // checked every 10 sec
 
 while {true} do 
 {
@@ -34,13 +31,12 @@ while {true} do
 				_x setVariable ["newVehicleCount",_checkCount,true];
 			};
 		
-			if(_check != vChecksum and _checkCount >= 24) then
+			if(_check != vChecksum and _checkCount >= objectTimeOut) then
 			{
 				diag_log format["CHECK DELETE - Found removeable objects %1", _vehicleType];
 				deleteVehicle _x;
 			};
 		};
-		//sleep 0.01;
 	} forEach _allMObjects; //entities "All"; // vehicles; 
 
 	{ 
@@ -49,13 +45,12 @@ while {true} do
 		_x setVariable["newBodyCount",_bodyCount,true];
 		
 		_bodyType = Format["%1",typeOf _x];	
-		if(_bodyCount >= _objectTimeOut) then  
+		if(_bodyCount >= objectTimeOut) then  
 		{
 			diag_log format["CHECK DELETE - Found body objects %1", _bodyType];
 			deleteVehicle _x;
 		};
-		//sleep 0.01;
 	} forEach allDead;
 	
-	sleep _objectCheckDelay;
+	sleep objectCheckDelay;
 };
