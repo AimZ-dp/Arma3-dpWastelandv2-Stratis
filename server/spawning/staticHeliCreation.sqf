@@ -21,8 +21,14 @@ clearMagazineCargoGlobal _heli;
 clearWeaponCargoGlobal _heli;
 
 //Set Attributes
-_heli setFuel (0.50);
-_heli setDamage (random 0.25) + 0.25;
+// set status of vehicle
+_heli setFuel (random 0.50) + 0.10;
+_heli setDamage (random 0.25) + 0.50;
+if (count(configFile >> "CfgVehicles" >> (typeOf _heli) >> "Turrets") > 0) then
+{
+	_heli setVehicleAmmo (random 0.75) + 0.25;
+};
+
 
 // position
 _heli setPosATL [getpos _heli select 0,getpos _heli select 1,0.5];

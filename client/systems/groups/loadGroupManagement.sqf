@@ -17,7 +17,7 @@
             
 disableSerialization;
 				
-private ["_start","_dialog","_myGroup","_playerListBox","_groupListBox","_uid","_namestr","_index","_groupCreate","_groupInvite","_groupKick","_groupDisband","_groupLeaveButton","_inGroup","_isLeader","_name"];
+private ["_start","_dialog","_myGroup","_playerListBox","_groupListBox","_uid","_namestr","_index","_groupCreate","_groupInvite","_groupKick","_groupDisband","_groupLeaveButton","_inGroup","_isLeader","_name","_display"];
 
 closeDialog 0;
 _start = createDialog "GroupManagement";			

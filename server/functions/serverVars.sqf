@@ -59,10 +59,10 @@ civilianVehicles = ["C_Offroad_01_F", "C_Quadbike_01_F"];
 
 //Military Vehicle List - Random Spawns
 militaryVehicles = ["B_Quadbike_01_F", "O_Quadbike_01_F", "I_Quadbike_01_F", "B_MRAP_01_F", "O_MRAP_02_F", "I_MRAP_03_F", "B_Truck_01_transport_F", "B_Truck_01_covered_F", "O_Truck_02_covered_F", "O_Truck_02_transport_F", "I_Truck_02_covered_F", "I_Truck_02_transport_F"];
-militaryHelis = ["B_Heli_Light_01_F", "O_Heli_Light_02_unarmed_F", "B_Heli_Transport_01_F", "I_Heli_Transport_02_F"];
+militaryHelis = ["B_Heli_Light_01_F", "O_Heli_Light_02_unarmed_F", "B_Heli_Transport_01_F", "B_Heli_Transport_01_camo_F", "I_Heli_Transport_02_F"];
 
 //Armed Military Vehicle List - Random Spawns
-armedMilitaryVehicles = ["B_MRAP_01_gmg_F", "B_MRAP_01_hmg_F", "O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F", "I_MRAP_03_gmg_F", "I_MRAP_03_hmg_F", "B_APC_Wheeled_01_cannon_F", "O_APC_Wheeled_02_rcws_F"];
+armedMilitaryVehicles = ["B_MRAP_01_gmg_F", "B_MRAP_01_hmg_F", "O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F", "I_MRAP_03_gmg_F", "I_MRAP_03_hmg_F", "B_APC_Wheeled_01_cannon_F", "O_APC_Wheeled_02_rcws_F", "O_APC_Tracked_02_cannon_F", "B_APC_Tracked_01_rcws_F"];
 armedMilitaryHelis = ["B_Heli_Light_01_armed_F", "O_Heli_Light_02_F", "B_Heli_Attack_01_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F"];
 
 //Object List - Random Spawns.
@@ -100,72 +100,92 @@ objectList = [
 ];
 
 //Random Weapon List - Change this to what you want to spawn in cars.
-vehicleWeapons = ["arifle_SDAR_F",
-				"arifle_MXM_F",
-				"arifle_TRG21_F",
-				"arifle_TRG20_F",
-				"arifle_MXC_F",
-                "arifle_MX_SW_F",
-                "arifle_MX_GL_F",
-                "arifle_TRG21_GL_F",
-                "arifle_MX_F",
-                "arifle_Katiba_F",
-                "arifle_Katiba_C_F",
-                "arifle_Katiba_GL_F",
-                "arifle_SDAR_F",
-                "srifle_EBR_F",
-                "LMG_Mk200_F",
-                "hgun_P07_F",
-                "hgun_Rook40_F"];
+vehicleWeapons = [
+	"arifle_SDAR_F",
+	//"arifle_MXM_F",
+	"arifle_TRG21_F",
+	"arifle_TRG20_F",
+	"arifle_TRG21_GL_F",
+	//"arifle_MXC_F",
+	//"arifle_MX_SW_F",
+	//"arifle_MX_GL_F",
+	//"arifle_MX_F",
+	//"arifle_Katiba_F",
+	//"arifle_Katiba_C_F",
+	//"arifle_Katiba_GL_F",
+	//"srifle_EBR_F",
+	"arifle_Mk20_F",
+	"arifle_Mk20C_F",
+	"arifle_Mk20_GL_F",
+	"SMG_01_F",
+	"SMG_02_F",
+	//"LMG_Mk200_F",
+	//"LMG_Zafir_F",
+	"hgun_P07_F",
+	"hgun_Rook40_F",
+	"hgun_ACPC2_F"
+];
+
+removeWeapons = [
+	"arifle_Mk20_GL_ACO_F",
+	"arifle_Mk20_Holo_F",
+	"srifle_LRR_F",
+	"srifle_GM6_F"
+];
 
 vehicleAddition = [
-			"Zasleh2",
-			"muzzle_snds_H",
-			"muzzle_snds_L",
-			"muzzle_snds_B",
-			"muzzle_snds_H_MG",
-			"optic_Arco",
-			"optic_Hamr", 
-			"optic_Aco", 
-			"optic_ACO_grn", 
-			"optic_Holosight", 
-			"acc_flashlight", 
-			"acc_pointer_IR",
-			"Medikit",
-            "FirstAidKit",
-            "ToolKit"
+	"Zasleh2",
+	"muzzle_snds_H",
+	"muzzle_snds_M",
+	"muzzle_snds_L",
+	"muzzle_snds_B",
+	"muzzle_snds_H_MG",
+	"muzzle_snds_acp",
+	"optic_Arco",
+	"optic_Hamr", 
+	"optic_Aco", 
+	"optic_ACO_grn", 
+	"optic_Holosight", 
+	"optic_MRCO",
+	"optic_SOS",
+	"acc_flashlight", 
+	"acc_pointer_IR",
+	"Medikit",
+	"FirstAidKit",
+	"ToolKit"
 ];
 
 vehicleAddition2 = [
 	"Chemlight_blue",
 	"Chemlight_red",
-	"Chemlight_green"
+	"Chemlight_green",
+	"Chemlight_yellow"
 ];
  
 ammoBoxes = [
 	"Box_NATO_Ammo_F",
 	"Box_NATO_Wps_F",
 	"Box_NATO_Grenades_F",
-//	"Box_NATO_WpsLaunch_F",
+	"Box_NATO_WpsLaunch_F", // testing
 	"Box_NATO_AmmoOrd_F",
 	"Box_NATO_WpsSpecial_F",
 	"Box_NATO_Support_F",
 	"Box_East_Ammo_F",
 	"Box_East_Wps_F",
 	"Box_East_Grenades_F",
-//	"Box_East_WpsLaunch_F",
+	"Box_East_WpsLaunch_F", // testing
 	"Box_East_AmmoOrd_F",
 	"Box_East_WpsSpecial_F",
 	"Box_East_Support_F",
-//	"Box_East_AmmoVeh_F",
+	"Box_East_AmmoVeh_F", // testing
 	"Box_IND_Ammo_F",
 	"Box_IND_Wps_F",
 	"Box_IND_Grenades_F",
-//	"Box_IND_WpsLaunch_F",
+	"Box_IND_WpsLaunch_F", // testing 
 	"Box_IND_AmmoOrd_F",
 	"Box_IND_WpsSpecial_F",
-	"Box_IND_Support_F"
-//	"Box_IND_AmmoVeh_F"
+	"Box_IND_Support_F",
+	"Box_IND_AmmoVeh_F" // testing
 ];
                 
 MissionSpawnMarkers = [

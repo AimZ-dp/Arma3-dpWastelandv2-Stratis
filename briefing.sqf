@@ -7,6 +7,13 @@ player createDiaryRecord["changelog",
 [
 "=(dp)=",
 "
+<br/>1.4<br/>
+		[Updates] Updated the vehicle classes for beta version.<br/>
+		[Updates] Changed weapons in some crates.<br/>
+		[Updates] Created a random spawn for vehicles after destroyed.<br/>
+<br/>1.3<br/>
+		[Updates] Updated the weapon classes for beta version.<br/>
+		[Updates] Changed some of the prices in general store.<br/>
 <br/>1.2<br/>
 		[Updates] Updated the vehicle classes for beta version.<br/>
 <br/>1.1<br/>

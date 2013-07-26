@@ -95,6 +95,8 @@ while {_run} do
 		sleep _deserted;
 
 		_type = floor (random (count ammoBoxes));
+		_position = getMarkerPos format ["Spawn_%1", floor (random 118) + 1];
+		
 		[_position, _type] call boxCreation;	
 		_run = false;
 	};

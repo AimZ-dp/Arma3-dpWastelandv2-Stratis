@@ -103,9 +103,11 @@ while {_run} do
 		// there is a maximum of 10 seconds, before the damage is detected...
 		sleep _delay;
 		deleteVehicle _unit;
-		sleep 2;
+		sleep 20;
 		
 		_type = floor (random (count militaryHelis));
+		_position = getMarkerPos format ["heliSpawn_%1", floor (random 24) + 1];
+		
 		[_position, _type] call staticHeliCreation;
 		
 		_run = false;

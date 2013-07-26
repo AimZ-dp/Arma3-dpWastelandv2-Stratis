@@ -1,6 +1,6 @@
 //	@file Version: 1.0
 //	@file Name: loadRespawnDialog.sqf
-//	@file Author: [404] Deadbeat, [404] Costlyy
+//	@file Author: [404] Deadbeat, [404] Costlyy, AimZ =(dp)=
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
@@ -48,6 +48,8 @@ _dynamicControlsArray = [
 }foreach _dynamicControlsArray;
 
 _friendlyTowns = [];
+_friendlyCount = 0;
+_enemyCount = 0;
 _tempArray = [];
 showBeacons = false;
 _inGroup = false;

@@ -8,6 +8,7 @@
 #define playerMenuPlayerObject 55507
 #define playerMenuPlayerHealth 55508
 #define playerMenuWarnMessage 55509
+#define playerMenuPlayerGroup 55510
 
 class PlayersMenu
 {
@@ -21,14 +22,10 @@ class PlayersMenu
 		{
 			idc = -1;
 			text = "client\ui\ui_background_controlers_ca.paa";
-			//x = 0.1875 * safezoneW + safezoneX;
-			//y = 0.15 * safezoneH + safezoneY;
-			//w = 0.837499 * safezoneW;
-			//h = 0.661111 * safezoneH;
-			x = safezoneX;
-			y = safezoneY + 0.25;
-			w = safezoneW * 0.25;
-			h = safezoneH * 0.75;
+			x = 0.1875 * safezoneW + safezoneX;
+			y = 0.15 * safezoneH + safezoneY;
+			w = 0.837499 * safezoneW;
+			h = 0.661111 * safezoneH;
 		};
 
 		class DialogTitleText: w_RscText
@@ -107,6 +104,17 @@ class PlayersMenu
 			w = 0.25 * safezoneW;
 			h = 0.04 * safezoneH;
 		};
+		
+		class PlayerGroupText: w_RscText
+		{
+			idc = playerMenuPlayerGroup;
+			text = "Group:";
+			sizeEx = 0.030;
+			x = 0.52 * safezoneW + safezoneX;
+			y = 0.36 * safezoneH + safezoneY;
+			w = 0.40 * safezoneW;
+			h = 0.04 * safezoneH;
+		};
 	};
 	
 	class controls {
@@ -141,16 +149,15 @@ class PlayersMenu
 			h = 0.04 * safezoneH;
 		};
 
-		class SlayButton: w_RscButton
+		class CameraViewButton: w_RscButton
 		{
 			idc = -1;
-			text = "Slay";
-			onButtonClick = "[2] execVM 'client\systems\adminPanel\playerSelect.sqf'";
+			text = "View";
+			onButtonClick = "[8] execVM 'client\systems\adminPanel\playerSelect.sqf'";
 			x = 0.2 * safezoneW + safezoneX;
 			y = 0.760 * safezoneH + safezoneY;
 			w = 0.05 * safezoneW;
 			h = 0.04 * safezoneH;
-			color[] = {0.95,0.1,0.1,1};
 		};
 
 		class UnlockTeamSwitchButton: w_RscButton
@@ -201,6 +208,18 @@ class PlayersMenu
 			color[] = {0.95,0.1,0.1,1};
 		};
 
+		class SlayButton: w_RscButton
+		{
+			idc = -1;
+			text = "Slay";
+			onButtonClick = "[2] execVM 'client\systems\adminPanel\playerSelect.sqf'";
+			x = 0.420 * safezoneW + safezoneX;
+			y = 0.760 * safezoneH + safezoneY;
+			w = 0.05 * safezoneW;
+			h = 0.04 * safezoneH;
+			color[] = {0.95,0.1,0.1,1};
+		};
+		
 		class CheckPlayerGearButton: w_RscButton
 		{
 			idc = -1;

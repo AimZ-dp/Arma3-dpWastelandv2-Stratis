@@ -1,7 +1,7 @@
 //	@file Version: 1.0
-//	@file Name: vehicleTestSpawn.sqf
-//	@file Author: [404] Costlyy
-//	@file Created: 20/11/2012 05:19
+//	@file Name: cleanObjects.sqf
+//	@file Author: AimZ =(dp)=
+//	@file Created: 24/06/2013
 //	@file Args:
 
 if(!X_Server) exitWith {};

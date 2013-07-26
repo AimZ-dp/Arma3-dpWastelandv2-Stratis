@@ -18,11 +18,14 @@ currentRadarMarkers = [];
 playerCompiledScripts = false;
 playerSetupComplete = false;
 
+camadm = objNull;
+camPos = 0;
+
 waitUntil {!isNull player};
 waitUntil{time > 2};
 
 //Call client compile list.
-player call compile preprocessFileLineNumbers "client\functions\clientCompile.sqf";
+player call compileFinal preprocessFileLineNumbers "client\functions\clientCompile.sqf";
 
 //Stop people being civ's.
 if(!(playerSide in [west, east, resistance])) then {
@@ -57,14 +60,9 @@ waituntil {!(IsNull (findDisplay 46))};
 [] execVM "client\functions\createTownMarkers.sqf";
 [] execVM "client\functions\createGunStoreMarkers.sqf";
 [] execVM "client\functions\createGeneralStoreMarkers.sqf";
-//true execVM "client\functions\loadAtmosphere.sqf";
-[] execVM "client\functions\playerTags.sqf";
-[] execVM "client\functions\groupTags.sqf";
+[] execVM "client\functions\playerIcons.sqf";
 [] call updateMissionsMarkers;
 [] call updateRadarMarkers;
-if (isNil "FZF_IC_INIT") then   {
-	call compile preprocessFileLineNumbers "client\functions\newPlayerIcons.sqf";
-};
 sleep 1;
 true spawn playerSpawn;
-[] spawn FZF_IC_INIT;
+

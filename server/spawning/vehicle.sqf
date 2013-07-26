@@ -103,12 +103,14 @@ while {_run} do
 		// there is a maximum of 10 seconds, before the damage is detected...
 		sleep _delay;
 		deleteVehicle _unit;
-		sleep 2;
+		sleep 20;
 		
 		_num = floor (random 100);
 		if (_num < 100) then {_type = 0;};
 		if (_num < 50) then {_type = 1;};
-		if (_num < 2) then {_type = 2;};
+		//if (_num < 2) then {_type = 2;};
+		_position = getMarkerPos format ["Spawn_%1", floor (random 118) + 1];
+		
 		[_position, _type] call vehicleCreation;
 		_run = false;
 	};

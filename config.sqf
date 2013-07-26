@@ -8,53 +8,92 @@
 // Text name, classname, buy cost, sell amount
 weaponsArray = [
     //Handgun
-    ["P07","hgun_P07_F",40,20],
-    ["Rook40","hgun_Rook40_F",40,20], 
+    ["P07","hgun_P07_F",40,20],	
+    ["Rook40","hgun_Rook40_F",40,20], 	
+	["ACPC2","hgun_ACPC2_F",40,20], 	
     //Underwater Gun
-	["SDAR","arifle_SDAR_F",100,50],
+	["SDAR","arifle_SDAR_F",100,50],		
     //Assault Rifle
-    ["TRG-20","arifle_TRG20_F",100,50],
-	["TRG-21","arifle_TRG21_F",100,50],
-    ["TRG-21 GL","arifle_TRG21_GL_F",200,75],
-    ["Katiba","arifle_Katiba_F",100,50],
-    ["Katiba Carabine","arifle_Katiba_C_F",100,50],
-    ["Katiba GL","arifle_Katiba_GL_F",200,75],	
-	["MX","arifle_MX_F",100,50],
+    ["TRG-20","arifle_TRG20_F",100,50],	
+	["TRG-21","arifle_TRG21_F",100,50],	
+    ["TRG-21 GL","arifle_TRG21_GL_F",200,75],	
+    ["Katiba","arifle_Katiba_F",100,50],		
+    ["Katiba Carabine","arifle_Katiba_C_F",100,50], 
+    ["Katiba GL","arifle_Katiba_GL_F",200,75],
+	["MX","arifle_MX_F",100,50],	
     ["MXC","arifle_MXC_F",100,50],
     ["MX 3GL","arifle_MX_GL_F",200,75],
     ["MX SW","arifle_MX_SW_F",250,100],
-    ["MXM","arifle_MXM_F",450,200],
+    ["MXM","arifle_MXM_F",450,200],		
+    ["Mk20","arifle_Mk20_F",450,200],			
+    ["Mk20C","arifle_Mk20C_F",450,200],			
+    ["Mk20 GL","arifle_Mk20_GL_F",450,200],	
+	//SMG
+	["Vermin SMG","SMG_01_F",200,75], 
+	["Scorpion EVO-4","SMG_02_F",200,75],	
    	//Light Machine Gun
-    ["Mk200","LMG_Mk200_F",250,100],
+    ["Mk200","LMG_Mk200_F",250,100],	
+    ["Zafir","LMG_Zafir_F",250,100],	
    	//Rocket
-    ["NLAW","launch_NLAW_F",300,200],
+    ["NLAW","launch_NLAW_F",300,200],		
     ["RPG-32 Alamut","launch_RPG32_F",300,200],
+    ["Titan","launch_Titan_F",300,200],	
+    ["Titan (Compact)","launch_Titan_short_F",300,200],	
+	
    	//Sniper
     ["EBR","srifle_EBR_F",450,200],
-	["M320 LRR","srifle_LRR_SOS_f",650,300],
-	["Lynx GM6", "srifle_GM6_SOS_f",650,300]
+	["M320 LRR","srifle_LRR_F",550,300],		
+	["Lynx GM6","srifle_GM6_F",550,300]	
 ];
 
 //Gun Store Ammo List
 //Text name, classname, buy cost
 ammoArray = [
-	["9mm 16Rnd Mag","16Rnd_9x21_Mag",10],
-	["9mm 16Rnd Mag","30Rnd_9x21_Mag",15],
-	["5.56mm 20Rnd UW Mag","20Rnd_556x45_UW_mag",15],
+	["9mm 16Rnd Mag","16Rnd_9x21_Mag",10],	
+	["9mm 30Rnds Mag","30Rnd_9x21_Mag",30], 		
+	[".45 ACP 9Rnd Mag","9Rnd_45ACP_Mag",15],	
+	["5.56mm 20Rnd UW Mag","20Rnd_556x45_UW_mag",15],	
 	["5.56mm 30Rnd STANAG Mag","30Rnd_556x45_Stanag",15],
-    ["6.5mm 30Rnd C Mag","30Rnd_65x39_case_mag",25],
-	["6.5mm 30Rnd C Mag (Tracer)","30Rnd_65x39_case_mag_Tracer",25],
-	["6.5mm 30Rnd CL Mag","30Rnd_65x39_caseless_mag",30],
-	["6.5mm 30Rnd CL Mag (Tracer)","30Rnd_65x39_caseless_mag_Tracer",30],	
-	["6.5mm 100Rnd CL Mag","100Rnd_65x39_caseless_mag",50],	
+	["5.56mm 30Rnd STANAG Mag (Red)","30Rnd_556x45_Stanag_Tracer_Red",15],
+	["5.56mm 30Rnd STANAG Mag (Green)","30Rnd_556x45_Stanag_Tracer_Green",15],
+	["5.56mm 30Rnd STANAG Mag (Yellow)","30Rnd_556x45_Stanag_Tracer_Yellow",15],	
+    //["6.5mm 30Rnd C Mag","30Rnd_65x39_case_mag",25],
+	//["6.5mm 30Rnd C Mag (Tracer)","30Rnd_65x39_case_mag_Tracer",25],
+	["6.5mm 30Rnd CL Mag","30Rnd_65x39_caseless_mag",30],		
+	["6.5mm 30Rnd CL Mag (Tracer)","30Rnd_65x39_caseless_mag_Tracer",30],
+	["6.5mm 100Rnd CL Mag","100Rnd_65x39_caseless_mag",50],			
 	["6.5mm 100Rnd CL Mag (Tracer)","100Rnd_65x39_caseless_mag_Tracer",50],
 	["6.5mm 30Rnd CL Mag (Katiba)","30Rnd_65x39_caseless_green",30],	
 	["6.5mm 30Rnd CL Mag (Katiba, Tracer)","30Rnd_65x39_caseless_green_mag_Tracer",30],
-	["7.62mm 20Rnd Mag","20Rnd_762x51_Mag",40],
-	["6.5mm 200Rnd Belt","200Rnd_65x39_cased_Box",50],
-	["6.5mm 200Rnd Belt (Tracer)","200Rnd_65x39_cased_Box_Tracer",50],
-	["12.7mm 5Rnd Mag (GM6)","5Rnd_127x108_Mag",100], 
-	[".408 7Rnds Mag (LRR)","7Rnd_408_Mag",100], 
+	["7.62mm 20Rnd Mag","20Rnd_762x51_Mag",40],			
+	["6.5mm 200Rnd Belt","200Rnd_65x39_cased_Box",50],			
+	["6.5mm 200Rnd Belt (Tracer)","200Rnd_65x39_cased_Box_Tracer",50],	
+	["7.62mm 150Rnd Box","150Rnd_762x51_Box",50],				
+	["7.62mm 150Rnd Box (Tracer)","150Rnd_762x51_Box_Tracer",50],			
+	["12.7mm 5Rnd Mag (GM6)","5Rnd_127x108_Mag",100], 	
+	[".408 7Rnds Mag (LRR)","7Rnd_408_Mag",100], 	
+	
+	[".45 ACP 30Rnds Mag","30Rnd_45ACP_Mag_SMG_01",30], 	
+	[".45 ACP 30Rnds Mag (Tracer)","30Rnd_45ACP_Mag_SMG_01_tracer_green",30], 
+
+	["NLAW Missile","NLAW_F",100],	
+    ["RPG32 Missile","RPG32_F",100],	
+    ["RPG32 AA Missile","RPG32_AA_F",100],	
+    ["Titan AA Missile","Titan_AA",100],		
+    ["Titan (Compact) AT Missile","Titan_AT",100],	
+    ["Titan (Compact) AP Missile","Titan_AP",100],	
+	
+	["Mini Grenade", "MiniGrenade", 100],
+	["Hand Grenade", "HandGrenade", 100],
+    ["AT Mine","ATMine_Range_Mag",100],
+    ["APERS Mine","APERSMine_Range_Mag",100],
+    ["APERS Bounding Mine","APERSBoundingMine_Range_Mag",100],
+    ["M6 SLAM Mine","SLAMDirectionalMine_Wire_Mag",100],
+    ["APERS Tripwire Mine","APERSTripMine_Wire_Mag",100],
+    ["Claymore Charge","ClaymoreDirectionalMine_Remote_Mag",100],
+	["Explosive Charge","DemoCharge_Remote_Mag",100],
+    ["Explosive Satchel","SatchelCharge_Remote_Mag",100],	
+	
 	["1Rnd GL Flare (White)","UGL_FlareWhite_F",45],
 	["1Rnd GL Flare (Green)","UGL_FlareGreen_F",45],
 	["1Rnd GL Flare (Red)","UGL_FlareRed_F",45],
@@ -81,30 +120,30 @@ ammoArray = [
 	["3Rnd Smoke Grenade Shell (Purple)","3Rnd_SmokePurple_Grenade_shell",45],
 	["3Rnd Smoke Grenade Shell (Blue)","3Rnd_SmokeBlue_Grenade_shell",45],
 	["3Rnd Smoke Grenade Shell (Orange)","3Rnd_SmokeOrange_Grenade_shell",45],
-	["NLAW Missile","NLAW_F",100],
-    ["RPG32 Missile","RPG32_F",100],
-    ["RPG32 AA Missile","RPG32_AA_F",100],
-	["Mini Grenade", "MiniGrenade", 100],
-	["Hand Grenade", "HandGrenade", 100],
-    ["AT Mine","ATMine_Range_Mag",100],
-    ["APERS Mine","APERSMine_Range_Mag",100],
-    ["APERS Bounding Mine","APERSBoundingMine_Range_Mag",100],
-    ["M6 SLAM Mine","SLAMDirectionalMine_Wire_Mag",100],
-    ["APERS Tripwire Mine","APERSTripMine_Wire_Mag",100],
-    ["Claymore Charge","ClaymoreDirectionalMine_Remote_Mag",100],
-	["Explosive Charge","DemoCharge_Remote_Mag",100],
-    ["Explosive Satchel","SatchelCharge_Remote_Mag",100],
+
+	["Chemlight (Blue)", "Chemlight_blue", 10],
+	["Chemlight (Green)", "Chemlight_green", 10],
+	["Chemlight (Red)", "Chemlight_red", 10],
+	["Chemlight (Yellow)", "Chemlight_yellow", 10],
+	
 	["SmokeShell", "SmokeShell", 10],
-	["SmokeShellRed", "SmokeShellRed", 10],
-	["SmokeShellGreen", "SmokeShellGreen", 10],
-	["SmokeShellYellow", "SmokeShellYellow", 10],
-	["SmokeShellPurple", "SmokeShellPurple", 10],
-	["SmokeShellBlue", "SmokeShellBlue", 10],
-	["SmokeShellOrange", "SmokeShellOrange", 10],
-	["Chemlight_blue", "Chemlight_blue", 10],
-	["Chemlight_green", "Chemlight_green", 10],
-	["Chemlight_red", "Chemlight_red", 10],
-	["Chemlight_yellow", "Chemlight_yellow", 10]
+	["SmokeShell (Red)", "SmokeShellRed", 10],
+	["SmokeShell (Green)", "SmokeShellGreen", 10],
+	["SmokeShell (Yellow)", "SmokeShellYellow", 10],
+	["SmokeShell (Purple)", "SmokeShellPurple", 10],
+	["SmokeShell (Blue)", "SmokeShellBlue", 10],
+	["SmokeShell (Orange)", "SmokeShellOrange", 10]
+	
+//	["SmokeLauncherMag","SmokeLauncherMag",45],								// good
+//	["FlareLauncherMag","FlareLauncherMag",45],								// good
+//	["60Rnd_CMFlareMagazine","60Rnd_CMFlareMagazine",45],					// good
+//	["120Rnd_CMFlareMagazine","120Rnd_CMFlareMagazine",45],					// good
+//	["60Rnd_CMFlare_Chaff_Magazine","60Rnd_CMFlare_Chaff_Magazine",45],		// good
+//	["120Rnd_CMFlare_Chaff_Magazine","120Rnd_CMFlare_Chaff_Magazine",45],	// good
+//	["168Rnd_CMFlare_Chaff_Magazine","168Rnd_CMFlare_Chaff_Magazine",45],	// good
+//	["192Rnd_CMFlare_Chaff_Magazine","192Rnd_CMFlare_Chaff_Magazine",45],	// good
+//	["240Rnd_CMFlare_Chaff_Magazine","240Rnd_CMFlare_Chaff_Magazine",45],	// good
+//	["300Rnd_CMFlare_Chaff_Magazine","300Rnd_CMFlare_Chaff_Magazine",45],	// good
 ];
 
 //Gun Store Equipment List
@@ -116,26 +155,28 @@ accessoriesArray = [
 	["Binoculars","Binocular",100,"binoc"],
 	["Range Finder","Rangefinder", 200,"binoc"],
 	["NV Goggles","NVGoggles",100,"item"],
-	["Dive Goggles","G_Diving", 100,"gogg"],
 	
     ["First Aid Kit","FirstAidKit", 100,"item"],
     ["Medical kit","Medikit", 250,"item"],
     ["Tool kit","ToolKit", 250,"item"],
 
-    ["Flash Light","acc_flashlight", 100,"item"],
-	["IR Pointer","acc_pointer_IR", 100,"item"],
+    ["Flash Light","acc_flashlight", 100,"item"], 
+	["IR Pointer","acc_pointer_IR", 100,"item"], 
 	
-  	["Suppressor 9mm","muzzle_snds_L", 100,"item"],
-    ["Suppressor 6.5mm","muzzle_snds_H", 200,"item"],
-    ["Suppressor 6.5mm (LMG)","muzzle_snds_H_MG", 200,"item"],
-    ["Suppressor 7.62mm","muzzle_snds_B", 200,"item"],
+  	["Suppressor 9mm","muzzle_snds_L", 100,"item"],	
+	["Suppressor ACP","muzzle_snds_acp", 100,"item"], 
+	["Suppressor 5.56mm","muzzle_snds_M", 150,"item"],
+    ["Suppressor 6.5mm","muzzle_snds_H", 200,"item"],	
+    ["Suppressor 6.5mm (LMG)","muzzle_snds_H_MG", 200,"item"], 
+    ["Suppressor 7.62mm","muzzle_snds_B", 200,"item"],	
 		
-    ["Holosight","optic_Holosight", 100,"item"],
-    ["ACO Sight","optic_Aco", 100,"item"],
+    ["Holosight","optic_Holosight", 100,"item"], 
+    ["ACO Sight","optic_Aco", 100,"item"],	
 	["ACO Sight(Green)","optic_ACO_grn", 100,"item"], 
-	["RCO Sight","optic_Hamr", 250,"item"],
-    ["ARCO Sight","optic_Arco", 250,"item"],
-	["SOS Sight(LR)","optic_SOS", 300,"item"]
+	["RCO Sight","optic_Hamr", 250,"item"],	
+    ["ARCO Sight","optic_Arco", 250,"item"], 
+	["MRCO Sight","optic_MRCO", 250,"item"], 
+	["SOS Sight(LR)","optic_SOS", 300,"item"] 
 ];
 
 uniformArray = [	
@@ -184,7 +225,7 @@ uniformArray = [
     ["Cap (Blue)","H_Cap_blu", 100,"hat"],
     ["Cap (SERO)","H_Cap_brn_SERO", 100,"hat"],
     ["Pilot Cap","H_Cap_headphones", 100,"hat"],
-
+	
 	["Assault Pack (Black)","B_AssaultPack_blk",300,"backpack"],
 	["Assault Pack (Coyote)","B_AssaultPack_cbr",300,"backpack"],
 	["Assault Pack (Digi)","B_AssaultPack_dgtl",300,"backpack"],
@@ -220,12 +261,12 @@ uniformArray = [
 generalStore = [
 	["Bottled Water","water",localize "STR_WL_ShopDescriptions_Water","client\icons\water.paa",30,15],
 	["Canned Food","canfood",localize "STR_WL_ShopDescriptions_CanFood","client\icons\cannedfood.paa",30,15],
-	["Repair Kit","repairkits",localize "STR_WL_ShopDescriptions_RepairKit","client\icons\briefcase.paa",1000,500],
-	["Medical Kit","medkits",localize "STR_WL_ShopDescriptions_MedKit","client\icons\medkit.paa",400,200],
+	["Repair Kit","repairkits",localize "STR_WL_ShopDescriptions_RepairKit","client\icons\briefcase.paa",200,100],
+	["Medical Kit","medkits",localize "STR_WL_ShopDescriptions_MedKit","client\icons\medkit.paa",200,100],
 	["Jerry Can (Full)","fuelFull",localize "STR_WL_ShopDescriptions_fuelFull","client\icons\jerrycan.paa",150,75],
-    ["Jerry Can (Empty)","fuelEmpty",localize "STR_WL_ShopDescriptions_fuelEmpty","client\icons\jerrycan.paa",50,25],
-	["Spawn Beacon","spawnBeacon",localize "STR_WL_ShopDescriptions_spawnBeacon","",3000,1500],
-    ["Slum Canvas (Black)", "camonet", localize "STR_WL_ShopDescriptions_Camo", "",300,150]  
+    ["Jerry Can (Empty)","fuelEmpty",localize "STR_WL_ShopDescriptions_fuelEmpty","client\icons\jerrycan.paa",50,25]
+	//["Spawn Beacon","spawnBeacon",localize "STR_WL_ShopDescriptions_spawnBeacon","",3000,1500],
+    //["Slum Canvas (Black)", "camonet", localize "STR_WL_ShopDescriptions_Camo", "",300,150]  
 ];
 
 // Chernarus town and city array

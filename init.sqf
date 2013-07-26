@@ -6,13 +6,13 @@
 //	@file Args:
 
 // reset BIS_fnc_mp
-"BIS_fnc_MP_packet" addPublicVariableEventHandler {};
+//"BIS_fnc_MP_packet" addPublicVariableEventHandler {};
 
 enableSaving[false,false]; 
 
 DEBUG_MESSAGES = false;
-versionName = "v1.2";
-modVersion = "build-1006";
+versionName = "v1.4";
+modVersion = "build-1009";
 vChecksum = 1;
 {vChecksum = vChecksum + _x;} forEach (toArray modVersion); 
 
@@ -27,7 +27,7 @@ diag_log format ["####### init.sqf - briefing ######"];
 [] execVM "config.sqf";
 [] execVM "briefing.sqf";
 
-objectTimeOut = 10; 
+objectTimeOut = 15; 
 objectCheckDelay = 10;
 
 if(X_Server) then 

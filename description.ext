@@ -8,13 +8,13 @@ class Header
 {
 	gameType=Wasteland;
 	minPlayers=1;
-	maxPlayers=65;
+	maxPlayers=64;
 };
 
 OnLoadMission = "Wasteland is a harsh survival sandbox where 2 teams and independent players fight for survival";
 loadScreen = "Loading.jpg";
 OnLoadName = "dp Wasteland";
-author="=(dp)= Server, (AimZ)";
+author="=(dp)= Server";
 
 //Dialog includes
 #include "addons\R3F_ARTY_AND_LOG\desc_include.h"

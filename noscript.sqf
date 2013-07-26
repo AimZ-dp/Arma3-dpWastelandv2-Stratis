@@ -1,2 +1,2 @@
 //Empty Script
-call compile format ["%1", _this select 3];
+call compileFinal format ["%1", _this select 3];

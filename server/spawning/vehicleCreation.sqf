@@ -27,16 +27,17 @@ clearMagazineCargoGlobal _car;
 clearWeaponCargoGlobal _car;
 	
 //Set Cars Attributes
-_car setFuel (0.50);
-_car setDamage (random 0.50) + 0.25;
+_car setFuel (random 0.50) + 0.10;
+_car setDamage (random 0.25) + 0.50;
 
 // position car
 _car setPosATL [getpos _car select 0,getpos _car select 1,0.5];
 _car setVelocity [0,0,0.1];
 _car setDir (random 360);
 
-if (_type > 0) then {
-	_car setVehicleAmmo (random 0.90);
+if (count(configFile >> "CfgVehicles" >> (typeOf _car) >> "Turrets") > 0) then
+{
+	_car setVehicleAmmo (random 0.75) + 0.25;
 };
 
 //_car disableTIEquipment true;

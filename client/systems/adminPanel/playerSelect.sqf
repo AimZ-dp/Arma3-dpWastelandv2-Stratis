@@ -11,8 +11,12 @@
 
 disableSerialization;
 
-private ["_dialog","_playerListBox","_spectateButton","_switch","_index","_modSelect","_playerData","_target","_check","_spectating","_camadm","_rnum","_warnText","_targetUID","_playerName"];
+private ["_dialog","_playerListBox","_spectateButton","_switch","_index","_modSelect","_playerData","_target","_check","_spectating","_camadm","_camPos","_warnText","_targetUID","_playerName","_player","_adminName"];
 _uid = getPlayerUID player;
+
+//camadm = objNull;
+//camPos = 0;
+
 if (_uid in serverdpAdministrators) then {
 	_dialog = findDisplay playerMenuDialog;
 	_playerListBox = _dialog displayCtrl playerMenuPlayerList;
@@ -40,45 +44,37 @@ if (_uid in serverdpAdministrators) then {
 			if (_spectating == "Spectate") then {
 				_spectateButton ctrlSetText "Spectating";
 				player commandChat format ["Viewing %1.", name _target];
+
+				camadm = "camera" camCreate ([(position vehicle _target select 0) - 5,(position vehicle _target select 1), (position vehicle _target select 2) + 10]);
+				camadm cameraEffect ["external", "TOP"];
+				camadm camSetTarget (vehicle _target);
+				camadm camCommit 0;
 				
-				camDestroy _camadm;
-				_camadm = "camera" camCreate ([(position vehicle _target select 0) - 5,(position vehicle _target select 1), (position vehicle _target select 2) + 10]);
-				_camadm cameraEffect ["external", "TOP"];
-				_camadm camSetTarget (vehicle _target);
-				_camadm camCommit 1;
-							
-				_rnum = 0;
-				while {ctrlText _spectateButton == "Spectating"} do {
-					switch (_rnum) do 
-					{
-						if (daytime > 19 || daytime < 5) then {camUseNVG true;} else {camUseNVG false;};
-						case 0: {detach _camadm; _camadm attachTo [(vehicle _target), [0,-10,4]]; _camadm setVectorUp [0, 1, 5];}; 
-						case 1: {detach _camadm; _camadm attachTo [(vehicle _target), [0,10,4]]; _camadm setDir 180; _camadm setVectorUp [0, 1, -5];};
-						case 2: {detach _camadm; _camadm attachTo [(vehicle _target), [0,1,50]]; _camadm setVectorUp [0, 50, 1];};
-						case 3: {detach _camadm; _camadm attachTo [(vehicle _target), [-10,0,2]]; _camadm setDir 90; _camadm setVectorUp [0, 1, 5];};
-						case 4: {detach _camadm; _camadm attachTo [(vehicle _target), [10,0,2]]; _camadm setDir -90; _camadm setVectorUp [0, 1, -5];};                                                                        
-					};
-					player commandchat "Viewing cam " + str(_rnum) + " on " + str(name vehicle _target);
-					_rnum = _rnum + 1;
-					if (_rnum > 4) then {_rnum = 0;};
-					sleep 5;
-				};
-			} else {
+				detach camadm;
+				camadm attachTo [(vehicle _target), [0,-10,4]]; 
+				camadm setVectorUp [0, 1, 5];
+				
+				camPos = 1;
+				//if (daytime > 19 || daytime < 5) then {camUseNVG true;} else {camUseNVG false;};				
+			} 
+			else 
+			{
 				_spectateButton ctrlSetText "Spectate";
 				player commandchat format ["No Longer Viewing.", name _target];
 				player cameraEffect ["terminate","back"];
-				camDestroy _camadm;
+				camDestroy camadm;
 			};
 		};
 		case 1: //Warn
 		{
 			_warnText = ctrlText _warnMessage;
-	        _playerName = name player;
-			//[_target, format["if (name player == ""%2"") then {titleText [""Admin %3: %1"", ""plain""]; titleFadeOut 10;};",_warnText,name _target,_playerName], false] spawn fn_vehicleInit;
+	        _adminName = name player;
+			_playerName = name _target;
+	        [[[_warnText,_playerName,_adminName],"client\functions\warnMessage.sqf"],"BIS_fnc_execVM",nil,false] spawn BIS_fnc_MP;
 		};
-	    case 2: //Slay
+		case 2: //Slay
 	    {
-			[_target, format["if (name player == ""%1"") then {player setdamage 1; Endmission ""END1"";failMission ""END1"";forceEnd; deletevehicle player;};",name _target], false] spawn fn_vehicleInit;
+			[[[name _target],"client\functions\slayPlayer.sqf"],"BIS_fnc_execVM",nil,false] spawn BIS_fnc_MP;
 	    };
 	    case 3: //Unlock Team Switcher
 	    {      
@@ -88,11 +84,12 @@ if (_uid in serverdpAdministrators) then {
 			    {
 			    	pvar_teamSwitchList set [_forEachIndex, "REMOVETHISCRAP"];
 					pvar_teamSwitchList = pvar_teamSwitchList - ["REMOVETHISCRAP"];
-			        publicVariableServer "pvar_teamSwitchList";
-	                
-	                [_target, format["if (name player == ""%1"") then {client_firstSpawn = nil;};",name _target], false] spawn fn_vehicleInit;
-                
-	                [player, format["if isServer then {publicVariable 'pvar_teamSwitchList';};"], false] spawn fn_vehicleInit;
+			        //publicVariableServer "pvar_teamSwitchList";
+					publicVariable "pvar_teamSwitchList";
+
+	                [format["if (name player == ""%1"") then {client_firstSpawn = nil;};",name _target],"BIS_fnc_spawn",nil,false] spawn BIS_fnc_MP;
+					
+					//[format["if isServer then {publicVariable 'pvar_teamSwitchList';};"],"BIS_fnc_spawn",false,false] spawn BIS_fnc_MP;
 			    };
 			}forEach pvar_teamSwitchList;			
 	    };
@@ -104,9 +101,10 @@ if (_uid in serverdpAdministrators) then {
 			    {
 			    	pvar_teamKillList set [_forEachIndex, "REMOVETHISCRAP"];
 					pvar_teamKillList = pvar_teamKillList - ["REMOVETHISCRAP"];
-			        publicVariableServer "pvar_teamKillList"; 
-	                
-	                [player, format["if isServer then {publicVariable 'pvar_teamKillList';};"], false] spawn fn_vehicleInit;
+			        //publicVariableServer "pvar_teamKillList"; 
+					publicVariable "pvar_teamKillList"; 
+
+					//[format["if isServer then {publicVariable 'pvar_teamKillList';};"],"BIS_fnc_spawn",false,false] spawn BIS_fnc_MP;
 			    };
 			}forEach pvar_teamKillList;       		
 	    };
@@ -122,13 +120,7 @@ if (_uid in serverdpAdministrators) then {
 	    };
         case 6: //Remove All Weapons
 	    {      
-			_targetUID = getPlayerUID _target;
-	        {
-			    if(getPlayerUID _x == _targetUID) then
-			    {
-  					removeAllWeapons _x;
-			    };
-			}forEach playableUnits;       		
+			[[[name _target],"client\functions\removeWeapons.sqf"],"BIS_fnc_execVM",nil,false] spawn BIS_fnc_MP;
 	    };
         case 7: //Check Player Gear
 	    {      
@@ -139,6 +131,24 @@ if (_uid in serverdpAdministrators) then {
   					createGearDialog [_x, "RscDisplayGear"];
 			    };
 			}forEach playableUnits;        		
+	    };
+        case 8: //Change camera view position
+	    {      
+			_spectating = ctrlText _spectateButton;
+			camPos = camPos + 1;
+			if (camPos > 4) then {camPos = 0;};			
+
+			if (_spectating == "Spectating" && camadm != objNull) then {
+
+				switch (camPos) do 
+				{
+					case 0: {detach camadm; camadm attachTo [(vehicle _target), [0,-10,4]]; camadm setVectorUp [0, 1, 5];}; 
+					case 1: {detach camadm; camadm attachTo [(vehicle _target), [0,10,4]]; camadm setDir 180; camadm setVectorUp [0, 1, -5];};
+					case 2: {detach camadm; camadm attachTo [(vehicle _target), [0,1,50]]; camadm setVectorUp [0, 50, 1];};
+					case 3: {detach camadm; camadm attachTo [(vehicle _target), [-10,0,2]]; camadm setDir 90; camadm setVectorUp [0, 1, 5];};
+					case 4: {detach camadm; camadm attachTo [(vehicle _target), [10,0,2]]; camadm setDir -90; camadm setVectorUp [0, 1, -5];};                                                                        
+				};
+			};			
 	    };
 	};
 } else {

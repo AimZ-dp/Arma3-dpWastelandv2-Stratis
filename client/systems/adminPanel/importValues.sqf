@@ -19,6 +19,7 @@
 #define playerMenuPlayerList 55505
 #define playerMenuPlayerObject 55507
 #define playerMenuPlayerHealth 55508
+#define playerMenuPlayerGroup 55510
 
 disableSerialization;
 
@@ -40,6 +41,7 @@ if (_uid in serverdpAdministrators) then {
 	_currentGunText = _dialogPlayer displayCtrl playerMenuPlayerGun;
 	_itemsText = _dialogPlayer displayCtrl playerMenuPlayerItems;
 	_posText = _dialogPlayer displayCtrl playerMenuPlayerPos;
+	_groupText = _dialogPlayer displayCtrl playerMenuPlayerGroup;
 	_healthText = _dialogPlayer displayCtrl playerMenuPlayerHealth;
 	_objectText = _dialogPlayer displayCtrl playerMenuPlayerObject;
 	_playerListBox = _dialogPlayer displayCtrl playerMenuPlayerList;
@@ -73,6 +75,12 @@ if (_uid in serverdpAdministrators) then {
 	            _posText ctrlSetText format["Position: %1",position _x];
 	            _objectText ctrlSetText format["Slot: %1",_x];
 	            
+				_playerGrp = [];
+				{
+					_playerGrp set [count _playerGrp, name _x];
+				} foreach units group _x;
+				_groupText ctrlSetText format["Group: %1",_playerGrp];
+				
 	            //Calculate Health 0 - 100
 				_decimalPlaces = 2;
 				_health = damage _x;

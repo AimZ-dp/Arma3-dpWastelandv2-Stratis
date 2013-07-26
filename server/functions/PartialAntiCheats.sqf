@@ -148,7 +148,7 @@ diag_log "ANTI-HACK 0.6.7: Adding public variable handler";
 	
 	sleep 0.5;
 	
-	[call compile format ["[{ player commandChat '[ANTI-HACK NOTICE] %1 was kicked for using cheating scripts.'; }]", _playerName], "BIS_fnc_spawn", true, false] call BIS_fnc_MP;
+	[call compileFinal format ["[{ player commandChat '[ANTI-HACK NOTICE] %1 was kicked for using cheating scripts.'; }]", _playerName], "BIS_fnc_spawn", true, false] call BIS_fnc_MP;
 	diag_log format ["ANTI-HACK 0.6.7: %1 (%2) was kicked for '%3' with the value '%4'", _playerName, _playerID, _hackType, _hackValue];
 };
 
