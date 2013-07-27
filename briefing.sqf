@@ -7,6 +7,9 @@ player createDiaryRecord["changelog",
 [
 "=(dp)=",
 "
+<br/>1.5<br/>
+		[Updates] Included new missions.<br/>
+		[Updates] Changed the way vehicles desertion time works.<br/>
 <br/>1.4<br/>
 		[Updates] Updated the vehicle classes for beta version.<br/>
 		[Updates] Changed weapons in some crates.<br/>

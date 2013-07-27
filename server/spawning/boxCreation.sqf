@@ -22,8 +22,6 @@ _box setVariable["newVehicle",vChecksum,true];
 _weapons = getWeaponCargo _box;
 _weapontype = _weapons select 0;
 _weaponcount = _weapons select 1;
-diag_log format["WASTELAND SERVER - weapon type %1",_weapontype];
-diag_log format["WASTELAND SERVER - weapon count %1",_weaponcount];
 	
 clearWeaponCargoGlobal _box;
 {

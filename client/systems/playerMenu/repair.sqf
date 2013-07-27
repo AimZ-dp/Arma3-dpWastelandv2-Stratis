@@ -70,7 +70,7 @@ if(((damage _currVehicle) > 0.05) OR !(canMove _currVehicle) OR (_currVehicle is
    		};
     };
 } else {
-	{[_currVehicle, _x, 0] call client_setHit;} forEach ["HitGlass1", "HitGlass2", "HitGlass3", "HitGlass4", "HitGlass5", "HitGlass6"];
+	//{[_currVehicle, _x, 0] call client_setHit;} forEach ["HitGlass1", "HitGlass2", "HitGlass3", "HitGlass4", "HitGlass5", "HitGlass6"];
 	hint "Vehicle does not need repairing";
 };
 

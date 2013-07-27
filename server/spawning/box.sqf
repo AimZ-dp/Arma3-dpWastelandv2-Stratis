@@ -45,7 +45,7 @@
 
 if (!isServer) exitWith {};
 
-private ["_unit","_delay","_deserted","_respawns","_run","_explode","_dynamic","_position","_type","_dead"];
+private ["_unit","_delay","_deserted","_respawns","_run","_explode","_dynamic","_position","_type","_dead","_randomTime"];
 
 // Define variables
 _unit = _this select 0;
@@ -63,11 +63,12 @@ _position = getPosASL _unit;
 _type = typeOf _unit;
 _dead = false;
 _timeout = time;
+_randomTime = random 1200; 
  
 while {_run} do 
 {
 	_dammage = getDammage _unit;
-
+/*
 	// check if empty
 	_contentWeapon = (getWeaponCargo _unit) select 0;
 	if (count _contentWeapon < 1) then 
@@ -75,6 +76,30 @@ while {_run} do
 		_dead = true;
 		_deserted = 120;
 		_delay = 240;
+	};
+*/		
+	// Check if the vehicle is deserted
+	if (_deserted > 0) then
+	{
+		if (_dammage <= 0.90) then 
+		{
+			_curtime = time;
+
+			if (_curtime  > (_timeout + _deserted + _randomTime)) then
+			{
+				_dead = true;
+				_delay = 0;
+				_deserted = 120;
+			}	
+			else 
+			{
+				_unit setVariable ["timeout", (_timeout + _deserted + _randomTime) - _curtime, true];
+			}
+		}
+		else
+		{
+			_timeout = time;
+		};
 	};
 	
 	// check for badly broken

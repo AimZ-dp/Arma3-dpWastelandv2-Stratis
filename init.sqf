@@ -11,8 +11,8 @@
 enableSaving[false,false]; 
 
 DEBUG_MESSAGES = false;
-versionName = "v1.4";
-modVersion = "build-1009";
+versionName = "v1.5";
+modVersion = "build-1011";
 vChecksum = 1;
 {vChecksum = vChecksum + _x;} forEach (toArray modVersion); 
 

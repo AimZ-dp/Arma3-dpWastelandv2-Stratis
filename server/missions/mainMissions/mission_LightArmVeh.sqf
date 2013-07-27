@@ -61,7 +61,7 @@ waitUntil
 };
 
 _vehicle setVehicleLock "UNLOCKED";
-_vehicle disableTIEquipment true;
+//_vehicle disableTIEquipment true;
 _vehicle setVariable ["R3F_LOG_disabled", false, true];
 
 if(_result == 1) then

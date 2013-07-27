@@ -14,11 +14,10 @@ diag_log format["WASTELAND SERVER - Started Side Mission State"];
 //Side Mission Array
 /*
 [mission_ReconVeh,"mission_ReconVeh"]
-[mission_Truck,"mission_Truck"]
 */
 _SMarray = [[mission_WepCache,"mission_WepCache"],      
             [mission_AirWreck,"mission_AirWreck"],
-			[mission_WepCache,"mission_WepCache"]];
+			[mission_Truck,"mission_Truck"]];
 			
 _lastMission = "nomission";
 while {true} do

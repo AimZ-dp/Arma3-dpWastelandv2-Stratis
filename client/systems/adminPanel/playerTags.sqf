@@ -24,7 +24,7 @@ if (_uid in serverdpAdministrators) then {
 						case "WEST": {group _x addGroupIcon ["b_unknown",[0,0]];};
 						case "EAST": {group _x addGroupIcon ["o_unknown",[0,0]];};
 						case "GUER": {group _x addGroupIcon ["n_unknown",[0,0]];};
-						default {group _x addGroupIcon ["unknown",[0,0]];};
+						default {group _x addGroupIcon ["n_unknown",[0,0]];};
 					};
 					group _x setGroupIconParams [[1, 0.35, 0, 0.8], format ["%1 (%2m)", name _x, round (_x distance player)], 0.5, true];
 				}
@@ -37,7 +37,7 @@ if (_uid in serverdpAdministrators) then {
 							case "WEST": {group _x addGroupIcon ["b_unknown",[0,0]];};
 							case "EAST": {group _x addGroupIcon ["o_unknown",[0,0]];};
 							case "GUER": {group _x addGroupIcon ["n_unknown",[0,0]];};
-							default {group _x addGroupIcon ["unknown",[0,0]];};
+							default {group _x addGroupIcon ["n_unknown",[0,0]];};
 						};
 						group _x setGroupIconParams [[1, 0.35, 0, 0.8], format ["%1 (%2m)", name _x, round (_x distance player)], 0.5, true];						
 					} foreach units group _x;

@@ -13,19 +13,18 @@ diag_log format["WASTELAND SERVER - Started Main Mission State"];
 //Main Mission Array
 /*
 	[mission_SupplyDrop,"mission_SupplyDrop"],
-	[mission_APC,"mission_APC"],
     [mission_Heli,"mission_Heli"],
-    [mission_LightTank,"mission_LightTank"],
     [mission_MBT,"mission_MBT"],
     [mission_Outpost,"mission_Outpost"],
     [mission_RadarTruck,"mission_RadarTruck"]];
 */
 _MMarray = [
+	[mission_APC,"mission_APC"],
+    [mission_LightTank,"mission_LightTank"],
 	[mission_ArmedHeli,"mission_ArmedHeli"],
 	[mission_LightArmVeh,"mission_LightArmVeh"],
 	[mission_CivHeli,"mission_CivHeli"],
-	[mission_Convoy,"mission_Convoy"],
-	[mission_CivHeli,"mission_CivHeli"]];
+	[mission_Convoy,"mission_Convoy"]];
 _lastMission = "nomission";
 
 while {true} do

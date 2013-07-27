@@ -3,9 +3,12 @@
 //	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 08/12/2012 15:19
 //	@file Args:
+#include "mainMissionDefines.sqf";
+
+if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Main Mission!!!"];};
 
 if(!isServer) exitwith {};
-#include "mainMissionDefines.sqf";
+
 private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_vehicleClass","_vehicle","_picture","_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive"];
 
 //Mission Initialization.
@@ -14,7 +17,7 @@ _missionMarkerName = "APC_Marker";
 _missionType = "Immobile APC";
 _startTime = floor(time);
 
-diag_log format["WASTELAND SERVER - Main Mission Started: %1",_missionType];
+if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Main Mission Started: %1",_missionType];};
 
 //Get Mission Location
 _returnData = call createMissionLocation;
@@ -27,28 +30,29 @@ diag_log format["WASTELAND SERVER - Main Mission Resumed: %1",_missionType];
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-_vehicleClass = ["BTR60_TK_EP1","M1126_ICV_MK19_EP1","BRDM2_TK_GUE_EP1","M113_UN_EP1","BTR90","LAV25","M6_EP1"] call BIS_fnc_selectRandom;
+_vehicleClass = APCVehicles call BIS_fnc_selectRandom;
 
-//Vehicle Class, Posistion, Fuel, Ammo, Damage, State
-_vehicle = [_vehicleClass,_randomPos,0,1,0.75,"NONE"] call createMissionVehicle;
+//Vehicle Class, Posistion, Fuel, Ammo, Damage
+_vehicle = [_vehicleClass,_randomPos,0.1,1,0.75,"NONE"] call createMissionVehicle;
 
 _picture = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "picture");
 _vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName");
 _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Main Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A<t color='%4'> %3</t>, has been immobilized, go get it for your team.</t>", _missionType, _picture, _vehicleName, mainMissionColor, subTextColor];
-[nil,nil,rHINT,_hint] call RE;
+messageSystem = _hint;
+publicVariable "messageSystem";
 
 CivGrpM = createGroup civilian;
 [CivGrpM,_randomPos] spawn createMidGroup;
 
-diag_log format["WASTELAND SERVER - Main Mission Waiting to be Finished: %1",_missionType];
+if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Main Mission Waiting to be Finished: %1",_missionType];};
 _startTime = floor(time);
 
 waitUntil
 {
     sleep 1; 
 	_playerPresent = false;
-	_currTime = floor(time);
-
+	 _currTime = floor(time);
+   
     if(_currTime - _startTime >= mainMissionTimeout) then {_result = 1;};
     {if((isPlayer _x) AND (_x distance _vehicle <= missionRadiusTrigger)) then {_playerPresent = true};}forEach playableUnits;
     _unitsAlive = ({alive _x} count units CivGrpM);
@@ -65,16 +69,17 @@ if(_result == 1) then
     {deleteVehicle _x;}forEach units CivGrpM;
     deleteGroup CivGrpM;
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>Objective failed, better luck next time</t>", _missionType, _picture, _vehicleName, failMissionColor, subTextColor];
-	[nil,nil,rHINT,_hint] call RE;
-	//Reset the mission spawn bool
-    diag_log format["WASTELAND SERVER - Main Mission Failed: %1",_missionType];
+	messageSystem = _hint;
+	publicVariable "messageSystem";
+    if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Main Mission Failed: %1",_missionType];};
 } else {
 	//Mission Complete.
     deleteGroup CivGrpM;
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>The APC has been captured, now go destroy the enemy</t>", _missionType, _picture, _vehicleName, successMissionColor, subTextColor];
-	[nil,nil,rHINT,_hint] call RE;
-	//Reset the mission spawn bool
-    diag_log format["WASTELAND SERVER - Main Mission Success: %1",_missionType];
+	messageSystem = _hint;
+	publicVariable "messageSystem";
+    if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Main Mission Success: %1",_missionType];};
+
 };
 
 //Reset Mission Spot.

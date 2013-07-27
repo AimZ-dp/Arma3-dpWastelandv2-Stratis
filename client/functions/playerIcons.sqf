@@ -1,7 +1,7 @@
 // HUD graphics - should only have 1 script.. for player info, player names, player icons etc
 onEachFrame {
 
-	private ["_playerIcon","_playerPos","_playerName","_playerDistance","_iconColour","_iconSize","_target","_uid","_map"];
+	private ["_playerIcon","_playerPos","_playerName","_playerDistance","_iconColour","_iconSize","_target","_uid","_map","_timeOut","_objectDistance","_objectPos"];
 	
 	// draw players tag and name (a coloured icon) for each player with 1000m
 	{  
@@ -75,6 +75,20 @@ onEachFrame {
 			};
 		};
 	} forEach allUnits;
+	
+	{
+		_timeOut = _x getVariable ["timeout", 0];
+		_objectPos = getPos _x;
+		_objectPos set [2, (_objectPos select 2) - 0.5];
+		_objectDistance = _objectPos distance player;
+		
+		if (_timeOut > 0 && _timeOut < 61 && _objectDistance <= 100) then
+		{
+			drawIcon3D ["", [1,1,1,1], _objectPos, 0, 0, 0, format["respawn: %1s", floor(_timeOut)], 0, 0.03, "PuristaLight"];		
+		};
+	} foreach vehicles;
+	
+	
 };
 
 /*

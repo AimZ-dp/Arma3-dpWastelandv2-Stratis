@@ -9,7 +9,7 @@ if(!X_Server) exitWith {};
 diag_log format["WASTELAND SERVER - Initilizing Server Vars"];
 
 burningTimeLimit = 60;
-desertedTimeLimit = 1200;
+desertedTimeLimit = 600;
 
 //CVG_weapons = [];
 //CVG_weapons = CVG_rifles;
@@ -62,7 +62,9 @@ militaryVehicles = ["B_Quadbike_01_F", "O_Quadbike_01_F", "I_Quadbike_01_F", "B_
 militaryHelis = ["B_Heli_Light_01_F", "O_Heli_Light_02_unarmed_F", "B_Heli_Transport_01_F", "B_Heli_Transport_01_camo_F", "I_Heli_Transport_02_F"];
 
 //Armed Military Vehicle List - Random Spawns
-armedMilitaryVehicles = ["B_MRAP_01_gmg_F", "B_MRAP_01_hmg_F", "O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F", "I_MRAP_03_gmg_F", "I_MRAP_03_hmg_F", "B_APC_Wheeled_01_cannon_F", "O_APC_Wheeled_02_rcws_F", "O_APC_Tracked_02_cannon_F", "B_APC_Tracked_01_rcws_F"];
+armedMilitaryVehicles = ["B_MRAP_01_gmg_F", "B_MRAP_01_hmg_F", "O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F", "I_MRAP_03_gmg_F", "I_MRAP_03_hmg_F"];
+APCVehicles = ["B_APC_Wheeled_01_cannon_F", "O_APC_Wheeled_02_rcws_F"];
+LightTankVehicles = ["O_APC_Tracked_02_cannon_F", "B_APC_Tracked_01_rcws_F"];
 armedMilitaryHelis = ["B_Heli_Light_01_armed_F", "O_Heli_Light_02_F", "B_Heli_Attack_01_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F"];
 
 //Object List - Random Spawns.
@@ -177,17 +179,23 @@ ammoBoxes = [
 	"Box_East_AmmoOrd_F",
 	"Box_East_WpsSpecial_F",
 	"Box_East_Support_F",
-	"Box_East_AmmoVeh_F", // testing
+	//"Box_East_AmmoVeh_F", // testing
 	"Box_IND_Ammo_F",
 	"Box_IND_Wps_F",
 	"Box_IND_Grenades_F",
 	"Box_IND_WpsLaunch_F", // testing 
 	"Box_IND_AmmoOrd_F",
 	"Box_IND_WpsSpecial_F",
-	"Box_IND_Support_F",
-	"Box_IND_AmmoVeh_F" // testing
+	"Box_IND_Support_F"
+	//"Box_IND_AmmoVeh_F" // testing
 ];
-                
+
+supplyCrate = [
+	"I_supplyCrate_F",
+	"O_supplyCrate_F",
+	"B_supplyCrate_F"
+];
+ 
 MissionSpawnMarkers = [
 	["Mission_1",false],
 	["Mission_2",false],

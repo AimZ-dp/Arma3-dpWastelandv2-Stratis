@@ -45,7 +45,7 @@
 
 if (!isServer) exitWith {};
 
-private ["_unit","_delay","_deserted","_respawns","_run","_explode","_dynamic","_position","_type","_dead"];
+private ["_unit","_delay","_deserted","_respawns","_run","_explode","_dynamic","_position","_type","_dead","_randomTime"];
 
 // Define variables
 _unit = _this select 0;
@@ -63,7 +63,8 @@ _position = getPosASL _unit;
 _type = typeOf _unit;
 _dead = false;
 _timeout = time;
- 
+_randomTime = random 1200; 
+
 while {_run} do 
 {
 	_dammage = getDammage _unit;
@@ -73,19 +74,24 @@ while {_run} do
 	// Check if the vehicle is deserted
 	if (_deserted > 0) then
 	{
-		if (_distance > 20 and _alive == 0 and _dammage <= 0.90) then 
+		//if (_distance > 20 and _alive == 0 and _dammage <= 0.90) then 
+		if (_alive == 0 and _dammage <= 0.90) then 
 		{
 			_curtime = time;
 
-			if (_timeout < _curtime) then
+			if (_curtime  > (_timeout + _deserted + _randomTime)) then
 			{
 				_dead = true;
 				_delay = 0;
-			}				
+			}
+			else 
+			{
+				_unit setVariable ["timeout", (_timeout + _deserted + _randomTime) - _curtime, true];
+			}
 		}
 		else
 		{
-			_timeout = time + _deserted;
+			_timeout = time;
 		};
 	};
 
