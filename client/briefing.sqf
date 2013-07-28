@@ -1,12 +1,15 @@
 waitUntil {!isNull player && isPlayer player};
 
 player createDiarySubject ["changelog", "Change Log"];
+player createDiarySubject ["rules", "Rules"];
 player createDiarySubject ["info", "Info"];
 
 player createDiaryRecord["changelog",
 [
 "=(dp)=",
 "
+<br/>1.6<br/>
+		[Updates] Optimised spawn scripts.<br/>
 <br/>1.5<br/>
 		[Updates] Included new missions.<br/>
 		[Updates] Changed the way vehicles desertion time works.<br/>
@@ -60,6 +63,29 @@ player createDiaryRecord["changelog",
 		[Fixed] - Missions<br/>
 		[Fixed] - General UI<br/>
 		[Fixed] - Lots of other fixes<br/>
+"
+]
+];
+
+player createDiaryRecord["rules",
+[
+"Intro",
+"
+<br/>
+	Rule 1:<br/><br/>
+	Blah Blah Blah<br/>
+	Blah Blah Blah<br/>
+"
+]
+];
+player createDiaryRecord["rules",
+[
+"More Stuff",
+"
+<br/>
+	General Rules:<br/><br/>
+	Blah Blah Blah<br/>
+	Blah Blah Blah<br/>
 "
 ]
 ];

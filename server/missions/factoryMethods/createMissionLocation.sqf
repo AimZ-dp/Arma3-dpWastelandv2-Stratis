@@ -21,5 +21,6 @@ while {!_GotLoc} do
 		MissionSpawnMarkers select _randomIndex set[1, true];
 		_GotLoc = true;
 	};
+	sleep 1;
 };
 _returnData

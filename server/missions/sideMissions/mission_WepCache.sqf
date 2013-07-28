@@ -15,16 +15,12 @@ _missionMarkerName = "WeaponCache_Marker";
 _missionType = "Weapon Cache";
 _startTime = floor(time);
 
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Started: %1",_missionType];};
-
 //Get Mission Location
 _returnData = call createMissionLocation;
 _randomPos = _returnData select 0;
 _randomIndex = _returnData select 1;
 
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Waiting to run: %1",_missionType];};
 [sideMissionDelayTime] call createWaitCondition;
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Resumed: %1",_missionType];};
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
@@ -43,7 +39,6 @@ publicVariable "messageSystem";
 CivGrpS = createGroup civilian;
 [CivGrpS,_randomPos] spawn createSmallGroup;
 
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Waiting to be Finished: %1",_missionType];};
 _startTime = floor(time);
 
 waitUntil
@@ -52,7 +47,7 @@ waitUntil
 	_playerPresent = false;
     _currTime = floor(time);
     if(_currTime - _startTime >= sideMissionTimeout) then {_result = 1;};
-    {if((isPlayer _x) AND (_x distance _box1 <= missionRadiusTrigger)) then {_playerPresent = true};}forEach playableUnits;
+    {if((isPlayer _x) AND (_x distance _box1 <= missionRadiusTrigger)) then {_playerPresent = true};sleep 2;}forEach playableUnits;
     _unitsAlive = ({alive _x} count units CivGrpS);
     (_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1)) OR ((damage _box1) == 1)
 };
@@ -67,7 +62,6 @@ if(_result == 1) then
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%2' size='1.25'>%1</t><br/><t align='center' color='%3'>Objective failed, better luck next time</t>", _missionType, failMissionColor, subTextColor];
 	messageSystem = _hint;
     publicVariable "messageSystem";
-    if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Failed: %1",_missionType];};
 } else {
 	//Mission Complete.
 	if ((damage _box1) == 1) then {
@@ -81,7 +75,6 @@ if(_result == 1) then
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>The ammo caches have been collected well done team</t>", _missionType, successMissionColor, subTextColor];
 	messageSystem = _hint;
     publicVariable "messageSystem";
-    if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Success: %1",_missionType];};
 };
 
 //Reset Mission Spot.

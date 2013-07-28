@@ -28,21 +28,21 @@ class playerSettings {
 		
 		class moneyIcon : w_RscPicture {	
 	  		idc = -1;
-        	text = "client\icons\money.paa";
+        	text = "client\ui\icons\money.paa";
         	x = 0.02; y = 0.32;
 			w = 0.04; h = 0.04;
 		};
 		
 		class waterIcon : w_RscPicture {
 	  		idc = -1;
-        	text = "client\icons\water.paa";
+        	text = "client\ui\icons\water.paa";
         	x = 0.015; y = 0.19;
 			w = 0.05; h = 0.05;
 		};
 		
 		class foodIcon : w_RscPicture {
       		idc = -1;
-        	text = "client\icons\food.paa";
+        	text = "client\ui\icons\food.paa";
         	x = 0.02; y = 0.26;
 			w = 0.04; h = 0.04;
 		};

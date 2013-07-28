@@ -7,21 +7,22 @@
 
 if(!X_Server) exitWith {};
 
-private ["_counter","_pos","_start","_step"];
+private ["_counter","_pos","_type","_start","_step","_end"];
 
 _counter = 0;
-_step = 2;// 6;
+_step = 4;
 _start = floor (random _step) + 1;
+_end = 24;
 
-for "_i" from _start to 24 step _step do
+for "_i" from _start to _end step _step do
 {
 	_pos = getMarkerPos format ["heliSpawn_%1", _i];
 	_type = floor (random (count militaryHelis));
-	[_pos, _type] call staticHeliCreation;
+	
+	[_pos, _type] call HeliCreation;
    
 	_counter = _counter + 1;
 };
 
-sleep 2;
 diag_log format["WASTELAND SERVER - %1 Static helis Spawned",_counter];
 

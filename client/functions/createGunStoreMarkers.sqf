@@ -7,7 +7,6 @@
 _gunStores = ["gunStore1","gunStore2","gunStore3"];
 
 //Creates the markers around gun stores.
-waitUntil {{!isNull(missionNamespace getVariable _x) && ((getPos(missionNamespace getVariable _x) distance [0,0,0]) > 100)} count _gunStores == count _gunStores};
 {
 	_unit = missionNamespace getVariable _x;
 

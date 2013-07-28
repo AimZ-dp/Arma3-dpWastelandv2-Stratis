@@ -15,21 +15,18 @@ _missionMarkerName = "AirWreck_Marker";
 _missionType = "Aircraft Wreck";
 _startTime = floor(time);
 
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Started: %1",_missionType];};
-
 //Get Mission Location
 _returnData = call createMissionLocation;
 _randomPos = _returnData select 0;
 _randomIndex = _returnData select 1;
 
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Waiting to run: %1",_missionType];};
 [sideMissionDelayTime] call createWaitCondition;
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Resumed: %1",_missionType];};
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
 _vehicle = [militaryHelis call BIS_fnc_selectRandom,[(_randomPos select 0) + 50, (_randomPos select 1) + 50,0],0,0,1,"NONE"] call createMissionVehicle;
+_vehicle setVariable["newVehicle",vChecksum,true];
 
 _boxtype = floor (random (count ammoBoxes));
 _box = createVehicle [ammoBoxes select _boxtype,[(_randomPos select 0),(_randomPos select 1),0],[],0,"NONE"];
@@ -48,7 +45,6 @@ publicVariable "messageSystem";
 CivGrpS = createGroup civilian;
 [CivGrpS,_randomPos] spawn createSmallGroup;
 
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Waiting to be Finished: %1",_missionType];};
 _startTime = floor(time);
 
 waitUntil
@@ -57,7 +53,7 @@ waitUntil
 	_playerPresent = false;
     _currTime = floor(time);
     if(_currTime - _startTime >= sideMissionTimeout) then {_result = 1;};
-    {if((isPlayer _x) AND (_x distance _box <= missionRadiusTrigger)) then {_playerPresent = true};}forEach playableUnits;
+    {if((isPlayer _x) AND (_x distance _box <= missionRadiusTrigger)) then {_playerPresent = true};sleep 2;}forEach playableUnits;
     _unitsAlive = ({alive _x} count units CivGrpS);
     (_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1)) OR ((damage _box) == 1)
 };
@@ -73,7 +69,6 @@ if(_result == 1) then
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>Objective failed, better luck next time</t>", _missionType, _picture, _vehicleName, failMissionColor, subTextColor];
 	messageSystem = _hint;
     publicVariable "messageSystem";
-    if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Failed: %1",_missionType];};
 } else {
 	//Mission Complete.
     deleteVehicle _vehicle;
@@ -81,7 +76,6 @@ if(_result == 1) then
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>The ammo caches have been collected well done team</t>", _missionType, _picture, _vehicleName, successMissionColor, subTextColor];
 	messageSystem = _hint;
     publicVariable "messageSystem";
-    if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Success: %1",_missionType];};
 };
 
 //Reset Mission Spot.

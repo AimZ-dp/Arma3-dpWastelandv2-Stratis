@@ -8,7 +8,7 @@ if(!X_Server) exitWith {};
 
 private ["_car","_additionArray","_weapon","_mag","_additionOne","_additionArray","_additionTwo","_additionThree"];
 
-//Grabs carname from array in execVM
+//Grabs carname from array
 _car = _this select 0;
 _additionArray = vehicleAddition;
 if (random 1 < 0.75) then { _car addWeaponCargoGlobal ["Binocular", 1]};

@@ -18,9 +18,7 @@ if(vehicle player != player) exitWith {
 
 _currSpawnBeaconFaction = ((nearestobjects [getpos player, ["Satelit"],  5] select 0) getVariable "faction");
 
-if(isNil{_currSpawnBeaconFaction}) exitWith {
-	if (DEBUG_MESSAGES) then {diag_log "There was a problem finding a spawn beacon.";};
-};
+if(isNil{_currSpawnBeaconFaction}) exitWith {};
 
 _currSpawnBeacon = (nearestobjects [getpos player, ["Satelit"],  5] select 0);
 _destroyOrSteal = _this select 3;

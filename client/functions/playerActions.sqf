@@ -7,15 +7,8 @@
 //	@file Args:
 
 aActionsIDs = [];
-aActionsIDs = aActionsIDs + [player addAction["Use The Gun Store", "client\systems\gunStore\loadGunStore.sqf", [], 1, false, false, "", 'player distance (nearestobjects [player, ["C_man_1_1_F"],  5] select 0) < 5']];
-aActionsIDs = aActionsIDs + [player addAction["Use The General Store", "client\systems\generalStore\loadGenStore.sqf", [], 1, false, false, "", 'player distance (nearestobjects [player, ["C_man_polo_3_F"],  5] select 0) < 5']];
-
-//aActionsIDs = aActionsIDs + [player addAction[("<t color=""#E01B1B"">Destroy Proximity Detector</t>"), "client\actions\proximityDetector.sqf", 1, 1, false, false, "", 
-//											'_currProx = (nearestobjects [player, ["Satelit"],  5]); 
-//											player distance (_currProx select 0) < 5; 
-//											((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "ownerUID") == (getPlayerUID player) 
-//												OR str(playerSide) != ((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "faction") 
-//												OR ((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "faction") == "WORLD"']];
+aActionsIDs = aActionsIDs + [player addAction["Use The Gun Store", "client\systems\gunStore\loadGunStore.sqf", [], 1, false, false, "", 'player distance (nearestobjects [player, ["C_man_polo_4_F"],  5] select 0) < 5']];
+aActionsIDs = aActionsIDs + [player addAction["Use The General Store", "client\systems\generalStore\loadGenStore.sqf", [], 1, false, false, "", 'player distance (nearestobjects [player, ["C_man_polo_6_F"],  5] select 0) < 5']];
 
 //Fuel can actions.
 //aActionsIDs = aActionsIDs + [player addAction["Take Jerry Can", "noscript.sqf", 'deleteVehicle (nearestobjects [player, ["Fuel_can"],  5] select 0); player setVariable["fuelFull",1,true]; hint "You have taken a fuel can."; player playmove "AinvPknlMstpSlayWrflDnon"',0,false,false,"",'player distance (nearestobjects [player, ["Fuel_can"],  5] select 0) < 4 AND ((player getVariable "fuelFull") == 0) AND ((player getVariable "fuelEmpty") == 0) AND ((nearestObjects[player, ["Fuel_can"], 3] select 0) getVariable "fuel")']];
@@ -35,10 +28,6 @@ aActionsIDs = aActionsIDs + [player addAction["Pickup Money", "client\actions\pi
 //Pickup SpawnBeacon (Satelit)
 //aActionsIDs = aActionsIDs + [player addAction[("<t color=""#E01B1B"">Destroy spawn beacon</t>"), "client\actions\pickupBeacon.sqf", 1, 1, false, false, "", '_currBeacon = (nearestobjects [player, ["Satelit"],  5]); player distance (_currBeacon select 0) < 5; ((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "ownerUID") == (getPlayerUID player) OR str(playerSide) != ((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "faction") OR ((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "faction") == "WORLD"']];
 //aActionsIDs = aActionsIDs + [player addAction[("<t color=""#21DE31"">Steal spawn beacon</t>"), "client\actions\pickupBeacon.sqf", 0, 1, false, false, "", '_currBeacon = (nearestobjects [player, ["Satelit"],  5]); player distance (_currBeacon select 0) < 5; str(playerSide) != ((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "faction") OR ((nearestObjects[player, ["Satelit"], 3] select 0) getVariable "faction") == "WORLD"']];
-
-//Interact with radar trucks
-//aActionsIDs = aActionsIDs + [player addAction[("<t color=""#21DE31"">Deploy radar</t>"), "client\functions\radarDeploy.sqf",nil, 6, false, false, "", '_currRadar = (nearestobjects [player, ["M1133_MEV_EP1"],  5]); player distance (_currRadar select 0) < 5; ((nearestObjects[player, ["M1133_MEV_EP1"], 10] select 0) getVariable "deployed") == 0']];
-//aActionsIDs = aActionsIDs + [player addAction[("<t color=""#E01B1B"">Repack radar</t>"), "client\functions\radarPack.sqf", nil, 6, false, false, "", '_currRadar = (nearestobjects [player, ["M1130_HQ_unfolded_Base_EP1"],  5]); player distance (_currRadar select 0) < 5; ((nearestObjects[player, ["M1130_HQ_unfolded_Base_EP1"], 10] select 0) getVariable "deployed") == 1']];
 
 //Camonet pickup
 aActionsIDs = aActionsIDs + [player addAction["Pickup Slum Canvas (Black)", "client\actions\pickupcamonet.sqf", [], 1, false, false, "", 'player distance (nearestobjects [player, ["Land_cargo_addon02_V2_F"],  5] select 0) < 5 and (player getVariable "camonet")<1 ']];

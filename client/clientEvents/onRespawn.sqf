@@ -10,8 +10,6 @@ playerSetupComplete = false;
 _player = (_this select 0) select 0;
 _corpse = (_this select 0) select 1;
 
-if (DEBUG_MESSAGES) then {diag_log (unitBackpack _corpse);};
-
 _corpse removeAction playerMenuId;
 {
 	_corpse removeAction _x;
@@ -20,7 +18,7 @@ _corpse removeAction playerMenuId;
 player call playerSetup;
 waitUntil {playerSetupComplete};
 
-[] execVM "client\clientEvents\onMouseWheel.sqf";
+player spawn onMouseWheel;
 
 true spawn playerSpawn;
 

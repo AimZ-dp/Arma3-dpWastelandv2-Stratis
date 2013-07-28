@@ -13,8 +13,7 @@ publicVariable "currentDate";
 _prevHours = _dateStamp select 3;
 _prevMinutes = _dateStamp select 4;
 
-
-while{true} do
+while {true} do
 {	
 	_dateStamp = Date;
 	_hours = _dateStamp select 3;
@@ -41,5 +40,5 @@ while{true} do
 		publicVariable "currentDate";
 	};
 	
-	sleep 0.1;
+	sleep 60;
 };

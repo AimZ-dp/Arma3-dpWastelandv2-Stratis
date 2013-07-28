@@ -84,12 +84,9 @@ if (_uid in serverdpAdministrators) then {
 			    {
 			    	pvar_teamSwitchList set [_forEachIndex, "REMOVETHISCRAP"];
 					pvar_teamSwitchList = pvar_teamSwitchList - ["REMOVETHISCRAP"];
-			        //publicVariableServer "pvar_teamSwitchList";
 					publicVariable "pvar_teamSwitchList";
 
 	                [format["if (name player == ""%1"") then {client_firstSpawn = nil;};",name _target],"BIS_fnc_spawn",nil,false] spawn BIS_fnc_MP;
-					
-					//[format["if isServer then {publicVariable 'pvar_teamSwitchList';};"],"BIS_fnc_spawn",false,false] spawn BIS_fnc_MP;
 			    };
 			}forEach pvar_teamSwitchList;			
 	    };
@@ -101,10 +98,7 @@ if (_uid in serverdpAdministrators) then {
 			    {
 			    	pvar_teamKillList set [_forEachIndex, "REMOVETHISCRAP"];
 					pvar_teamKillList = pvar_teamKillList - ["REMOVETHISCRAP"];
-			        //publicVariableServer "pvar_teamKillList"; 
 					publicVariable "pvar_teamKillList"; 
-
-					//[format["if isServer then {publicVariable 'pvar_teamKillList';};"],"BIS_fnc_spawn",false,false] spawn BIS_fnc_MP;
 			    };
 			}forEach pvar_teamKillList;       		
 	    };

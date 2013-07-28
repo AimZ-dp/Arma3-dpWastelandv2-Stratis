@@ -46,7 +46,7 @@ class WastelandHud {
 			colorText[] = {1,1,1,1};
 			lineSpacing = 3;
 			colorBackground[] = {0,0,0,0};
-			text = "100 <img size='0.8' image='client\icons\food.paa'/><br/>100 <img size='0.8' image='client\icons\water.paa'/><br/>200 <img size='0.8' image='client\icons\money.paa'/>";
+			text = "100 <img size='0.8' image='client\ui\icons\food.paa'/><br/>100 <img size='0.8' image='client\ui\icons\water.paa'/><br/>200 <img size='0.8' image='client\ui\icons\money.paa'/>";
 			shadow = 2;
 			class Attributes {
 				align = "right";

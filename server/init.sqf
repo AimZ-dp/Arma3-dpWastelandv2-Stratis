@@ -6,43 +6,33 @@
 //	@file Args:
 if(!X_Server) exitWith {};
 
-sideMissions = 1;
-serverSpawning = 1;
-
 //Execute Server Side Scripts.
-[] execVM "server\admins.sqf";
-[] execVM "server\functions\serverVars.sqf";
+diag_log format["WASTELAND SERVER - Initilizing Server Compile"];
 _serverCompiledScripts = [] execVM "server\functions\serverCompile.sqf";
-[] execVM "server\functions\broadcaster.sqf";
-[] execVM "server\functions\relations.sqf";
-[] execVM "server\functions\serverTimeSync.sqf";
-waitUntil{scriptDone _serverCompiledScripts};
+waitUntil{sleep 1;scriptDone _serverCompiledScripts};
+[] call admins;
+[] call serverVars;
+[] call relations;
+[] spawn serverTimeSync;
 
-diag_log format["WASTELAND SERVER - Server Compile Finished"];
-
+// Public Variable Handlers
 "PlayerCDeath" addPublicVariableEventHandler {_id = (_this select 1) spawn server_playerDied};
 
 //Execute Server Spawning.
-if (serverSpawning == 1) then {
-    diag_log format["WASTELAND SERVER - Initilizing Server Spawning"];
-	_vehSpawn = [] ExecVM "server\spawning\vehicleSpawning.sqf";
-	waitUntil{sleep 0.1; scriptDone _vehSpawn};
-    _objSpawn = [] ExecVM "server\spawning\objectsSpawning.sqf";
-	waitUntil{sleep 0.1; scriptDone _objSpawn};
-    _boxSpawn = [] ExecVM "server\spawning\boxSpawning.sqf";
-	waitUntil{sleep 0.1; scriptDone _boxSpawn};
-    _heliSpawn = [] ExecVM "server\spawning\staticHeliSpawning.sqf";
-    waitUntil{sleep 0.1; scriptDone _heliSpawn};
-};
+diag_log format["WASTELAND SERVER - Initilizing Server Spawning"];
+[] call vehicleSpawning;
+[] call HeliSpawning;
+[] call boxSpawning;
+[] call baseObjectSpawning;
+[] call survivalObjectSpawning;
+[] spawn respawnCheck;
 
 //Execute Server Missions.
-if (sideMissions == 1) then {
-	diag_log format["WASTELAND SERVER - Initilizing Missions"];
-    [] execVM "server\missions\sideMissionController.sqf";
-    sleep 5;
-    [] execVM "server\missions\mainMissionController.sqf";
-};
+diag_log format["WASTELAND SERVER - Initilizing Missions"];
+	
+[] spawn sideMissionController;
+[] spawn mainMissionController;
 
-if (isDedicated) then {
-	[] ExecVM "server\functions\cleanObjects.sqf";
-};
+//Execute Server Cleanup.
+diag_log format["WASTELAND SERVER - Initilizing Cleanup"];
+[] spawn cleanObjects;

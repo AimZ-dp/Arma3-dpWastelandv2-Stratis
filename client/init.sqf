@@ -6,26 +6,18 @@
 
 if(!X_Client) exitWith {};
 
-mutexScriptInProgress = false;
-respawnDialogActive = false;
-groupManagmentActive = false;
-pvar_PlayerTeamKiller = objNull;
-doCancelAction = false;
-currentMissionsMarkers = [];
-currentRadarMarkers = [];
-
-//Initialization Variables
+//Call client compile list.
 playerCompiledScripts = false;
-playerSetupComplete = false;
+player call compileFinal preprocessFileLineNumbers "client\functions\clientCompile.sqf";
+waitUntil{sleep 1;playerCompiledScripts};
 
-camadm = objNull;
-camPos = 0;
+//init Wasteland Core
+player call clientVars;
+player call briefing;
+
 
 waitUntil {!isNull player};
 waitUntil{time > 2};
-
-//Call client compile list.
-player call compileFinal preprocessFileLineNumbers "client\functions\clientCompile.sqf";
 
 //Stop people being civ's.
 if(!(playerSide in [west, east, resistance])) then {
@@ -41,7 +33,7 @@ player addEventHandler ["Respawn", {[_this] call onRespawn;}];
 player addEventHandler ["Killed", {[_this] call onKilled;}];
 
 //Setup player menu scroll action.
-[] execVM "client\clientEvents\onMouseWheel.sqf";
+player spawn onMouseWheel;
 
 //Setup Key Handler
 waituntil {!(IsNull (findDisplay 46))};
@@ -50,19 +42,19 @@ waituntil {!(IsNull (findDisplay 46))};
 "currentDate" addPublicVariableEventHandler {[] call timeSync};
 "messageSystem" addPublicVariableEventHandler {[] call serverMessage};
 "clientMissionMarkers" addPublicVariableEventHandler {[] call updateMissionsMarkers};
-"clientRadarMarkers" addPublicVariableEventHandler {[] call updateRadarMarkers};
 "pvar_teamKillList" addPublicVariableEventHandler {[] call updateTeamKiller};
-"publicVar_teamkillMessage" addPublicVariableEventHandler {if(local(_this select 1)) then {[] spawn teamkillMessage;};};
+"pvar_teamkillMessage" addPublicVariableEventHandler {if(local(_this select 1)) then {[] spawn teamkillMessage;};};
 
 //client Executes
-[] execVM "client\functions\initSurvival.sqf";
-[] execVM "client\systems\hud\playerHud.sqf";
-[] execVM "client\functions\createTownMarkers.sqf";
-[] execVM "client\functions\createGunStoreMarkers.sqf";
-[] execVM "client\functions\createGeneralStoreMarkers.sqf";
-[] execVM "client\functions\playerIcons.sqf";
-[] call updateMissionsMarkers;
-[] call updateRadarMarkers;
+player call initSurvival;
+player call createTownMarkers;
+player call createGunStoreMarkers;
+player call createGeneralStoreMarkers;
+player call updateMissionsMarkers;
+//player spawn playerHud;
+player spawn drawPlayerIcons;
+player spawn getPlayerData;
+player spawn getDebugData;
 sleep 1;
 true spawn playerSpawn;
 

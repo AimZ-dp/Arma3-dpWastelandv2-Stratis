@@ -91,7 +91,7 @@ class Mission
 	randomSeed=4593667;
 	class Intel
 	{
-		briefingName="dp Wasteland v1.5";
+		briefingName="dp Wasteland v1.6";
 		briefingDescription="A harsh survival sandbox";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
@@ -1147,7 +1147,7 @@ class Mission
 					azimut=157;
 					id=65;
 					side="LOGIC";
-					vehicle="C_man_1_1_F";
+					vehicle="C_man_polo_4_F";
 					leader=1;
 					skill=0.60000002;
 					text="gunStore1";
@@ -1167,7 +1167,7 @@ class Mission
 					azimut=352;
 					id=66;
 					side="LOGIC";
-					vehicle="C_man_1_1_F";
+					vehicle="C_man_polo_4_F";
 					leader=1;
 					skill=0.60000002;
 					text="gunStore2";
@@ -1187,7 +1187,7 @@ class Mission
 					azimut=173;
 					id=67;
 					side="LOGIC";
-					vehicle="C_man_1_1_F";
+					vehicle="C_man_polo_4_F";
 					leader=1;
 					skill=0.60000002;
 					text="gunStore3";
@@ -1207,7 +1207,7 @@ class Mission
 					azimut=-154.07991;
 					id=68;
 					side="LOGIC";
-					vehicle="C_man_polo_3_F";
+					vehicle="C_man_polo_6_F";
 					leader=1;
 					skill=0.60000002;
 					text="generalStore1";
@@ -1227,7 +1227,7 @@ class Mission
 					azimut=-35.609699;
 					id=69;
 					side="LOGIC";
-					vehicle="C_man_polo_3_F";
+					vehicle="C_man_polo_6_F";
 					leader=1;
 					text="generalStore2";
 					init="this addEventHandler['handledamage', {false}]; this disableAI 'MOVE'; this DisableAI 'ANIM'; this disableAI 'FSM'; removeAllWeapons this; this setPos(getMarkerPos 'General_Store_2');";
@@ -1247,7 +1247,7 @@ class Mission
 					offsetY=1;
 					id=70;
 					side="LOGIC";
-					vehicle="C_man_polo_3_F";
+					vehicle="C_man_polo_6_F";
 					leader=1;
 					skill=0.60000002;
 					text="generalStore3";

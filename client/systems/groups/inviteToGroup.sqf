@@ -23,8 +23,6 @@ _check = 0;
 //Check selected data is valid   			
 {if (str(_x) == _playerData) then {_target = _x;_check = 1;};}forEach playableUnits;
 
-if (DEBUG_MESSAGES) then {diag_log "Invite to group: Before the checks";};
-
 //Checks
 if(_check == 0) exitWith{player globalChat "you must select someone to invite first";};
 if(_target == player) exitWith {player globalChat "you can't invite yourself";};
@@ -33,11 +31,9 @@ if((count units group _target) > 1) exitWith {player globalChat "This player is 
 {if(_x select 1 == getPlayerUID _target) then{_hasInvite = true;};}forEach currentInvites;
 if(_hasInvite) exitWith {player globalChat "This player already has a pending invite";};
 
-if (DEBUG_MESSAGES) then {diag_log "Invite to group: After the checks";};
-
 currentInvites set [count currentInvites,[getPlayerUID player,getPlayerUID _target]];
 publicVariableServer "currentInvites"; 
 
-[nil,_target,"loc", rTITLETEXT, format["You have been invited to join %1's group",name player], "PLAIN", 0] call RE;
+//[nil,_target,"loc", rTITLETEXT, format["You have been invited to join %1's group",name player], "PLAIN", 0] call RE;
 
 player globalChat format["you have invited %1 to join the group",name _target];

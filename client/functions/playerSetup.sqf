@@ -80,7 +80,7 @@ _player setVariable["fuelEmpty", 1, false];
 _player setVariable["spawnBeacon",0,false];
 _player setVariable["camonet",0,false];
 
-[] execVM "client\functions\playerActions.sqf";
+player call playerActions;
 
 _player groupChat format["=(dp)= Wasteland - Initialization Complete"];
 playerSetupComplete = true;

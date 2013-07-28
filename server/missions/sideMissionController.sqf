@@ -12,20 +12,17 @@ private ["_SMarray","_lastMission","_randomIndex","_mission","_missionType","_ne
 diag_log format["WASTELAND SERVER - Started Side Mission State"];
 
 //Side Mission Array
-/*
-[mission_ReconVeh,"mission_ReconVeh"]
-*/
 _SMarray = [[mission_WepCache,"mission_WepCache"],      
             [mission_AirWreck,"mission_AirWreck"],
 			[mission_Truck,"mission_Truck"]];
 			
-_lastMission = "nomission";
+//_lastMission = "nomission";
 while {true} do
 {
 	//Select Mission
     _randomIndex = floor (random (count _SMarray));
 	_mission = _SMarray select _randomIndex select 0;
-    _missionType = _SMarray select _randomIndex select 1;
+    //_missionType = _SMarray select _randomIndex select 1;
 
 	/*
 	//Select new mission if the same
@@ -41,11 +38,12 @@ while {true} do
     */
 	
 	_missionRunning = [] spawn _mission;
-	if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Execute New Side Mission: %1",_missionType];};
+
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t color='%3' size='1.0'>Starting in %1 Minutes</t>", sideMissionDelayTime / 60, sideMissionColor, subTextColor];
 	messageSystem = _hint;
 	publicVariable "messageSystem";
-    _lastMission = _missionType;
-	waitUntil{sleep 0.1; scriptDone _missionRunning};
+	
+    //_lastMission = _missionType;
+	waitUntil{sleep 1; scriptDone _missionRunning};
     sleep 5;
 };

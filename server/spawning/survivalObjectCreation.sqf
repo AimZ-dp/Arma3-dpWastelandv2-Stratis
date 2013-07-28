@@ -11,32 +11,31 @@ private ["_objtype","_obj","_type","_pos"];
 _type = _this select 1;
 _pos = _this select 0;
 
-_objtype = objectList select _type;
+_objtype = survivalObjectList select _type;
 
 _obj = createVehicle [_objtype,_pos,[], 50, "NONE"]; 
 _obj setVariable["newVehicle",vChecksum,true];
-//[_obj, 10, desertedTimeLimit] execVM "server\spawning\object.sqf"; 
-
-_obj addeventhandler ["hit", {(_this select 0) setdamage 0;}];
-_obj addeventhandler ["dammaged", {(_this select 0) setdamage 0;}];
+_obj setVariable ["timeout", (time + desertedTimeLimit + random maxRandomTimeLimit), true];
+_obj setVariable ["status", "alive", true];
+	
+// _obj allowDamage false;  // run on local machines
+_obj addEventHandler ["HandleDamage", {}]; // might need to use addMPEventHandler.
 
 // Set Attributes
 if(_objtype == "Land_CanisterPlastic_F") then 
 {
     _obj setVariable["water",20,true];
-	[_obj, 10, desertedTimeLimit] execVM "server\spawning\object.sqf"; 
 };
 if(_objtype == "Land_Sacks_goods_F") then 
 {
     _obj setVariable["food",20,true];
-	[_obj, 10, desertedTimeLimit] execVM "server\spawning\object.sqf"; 
 };
 
 _obj setVariable["R3F_LOG_disabled",false];
 
 // position
-//_obj setPosATL [getpos _obj select 0,getpos _obj select 1,0.0];
-//_obj setVelocity [0,0,0];
+//_obj setPosATL [getpos _obj select 0,getpos _obj select 1,0];
+//_obj setVelocity [0,0,-0.1];
 //_obj setDir (random 360);
 
 

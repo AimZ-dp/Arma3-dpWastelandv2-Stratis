@@ -19,10 +19,11 @@ switch (_type) do
 };
 
 _car = createVehicle [_cartype,_pos,[], 30,"NONE"];
-_car setVariable["newVehicle",vChecksum,true];
-[_car, burningTimeLimit, desertedTimeLimit, 0, false] execVM "server\spawning\vehicle.sqf"; 
+_car setVariable ["newVehicle",vChecksum,true];
+_car setVariable ["timeout", (time + desertedTimeLimit + random maxRandomTimeLimit), true];
+_car setVariable ["status", "alive", true];
 
-//Clear Cars Inventory
+//Clear Inventory
 clearMagazineCargoGlobal _car;
 clearWeaponCargoGlobal _car;
 	

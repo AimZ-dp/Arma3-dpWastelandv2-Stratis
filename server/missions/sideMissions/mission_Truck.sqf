@@ -15,16 +15,12 @@ _missionMarkerName = "Truck_Marker";
 _missionType = "Abandoned Truck";
 _startTime = floor(time);
 
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Started: %1",_missionType];};
-
 //Get Mission Location
 _returnData = call createMissionLocation;
 _randomPos = _returnData select 0;
 _randomIndex = _returnData select 1;
 
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Waiting to run: %1",_missionType];};
 [sideMissionDelayTime] call createWaitCondition;
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Resumed: %1",_missionType];};
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
@@ -39,7 +35,6 @@ _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>S
 messageSystem = _hint;
 publicVariable "messageSystem";
 
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Waiting to be Finished: %1",_missionType];};
 _startTime = floor(time);
 
 waitUntil
@@ -48,7 +43,7 @@ waitUntil
 	_playerPresent = false;
     _currTime = floor(time);
     if(_currTime - _startTime >= sideMissionTimeout) then {_result = 1;};
-    {if((isPlayer _x) AND (_x distance _vehicle <= missionRadiusTrigger)) then {_playerPresent = true};}forEach playableUnits;
+    {if((isPlayer _x) AND (_x distance _vehicle <= missionRadiusTrigger)) then {_playerPresent = true};sleep 2;}forEach playableUnits;
     (_result == 1) OR (_playerPresent) OR ((damage _vehicle) == 1)
 };
 
@@ -62,13 +57,11 @@ if(_result == 1) then
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>Objective failed, better luck next time</t>", _missionType, _picture, _vehicleName, failMissionColor, subTextColor];
 	messageSystem = _hint;
     publicVariable "messageSystem";
-    if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Failed: %1",_missionType];};
 } else {
 	//Mission Complete.
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>The truck has been captured, should help the team</t>", _missionType, _picture, _vehicleName, successMissionColor, subTextColor];
 	messageSystem = _hint;
     publicVariable "messageSystem";
-    if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Side Mission Success: %1",_missionType];};
 };
 
 //Reset Mission Spot.

@@ -9,7 +9,9 @@ _button = _this select 1;
 
 switch(_switch) do 
 {
-    case 0:{execVM "client\functions\spawnRandom.sqf"};
+    case 0:{
+		execVM "client\functions\spawnRandom.sqf"
+	};
     case 1:{
 	    if(showBeacons) then { 	
 	    	[_button] execVM "client\functions\spawnOnBeacon.sqf"

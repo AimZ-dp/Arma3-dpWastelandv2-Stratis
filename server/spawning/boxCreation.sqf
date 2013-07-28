@@ -15,8 +15,9 @@ _pos = _this select 0;
 _boxtype = ammoBoxes select _type;
 
 _box = createVehicle [_boxtype, _pos,[], 10, "NONE"];
-_box setVariable["newVehicle",vChecksum,true];
-[_box, 10, desertedTimeLimit] execVM "server\spawning\box.sqf"; 
+_box setVariable ["newVehicle",vChecksum,true];
+_box setVariable ["timeout", (time + ammoDesertedTimeLimit + random maxRandomTimeLimit), true];
+_box setVariable ["status", "alive", true];
 
 // remove weapons
 _weapons = getWeaponCargo _box;

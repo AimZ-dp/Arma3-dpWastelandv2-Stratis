@@ -7,11 +7,7 @@ private ["_missionMarkerName","_missionType","_picture","_vehicleName","_target"
 _missionMarkerName = "Convoy_Marker";
 _missionType = "Convoy";
 
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Main Mission Started: %1", _missionType];};
-
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Main Mission Waiting to run: %1", _missionType];};
 [mainMissionDelayTime] call createWaitCondition;
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Main Mission Resumed: %1", _missionType];};
 
 _group = createGroup civilian;
 
@@ -114,16 +110,13 @@ messageSystem = _hint;
 if (!isDedicated) then { call serverMessage };
 publicVariable "messageSystem";
 
-if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Main Mission Waiting to be Finished: %1", _missionType];};
-
 _failed = false;
 _startTime = floor(time);
 _numWaypoints = count waypoints _group;
 waitUntil
 {
     private ["_unitsAlive"];
-    
-    sleep 10; 
+    sleep 1; 
     
     _marker setMarkerPos (position leader _group);
     
@@ -145,7 +138,6 @@ if(_failed) then
     messageSystem = _hint;
     if (!isDedicated) then { call serverMessage };
     publicVariable "messageSystem";
-    if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Main Mission Failed: %1",_missionType];};
 } else {
     // Mission complete
     deleteGroup _group;
@@ -173,7 +165,6 @@ if(_failed) then
     messageSystem = _hint;
     if (!isDedicated) then { call serverMessage };
     publicVariable "messageSystem";
-    if (DEBUG_MESSAGES) then {diag_log format["WASTELAND SERVER - Main Mission Success: %1",_missionType];};
 };
 
 deleteMarker _marker;

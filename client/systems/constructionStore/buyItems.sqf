@@ -70,7 +70,6 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
         
         case "Jerry Can (Full)": {
             if(((player getVariable "fuelFull") + 1 <= 1) AND ((player getVariable "fuelEmpty") + 1 <= 1)) then {
-            	if (DEBUG_MESSAGES) then {diag_log "full < 1 and empty < 1";};
                 player setVariable["fuelFull",(player getVariable "fuelFull") + 1,true];
             } else {
             	if (!((player getVariable "fuelFull") + 1 <= 1)) then {

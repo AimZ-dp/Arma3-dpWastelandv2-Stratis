@@ -11,6 +11,7 @@ _magSell = 0;
 _weapon_value = 0;
 _primary = "";
 _primary = currentWeapon player;
+_magazine = objNull;
 if(_primary == "") exitWith {hint "You don't have a current weapon in your hand to sell!";};
 
 {
@@ -27,7 +28,9 @@ if(isNil {_weapon_value}) exitWith {hint "The store does not want this item."};
 _weapon_value = 25; // This is for weapons that aren't in the gunstore stock list. TODO fix the sell price.
 
 player removeWeapon _primary;
-player removeMagazines _magazine;
-
+if (!(isNull _magazine)) then 
+{
+	player removeMagazines _magazine;
+};
 player setVariable ["cmoney", (player getVariable ["cmoney", 0]) + _weapon_value, true];
 hint format["You sold your gun for $%1", _weapon_value];
