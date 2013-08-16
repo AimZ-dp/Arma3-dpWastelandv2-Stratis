@@ -1,8 +1,11 @@
 // TODO: Fix that convoy get sometimes stuck ob objects on the road.
+if(!isServer) exitwith {};
 
-private ["_missionMarkerName","_missionType","_picture","_vehicleName","_target","_hint","_waypoint","_waypoints","_group","_vehicles","_marker","_failed","_startTime","_numWaypoints","_boxtype","_ammobox","_createVehicle","_leader"];
+//diag_log format["****** mission_Convoy Started ******"];
 
 #include "mainMissionDefines.sqf"
+
+private ["_missionMarkerName","_missionType","_picture","_vehicleName","_target","_hint","_waypoint","_waypoints","_group","_vehicles","_marker","_failed","_startTime","_numWaypoints","_boxtype","_ammobox","_createVehicle","_leader","_missionEnd"];
 
 _missionMarkerName = "Convoy_Marker";
 _missionType = "Convoy";
@@ -113,7 +116,8 @@ publicVariable "messageSystem";
 _failed = false;
 _startTime = floor(time);
 _numWaypoints = count waypoints _group;
-waitUntil
+_missionEnd = false;
+while {!_missionEnd} do
 {
     private ["_unitsAlive"];
     sleep 1; 
@@ -124,7 +128,10 @@ waitUntil
     if (currentWaypoint _group >= _numWaypoints) then { _failed = true }; // Convoy got successfully to the target location
     _unitsAlive = { alive _x } count units _group;
     
-    _unitsAlive == 0 || _failed
+    if (_unitsAlive == 0 || _failed) then
+	{
+		_missionEnd = true;
+	};
 };
 
 if(_failed) then
@@ -143,23 +150,10 @@ if(_failed) then
     deleteGroup _group;
 	
     // Spawn loot at last marker position
-	_boxtype = floor (random (count ammoBoxes));
-    _ammobox = (ammoBoxes select _boxtype) createVehicle getMarkerPos _marker;
-	_ammobox setVariable["newVehicle",vChecksum,true];
-	
-    //clearMagazineCargoGlobal _ammobox;
-    //clearWeaponCargoGlobal _ammobox;
-    // TODO: Fine tune and balance loot.
-    // Rocket launchers
-    //[_ammobox, "launch_NLAW_F", 2] call BIS_fnc_addWeapon;
-    //[_ammobox, "launch_NLAW_F", 2] call BIS_fnc_addWeapon;
-    // Guns
-    //[_ammobox, "arifle_TRG21_GL_F", 3] call BIS_fnc_addWeapon;
-    //[_ammobox, "arifle_TRG21_F", 3] call BIS_fnc_addWeapon;
-    //[_ammobox, "arifle_MX_SW_F", 3] call BIS_fnc_addWeapon;
-    //[_ammobox, "arifle_MX_GL_F", 3] call BIS_fnc_addWeapon;
-    // Grenades
-    //_ammobox addMagazine ["HandGrenade", 5];
+	//_boxtype = floor (random (count missionAmmoBoxes));
+    //_ammobox = (missionAmmoBoxes select _boxtype) createVehicle getMarkerPos _marker;
+	//_ammobox setVariable["newVehicle",vChecksum,true];
+	_ammobox = [getMarkerPos _marker, missionAmmoBoxes, false, 2, false] call boxCreation;	
     
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>The convoy has been sucessfully stopped. Now the weapons and cars are yours.</t>", _missionType, _picture, _vehicleName, successMissionColor, subTextColor];
     messageSystem = _hint;
@@ -168,3 +162,6 @@ if(_failed) then
 };
 
 deleteMarker _marker;
+
+//diag_log format["****** mission_Convoy Finished ******"];
+

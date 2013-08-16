@@ -4,11 +4,11 @@
 //	@file Created: 08/12/2012 15:19
 if(!isServer) exitWith {};
 
+//diag_log format["****** mainMissionController Started ******"];
+
 #include "mainMissions\mainMissionDefines.sqf";
 
 private ["_MMarray","_lastMission","_randomIndex","_mission","_missionType","_newMissionArray","_lastMission"];
-
-diag_log format["WASTELAND SERVER - Started Main Mission State"];
 
 //Main Mission Array
 _MMarray = [
@@ -47,6 +47,8 @@ while {true} do
 	publicVariable "messageSystem";
 	
     //_lastMission = _missionType;
-	waitUntil{sleep 1; scriptDone _missionRunning};
+	waitUntil{scriptDone _missionRunning};
     sleep 5; 
 };
+
+//diag_log format["****** mainMissionController Finished ******"];

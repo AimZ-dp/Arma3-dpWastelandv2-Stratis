@@ -1,25 +1,30 @@
+//	Name: survivalObjectCreation.sqf
+//	Author: AimZ =(dp)=
 
-//	@file Version: 1.0
-//	@file Name: objectCreation.sqf
-//	@file Author: [404] Deadbeat
-//	@file Created: DD/MM/YYYY HH:MM
-//	@file Args:
+if(!isDedicated) exitWith {};
 
-if(!X_Server) exitWith {};
+//diag_log format["*** survivalObjectCreation Started ***"];
 
-private ["_objtype","_obj","_type","_pos"];
-_type = _this select 1;
-_pos = _this select 0;
+private ["_objtype","_obj","_type","_position","_objectList"];
+_position = _this select 0;
+_objectList = _this select 1;
+_restrictContent = _this select 2;
+_coverArea = _this select 3;
+_respawn = _this select 4;
 
-_objtype = survivalObjectList select _type;
+_type = floor (random (count _objectList));
+_objtype = _objectList select _type;
 
-_obj = createVehicle [_objtype,_pos,[], 50, "NONE"]; 
+_obj = createVehicle [_objtype,[7094,5961,0.1],[],10,"NONE"]; 
 _obj setVariable["newVehicle",vChecksum,true];
 _obj setVariable ["timeout", (time + desertedTimeLimit + random maxRandomTimeLimit), true];
 _obj setVariable ["status", "alive", true];
+_obj setVariable ["respawn", _respawn, true];
+_obj setDir (random 360);
+_position = [_position,1,_coverArea,1,0,0,0] call BIS_fnc_findSafePos;
+_obj setPos _position;
 	
-// _obj allowDamage false;  // run on local machines
-_obj addEventHandler ["HandleDamage", {}]; // might need to use addMPEventHandler.
+_obj addEventHandler ["HandleDamage", {false}]; 
 
 // Set Attributes
 if(_objtype == "Land_CanisterPlastic_F") then 
@@ -33,9 +38,4 @@ if(_objtype == "Land_Sacks_goods_F") then
 
 _obj setVariable["R3F_LOG_disabled",false];
 
-// position
-//_obj setPosATL [getpos _obj select 0,getpos _obj select 1,0];
-//_obj setVelocity [0,0,-0.1];
-//_obj setDir (random 360);
-
-
+//diag_log format["*** survivalObjectCreation Finished ***"];

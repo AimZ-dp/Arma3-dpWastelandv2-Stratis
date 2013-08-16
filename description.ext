@@ -5,12 +5,12 @@ class Header
 	maxPlayers = 64;
 };
 
-OnLoadName = "dp Wasteland v1.6";
+OnLoadName = "dp Wasteland v2.0";
 author = "=(dp)= Server (AimZ)";
 loadScreen = "Loading.jpg";
 OnLoadMission = "Wasteland is a harsh survival sandbox where 2 teams and independent players fight for survival";
 
-respawn = "BASE";
+respawn = 3;
 respawnDelay = 15;
 //respawnVehicleDelay = 60;
 //respawnDialog = 0;
@@ -27,19 +27,27 @@ allowFunctionsLog = 0;
 allowFunctionsRecompile = 0;
 
 //Dialog includes
-//#include "addons\R3F_ARTY_AND_LOG\desc_include.h"
-#include "client\systems\common.hpp"
-#include "client\systems\playerMenu\dialog\player_settings.hpp"
-#include "client\systems\groups\dialog\groupManagement.hpp"
-#include "client\systems\gunStore\dialog\gunshop_settings.hpp" 
-#include "client\systems\generalStore\dialog\genstore_settings.hpp"
-#include "client\systems\adminPanel\dialog\serverAdminMenu.hpp"	
-#include "client\systems\adminPanel\dialog\playerMenu.hpp"	
-#include "client\systems\adminPanel\dialog\VehicleManagement.hpp" 
-#include "client\systems\playerMenu\dialog\respawn_dialog.hpp"
-#include "client\systems\playerMenu\dialog\teamkill_dialog.hpp"
+#include "client\gui\common.hpp"
 
-class RscTitles {
-    #include "client\systems\hud\dialog\hud.hpp"
-	#include "client\systems\playerMenu\dialog\welcome.hpp"
+#include "client\gui\playerMenu\dialog\playerMenu.hpp"
+#include "client\gui\playerMenu\dialog\respawn_dialog.hpp"
+#include "client\gui\playerMenu\dialog\teamkill_dialog.hpp"
+
+#include "client\gui\playerMenu\dialog\lootPlayerMenu.hpp"
+
+#include "client\gui\adminPanel\dialog\serverAdminMenu.hpp"	
+#include "client\gui\adminPanel\dialog\playerManagement.hpp"
+#include "client\gui\adminPanel\dialog\vehicleManagement.hpp" 
+
+#include "client\gui\groups\dialog\groupManagement.hpp"
+#include "client\gui\gunStore\dialog\gunshop_settings.hpp" 
+#include "client\gui\generalStore\dialog\genstore_settings.hpp"
+#include "client\gui\constructionStore\dialog\constructionstore_settings.hpp"
+
+#include "addons\R3F_ARTY_AND_LOG\desc_include.h"
+
+class RscTitles 
+{
+	#include "client\gui\hud\dialog\hud.hpp"
+	#include "client\gui\playerMenu\dialog\welcome.hpp"
 };

@@ -4,9 +4,40 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
-if(!X_Server) exitWith {};
+if(!isDedicated) exitWith {};
 
-diag_log format["WASTELAND SERVER - Initilizing Server Compile"];
+diag_log format["*** serverCompile Started ***"];
+
+//Server Config
+serverInit = compileFinal preprocessFileLineNumbers "server\serverInit.sqf";
+serverAdminList = compileFinal preprocessFileLineNumbers "server\serverAdminList.sqf";
+serverVars = compileFinal preprocessFileLineNumbers "server\serverVars.sqf";
+relations = compileFinal preprocessFileLineNumbers "server\functions\relations.sqf";
+serverTimeSync = compileFinal preprocessFileLineNumbers "server\functions\serverTimeSync.sqf";
+broadcaster = compileFinal preprocessFileLineNumbers "server\functions\broadcaster.sqf";
+createBaseObject = compileFinal preprocessFileLineNumbers "server\functions\createBaseObject.sqf";
+
+//Spawning Compiles
+boxSpawning = compileFinal preprocessFileLineNumbers "server\spawning\boxSpawning.sqf";
+boxCreation = compileFinal preprocessFileLineNumbers "server\spawning\boxCreation.sqf";
+baseObjectSpawning = compileFinal preprocessFileLineNumbers "server\spawning\baseObjectSpawning.sqf";
+baseObjectCreation = compileFinal preprocessFileLineNumbers "server\spawning\baseObjectCreation.sqf";
+survivalObjectSpawning = compileFinal preprocessFileLineNumbers "server\spawning\survivalObjectSpawning.sqf";
+survivalObjectCreation = compileFinal preprocessFileLineNumbers "server\spawning\survivalObjectCreation.sqf";
+HeliSpawning = compileFinal preprocessFileLineNumbers "server\spawning\HeliSpawning.sqf";
+HeliCreation = compileFinal preprocessFileLineNumbers "server\spawning\HeliCreation.sqf";
+vehicleSpawning = compileFinal preprocessFileLineNumbers "server\spawning\vehicleSpawning.sqf";
+vehicleCreation = compileFinal preprocessFileLineNumbers "server\spawning\vehicleCreation.sqf";
+randomWeapons = compileFinal preprocessFileLineNumbers "server\spawning\randomWeapon.sqf";
+respawnCheck = compileFinal preprocessFileLineNumbers "server\spawning\respawnCheck.sqf";
+
+//Player Management
+//server_playerDied = compileFinal preprocessFileLineNumbers "server\functions\serverPlayerDied.sqf";
+controlStoreGuy = compileFinal preprocessFileLineNumbers "server\functions\controlStoreGuy.sqf";
+
+//Object Management
+cleanObjects = compileFinal preprocessFileLineNumbers "server\functions\cleanObjects.sqf";
+cleanDead = compileFinal preprocessFileLineNumbers "server\functions\cleanDead.sqf";
 
 //Main Mission Compiles
 mainMissionController = compileFinal preprocessFileLineNumbers "server\missions\mainMissionController.sqf";
@@ -31,32 +62,9 @@ deleteClientMarker = compileFinal preprocessFileLineNumbers "server\missions\fac
 createRandomSoldier = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createUnits\createRandomSoldier.sqf";
 createSmallGroup = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createUnits\smallGroup.sqf";
 createMidGroup = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createUnits\midGroup.sqf";
-createMissionVehicle = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createMissionVehicle.sqf";
+//createMissionVehicle = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createMissionVehicle.sqf";
 defendArea = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\defendArea.sqf";
 
-//Spawning Compiles
-boxSpawning = compileFinal preprocessFileLineNumbers "server\spawning\boxSpawning.sqf";
-boxCreation = compileFinal preprocessFileLineNumbers "server\spawning\boxCreation.sqf";
-baseObjectSpawning = compileFinal preprocessFileLineNumbers "server\spawning\baseObjectSpawning.sqf";
-baseObjectCreation = compileFinal preprocessFileLineNumbers "server\spawning\baseObjectCreation.sqf";
-survivalObjectSpawning = compileFinal preprocessFileLineNumbers "server\spawning\survivalObjectSpawning.sqf";
-survivalObjectCreation = compileFinal preprocessFileLineNumbers "server\spawning\survivalObjectCreation.sqf";
-HeliSpawning = compileFinal preprocessFileLineNumbers "server\spawning\HeliSpawning.sqf";
-HeliCreation = compileFinal preprocessFileLineNumbers "server\spawning\HeliCreation.sqf";
-vehicleSpawning = compileFinal preprocessFileLineNumbers "server\spawning\vehicleSpawning.sqf";
-vehicleCreation = compileFinal preprocessFileLineNumbers "server\spawning\vehicleCreation.sqf";
-randomWeapons = compileFinal preprocessFileLineNumbers "server\spawning\randomWeapon.sqf";
-respawnCheck = compileFinal preprocessFileLineNumbers "server\spawning\respawnCheck.sqf";
+serverCompiledScripts = true;
 
-//Player Management
-server_playerDied = compileFinal preprocessFileLineNumbers "server\functions\serverPlayerDied.sqf";
-
-//Server Config
-admins = compileFinal preprocessFileLineNumbers "server\admins.sqf";
-serverVars = compileFinal preprocessFileLineNumbers "server\functions\serverVars.sqf";
-relations = compileFinal preprocessFileLineNumbers "server\functions\relations.sqf";
-serverTimeSync = compileFinal preprocessFileLineNumbers "server\functions\serverTimeSync.sqf";
-
-//Object Management
-cleanObjects = compileFinal preprocessFileLineNumbers "server\functions\cleanObjects.sqf";
-
+diag_log format["*** serverCompile Finished ***"];

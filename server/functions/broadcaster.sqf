@@ -4,10 +4,14 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
-if(!X_Server) exitWith {};
+if(!isDedicated) exitWith {};
+
+diag_log format["*** broadcaster Started ***"];
 
 while {true} do 
 {
 	publicVariable "currentInvites";
-    sleep 1; 
+    sleep 5; 
 };
+
+diag_log format["*** broadcaster Finished ***"];

@@ -1,38 +1,54 @@
-//	@file Version: 1.0
-//	@file Name: boxCreation.sqf
-//	@file Author: [404] Costlyy, AimZ =(dp)= 
-//	@file Created: 19/12/2012 23:19
-//	@file Args: 
+//	Name: boxCreation.sqf
+//	Author: AimZ =(dp)=
 
-// This file is to address the serious imbalance caused by the default load-out of all weapon crates.
+if(!isDedicated) exitWith {};
 
-if(!X_Server) exitWith {};
+//diag_log format["*** boxCreation Started ***"];
 
-private ["_boxtype","_box","_type","_pos","_weapons","_weapontype"];
-_type = _this select 1;
-_pos = _this select 0;
+private ["_boxtype","_box","_type","_position","_weapons","_weapontype"];
+_position = _this select 0;
+_ammoBoxList = _this select 1;
+_restrictContent = _this select 2;
+_coverArea = _this select 3;
+_respawn = _this select 4;
 
-_boxtype = ammoBoxes select _type;
+_type = floor (random (count _ammoBoxList));
+_boxtype = _ammoBoxList select _type;
 
-_box = createVehicle [_boxtype, _pos,[], 10, "NONE"];
+_box = createVehicle [_boxtype,[7094,5961,0.1],[],10,"NONE"];
 _box setVariable ["newVehicle",vChecksum,true];
 _box setVariable ["timeout", (time + ammoDesertedTimeLimit + random maxRandomTimeLimit), true];
 _box setVariable ["status", "alive", true];
-
-// remove weapons
-_weapons = getWeaponCargo _box;
-_weapontype = _weapons select 0;
-_weaponcount = _weapons select 1;
-	
-clearWeaponCargoGlobal _box;
-{
-	if (!(_x in removeWeapons)) then {
-		_box addWeaponCargoGlobal [_x, _weaponcount select _forEachIndex];
-	};
-} foreach _weapontype;
-
-// position
-_box setPosATL [getpos _box select 0,getpos _box select 1,0.0];
-_box setVelocity [0,0,0];
+_box setVariable ["respawn", _respawn, true];
 _box setDir (random 360);
+_position = [_position,1,_coverArea,1,0,0,0] call BIS_fnc_findSafePos;
+_box setPos _position;
 
+if (_restrictContent) then
+{
+	// remove weapons
+	_weapons = getWeaponCargo _box;
+	_weapontype = _weapons select 0;
+	_weaponcount = _weapons select 1;
+	clearWeaponCargoGlobal _box;
+	{
+		if (!(_x in removeWeapons)) then {
+			_box addWeaponCargoGlobal [_x, _weaponcount select _forEachIndex];
+		};
+	} foreach _weapontype;
+
+	// remove ammo
+	_ammos = getMagazineCargo _box;
+	_ammotype = _ammos select 0;
+	_ammocount = _ammos select 1;
+
+	clearMagazineCargoGlobal _box;
+	{
+		if (!(_x in removeAmmo)) then {
+			_box addMagazineCargoGlobal [_x, _ammocount select _forEachIndex];
+		};
+	} foreach _ammotype;
+};
+
+_box
+//diag_log format["*** boxCreation Finished ***"];

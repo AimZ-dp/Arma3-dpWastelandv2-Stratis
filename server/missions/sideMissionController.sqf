@@ -7,9 +7,9 @@ if(!isServer) exitWith {};
 
 #include "sideMissions\sideMissionDefines.sqf";
 
-private ["_SMarray","_lastMission","_randomIndex","_mission","_missionType","_newMissionArray","_lastMission"];
+//diag_log format["****** sideMissionController Started ******"];
 
-diag_log format["WASTELAND SERVER - Started Side Mission State"];
+private ["_SMarray","_lastMission","_randomIndex","_mission","_missionType","_newMissionArray","_lastMission"];
 
 //Side Mission Array
 _SMarray = [[mission_WepCache,"mission_WepCache"],      
@@ -44,6 +44,8 @@ while {true} do
 	publicVariable "messageSystem";
 	
     //_lastMission = _missionType;
-	waitUntil{sleep 1; scriptDone _missionRunning};
+	waitUntil{scriptDone _missionRunning};
     sleep 5;
 };
+
+//diag_log format["****** sideMissionController Finished ******"];

@@ -3,12 +3,13 @@
 //	@file Author: [404] Deadbeat, [404] Costlyy
 //	@file Created: 08/12/2012 15:19
 //	@file Args:
-#include "mainMissionDefines.sqf";
-
-
 if(!isServer) exitwith {};
 
-private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_vehicleClass","_vehicle","_picture","_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive"];
+//diag_log format["****** mission_LightArmVeh Started ******"];
+
+#include "mainMissionDefines.sqf";
+
+private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_vehicleClass","_vehicle","_picture","_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive","_missionEnd"];
 
 //Mission Initialization.
 _result = 0;
@@ -25,10 +26,12 @@ _randomIndex = _returnData select 1;
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-_vehicleClass = armedMilitaryVehicles call BIS_fnc_selectRandom;
-
+//_vehicleClass = armedMilitaryVehicles call BIS_fnc_selectRandom;
 //Vehicle Class, Posistion, Fuel, Ammo, Damage
-_vehicle = [_vehicleClass,_randomPos,0.1,1,0.75,"NONE"] call createMissionVehicle;
+//_vehicle = [_vehicleClass,_randomPos,0.1,1,0.75,"NONE"] call createMissionVehicle;
+_vehicle = [_randomPos, armedMilitaryVehicles, false, 10, false] call vehicleCreation;
+_vehicle setVehicleLock "LOCKED";
+_vehicle setVariable ["R3F_LOG_disabled", true, true];
 
 _picture = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "picture");
 _vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName");
@@ -42,7 +45,8 @@ CivGrpM = createGroup civilian;
 _startTime = floor(time);
 
 private ["_playerPresent"];
-waitUntil
+_missionEnd = false;
+while {!_missionEnd} do
 {
     sleep 1; 
 	_playerPresent = false;
@@ -51,7 +55,10 @@ waitUntil
     if(_currTime - _startTime >= mainMissionTimeout) then {_result = 1;};
     {if((isPlayer _x) AND (_x distance _vehicle <= missionRadiusTrigger)) then {_playerPresent = true};sleep 2;}forEach playableUnits;
     _unitsAlive = ({alive _x} count units CivGrpM);
-    (_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1)) OR ((damage _vehicle) == 1)
+    if ((_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1)) OR ((damage _vehicle) == 1)) then
+	{
+		_missionEnd = true;
+	};
 };
 
 _vehicle setVehicleLock "UNLOCKED";
@@ -78,3 +85,5 @@ if(_result == 1) then
 //Reset Mission Spot.
 MissionSpawnMarkers select _randomIndex set[1, false];
 [_missionMarkerName] call deleteClientMarker;
+
+//diag_log format["****** mission_LightArmVeh Finished ******"];

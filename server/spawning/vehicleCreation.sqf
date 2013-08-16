@@ -5,42 +5,48 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
-if(!X_Server) exitWith {};
+if(!isDedicated) exitWith {};
 
-private ["_cartype","_car","_type","_pos"];
-_type = _this select 1;
-_pos = _this select 0;
+//diag_log format["*** vehicleCreation Started ***"];
 
-switch (_type) do 
-{ 
-  case 0: {_cartype = civilianVehicles select floor(random (count civilianVehicles));}; 
-  case 1: {_cartype = militaryVehicles select floor(random (count militaryVehicles));}; 
-  case 2: {_cartype = armedMilitaryVehicles select floor(random (count armedMilitaryVehicles));}; 
-};
+private ["_cartype","_car","_type","_position"];
+_position = _this select 0;
+_objectList = _this select 1;
+_restrictContent = _this select 2;
+_coverArea = _this select 3;
+_respawn = _this select 4;
 
-_car = createVehicle [_cartype,_pos,[], 30,"NONE"];
+_type = floor (random (count _objectList));
+_cartype = _objectList select _type;
+
+_car = createVehicle [_cartype,[7094,5961,0.1],[],10,"NONE"];
 _car setVariable ["newVehicle",vChecksum,true];
 _car setVariable ["timeout", (time + desertedTimeLimit + random maxRandomTimeLimit), true];
 _car setVariable ["status", "alive", true];
-
-//Clear Inventory
-clearMagazineCargoGlobal _car;
-clearWeaponCargoGlobal _car;
-	
-//Set Cars Attributes
-_car setFuel (random 0.50) + 0.10;
-_car setDamage (random 0.25) + 0.50;
-
-// position car
-_car setPosATL [getpos _car select 0,getpos _car select 1,0.5];
-_car setVelocity [0,0,0.1];
+_car setVariable ["respawn", _respawn, true];
 _car setDir (random 360);
+_position = [_position,1,_coverArea,1,0,0,0] call BIS_fnc_findSafePos;
+_car setPos _position;
 
-if (count(configFile >> "CfgVehicles" >> (typeOf _car) >> "Turrets") > 0) then
+if (_restrictContent) then
 {
-	_car setVehicleAmmo (random 0.75) + 0.25;
+	//Clear Inventory
+	clearMagazineCargoGlobal _car;
+	clearWeaponCargoGlobal _car;
+
+	//Set Cars Attributes
+	_car setFuel (random 0.50) + 0.10;
+	_car setDamage (random 0.25) + 0.50;
+
+	if (count(configFile >> "CfgVehicles" >> (typeOf _car) >> "Turrets") > 0) then
+	{
+		_car setVehicleAmmo (random 0.75) + 0.25;
+	};
+
+	//_car disableTIEquipment true;
+	[_car] call randomWeapons;
 };
 
-//_car disableTIEquipment true;
-[_car] call randomWeapons;
+_car
 
+//diag_log format["*** vehicleCreation Finished ***"];

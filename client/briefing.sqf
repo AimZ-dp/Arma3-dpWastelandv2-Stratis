@@ -1,3 +1,6 @@
+
+diag_log format["*** briefing Started ***"];
+
 waitUntil {!isNull player && isPlayer player};
 
 player createDiarySubject ["changelog", "Change Log"];
@@ -8,6 +11,8 @@ player createDiaryRecord["changelog",
 [
 "=(dp)=",
 "
+<br/>2.0<br/>
+		[Updates] Major updates on all scripts to improve performance.<br/>
 <br/>1.6<br/>
 		[Updates] Optimised spawn scripts.<br/>
 <br/>1.5<br/>
@@ -103,3 +108,5 @@ player createDiaryRecord["info",
 "
 ]
 ];
+
+diag_log format["*** briefing Finished ***"];

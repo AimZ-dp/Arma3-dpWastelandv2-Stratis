@@ -1,33 +1,51 @@
-//	@file Version: 1.0
-//	@file Name: clientCompile.sqf
-//	@file Author: [404] Deadbeat, [404] Costlyy
-//	@file Created: 20/11/2012 05:19
-//	@file Args:
+
+diag_log format["****** clientCompile Started ******"];
 
 // Initialise
-clientVars = compileFinal preprocessfile "client\config.sqf";
-briefing = compileFinal preprocessfile "client\briefing.sqf";
+clientInit = compileFinal preprocessFileLineNumbers "client\clientInit.sqf";
+clientVars = compileFinal preprocessFileLineNumbers "client\clientVars.sqf";
+briefing = compileFinal preprocessFileLineNumbers "client\briefing.sqf";
 
 // Event handlers
-onRespawn = compileFinal preprocessfile "client\clientEvents\onRespawn.sqf";
-onKilled = compileFinal preprocessfile "client\clientEvents\onKilled.sqf";
-onKeyPress = compileFinal preprocessFile "client\clientEvents\onKeyPress.sqf";
-onMouseWheel = compileFinal preprocessFile "client\clientEvents\onMouseWheel.sqf";
+onKeyPress = compileFinal preprocessFileLineNumbers "client\clientEvents\onKeyPress.sqf";
 
-// Player details and actions
-loadPlayerMenu = compileFinal preprocessFile "client\systems\playerMenu\init.sqf";
-playerSpawn = compileFinal preprocessFileLineNumbers "client\functions\playerSpawn.sqf";
+// Admin Panel
+checkAdmin = compileFinal preprocessFileLineNumbers "client\gui\adminPanel\checkAdmin.sqf";
+checkAdmin2 = compileFinal preprocessFileLineNumbers "client\gui\adminPanel\checkAdmin2.sqf";
+loadServerAdministratorMenu = compileFinal preprocessFileLineNumbers "client\gui\adminPanel\loadServerAdministratorMenu.sqf";
+
+// Player Initialise
+createKeyboardEvent = compileFinal preprocessFileLineNumbers "client\functions\createKeyboardEvent.sqf";
+createMenuActions = compileFinal preprocessFileLineNumbers "client\functions\createMenuActions.sqf";
+initPlayer = compileFinal preprocessFileLineNumbers "client\functions\initPlayer.sqf";
 playerSetup = compileFinal preprocessFileLineNumbers "client\functions\playerSetup.sqf";
-playerActions = compileFinal preprocessFileLineNumbers "client\functions\playerActions.sqf";
 initSurvival = compileFinal preprocessFileLineNumbers "client\functions\initSurvival.sqf";
-spawnAction = compileFinal preprocessFileLineNumbers "client\functions\spawnAction.sqf";
-placeSpawnBeacon = compileFinal preprocessFileLineNumbers "client\systems\playerMenu\placeSpawnBeacon.sqf";
-refuelVehicle = compileFinal preprocessFileLineNumbers "client\systems\playerMenu\refuel.sqf";
-repairVehicle = compileFinal preprocessFile "client\systems\playerMenu\repair.sqf";
+
+// Player spawn functionality
+playerSpawn = compileFinal preprocessFileLineNumbers "client\functions\playerSpawn\playerSpawn.sqf";
+spawnAction = compileFinal preprocessFileLineNumbers "client\functions\playerSpawn\spawnAction.sqf";
+welcomeMessage = compileFinal preprocessFileLineNumbers "client\functions\playerSpawn\welcomeMessage.sqf";
+client_respawnDialog = compileFinal preprocessFileLineNumbers "client\functions\playerSpawn\loadRespawnDialog.sqf";
+spawnRandom = compileFinal preprocessFileLineNumbers "client\functions\playerSpawn\spawnRandom.sqf";
+spawnInTown = compileFinal preprocessFileLineNumbers "client\functions\playerSpawn\spawnInTown.sqf";
+spawnOnBeacon = compileFinal preprocessFileLineNumbers "client\functions\playerSpawn\spawnOnBeacon.sqf";
+
+// Player Menu Panel
+loadPlayerMenu = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\loadPlayerMenu.sqf";
+itemfnc = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\itemfnc.sqf";
+takeMoney = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\takeMoney.sqf";
+takeItem = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\takeItem.sqf";
+giveMoney = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\giveMoney.sqf";
+//placeSpawnBeacon = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\placeSpawnBeacon.sqf";
+refuelVehicle = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\refuel.sqf";
+repairVehicle = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\repair.sqf";
+
+// Groups Panel
+loadGroupManagement = compileFinal preprocessFileLineNumbers "client\gui\groups\loadGroupManagement.sqf";
 
 // Sync client with server time
-timeSync = compileFinal preprocessFileLineNumbers "client\functions\clientTimeSync.sqf";
-serverMessage = compileFinal preprocessFileLineNumbers "client\functions\serverMessage.sqf";
+timeSync = compileFinal preprocessFileLineNumbers "client\functions\serverFunc\clientTimeSync.sqf";
+serverMessage = compileFinal preprocessFileLineNumbers "client\functions\serverFunc\serverMessage.sqf";
 
 // Update scripts
 updateMissionsMarkers = compileFinal preprocessFileLineNumbers "client\functions\updatePlayerMissionMarkers.sqf";
@@ -37,23 +55,24 @@ updateTeamKiller = compileFinal preprocessFileLineNumbers "client\functions\upda
 teamkillAction = compileFinal preprocessFileLineNumbers "client\functions\doTeamKillAction.sqf";
 teamkillMessage = compileFinal preprocessFileLineNumbers "client\functions\showTeamKillMessage.sqf";
 
-// Dialog compiles
-client_respawnDialog = compileFinal preprocessFileLineNumbers "client\functions\loadRespawnDialog.sqf";
-loadGeneralStore = compileFinal preprocessFileLineNumbers "client\systems\generalStore\loadGenStore.sqf";
-loadGunStore = compileFinal preprocessFileLineNumbers "client\systems\gunStore\loadGunStore.sqf";
+// Store Panels
+loadGeneralStore = compileFinal preprocessFileLineNumbers "client\gui\generalStore\loadGenStore.sqf";
+loadGunStore = compileFinal preprocessFileLineNumbers "client\gui\gunStore\loadGunStore.sqf";
+loadConstructionStore = compileFinal preprocessFileLineNumbers "client\gui\constructionStore\loadConstructionStore.sqf";
+baseObjectCreation = compileFinal preprocessFileLineNumbers "server\spawning\baseObjectCreation.sqf";
 
 // HUD graphics
-playerHud = compileFinal preprocessFileLineNumbers "client\systems\hud\playerHud.sqf";
-drawPlayerIcons = compileFinal preprocessFileLineNumbers "client\systems\hud\playerIcons.sqf";
-getPlayerData = compileFinal preprocessFileLineNumbers "client\systems\hud\getPlayerData.sqf";
-getDebugData = compileFinal preprocessFileLineNumbers "client\systems\hud\getDebugData.sqf";
+playerHud = compileFinal preprocessFileLineNumbers "client\gui\hud\playerHud.sqf";
+drawPlayerIcons = compileFinal preprocessFileLineNumbers "client\gui\hud\playerIcons.sqf";
+getPlayerData = compileFinal preprocessFileLineNumbers "client\gui\hud\getPlayerData.sqf";
+getDebugData = compileFinal preprocessFileLineNumbers "client\gui\hud\getDebugData.sqf";
 
 // Update markers
 createTownMarkers = compileFinal preprocessFileLineNumbers "client\functions\createTownMarkers.sqf";
 createGunStoreMarkers = compileFinal preprocessFileLineNumbers "client\functions\createGunStoreMarkers.sqf";
 createGeneralStoreMarkers = compileFinal preprocessFileLineNumbers "client\functions\createGeneralStoreMarkers.sqf";
+createConstructionStoreMarkers = compileFinal preprocessFileLineNumbers "client\functions\createConstructionStoreMarkers.sqf";
 
-player groupChat "=(dp)= Wasteland - Client Compile Complete";
-
-sleep 1;
 playerCompiledScripts = true;
+
+diag_log format["****** clientCompile Finished ******"];

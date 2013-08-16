@@ -3,7 +3,9 @@
 //	@file Author: [404] Deadbeat, AimZ =(dp)=
 //	@file Created: 20/11/2012 05:19
 
-if(!X_Server) exitWith {};
+if(!isDedicated) exitWith {};
+
+diag_log format["*** serverTimeSync Started ***"];
 
 private ["_dateStamp","_hours","_minutes","_prevMinutes","_prevHours"];
 
@@ -30,8 +32,8 @@ while {true} do
 	
 	if (_hours > 18 && _minutes > 29) then 
 	{
-		_hours = 4;
-		_minutes = 30;
+		_hours = 5;
+		_minutes = 00;
 		_dateStamp set [3, _hours];
 		_dateStamp set [4, _minutes];
 		setDate _dateStamp;
@@ -42,3 +44,5 @@ while {true} do
 	
 	sleep 60;
 };
+
+diag_log format["*** serverTimeSync Finshed ***"];

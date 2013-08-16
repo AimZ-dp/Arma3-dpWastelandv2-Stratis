@@ -5,9 +5,9 @@
 //	@file Created: 20/11/2012 05:19
 //	@file Args:
 
-if(!X_Server) exitWith {};
+if(!isDedicated) exitWith {};
 
-diag_log format["WASTELAND SERVER - Initilizing Server Relations"];
+diag_log format["*** relations Started ***"];
 
 EAST setFriend [WEST, 0];
 EAST setFriend [EAST, 1];
@@ -21,3 +21,5 @@ RESISTANCE setFriend [WEST, 0];
 CIVILIAN setFriend [EAST, 0];
 CIVILIAN setFriend [WEST, 0];
 CIVILIAN setFriend [RESISTANCE, 0];
+
+diag_log format["*** relations Finished ***"];

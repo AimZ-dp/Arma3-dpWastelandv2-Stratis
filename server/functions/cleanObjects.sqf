@@ -4,52 +4,72 @@
 //	@file Created: 24/06/2013
 //	@file Args:
 
-if(!X_Server) exitWith {};
+if(!isDedicated) exitWith {};
 
-private ["_allMObjects","_vehicleType","_check","_checkCount","_bodyCount","_bodyType"];
+diag_log format["*** cleanObjects Started ***"];
 
-diag_log "WASTELAND SERVER - Looking for removeable objects to clean up";
+private ["_vehicleType","_check","_checkCount"];
 
 _check = 0;
 _checkCount = 0;
-_bodyCount = 0;
 
 while {true} do 
 {
-	_allMObjects = allMissionObjects "All";
+	_allMObjects = allMissionObjects "All"; 
+	diag_log format["object count=%1", count _allMObjects];
+	
 	{
-		_vehicleType = Format["%1",typeOf _x];
-	
-		if(!(_vehicleType isKindOf "Civilian") and !(_vehicleType isKindOf "SoldierWB") 
-			and !(_vehicleType isKindOf "SoldierEB") and !(_vehicleType isKindOf "Logic")) then 
-		{		
-			_check = _x getVariable ["newVehicle",0];
-			_checkCount = _x getVariable ["newVehicleCount",0];
-			
-			if (_check != vChecksum) then 
-			{
-				_checkCount = _checkCount + 1;
-				_x setVariable ["newVehicleCount",_checkCount,true];
-			};
-		
-			if(_check != vChecksum and _checkCount >= objectTimeOut) then
-			{
-				deleteVehicle _x;
-			};
-		};
-	} forEach _allMObjects; 
-
-	{ 
-		_bodyCount = _x getVariable ["newBodyCount",0];
-		_bodyCount = _bodyCount + 1;
-		_x setVariable["newBodyCount",_bodyCount,true];
-		
-		_bodyType = Format["%1",typeOf _x];	
-		if(_bodyCount >= objectTimeOut) then  
+		if (!(isNull _x)) then 
 		{
-			deleteVehicle _x;
+			diag_log format["%1",typeOf _x];
+			
+			//if(!(_x isKindOf "Civilian") and !(_x isKindOf "SoldierWB") and !(_x isKindOf "CAManBase") 
+			//	and !(_x isKindOf "SoldierEB") and !(_x isKindOf "Logic")) then 
+			if(!(_x isKindOf "CAManBase") and !(_x isKindOf "Logic")) then 
+			{
+				//diag_log format["we are in..."];
+				
+				_check = _x getVariable ["newVehicle",0];
+				_checkCount = _x getVariable ["newVehicleCount",0];
+				_timeout = _x getVariable ["timeout", time + 240];	
+				
+				if (_check != vChecksum && _checkCount == 0) then 
+				{
+					_checkCount = _checkCount + 1;
+					_x setVariable ["newVehicleCount",_checkCount,true];
+					_x setVariable ["timeout", time + 240, true];
+				};
+			
+				if(_check != vChecksum and time > _timeout) then
+				{
+					deleteVehicle _x;
+				};
+			}
+			else
+			{
+				if (_x isKindOf "CAManBase" && !(alive _x) && !(isPlayer _x)) then
+				{
+					_bodyCount = _x getVariable ["newBodyCount",0];
+					_timeout = _x getVariable ["timeout", time + 480];
+
+					if (_bodyCount == 0) then 
+					{
+						_bodyCount = _bodyCount + 1;
+						_x setVariable ["newBodyCount",_bodyCount,true];
+						_x setVariable ["timeout", time + 480, true];
+					};
+					if(time > _timeout) then  
+					{
+						deleteVehicle _x;
+					};
+				};
+			};
 		};
-	} forEach allDead;
+		sleep 1;
+	} forEach _allMObjects; 
 	
-	sleep objectCheckDelay;
+	//sleep objectCheckDelay;
+	sleep 1;
 };
+
+diag_log format["*** cleanObjects Finished ***"];
