@@ -15,9 +15,10 @@ _respawn = _this select 4;
 _type = floor (random (count _ammoBoxList));
 _boxtype = _ammoBoxList select _type;
 
-_box = createVehicle [_boxtype,[7094,5961,0.1],[],10,"NONE"];
+_box = createVehicle [_boxtype,[7094,5961,0],[],40,"NONE"];
 _box setVariable ["newVehicle",vChecksum,true];
 _box setVariable ["timeout", (time + ammoDesertedTimeLimit + random maxRandomTimeLimit), true];
+_box setVariable ["last_timeout", time, true];
 _box setVariable ["status", "alive", true];
 _box setVariable ["respawn", _respawn, true];
 _box setDir (random 360);

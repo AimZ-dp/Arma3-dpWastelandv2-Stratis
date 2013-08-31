@@ -16,19 +16,14 @@ _checkCount = 0;
 while {true} do 
 {
 	_allMObjects = allMissionObjects "All"; 
-	diag_log format["object count=%1", count _allMObjects];
-	
 	{
 		if (!(isNull _x)) then 
 		{
-			diag_log format["%1",typeOf _x];
-			
-			//if(!(_x isKindOf "Civilian") and !(_x isKindOf "SoldierWB") and !(_x isKindOf "CAManBase") 
-			//	and !(_x isKindOf "SoldierEB") and !(_x isKindOf "Logic")) then 
-			if(!(_x isKindOf "CAManBase") and !(_x isKindOf "Logic")) then 
+			_x setVariable ["last_timeout", time, true];
+		
+			_mapbuilding = _x getVariable ["mapbuilding",false];
+			if(!(_x isKindOf "CAManBase") and !(_x isKindOf "Logic") and !((_x isKindOf "Wall" || _x isKindOf "House") && _mapbuilding)) then 
 			{
-				//diag_log format["we are in..."];
-				
 				_check = _x getVariable ["newVehicle",0];
 				_checkCount = _x getVariable ["newVehicleCount",0];
 				_timeout = _x getVariable ["timeout", time + 240];	
@@ -67,8 +62,6 @@ while {true} do
 		};
 		sleep 1;
 	} forEach _allMObjects; 
-	
-	//sleep objectCheckDelay;
 	sleep 1;
 };
 

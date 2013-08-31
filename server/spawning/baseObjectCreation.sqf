@@ -13,7 +13,7 @@ _respawn = _this select 4;
 _type = floor (random (count _objectList));
 _objtype = _objectList select _type;
 
-_obj = createVehicle [_objtype,[7094,5961,0.1],[],10,"NONE"]; 
+_obj = createVehicle [_objtype,[7094,5961,0],[],40,"NONE"]; 
 _obj setVariable["newVehicle",vChecksum,true];
 _obj setDir (random 360);
 _position = [_position,1,_coverArea,1,0,0,0] call BIS_fnc_findSafePos;

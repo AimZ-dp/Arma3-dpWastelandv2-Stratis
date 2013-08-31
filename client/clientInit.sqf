@@ -12,6 +12,10 @@ diag_log format["****** clientInit Started ******"];
 "pvar_teamKillList" addPublicVariableEventHandler {[] call updateTeamKiller};
 "pvar_teamkillMessage" addPublicVariableEventHandler {if(local(_this select 1)) then {[] spawn teamkillMessage;};};
 
+"allowPlayerIcons" addPublicVariableEventHandler {hint format["Player Icons %1", allowPlayerIcons];};
+"allowGroups" addPublicVariableEventHandler {if(allowGroups == "OFF") then {[player] joinSilent grpNull;}; hint format["Groups %1", allowGroups];};
+"clockCycle" addPublicVariableEventHandler {hint format["Day Night Cycle %1", clockCycle];};
+
 // Initialise
 [] call clientVars;
 [] call briefing;
@@ -41,6 +45,7 @@ diag_log format["****** clientInit Started ******"];
 [] call createKeyboardEvent; 
 
 // Start HUD drawing
+[] spawn rechargeScanner;
 [] spawn playerHud;
 [] spawn drawPlayerIcons;
 [] spawn getPlayerData;

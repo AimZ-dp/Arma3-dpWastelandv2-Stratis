@@ -30,6 +30,13 @@ currentDate = [];
 publicVariable "currentDate";
 currentInvites = [];
 publicVariable "currentInvites";
+// set the game to be tactical - no groups, no permenent team tags, no teamkill kicks
+allowPlayerIcons = "ON";
+publicVariable "allowPlayerIcons";
+allowGroups = "ON";
+publicVariable "allowGroups";
+clockCycle = "DAY ONLY";
+publicVariable "clockCycle";
 
 //Civilian Vehicle List - Random Spawns
 civilianVehicles = [
@@ -51,15 +58,15 @@ militaryVehicles = [
 	"O_MRAP_02_F", 
 	"O_Truck_02_transport_F", 
 	"O_Truck_02_covered_F", 
-	//"I_MRAP_03_F", // issue: LODShape::AddLoadHandler: Handler not present in shape [a3\weapons_f\empty.p3d]
+	"I_MRAP_03_F", // issue: LODShape::AddLoadHandler: Handler not present in shape [a3\weapons_f\empty.p3d]
 	"I_Truck_02_transport_F",
 	"I_Truck_02_covered_F"
 ];
 militaryHelis = [
 	"B_Heli_Light_01_F", 
-	//"O_Heli_Light_02_unarmed_F", // issue: HUD: bone Target not found, HUD: bone HorizonBank2 not found
+	"O_Heli_Light_02_unarmed_F", // issue: HUD: bone Target not found, HUD: bone HorizonBank2 not found
 	"B_Heli_Transport_01_F", 
-	//"B_Heli_Transport_01_camo_F", // issue: Heli_Transport_01_skeleton: Invalid parent bone 'otochlavne' for 'zasleh'
+	"B_Heli_Transport_01_camo_F", // issue: Heli_Transport_01_skeleton: Invalid parent bone 'otochlavne' for 'zasleh'
 	"I_Heli_Transport_02_F"
 ];
 
@@ -140,7 +147,7 @@ vehicleWeapons = [
 	"SMG_02_F",
 	//"LMG_Mk200_F",
 	//"LMG_Zafir_F",
-	//"hgun_P07_F", // issue: causes server errors when this pistol is used
+	"hgun_P07_F", // issue: causes server errors when this pistol is used
 	"hgun_Rook40_F",
 	"hgun_ACPC2_F"
 ];
@@ -208,8 +215,8 @@ ammoBoxes = [
 	"Box_East_Support_F",
 	//"Box_East_AmmoVeh_F", 
 	"Box_IND_Ammo_F",
-	//"Box_IND_Wps_F",  			// issue: LODShape::AddLoadHandler: Handler not present in shape [a3\weapons_f\empty.p3d]
-	//"Box_IND_Wps_F",
+	"Box_IND_Wps_F",  			// issue: LODShape::AddLoadHandler: Handler not present in shape [a3\weapons_f\empty.p3d]
+	"Box_IND_Wps_F",
 	//"Box_IND_Grenades_F",		// too many granade spamming happening, these only hold nades and smoke
 	//"Box_IND_WpsLaunch_F",	// too many launchers in game, need to give the helis a chance
 	//"Box_IND_AmmoOrd_F",
@@ -237,8 +244,8 @@ missionAmmoBoxes = [
 	"Box_East_Support_F",
 	//"Box_East_AmmoVeh_F", 
 	"Box_IND_Ammo_F",
-	//"Box_IND_Wps_F",  			// issue: LODShape::AddLoadHandler: Handler not present in shape [a3\weapons_f\empty.p3d]
-	//"Box_IND_Wps_F",
+	"Box_IND_Wps_F",  			// issue: LODShape::AddLoadHandler: Handler not present in shape [a3\weapons_f\empty.p3d]
+	"Box_IND_Wps_F",
 	//"Box_IND_Grenades_F",		// too many granade spamming happening, these only hold nades and smoke
 	"Box_IND_WpsLaunch_F",		// too many launchers in game, need to give the helis a chance
 	"Box_IND_AmmoOrd_F",

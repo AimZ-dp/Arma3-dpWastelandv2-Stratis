@@ -40,6 +40,9 @@ giveMoney = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\giveMo
 refuelVehicle = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\refuel.sqf";
 repairVehicle = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\repair.sqf";
 
+useScanner = compileFinal preprocessFileLineNumbers "client\actions\useScanner.sqf";
+rechargeScanner = compileFinal preprocessFileLineNumbers "client\actions\rechargeScanner.sqf";
+
 // Groups Panel
 loadGroupManagement = compileFinal preprocessFileLineNumbers "client\gui\groups\loadGroupManagement.sqf";
 
@@ -54,6 +57,7 @@ updateTeamKiller = compileFinal preprocessFileLineNumbers "client\functions\upda
 // Team-kill system
 teamkillAction = compileFinal preprocessFileLineNumbers "client\functions\doTeamKillAction.sqf";
 teamkillMessage = compileFinal preprocessFileLineNumbers "client\functions\showTeamKillMessage.sqf";
+spawnDefence = compileFinal preprocessFileLineNumbers "client\functions\spawnDefence.sqf";
 
 // Store Panels
 loadGeneralStore = compileFinal preprocessFileLineNumbers "client\gui\generalStore\loadGenStore.sqf";

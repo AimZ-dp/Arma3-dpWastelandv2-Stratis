@@ -18,6 +18,8 @@ while {true} do
 			_type = typeOf _unit;
 			_status = _unit getVariable ["status", "unknown"];
 			
+			_unit setVariable ["last_timeout", time, true];
+			
 			switch (_status) do
 			{
 				case "alive": 

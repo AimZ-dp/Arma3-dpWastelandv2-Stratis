@@ -21,7 +21,7 @@ while {true} do
 	_hours = _dateStamp select 3;
 	_minutes = _dateStamp select 4;
 
-	if (_minutes - _prevMinutes > 15 || _hours != _prevHours) then
+	if (_minutes - _prevMinutes > 30 || _hours != _prevHours) then
 	{
 		currentDate = _dateStamp;
 		publicVariable "currentDate";
@@ -30,19 +30,38 @@ while {true} do
 		_prevHours = _hours;
 	};
 	
-	if (_hours > 18 && _minutes > 29) then 
+	if (clockCycle == "DAY ONLY") then 
 	{
-		_hours = 5;
-		_minutes = 00;
-		_dateStamp set [3, _hours];
-		_dateStamp set [4, _minutes];
-		setDate _dateStamp;
-		
-		currentDate = _dateStamp;
-		publicVariable "currentDate";
+		// 5:00am - 7:30pm
+		if (_hours > 19 || (_hours == 19 && _minutes > 30)) then 
+		{
+			_hours = 5;
+			_minutes = 00;
+			_dateStamp set [3, _hours];
+			_dateStamp set [4, _minutes];
+			setDate _dateStamp;
+			
+			currentDate = _dateStamp;
+			publicVariable "currentDate";
+		};
 	};
-	
-	sleep 60;
+	if (clockCycle == "NIGHT ONLY") then
+	{
+		// 8:00pm - 4:30am
+		if (_hours > 4 || (_hours == 4 && _minutes > 30)) then 
+		{
+			_hours = 20;
+			_minutes = 00;
+			_dateStamp set [3, _hours];
+			_dateStamp set [4, _minutes];
+			setDate _dateStamp;
+			
+			currentDate = _dateStamp;
+			publicVariable "currentDate";
+		};		
+	};
+
+	sleep 5;
 };
 
 diag_log format["*** serverTimeSync Finshed ***"];

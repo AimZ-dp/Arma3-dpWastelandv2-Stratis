@@ -10,66 +10,66 @@ _uid = getPlayerUID player;
 if (_uid in serverdpAdministrators) then {
 	if (isnil "pvmkr") then {pvmkr = 0;}; if (pvmkr == 0) then {pvmkr = 1; hint "Player Markers ON";} else {pvmkr = 0; hint "Player Markers OFF";};
 	
-	//******************************************
-	setGroupIconsVisible [true, true];
+	_playerMarkers = [];
 	while {pvmkr == 1} do
 	{
+		if (visibleMap) then
 		{
-			if (getPlayerUID _x != "" && visibleMap) then
+			// Move markers on the map
 			{
-				if (group _x == grpNull) then 
-				{
-					clearGroupIcons group _x;
-					
-					switch(str(side _x)) do 
-					{
-						case "WEST": {group _x addGroupIcon ["b_unknown",[0,0]];};
-						case "EAST": {group _x addGroupIcon ["o_unknown",[0,0]];};
-						case "GUER": {group _x addGroupIcon ["n_unknown",[0,0]];};
-						default {group _x addGroupIcon ["n_unknown",[0,0]];};
-					};
-					group _x setGroupIconParams [[1, 0.35, 0, 0.8], format ["%1 (%2m)", name _x, round (_x distance player)], 0.5, true];
-				}
-				else
-				{
-					clearGroupIcons group _x;
-					{
-						switch(str(side _x)) do 
-						{
-							case "WEST": {group _x addGroupIcon ["b_unknown",[0,0]];};
-							case "EAST": {group _x addGroupIcon ["o_unknown",[0,0]];};
-							case "GUER": {group _x addGroupIcon ["n_unknown",[0,0]];};
-							default {group _x addGroupIcon ["n_unknown",[0,0]];};
-						};
-						group _x setGroupIconParams [[1, 0.35, 0, 0.8], format ["%1 (%2m)", name _x, round (_x distance player)], 0.5, true];						
-					} foreach units group _x;clearGroupIcons group _x;
-					{
-						switch(str(side _x)) do 
-						{
-							case "WEST": {group _x addGroupIcon ["b_unknown",[0,0]];};
-							case "EAST": {group _x addGroupIcon ["o_unknown",[0,0]];};
-							case "GUER": {group _x addGroupIcon ["n_unknown",[0,0]];};
-							default {group _x addGroupIcon ["n_unknown",[0,0]];};
-						};
-						group _x setGroupIconParams [[1, 0.35, 0, 0.8], format ["%1 (%2m)", name _x, round (_x distance player)], 0.5, true];						
-					} foreach units group _x;
-				};
-			}
-			else
-			{
-				clearGroupIcons group _x;
-			};
+				_position = getPos _x;
+				_markerName = Format ["player_%1_pos", getPlayerUID _x];
+				_markerName setMarkerPosLocal _position;
+			} foreach _playerMarkers;
 			
-		} forEach allUnits;
+			// add marker to map. save to list of players..
+			{
+				if (!(_x in _playerMarkers)) then
+				{
+					_position = getPos _x;
+					_markerName = Format ["player_%1_pos", getPlayerUID _x];
+					createMarkerLocal [_markerName, _position];
+					_markerName setMarkerShapeLocal "ICON";
+					_markerName setMarkerTypeLocal "mil_dot";
+					_markerName setMarkerColorLocal "ColorWhite";
+					_markerName setMarkerSizeLocal [1,1];
+					_markerName setMarkerTextLocal name _x;	
+					
+					// add to array
+					_playerMarkers set [count _playerMarkers, _x]; 
+				};
+			} forEach playableUnits;
+			
+			// remove markers from map, delete from array if no longer exists
+			_deleteItems = ["DELETE_ME"];
+			{
+				if (!(_x in playableUnits)) then 
+				{
+					_markerName = Format ["player_%1_pos", getPlayerUID _x];
+					deleteMarkerLocal _markerName;
+					_playerMarkers set [_forEachIndex, "DELETE_ME"];
+				};
+			} forEach _playerMarkers;		
+			_playerMarkers = _playerMarkers - _deleteItems;
+		}
+		else
+		{
+			{
+				_markerName = Format ["player_%1_pos", getPlayerUID _x];
+				deleteMarkerLocal _markerName;
+			} forEach _playerMarkers;				
+			_playerMarkers = [];
+		};
 		
-		sleep 2;
+		sleep 1;
 	};
-		
-	{
-		clearGroupIcons group _x;
-	} forEach allUnits; 
-	//******************************************
 	
+	{
+		_markerName = Format ["player_%1_pos", getPlayerUID _x];
+		deleteMarkerLocal _markerName;
+	} forEach _playerMarkers;		
+	_playerMarkers = [];
+
 } else {
   exit;  
 };

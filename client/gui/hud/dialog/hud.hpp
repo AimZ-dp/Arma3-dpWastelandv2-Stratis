@@ -8,6 +8,7 @@
 
 #define hud_status_idc 3600
 #define hud_vehicle_idc 3601
+#define hud_scanner_idc 3602
 
 class WastelandHud {
 	idd = -1;
@@ -53,6 +54,24 @@ class WastelandHud {
 			text = "100 Status";
 			class Attributes {
 				align = "right";
+			};
+		};
+		class WastelandHud_Scanner:w_RscText
+		{
+			idc = hud_scanner_idc;
+			type = CT_STRUCTURED_TEXT;
+			size = 0.040;
+			x = safeZoneX;
+            y = safeZoneY + (safeZoneH * (1 - (0.20 / SafeZoneH)));
+			w = 0.24; 
+			h = 0.30;
+			lineSpacing = 6;
+			colorBackground[] = {0,0,0,0};
+			colorText[] = {1,1,1,1};
+			shadow = 2;
+			text = "Scanner Battery 100%\nScanning...";
+			class Attributes {
+				align = "left";
 			};
 		};
 	};

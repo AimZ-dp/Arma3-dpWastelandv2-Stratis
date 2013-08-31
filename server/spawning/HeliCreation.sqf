@@ -20,9 +20,10 @@ if (count _this > 5) then
 _type = floor (random (count _objectList));
 _helitype = _objectList select _type;
 
-_heli = createVehicle [_helitype,[7094,5961,0.1],[],10,"NONE"];
+_heli = createVehicle [_helitype,[7094,5961,0],[],40,"NONE"];
 _heli setVariable["newVehicle",vChecksum,true];
 _heli setVariable ["timeout", (time + desertedTimeLimit + random maxRandomTimeLimit), true];
+_heli setVariable ["last_timeout", time, true];
 _heli setVariable ["status", "alive", true];
 _heli setVariable ["respawn", _respawn, true];
 _heli setDir (random 360);

@@ -11,7 +11,7 @@ private ["_start","_displayServerAdmin","_serverAdminSelect","_panelOptions"];
 _uid = getPlayerUID player;
 if (_uid in serverdpAdministrators) then 
 {
-	hint "Welcome =(dp)= Owner";
+	//hint "Welcome =(dp)= Owner";
 	
 	_start = createDialog "ServerAdminMenu";
 	
@@ -22,7 +22,10 @@ if (_uid in serverdpAdministrators) then
 					"Object Management",
 					"Debugging Tags",
 					"Teleport",
-	                "Money"];
+	                "Money",
+					"Allow Player Icons",
+					"Allow Groups",
+					"Day Cycle"];
 	
 	{
 		_serverAdminSelect lbAdd _x;

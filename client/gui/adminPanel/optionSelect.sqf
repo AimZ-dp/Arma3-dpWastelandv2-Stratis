@@ -45,6 +45,49 @@ if (_uid in serverdpAdministrators) then {
 			    {      
 					player setVariable["cmoney", (player getVariable "cmoney")+500,true];
 			    };
+			    case 5: //PlayerIcons
+			    {      
+					if (allowPlayerIcons == "ON") then
+					{
+						allowPlayerIcons = "OFF";					
+					}
+					else
+					{
+						allowPlayerIcons = "ON";
+					};
+					publicVariableServer "allowPlayerIcons";
+				};
+				case 6: //Groups
+			    {      
+					if (allowGroups == "ON") then
+					{
+						allowGroups = "OFF";					
+					}
+					else
+					{
+						allowGroups = "ON";
+					};
+					publicVariableServer "allowGroups";
+			    };
+				case 7: //Clock Cycle
+			    {      
+					if (clockCycle == "DAY ONLY") then
+					{
+						clockCycle = "DAY AND NIGHT";					
+					}
+					else
+					{
+						if (clockCycle == "DAY AND NIGHT") then
+						{
+							clockCycle = "NIGHT ONLY";					
+						}
+						else
+						{
+							clockCycle = "DAY ONLY";	
+						};
+					};
+					publicVariableServer "clockCycle";
+			    };
 			};
 	    };
 	};

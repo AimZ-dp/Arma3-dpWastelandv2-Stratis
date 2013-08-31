@@ -1,7 +1,8 @@
-
-//if(!isDedicated) exitWith {};
+/*
+if(!isDedicated) exitWith {};
 
 private ["_guy","_location","_position"];
+
 _guy = _this select 0;
 _location = _this select 1;
 
@@ -9,7 +10,8 @@ _location = _this select 1;
 
 while {true} do 
 {
-	_guy doMove (getMarkerPos "_location");
-	diag_log format["guy=%1, location=%2", typeof _guy, _location];	
+	_guy moveTo (getMarkerPos _location);
+
 	sleep 10;
 };
+*/

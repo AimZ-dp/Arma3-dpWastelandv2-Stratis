@@ -73,7 +73,7 @@
 #define LB_TEXTURES       0x10
 #define LB_MULTI          0x20
 
-#define FontM             "Zeppelin32"
+#define FontM             "PuristaMedium"
 
 #define true 1
 #define false 0
@@ -85,7 +85,7 @@ class w_RscText {
 	style = ST_LEFT;
 	colorBackground[] = { 1 , 1 , 1 , 0 };
 	colorText[] = { 1 , 1 , 1 , 1 };
-	font = "PuristaSemibold";
+	font = "PuristaMedium";
 	sizeEx = 0.025;
 	h = 0.25;
 	text = "";
@@ -100,7 +100,7 @@ class w_RscStructuredText
 	colorText[] = {0.8784,0.8471,0.651,1};
 	class Attributes
 	{
-		font = "PuristaSemibold";
+		font = "PuristaMedium";
 		color = "#e0d8a6";
 		align = "center";
 		shadow = 1;
@@ -123,7 +123,7 @@ class w_RscBackground
     idc               = -1;
     style             = ST_LEFT;
     colorText[]       = {1, 1, 1, 1};
-    font              = "PuristaSemibold";
+    font              = "PuristaMedium";
     sizeEx            = 0.04;
 };
 
@@ -137,7 +137,7 @@ class w_RscEdit
     w = .2;
     h = .4;
     sizeEx = .02;
-    font = "PuristaSemibold";
+    font = "PuristaMedium";
 
     text = "";
     colorText[] = {1,1,1,1};
@@ -167,7 +167,7 @@ class w_RscListBox
     color[] = {0.7, 0.7, 0.7, 1};
     colorActive[] = {0,0,0,1};
     colorDisabled[] = {0,0,0,0.3};
-    font = "PuristaSemibold";
+    font = "PuristaMedium";
     sizeEx = 0.023;
     soundSelect[] = {"",0.1,1};
     soundExpand[] = {"",0.1,1};
@@ -209,8 +209,8 @@ class w_Rsclist
         color[] = {0.7, 0.7, 0.7, 1};
         colorActive[] = {0,0,0,1};
         colorDisabled[] = {0,0,0,0.3};
-        font = "PuristaSemibold";
-        sizeEx = 0.023;
+        font = "PuristaMedium";
+        sizeEx = 0.030;
         soundSelect[] = {"",0.1,1};
         soundExpand[] = {"",0.1,1};
         soundCollapse[] = {"",0.1,1};
@@ -238,7 +238,7 @@ class w_RscPicture
 	type = CT_STATIC;
 	style = ST_PICTURE;
 	
-	font = "PuristaSemibold";
+	font = "PuristaMedium";
 	sizeEx = 0.023;
 	
 	colorBackground[] = {};
@@ -305,9 +305,9 @@ class w_RscButtonBase {
 	textureNoShortcut = "";
 	
 	period = 0.4;
-	font = "PuristaSemibold";
-	size = 0.023;
-	sizeEx = 0.023;
+	font = "PuristaMedium";
+	size = 0.026;
+	sizeEx = 0.026;
 	text = "";
 	
 	soundEnter[] = {"\A3\ui_f\data\Sound\MOUSE2", 0.09, 1};
@@ -319,7 +319,7 @@ class w_RscButtonBase {
 	
 	class Attributes {
 	
-		font = "PuristaSemibold";
+		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "left";
 		shadow = "true";
@@ -328,7 +328,7 @@ class w_RscButtonBase {
 	
 	class AttributesImage {
 	
-		font = "PuristaSemibold";
+		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "left";
 		
@@ -384,7 +384,7 @@ class w_RscButton : w_RscButtonBase {
 	
 	class Attributes {
 	
-		font = "PuristaSemibold";
+		font = "PuristaMedium";
 		color = "#E5E5E5";
 		align = "center";
 		shadow = "true";
@@ -433,7 +433,7 @@ class w_RscCombo {
 	y = "0.0 + 0.038";
 	w = 0.301000;
 	h = 0.030000;
-	font = "TahomaB";
+	font = "PuristaMedium";
 	sizeEx = 0.025000;
 	rowHeight = 0.025000;
 	wholeHeight = "4 * 0.2";

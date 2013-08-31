@@ -19,9 +19,10 @@ _respawn = _this select 4;
 _type = floor (random (count _objectList));
 _cartype = _objectList select _type;
 
-_car = createVehicle [_cartype,[7094,5961,0.1],[],10,"NONE"];
+_car = createVehicle [_cartype,[7094,5961,0],[],40,"NONE"];
 _car setVariable ["newVehicle",vChecksum,true];
 _car setVariable ["timeout", (time + desertedTimeLimit + random maxRandomTimeLimit), true];
+_car setVariable ["last_timeout", time, true];
 _car setVariable ["status", "alive", true];
 _car setVariable ["respawn", _respawn, true];
 _car setDir (random 360);

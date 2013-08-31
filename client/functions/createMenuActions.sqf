@@ -6,6 +6,7 @@ private ["_vehiclePlayer"];
 
 aActionsIDs = [];
 
+aActionsIDs = aActionsIDs + [player addAction["Scanner", "client\actions\useScanner.sqf", [], 1, false, false, "", 'scannerBattery > 60 && !scanningInProgress']];
 aActionsIDs = aActionsIDs + [player addAction["Loot Dead Body", "client\gui\playerMenu\loadLootPlayerMenu.sqf", [], 1, false, false, "", '_object = nearestobjects [player, ["B_Soldier_F","B_soldier_M_F","B_medic_F","B_soldier_repair_F","O_Soldier_F","O_soldier_M_F","O_medic_F","O_soldier_repair_F","I_Soldier_F","I_soldier_M_F","I_medic_F","I_soldier_repair_F"], 5]; if (count _object > 1) then {_object = _object select 1;} else {_object = player;}; player distance _object < 5 && !alive _object']];
 aActionsIDs = aActionsIDs + [player addAction["Use The Gun Store", "client\gui\gunStore\loadGunStore.sqf", [], 1, false, false, "", 'player distance (nearestobjects [player, ["C_man_polo_4_F"],  5] select 0) < 5']];
 aActionsIDs = aActionsIDs + [player addAction["Use The General Store", "client\gui\generalStore\loadGenStore.sqf", [], 1, false, false, "", 'player distance (nearestobjects [player, ["C_man_polo_6_F"],  5] select 0) < 5']];

@@ -25,5 +25,6 @@ _soldier = _group createUnit [_soldierTypes call BIS_fnc_selectRandom, _position
 _soldier addUniform (_uniformTypes call BIS_fnc_selectRandom);
 _soldier addVest (_vestTypes call BIS_fnc_selectRandom);
 [_soldier, _weaponTypes call BIS_fnc_selectRandom, 3] call BIS_fnc_addWeapon;
+_soldier addEventHandler ["killed", {_this execVM "server\functions\enemyKilled.sqf"}];
 
 _soldier

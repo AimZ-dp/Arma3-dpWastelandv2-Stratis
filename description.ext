@@ -1,11 +1,11 @@
 class Header
 {
-	gameType = Wasteland;
+	gameType = Sandbox;
 	minPlayers = 1;
-	maxPlayers = 64;
+	maxPlayers = 132;
 };
 
-OnLoadName = "dp Wasteland v2.0";
+OnLoadName = "dp Wasteland v2.1";
 author = "=(dp)= Server (AimZ)";
 loadScreen = "Loading.jpg";
 OnLoadMission = "Wasteland is a harsh survival sandbox where 2 teams and independent players fight for survival";
@@ -25,6 +25,27 @@ scriptedPlayer = 1;
 
 allowFunctionsLog = 0;
 allowFunctionsRecompile = 0;
+
+class CfgSounds
+{
+	sounds[] = {};
+	class scannerBeep
+	{
+		// http://www.mediacollege.com/downloads/sound-effects/beep/
+		name = "scanner_beep";
+		// filename, volume, pitch
+		sound[] = {"fx\beep-01.wav", 1, 1};
+		titles[] = {};
+	};
+	class spawnWarning
+	{
+		// http://www.mediacollege.com/downloads/sound-effects/beep/
+		name = "spawn_warning";
+		// filename, volume, pitch
+		sound[] = {"fx\beep-10.wav", 1, 1};
+		titles[] = {};
+	};
+};
 
 //Dialog includes
 #include "client\gui\common.hpp"

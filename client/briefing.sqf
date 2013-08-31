@@ -72,25 +72,60 @@ player createDiaryRecord["changelog",
 ]
 ];
 
+
+
+player createDiaryRecord["rules",
+[
+"Rules to follow",
+"
+<br/>
+	Rule 1:<br/><br/>
+		- Anyone caught running cheat scripts will be banned (we share banlists with other servers)<br/>
+	Rule 2:<br/><br/>
+		- Do not set foot on or kill/shoot at anyone on the island at the very north of the map called Xiros. If caught doing this you will be slayed. If caught again you will be banned<br/>
+	Rule 3:<br/><br/>
+		- Do not steal from team mates bags. Punishment for doing so ranges from removal of weapons and/or cash,to being slayed, kicked or banned<br/>
+	Rule 4:<br/><br/>
+		- Do not intentionally teamkill. Punishment for doing so ranges from removal of weapons and/or cash,to being slayed, kicked or banned<br/>
+	Rule 5:<br/><br/>
+		- Do not talk in global unless it is an emergency. Type but do not talk. Anyone doing so will be warned, repeat offences will result in kick and/or ban<br/>
+	Rule 6:<br/><br/>
+		- Do not spam any other chat channel. Anyone doing so will be warned, repeat offences will result in kick and/or ban<br/>
+	Rule 7:<br/><br/>
+		- Do not grief or abuse team mates. Result will be kick and/or ban<br/>
+"
+]
+];
+
+player createDiaryRecord["rules",
+[
+"Server Info",
+"
+<br/>
+Please register on our website at http://dp-clan.enjin.com/forum and join the (dp) wasteland community to find out what we are up to and what our future plans for the server are. Suggestions for future verions of (dp) wasteland are always welcome<br/><br/>
+General Game Play:<br/><br/>
+- Each player starts with the following in their player menu: 1 food, 1 water, 1 single use medkit, 1 single use repair kit and 1 empty jerry can<br/>
+- Jerry cans can be filled at the fuel station, the general stores, green oil barrels found around the island or by syphoning fuel from vehicles<br/>
+- Loot dead bodies for money and players gear, items are no longer dropped<br/>
+- To give someone an item you must stand close to them and use the player menu to give the selected item to the select player<br/>
+- The general store sells, uniform items, food, water, single use medkits and repair kits and fuel<br/>
+- There are usually 58 ground vehicles, 8 helis, 12 ammo/weapons crates, 12 survival items (food sacks, water containers) in the game at any one time<br/>
+- Vehicles with mounted guns, wheeled apc's, tracked armour, armed heli's and extra ammo/weapons crates can be obtained by completing the regular in-game objectives<br/>
+- Only the lower powered guns can be found in vehicles. Higher powered guns and launchers can be found in ammo/weapons crates or bought at gunstores<br/>
+- Gunstores sell a full range of weaponry and ammo<br/>
+- To build a base buy items from the construction store make sure to leave space for the objects to spawn in, vehicles and sandbags dont mix well<br/>
+"
+]
+];
+
 player createDiaryRecord["rules",
 [
 "Intro",
 "
 <br/>
-	Rule 1:<br/><br/>
-	Blah Blah Blah<br/>
-	Blah Blah Blah<br/>
-"
-]
-];
-player createDiaryRecord["rules",
-[
-"More Stuff",
-"
-<br/>
-	General Rules:<br/><br/>
-	Blah Blah Blah<br/>
-	Blah Blah Blah<br/>
+- Be respectful to admins and they will be the same.<br/>
+- Remember the admins are gamers and want to game in the server too<br/>
+- If you feel you have a valid reason to contest a ban you can get in touch with the admin team by registering on our website at http://dp-clan.enjin.com/forum<br/>
 "
 ]
 ];
@@ -100,11 +135,15 @@ player createDiaryRecord["info",
 "Credits",
 "
 <br/>
-	404 Team:<br/><br/>
+	Credit due to the 404 Team who worked on the mod before I made my changes:<br/><br/>
 	Deadbeat<br/>
 	Costlyy<br/>
 	Pulse<br/>
 	Domuk<br/>
+	Many other...<br/>
+	
+<br/>
+	Credit due to whoever created the anti-hack used on most other mods...<br/><br/>	
 "
 ]
 ];

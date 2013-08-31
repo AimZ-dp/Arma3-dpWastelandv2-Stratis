@@ -12,7 +12,7 @@ diag_log format["****** heliSpawning Started ******"];
 private ["_counter","_position","_type","_start","_step","_end"];
 
 _counter = 0;
-_step = 2;
+_step = 4;
 _start = floor (random _step) + 1;
 _end = 24;
 

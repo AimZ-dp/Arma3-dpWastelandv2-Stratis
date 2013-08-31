@@ -107,4 +107,10 @@ if(!dialog) then
 	_mIndex = _mvalue lbadd "$3000"; _mvalue lbSetData [(lbSize _mvalue)-1, "3000"];
 	_mIndex = _mvalue lbadd "$4000"; _mvalue lbSetData [(lbSize _mvalue)-1, "4000"];
 	_mIndex = _mvalue lbadd "$5000"; _mvalue lbSetData [(lbSize _mvalue)-1, "5000"];
+	
+	//  disable groups if allowGroups enabled
+	if (allowGroups == "OFF") then
+	{
+	 	_groupButton ctrlShow false;    
+	};
 };

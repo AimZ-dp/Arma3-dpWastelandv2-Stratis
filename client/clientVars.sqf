@@ -17,6 +17,9 @@ currentRadarMarkers = [];
 playerSetupComplete = false;
 camadm = objNull;
 camPos = 0;
+scannerBattery = 100;
+ScannerProgress = 0;
+scanningInProgress = false;
 						
 //Gunstore Weapon List - Gun Store Base List
 // Text name, classname, buy cost, sell amount

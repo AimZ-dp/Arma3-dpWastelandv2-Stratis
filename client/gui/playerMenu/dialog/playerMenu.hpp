@@ -49,14 +49,14 @@ class playerSettings {
 		class moneyText : w_RscText {
 			idc = money_text;
 			text = "";
-			sizeEx = 0.03;
+			sizeEx = 0.04;
 			x = 0.06; y = 0.313;
 			w = 0.3; h = 0.05;
 		};
 		
 		class foodText : w_RscText {	
 			idc = food_text;
-			sizeEx = 0.03;
+			sizeEx = 0.04;
 			text = "";
 			x = 0.06; y = 0.254;
 			w = 0.3; h = 0.05;
@@ -65,7 +65,7 @@ class playerSettings {
 		class waterText : w_RscText {	
 			idc = water_text;
 			text = "";
-			sizeEx = 0.03;
+			sizeEx = 0.04;
 			x = 0.06; y = 0.193;
 			w = 0.3; h = 0.05;
 		};
@@ -73,7 +73,7 @@ class playerSettings {
 		class distanceText : w_RscText {	
 			idc = view_range_text;
 			text = "View range:";
-			sizeEx = 0.025;
+			sizeEx = 0.035;
 			x = 0.03; y = 0.40;
 			w = 0.3; h = 0.02;
 		};			

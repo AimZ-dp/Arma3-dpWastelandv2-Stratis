@@ -58,14 +58,13 @@ switch (playerSide) do
 		player addHeadgear "H_Cap_blu";
 	};
 	case east: {
-		//player addUniform "U_O_CombatUniform_ocamo";
-		//_uniformArray = ["U_O_CombatUniform_ocamo", "U_O_SpecopsUniform_ocamo", "U_O_SpecopsUniform_blk", "U_O_OfficerUniform_ocamo", "U_O_PilotCoveralls"];
-		//_uniform = _uniformArray call BIS_fnc_selectRandom;
-		player addUniform "U_O_SpecopsUniform_ocamo";
+		//player addUniform "U_O_SpecopsUniform_ocamo";
+		player addUniform "U_B_CombatUniform_mcam_tshirt";
 		player addHeadgear "H_Cap_red";
 	};
 	case resistance: {
-		player addUniform "U_I_CombatUniform_tshirt";
+		//player addUniform "U_I_CombatUniform_tshirt";
+		player addUniform "U_B_CombatUniform_mcam_tshirt";
 		player addHeadgear "H_Cap_grn";
 	};
 };
@@ -83,6 +82,7 @@ player assignItem "ItemWatch";
 // start the spawn dialog
 sleep 2;
 [] call playerSpawn;	
+[] spawn spawnDefence;
 
 player addMagazine "16Rnd_9x21_Mag";
 player addMagazine "16Rnd_9x21_Mag";
