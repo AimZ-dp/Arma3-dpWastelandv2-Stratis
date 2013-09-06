@@ -36,8 +36,10 @@ while {true} do
 				{
 					_randomDetection = random 100;
 				};
+				
+				_isFriendly = ((playerSide != resistance && side _x == playerSide) || (playerSide == resistance && _x in units player));
 
-				if (((playerSide != resistance && side _x == playerSide) || (playerSide == resistance && _x in units player)) || _randomDetection > 98) then
+				if (_isFriendly || (!_isFriendly && _randomDetection > 98)) then
 				{
 					_playerPos = visiblePosition _x;
 					_playerDistance = _playerPos distance player;
@@ -46,6 +48,10 @@ while {true} do
 					if (allowPlayerIcons == "OFF") then 
 					{
 						_maxDistance = 400;
+					};
+					if (!_isFriendly && _randomDetection > 98) then 
+					{
+						_maxDistance = 300;
 					};
 					
 					if ((scanningInProgress || allowPlayerIcons == "ON") && _playerDistance <= _maxDistance) then

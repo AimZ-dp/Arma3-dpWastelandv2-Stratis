@@ -5,8 +5,8 @@ diag_log format["******** MISSION init Started ********"];
 // reset BIS_fnc_mp
 //"BIS_fnc_MP_packet" addPublicVariableEventHandler {};
 
-versionName = "v2.1";
-modVersion = "build-1024";
+versionName = "v2.1.1";
+modVersion = "build-2034";
 vChecksum = 1;
 {vChecksum = vChecksum + _x;} forEach (toArray modVersion); 
 

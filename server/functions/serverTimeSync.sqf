@@ -7,13 +7,16 @@ if(!isDedicated) exitWith {};
 
 diag_log format["*** serverTimeSync Started ***"];
 
-private ["_dateStamp","_hours","_minutes","_prevMinutes","_prevHours"];
+private ["_dateStamp","_hours","_minutes","_prevMinutes","_prevHours","_prevClockCycle","_updateTime"];
 
 _dateStamp = Date;
 currentDate = _dateStamp;
 publicVariable "currentDate";
 _prevHours = _dateStamp select 3;
 _prevMinutes = _dateStamp select 4;
+
+_prevClockCycle = clockCycle;
+_updateTime = false;
 
 while {true} do
 {	
@@ -30,10 +33,17 @@ while {true} do
 		_prevHours = _hours;
 	};
 	
+	if (_prevClockCycle != clockCycle) then
+	{
+		// clock cycle has changed
+		_updateTime = true;
+		_prevClockCycle = clockCycle;
+	};
+	
 	if (clockCycle == "DAY ONLY") then 
 	{
 		// 5:00am - 7:30pm
-		if (_hours > 19 || (_hours == 19 && _minutes > 30)) then 
+		if ((_hours > 19 || (_hours == 19 && _minutes > 30)) || _updateTime) then 
 		{
 			_hours = 5;
 			_minutes = 00;
@@ -43,12 +53,14 @@ while {true} do
 			
 			currentDate = _dateStamp;
 			publicVariable "currentDate";
+			
+			_updateTime = false;
 		};
 	};
 	if (clockCycle == "NIGHT ONLY") then
 	{
 		// 8:00pm - 4:30am
-		if (_hours > 4 || (_hours == 4 && _minutes > 30)) then 
+		if ((_hours > 4 || (_hours == 4 && _minutes > 30)) || _updateTime) then 
 		{
 			_hours = 20;
 			_minutes = 00;
@@ -58,9 +70,27 @@ while {true} do
 			
 			currentDate = _dateStamp;
 			publicVariable "currentDate";
+			
+			_updateTime = false;
 		};		
 	};
-
+	if (clockCycle == "DAY AND NIGHT") then
+	{
+		// 4:00pm
+		if (_updateTime) then 
+		{
+			_hours = 16;
+			_minutes = 00;
+			_dateStamp set [3, _hours];
+			_dateStamp set [4, _minutes];
+			setDate _dateStamp;
+			
+			currentDate = _dateStamp;
+			publicVariable "currentDate";
+			
+			_updateTime = false;
+		};		
+	};
 	sleep 5;
 };
 
