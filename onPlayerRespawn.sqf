@@ -12,6 +12,8 @@ _respawnDelay = _this select 3;
 
 titleText ["You were born to respawn...", "BLACK", 0];
 
+sleep 2;
+
 // Player setup
 [] call PlayerSetup;				// initialise players gear
 [] spawn createMenuActions;			// add player menu items
