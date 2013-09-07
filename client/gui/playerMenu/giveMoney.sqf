@@ -17,13 +17,14 @@ _otherPlayer = GET_SELECTED_DATA(give_to_list);
 if((player getVariable "cmoney" < _money) OR (player getVariable "cmoney" < 0)) exitwith {hint format["You don't have $%1 to give", _money];};
 
 mutexScriptInProgress = true;
+_currPlayerState = animationState player;
 
 _nearestPlayers = nearestobjects [player, ["B_Soldier_F","B_soldier_M_F","B_medic_F","B_soldier_repair_F","O_Soldier_F","O_soldier_M_F","O_medic_F","O_soldier_repair_F","I_Soldier_F","I_soldier_M_F","I_medic_F","I_soldier_repair_F"],  5];
 {
 	if (player distance _x < 5 && alive _x && name _x == _otherPlayer) then
 	{
-		player switchMove "AmovPercMstpSrasWpstDnon_gear";
-		_x switchMove "AmovPercMstpSrasWrflDnon_gear_AmovPercMstpSrasWrflDnon";
+		player playMoveNow "AmovPercMstpSrasWpstDnon_gear";
+		_x playMoveNow "AmovPercMstpSrasWrflDnon_gear_AmovPercMstpSrasWrflDnon";
 		player setVariable["cmoney",(player getVariable "cmoney") - _money,true];
 		_x setVariable["cmoney",(_x getVariable "cmoney") + _money,true];
 		sleep 3;
@@ -31,4 +32,4 @@ _nearestPlayers = nearestobjects [player, ["B_Soldier_F","B_soldier_M_F","B_medi
 } foreach _nearestPlayers;
 
 mutexScriptInProgress = false;
-player SwitchMove "aidlpercmstpsraswrfldnon_idlesteady01n"; 
+player playMoveNow _currPlayerState; 

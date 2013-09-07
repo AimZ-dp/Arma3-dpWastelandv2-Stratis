@@ -109,3 +109,5 @@ while{groupManagmentActive} do
     lbClear _groupListBox;
 };
 
+_dialog displayRemoveAllEventHandlers "KeyDown";
+

@@ -12,6 +12,11 @@ _respawnDelay = _this select 3;
 
 titleText ["You were born to respawn...", "BLACK", 0];
 
+// remove everything
+{player removeWeapon _x;} foreach weapons player;
+player switchMove "aidlpercmstpsraswrfldnon_idlesteady01n";
+player playMove "aidlpercmstpsraswrfldnon_idlesteady01n";
+
 sleep 2;
 
 // Player setup

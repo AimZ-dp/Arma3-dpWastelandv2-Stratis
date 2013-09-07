@@ -250,4 +250,6 @@ while {respawnDialogActive} do
     sleep 0.1;
 };
 
+_display displayRemoveAllEventHandlers "KeyDown";
+
 diag_log format["*** loadRespawnDialog Finished ***"];

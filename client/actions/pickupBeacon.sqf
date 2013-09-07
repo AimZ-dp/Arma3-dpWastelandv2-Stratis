@@ -29,7 +29,7 @@ if(_destroyOrSteal == 0 AND (player getVariable "spawnBeacon") > 0) exitWith {
 	player globalChat localize "STR_WL_Errors_BeaconTooMany";
 }; 
 	
-player switchMove "AinvPknlMstpSlayWrflDnon_medic"; // Begin the full medic animation...
+player switchMove "AinvPknlMstpSlayWnonDnon_medic"; // Begin the full medic animation...
 
 switch (_destroyOrSteal) do {
     case 0:{ // Steal
@@ -63,8 +63,8 @@ switch (_destroyOrSteal) do {
 		        mutexScriptInProgress = false;
 			}; 
 		    
-		    if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the steal.
-		        player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+		    if (animationState player != "AinvPknlMstpSlayWnonDnon_medic") then { // Keep the player locked in medic animation for the full duration of the steal.
+		        player switchMove "AinvPknlMstpSlayWnonDnon_medic";
 		    };
 		    
             _lockDuration = _lockDuration - 1;
@@ -125,8 +125,8 @@ switch (_destroyOrSteal) do {
 		        mutexScriptInProgress = false;
 			};
 		    
-		    if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the destroy.
-		        player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+		    if (animationState player != "AinvPknlMstpSlayWnonDnon_medic") then { // Keep the player locked in medic animation for the full duration of the destroy.
+		        player switchMove "AinvPknlMstpSlayWnonDnon_medic";
 		    };    
             
             _lockDuration = _lockDuration - 1;

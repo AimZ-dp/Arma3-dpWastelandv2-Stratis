@@ -45,7 +45,7 @@ if (_activeBeacon) exitWith {
 	player globalChat localize "STR_WL_Errors_BeaconActive";
 };
 		
-player switchMove "AinvPknlMstpSlayWrflDnon_medic"; // Begin the full medic animation...
+player switchMove "AinvPknlMstpSlayWnonDnon_medic"; // Begin the full medic animation...
 
 mutexScriptInProgress = true;
 
@@ -72,8 +72,8 @@ for "_iteration" from 1 to _lockDuration do {
 		mutexScriptInProgress = false;
 	};                  
                                                         	    
-	if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the placement.
-		player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+	if (animationState player != "AinvPknlMstpSlayWnonDnon_medic") then { // Keep the player locked in medic animation for the full duration of the placement.
+		player switchMove "AinvPknlMstpSlayWnonDnon_medic";
 	};
     	    
 	_lockDuration = _lockDuration - 1;

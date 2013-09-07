@@ -20,6 +20,7 @@ camPos = 0;
 scannerBattery = 100;
 ScannerProgress = 0;
 scanningInProgress = false;
+refuelVehicle = [objNull,0];
 						
 //Gunstore Weapon List - Gun Store Base List
 // Text name, classname, buy cost, sell amount
@@ -274,15 +275,20 @@ uniformArray = [
 
 //Object List - Random Spawns.
 baseObjectList = [
+	["Building - Cargo House","Land_Cargo_House_V1_F",200],
+	["Building - Cargo HQ","Land_Cargo_HQ_V1_F",200],	
+	["Building - Cargo Tower","Land_Cargo_Patrol_V1_F",200],	
+	["Storage - Supply Crate","I_supplyCrate_F",50],
+	["Bar Gate","Land_BarGate_F",50],
 	["Pipes (Small)","Land_Pipes_small_F",100],
 	["Pipes (Large)","Land_Pipes_large_F",100],
 	["Pipes (Iron)","Land_IronPipes_F",100],
-	["Bag Fence (Corner)","Land_BagFence_Corner_F",100],
-	["Bag Fence (End)","Land_BagFence_End_F",100],
-	["Bag Fence (Long)","Land_BagFence_Long_F",100],
-	["Bag Fence (Round)","Land_BagFence_Round_F",100],
-	["Bag Fence (Short)","Land_BagFence_Short_F",100],
-	["Bag Bunker (Small)","Land_BagBunker_Small_F",100],
+	["Bag Fence (Corner)","Land_BagFence_Corner_F",50],
+	["Bag Fence (End)","Land_BagFence_End_F",50],
+	["Bag Fence (Long)","Land_BagFence_Long_F",50],
+	["Bag Fence (Round)","Land_BagFence_Round_F",50],
+	["Bag Fence (Short)","Land_BagFence_Short_F",50],
+	["Bag Bunker (Small)","Land_BagBunker_Small_F",150],
 	["CNC Barrier","Land_CncBarrier_F",100],
 	["CNC Barrier (Medium)","Land_CncBarrierMedium_F",100],
 	["CNC Barrier (Meduim4)","Land_CncBarrierMedium4_F",100],
@@ -292,7 +298,7 @@ baseObjectList = [
 	["HBarrier 3","Land_HBarrier_3_F",100],
 	["HBarrier 5","Land_HBarrier_5_F",100],
 	["HBarrier (Big)","Land_HBarrierBig_F",100],
-	["Crash Barrier","Land_Crash_barrier_F",100],
+	["Crash Barrier","Land_Crash_barrier_F",50],
 	["Halogen Lamp","Land_LampHalogen_F",100]
 ];
 

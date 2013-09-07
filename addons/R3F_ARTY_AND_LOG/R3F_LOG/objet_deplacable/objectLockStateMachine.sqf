@@ -25,7 +25,7 @@ switch (_lockState) do {
 		_lockDuration = _totalDuration;
 		_iteration = 0;
 		
-		player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+		player switchMove "AinvPknlMstpSlayWnonDnon_medic";
 		
 		for "_iteration" from 1 to _lockDuration do {
 		    
@@ -39,8 +39,8 @@ switch (_lockState) do {
                 R3F_LOG_mutex_local_verrou = false;
 			};
             
-            if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the unlock.
-                player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+            if (animationState player != "AinvPknlMstpSlayWnonDnon_medic") then { // Keep the player locked in medic animation for the full duration of the unlock.
+                player switchMove "AinvPknlMstpSlayWnonDnon_medic";
             };
             
 			_lockDuration = _lockDuration - 1;
@@ -66,7 +66,7 @@ switch (_lockState) do {
 		_unlockDuration = _totalDuration;
 		_iteration = 0;
 		
-		player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+		player switchMove "AinvPknlMstpSlayWnonDnon_medic";
 		
 		for "_iteration" from 1 to _unlockDuration do {
 		    
@@ -80,8 +80,8 @@ switch (_lockState) do {
                 R3F_LOG_mutex_local_verrou = false;
 			};
             
-            if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the unlock.
-                player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+            if (animationState player != "AinvPknlMstpSlayWnonDnon_medic") then { // Keep the player locked in medic animation for the full duration of the unlock.
+                player switchMove "AinvPknlMstpSlayWnonDnon_medic";
             };
             
 			_unlockDuration = _unlockDuration - 1;

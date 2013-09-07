@@ -65,7 +65,10 @@ if(_result == 1) then
 	//Mission Failed.
     deleteVehicle _box1;
     deleteVehicle _box2;
-    {deleteVehicle _x;}forEach units CivGrps;
+	{
+		_x removeAllEventHandlers "killed";
+		deleteVehicle _x;
+	}forEach units CivGrpS;
     deleteGroup CivGrpS;
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%2' size='1.25'>%1</t><br/><t align='center' color='%3'>Objective failed, better luck next time</t>", _missionType, failMissionColor, subTextColor];
 	messageSystem = _hint;
@@ -78,7 +81,6 @@ if(_result == 1) then
 	if ((damage _box2) == 1) then {
 		    deleteVehicle _box2;
 	};
-	{deleteVehicle _x;}forEach units CivGrpS;
     deleteGroup CivGrpS;
     _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>The ammo caches have been collected well done team</t>", _missionType, successMissionColor, subTextColor];
 	messageSystem = _hint;

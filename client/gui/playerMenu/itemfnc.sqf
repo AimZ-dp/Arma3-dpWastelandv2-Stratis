@@ -41,7 +41,7 @@ switch(_switch) do
 		{
 			case "fuelFull": 
 			{
-				[] spawn refuelVehicle;
+				[] spawn refuel;
 			};
 
 			case "fuelEmpty": 
@@ -64,7 +64,7 @@ switch(_switch) do
             	mutexScriptInProgress = true;
                 _currState = animationState player;
                 
-				if((vehicle player) == player) then {player switchMove "AinvPknlMstpSnonWnonDnon_healed_1";};
+				if((vehicle player) == player) then {player playMoveNow "AinvPknlMstpSnonWnonDnon_healed_1";};
                 
                 for "_i" from 1 to 50 do
                 {
@@ -80,11 +80,10 @@ switch(_switch) do
 					_hungerLevel = _hungerLevel + 30;
 					if(_hungerLevel > 100) then {_hungerLevel = 100};
 					player setVariable["hunger",_hungerLevel,true];
-                	mutexScriptInProgress = false;
-                } else {
-                	player switchMove _currState;
-                	doCancelAction = false;
+					mutexScriptInProgress = false;
                 };
+                player playMoveNow _currState;
+                doCancelAction = false;
 			};
 			case "water": 
 			{
@@ -96,7 +95,7 @@ switch(_switch) do
                 mutexScriptInProgress = true;
                 _currState = animationState player;
                 
-				if((vehicle player) == player) then {player switchMove "AinvPknlMstpSnonWnonDnon_healed_1";};
+				if((vehicle player) == player) then {player playMoveNow "AinvPknlMstpSnonWnonDnon_healed_1";};
                 
                 for "_i" from 1 to 50 do
                 {
@@ -113,10 +112,9 @@ switch(_switch) do
 					if(_thirstLevel > 100) then {_thirstLevel = 100};
 					player setVariable["thirst",_thirstLevel,true];
                 	mutexScriptInProgress = false;
-                } else {
-                	player switchMove _currState;
-                	doCancelAction = false;
-                };     
+                };
+                player playMoveNow _currState;
+                doCancelAction = false;    
 			};
 			case "medkit": 
 			{
@@ -126,16 +124,36 @@ switch(_switch) do
 						hint "You do not require a medkit";
 					} else {
 						hint "You have healed minor injures";
+						player setDamage 0;
 					};
-					player setDamage 0;
 				};
 
-				if((vehicle player) == player) then { player playmove "AinvPknlMstpSlayWrflDnon_medic"; };
+				// Check if mutex lock is active.
+				if(mutexScriptInProgress) exitWith {
+					player globalChat localize "STR_WL_Errors_InProgress";
+				};
+            	
+                mutexScriptInProgress = true;
+                _currState = animationState player;
+                				
+				if((vehicle player) == player) then { player playmove "AinvPknlMstpSlayWnonDnon_medic"; };
 
-				player setVariable["medkits",(player getVariable "medkits")-1,true];
-				sleep 6.5;
-				player setDamage 0;
-				hint "You are now fully healed";
+				for "_i" from 1 to 50 do
+                {
+                	if (doCancelAction) exitWith {// Player selected "cancel action"
+    					mutexScriptInProgress = false;
+					}; 
+                	sleep 0.1;
+                };
+                
+                if (!(doCancelAction)) then {
+                	player setVariable["medkits",(player getVariable "medkits")-1,true];
+					player setDamage 0;
+					hint "You are now fully healed";
+                	mutexScriptInProgress = false;
+                };
+                player playMoveNow _currState;
+                doCancelAction = false;    
 			};
 			case "camonet": 
 			{
@@ -155,7 +173,6 @@ switch(_switch) do
 		};
 		
 		mutexScriptInProgress = false;
-        player SwitchMove "aidlpercmstpsraswrfldnon_idlesteady01n"; 
 	};
 
 	case 1: //Give item
@@ -183,8 +200,8 @@ switch(_switch) do
 		{
 			if (player distance _x < 5 && alive _x && name _x == _otherPlayer) then
 			{
-				player switchMove "AmovPercMstpSrasWpstDnon_gear";
-				//_x switchMove "AmovPercMstpSrasWrflDnon_gear_AmovPercMstpSrasWrflDnon";
+				_currState = animationState player;
+				player playMoveNow "AmovPknlMstpSrasWpstDnon_gear";
 				
 				//Give the item
 				switch(_data) do 
@@ -199,10 +216,10 @@ switch(_switch) do
 				};
 
 				sleep 5;
+				player playMoveNow _currState;
 			};
 		} foreach _nearestPlayers;
 
         mutexScriptInProgress = false;
-        player SwitchMove "aidlpercmstpsraswrfldnon_idlesteady01n"; 
 	};
 };

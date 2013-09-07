@@ -50,13 +50,18 @@ while {true} do
 						_unit setDamage 1;
 						_unit setVariable ["status", "burn", true];
 						_unit setVariable ["timeout", (time + burningTimeLimit), true];
+						//_unit setVariable ["objPos", getPosATL _unit, true];
 					};
 				}; 
 				case "burn": 
 				{
 					_curtime = time;
 					_timeout = _unit getVariable ["timeout", (time + burningTimeLimit)];
-
+					
+					// make sure things stay above ground...
+					//_objPos = _unit getVariable ["objPos", getPosATL _unit];
+					//_unit setPosATL _objPos;
+					
 					if (_curtime > _timeout) then
 					{
 						_unit setVariable ["status", "respawn", true];
@@ -67,12 +72,18 @@ while {true} do
 					_respawn = _unit getVariable ["respawn", false];
 					if (!_respawn) then
 					{
+						_unit removeAllEventHandlers "GetIn";
+						_unit removeAllEventHandlers "killed";
+						_unit removeAllEventHandlers "HandleDamage";
 						deleteVehicle _unit;
 					}
 					else
 					{
 						if (_unit isKindOf "Car") then
 						{
+							_unit removeAllEventHandlers "GetIn";
+							_unit removeAllEventHandlers "killed";
+							_unit removeAllEventHandlers "HandleDamage";
 							deleteVehicle _unit;
 							
 							_position = getMarkerPos format ["Spawn_%1", floor (random 118) + 1];					
@@ -86,6 +97,9 @@ while {true} do
 						};
 						if (_unit isKindOf "ReammoBox_F") then
 						{
+							_unit removeAllEventHandlers "GetIn";
+							_unit removeAllEventHandlers "killed";
+							_unit removeAllEventHandlers "HandleDamage";
 							deleteVehicle _unit;
 							
 							_position = getMarkerPos format ["Town_%1", floor (random 24) + 1];					
@@ -93,6 +107,9 @@ while {true} do
 						};
 						if (_unit isKindOf "Helicopter") then
 						{
+							_unit removeAllEventHandlers "GetIn";
+							_unit removeAllEventHandlers "killed";
+							_unit removeAllEventHandlers "HandleDamage";
 							deleteVehicle _unit;
 							
 							_position = getMarkerPos format ["heliSpawn_%1", floor (random 24) + 1];			
@@ -100,6 +117,9 @@ while {true} do
 						};
 						if ((typeof _unit) in survivalObjectList) then
 						{
+							_unit removeAllEventHandlers "GetIn";
+							_unit removeAllEventHandlers "killed";
+							_unit removeAllEventHandlers "HandleDamage";
 							deleteVehicle _unit;
 							
 							_position = getMarkerPos format ["Town_%1", floor (random 24) + 1];	
@@ -115,7 +135,7 @@ while {true} do
 		};
 	} foreach vehicles;
 
-	sleep 5;
+	sleep 1;
 };
 
 diag_log format["****** repawnCheck Finished ******"];

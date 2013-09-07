@@ -28,7 +28,10 @@ if (player distance _corpse < 5 && !alive _corpse) then
 	};
 
 	mutexScriptInProgress = true;
-
+	_currPlayerState = animationState player;
+	player playMoveNow "AmovPknlMstpSrasWpstDnon_Gear_AmovPknlMstpSrasWpstDnon";
+	sleep 1;
+	
 	switch(_data) do 
 	{
 		case "canfood": {
@@ -72,10 +75,8 @@ if (player distance _corpse < 5 && !alive _corpse) then
 		//case "spawnBeacon": {player setVariable["spawnBeacon", (player getVariable "spawnBeacon")-1,true];_droppedBeacon = "Satelit" createVehicle (position player);_droppedBeacon setVariable["spawnsRemaining", 100, true];_droppedBeacon setVariable["faction","WORLD",true];_droppedBeacon setPos _pos;};
 	};
 
-	player switchMove "AinvPknlMstpSlayWrflDnon_medic";
-	sleep 3;
 	mutexScriptInProgress = false;
-	player SwitchMove "amovpknlmstpslowwrfldnon_amovpercmstpsraswrfldnon"; 
+	player playMoveNow _currPlayerState;
 }
 else 
 {

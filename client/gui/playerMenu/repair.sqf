@@ -2,6 +2,7 @@
 //	@file Name: repair.sqf
 //	@file Original Author: TAW_Tonic
 //  @file Author: [404] Costlyy
+//  @file Modified by: AimZ =(dp)=
 //	@file Created: 29/01/2013 00:00
 //	@file Args: 
 
@@ -29,11 +30,11 @@ if(vehicle player != player) exitWith { player globalChat localize "STR_WL_Error
 // PRECONDITION: Check for vehicle near-by, if exists then select closest.
 if(isNil{_currVehicle}) exitWith { hint "No vehicle within range"; };
 
-if(((damage _currVehicle) > 0.05) OR !(canMove _currVehicle) OR (_currVehicle isKindOf "Air") OR ((count crew _currVehicle > 0) AND (count(configFile >> "CfgVehicles" >> (_currVehicleType) >> "Turrets") > 0) AND !(canFire _currVehicle))) then {
+if(((damage _currVehicle) > 0) OR !(canMove _currVehicle) OR (_currVehicle isKindOf "Air") OR ((count crew _currVehicle > 0) AND (count(configFile >> "CfgVehicles" >> (_currVehicleType) >> "Turrets") > 0) AND !(canFire _currVehicle))) then {
 	
     mutexScriptInProgress = true;  
     _currPlayerState = animationState player;
-    player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+	player playMoveNow "AinvPknlMstpSnonWnonDnon_medic_1";
     
     _totalDuration = 5; // 5 seconds duration
 	_iterationAmount = _totalDuration;
@@ -47,7 +48,7 @@ if(((damage _currVehicle) > 0.05) OR !(canMove _currVehicle) OR (_currVehicle is
         if (doCancelAction) exitWith {// Player selected "cancel action".
     		2 cutText ["Vehicle repair interrupted...", "PLAIN DOWN", 1];
       		doCancelAction = false;
-    		player switchMove _currPlayerState;
+    		player playMoveNow _currPlayerState;
 		}; 
             
    		if (!(alive player)) exitWith {// If the player dies, revert state.
@@ -58,8 +59,8 @@ if(((damage _currVehicle) > 0.05) OR !(canMove _currVehicle) OR (_currVehicle is
 			2 cutText ["Vehicle repair interrupted...", "PLAIN DOWN", 1];
 		}; 
             
-    	if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the loop.
-			player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+    	if (animationState player != "AinvPknlMstpSnonWnonDnon_medic_1") then { // Keep the player locked in medic animation for the full duration of the loop.
+			player playMoveNow "AinvPknlMstpSnonWnonDnon_medic_1";
 		};
             
      	_iterationAmount = _iterationAmount - 1;
@@ -71,7 +72,7 @@ if(((damage _currVehicle) > 0.05) OR !(canMove _currVehicle) OR (_currVehicle is
      	if (_iteration >= _totalDuration) exitWith { // Success conditions
     		sleep 1;
 			2 cutText ["", "PLAIN DOWN", 1];
-      		player switchMove _currPlayerState;
+      		player playMoveNow _currPlayerState;
   			player setVariable["repairkits",(player getVariable "repairkits")-1,false];
       		_currVehicle setDamage 0;
    		};

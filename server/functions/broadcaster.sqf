@@ -11,6 +11,7 @@ diag_log format["*** broadcaster Started ***"];
 _localAllowPlayerIcons = "update";
 _localAllowGroups = "update";
 _localClockCycle = "update";
+
 while {true} do 
 {
 	publicVariable "currentInvites";
@@ -30,6 +31,7 @@ while {true} do
 		publicVariable "clockCycle";
 		_localClockCycle = clockCycle;
 	};
+
     sleep 1; 
 };
 

@@ -34,7 +34,7 @@ else
 		detach _objet;
 		_objet setVelocity [0, 0, 0];
 		
-		player playMove "AinvPknlMstpSlayWrflDnon_medic";
+		player playMove "AinvPknlMstpSlayWnonDnon_medic";
 		sleep 7;
 		
 		if ({_objet isKindOf _x} count R3F_LOG_CFG_objets_deplacables > 0) then

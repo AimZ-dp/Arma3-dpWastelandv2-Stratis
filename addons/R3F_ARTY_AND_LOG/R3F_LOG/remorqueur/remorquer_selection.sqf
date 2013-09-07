@@ -54,7 +54,7 @@ else
 					player setDir 270;
 					player setPos (getPos player);
 					
-					player playMove "AinvPknlMstpSlayWrflDnon_medic";
+					player playMove "AinvPknlMstpSlayWnonDnon_medic";
 					sleep 2;
 					
 					// Attacher à l'arrière du véhicule au ras du sol

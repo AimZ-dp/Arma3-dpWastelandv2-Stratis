@@ -14,16 +14,17 @@ _corpse = nearestobjects [player, ["B_Soldier_F","B_soldier_M_F","B_medic_F","B_
 if (player distance _corpse < 5 && !alive _corpse) then
 {	
 	mutexScriptInProgress = true;
+	_currPlayerState = animationState player;
+	player playMoveNow "AmovPknlMstpSrasWpstDnon_Gear_AmovPknlMstpSrasWpstDnon";
+	sleep 1;
 	
 	_ctemp = _corpse getVariable ["cmoney",0]; 
 	_ptemp = player getVariable ["cmoney",0]; 
 	_corpse setVariable["cmoney",0,true];
 	player setVariable["cmoney",_ptemp+_ctemp,true]; 
-					
-	player switchMove "AinvPknlMstpSlayWrflDnon_medic";
-	sleep 3;
+
 	mutexScriptInProgress = false;
-	player SwitchMove "aidlpercmstpsraswrfldnon_idlesteady01n";	
+	player playMoveNow _currPlayerState;
 }
 else 
 {

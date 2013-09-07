@@ -4,6 +4,20 @@ if(!isDedicated) exitWith {};
 diag_log format["****** SERVER init Started ******"];
 
 "pvar_createBaseObject" addPublicVariableEventHandler {[_this select 1] call createBaseObject};
+"refuelVehicle" addPublicVariableEventHandler {
+	_currVehicle = _this select 0;
+	_fuelAmount = _this select 1;
+	if (_currVehicle != objNull) then
+	{
+		if (local _currVehicle) then
+		{
+			hint "refueling...";
+			_currVehicle setFuel ((fuel _currVehicle) + _fuelAmount);	
+			refuelVehicle = [objNull,0];
+			publicVariable "refuelVehicle";
+		};
+	};
+};
 
 //Execute Server Side Scripts.
 [] call serverAdminList;
@@ -23,7 +37,6 @@ diag_log format["****** SERVER init Started ******"];
 [] call vehicleSpawning;
 [] call HeliSpawning;
 [] call boxSpawning;
-//[] call baseObjectSpawning;
 [] call survivalObjectSpawning;
 [] spawn respawnCheck;
 
@@ -33,6 +46,6 @@ diag_log format["****** SERVER init Started ******"];
 
 //Execute Server Cleanup.
 [] spawn cleanObjects;
-//[] spawn cleanDead;
+[] spawn cleanDead;
 
 diag_log format["****** SERVER init Finshed ******"];

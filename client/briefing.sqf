@@ -12,6 +12,14 @@ player createDiaryRecord["changelog",
 [
 "=(dp)=",
 "
+<br/>2.2<br/>
+		[Update] New base building objects.<br/>
+		[Update] New fatigue system.<br/>
+		[Fixes] Fixed Day Cycle selection.<br/>
+		[Fixes] Fixed most animations.<br/>
+		[Fixes] Fixed refueling vehicles.<br/>
+		[Fixes] Fixed repairing vehicles.<br/>
+		[Investigating] Sinking bodies...<br/>
 <br/>2.1.1<br/>
 		[Fixes] Updated scanner and time change.<br/>
 <br/>2.1<br/>

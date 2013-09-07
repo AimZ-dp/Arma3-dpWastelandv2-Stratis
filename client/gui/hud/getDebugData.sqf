@@ -18,7 +18,7 @@ while {true} do
 			};
 		};
 	} foreach vehicles;	
-	/*
+
 	{
 		if (!(isNull _x)) then 
 		{
@@ -32,7 +32,7 @@ while {true} do
 			};
 		};
 	} forEach allDeadMen;
-	*/
+
 	sleep 1;
 };
 

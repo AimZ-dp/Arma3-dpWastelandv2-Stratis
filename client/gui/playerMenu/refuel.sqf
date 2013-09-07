@@ -2,6 +2,7 @@
 //	@file Name: repair.sqf
 //	@file Original Author: TAW_Tonic
 //  @file Author: [404] Costlyy
+//  @file Modified by: AimZ =(dp)=
 //	@file Created: 29/01/2013 00:00
 //	@file Args: 
 
@@ -43,7 +44,7 @@ switch true do {
 
 mutexScriptInProgress = true;  
 _currPlayerState = animationState player;
-player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+player playMoveNow "AinvPknlMstpSnonWnonDnon_medic_1";
     
 _totalDuration = 5; // 5 seconds duration
 _iterationAmount = _totalDuration;
@@ -56,7 +57,7 @@ for "_iteration" from 1 to _iterationAmount do {
             
   	if (doCancelAction) exitWith {// Player selected "cancel action".
 		2 cutText ["Vehicle refuel interrupted...", "PLAIN DOWN", 1];
-   		player switchMove _currPlayerState;
+   		player playMoveNow _currPlayerState;
         doCancelAction = false;
         mutexScriptInProgress = false; // Do this here to remove "Cancel Action" ASAP!
 	}; 
@@ -69,8 +70,8 @@ for "_iteration" from 1 to _iterationAmount do {
 		2 cutText ["Vehicle refuel interrupted...", "PLAIN DOWN", 1];
 	}; 
             
-  	if (animationState player != "AinvPknlMstpSlayWrflDnon_medic") then { // Keep the player locked in medic animation for the full duration of the loop.
-		player switchMove "AinvPknlMstpSlayWrflDnon_medic";
+  	if (animationState player != "AinvPknlMstpSnonWnonDnon_medic_1") then { // Keep the player locked in medic animation for the full duration of the loop.
+		player playMoveNow "AinvPknlMstpSnonWnonDnon_medic_1";
 	};
             
    	_iterationAmount = _iterationAmount - 1;
@@ -82,16 +83,17 @@ for "_iteration" from 1 to _iterationAmount do {
   	if (_iteration >= _totalDuration) exitWith { // Success conditions
    		sleep 1;
 		2 cutText ["", "PLAIN DOWN", 1];
-    	player switchMove _currPlayerState;
+    	player playMoveNow _currPlayerState;
         
   		player setVariable["fuelFull",0,true];
 		player setVariable["fuelEmpty",1,true];
-        
-        //if(!(local _currVehicle)) then {
-			//[nil, _currVehicle, "loc", rSPAWN, [_currVehicle, _fuelAmount], {(_this select 0) setFuel (fuel(_this select 0) + (_this select 1))}] call RE;
-		//} else {
-		_currVehicle setFuel ((fuel _currVehicle) + _fuelAmount);
-		//};
+
+        if(!(local _currVehicle)) then {
+			refuelVehicle = [_currVehicle,_fuelAmount];
+			publicVariable "refuelVehicle";	
+		} else {
+			_currVehicle setFuel ((fuel _currVehicle) + _fuelAmount);
+		};
    	};
 };
 

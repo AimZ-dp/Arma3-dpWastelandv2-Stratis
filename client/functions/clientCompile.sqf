@@ -37,7 +37,7 @@ takeMoney = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\takeMo
 takeItem = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\takeItem.sqf";
 giveMoney = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\giveMoney.sqf";
 //placeSpawnBeacon = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\placeSpawnBeacon.sqf";
-refuelVehicle = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\refuel.sqf";
+refuel = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\refuel.sqf";
 repairVehicle = compileFinal preprocessFileLineNumbers "client\gui\playerMenu\repair.sqf";
 
 useScanner = compileFinal preprocessFileLineNumbers "client\actions\useScanner.sqf";

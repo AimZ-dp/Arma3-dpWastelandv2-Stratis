@@ -37,6 +37,8 @@ allowGroups = "ON";
 publicVariable "allowGroups";
 clockCycle = "DAY ONLY";
 publicVariable "clockCycle";
+refuelVehicle = [objNull,0];
+publicVariable "refuelVehicle";
 
 //Civilian Vehicle List - Random Spawns
 civilianVehicles = [

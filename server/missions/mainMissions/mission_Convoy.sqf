@@ -138,7 +138,10 @@ if(_failed) then
 {
     // Mission failed
 	{deleteVehicle _x;} foreach _vehicles;
-    {deleteVehicle _x;} forEach units _group;
+	{
+		_x removeAllEventHandlers "killed";
+		deleteVehicle _x;
+	}forEach units _group;
 	deleteGroup _group;
 		
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Failed</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>Objective failed, better luck next time</t>", _missionType, _picture, _vehicleName, failMissionColor, subTextColor];

@@ -8,11 +8,11 @@ diag_log format["*** initSurvival Started ***"];
 
 while {true} do
 {
-	sleep 400;
+	sleep 30;
 	_thirstLevel = player getVariable "thirst";
 	_hungerLevel = player getVariable "hunger";
 
-	_thirstLevel = _thirstLevel - 10;
+	_thirstLevel = _thirstLevel - 1.5;
 	if (_thirstLevel < 5) then {_thirstLevel = 0};
 	player setVariable["thirst",_thirstLevel,true];
 	switch (true) do 
@@ -22,7 +22,7 @@ while {true} do
 		case (_thirstLevel <= 30 && _thirstLevel >= 25): {hint format["You haven't drank anything in awhile, your thirst level is %1\n\nYou should find something to drink soon.", _thirstLevel];};
 		case (_thirstLevel <= 50 && _thirstLevel >= 45): {hint format["You haven't drank anything in awhile, your thirst level is %1", _thirstLevel];};
 	};
-	_hungerLevel = _hungerLevel - 6;
+	_hungerLevel = _hungerLevel - 1;
 	if (_hungerLevel < 5) then {_hungerLevel = 0};
 	player setVariable["hunger",_hungerLevel,true];
 	switch (true) do {
