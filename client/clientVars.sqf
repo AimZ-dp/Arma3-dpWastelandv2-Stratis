@@ -20,7 +20,8 @@ camPos = 0;
 scannerBattery = 100;
 ScannerProgress = 0;
 scanningInProgress = false;
-refuelVehicle = [objNull,0];
+refuelVehicle = ["",0];
+defuelVehicle = ["",0];
 						
 //Gunstore Weapon List - Gun Store Base List
 // Text name, classname, buy cost, sell amount

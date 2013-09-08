@@ -5,16 +5,46 @@ diag_log format["****** SERVER init Started ******"];
 
 "pvar_createBaseObject" addPublicVariableEventHandler {[_this select 1] call createBaseObject};
 "refuelVehicle" addPublicVariableEventHandler {
-	_currVehicle = _this select 0;
-	_fuelAmount = _this select 1;
-	if (_currVehicle != objNull) then
+	
+	_data = _this select 1;
+	_currVehicle = _data select 0;
+	_fuelAmount = _data select 1;
+	if (_currVehicle != "") then 
 	{
-		if (local _currVehicle) then
+		_obj = objectFromNetId _currVehicle;
+		if (_obj != objNull) then
 		{
-			hint "refueling...";
-			_currVehicle setFuel ((fuel _currVehicle) + _fuelAmount);	
-			refuelVehicle = [objNull,0];
-			publicVariable "refuelVehicle";
+			if (local _obj) then
+			{
+				_fuel = ((fuel _obj) + _fuelAmount);	
+				if (_fuel > 1) then {_fuel = 1;};
+				_obj setFuel _fuel;
+				
+				refuelVehicle = ["",0];
+				publicVariable "refuelVehicle";
+			};
+		};
+	};
+};
+"defuelVehicle" addPublicVariableEventHandler {
+	
+	_data = _this select 1;
+	_currVehicle = _data select 0;
+	_fuelAmount = _data select 1;
+	if (_currVehicle != "") then 
+	{
+		_obj = objectFromNetId _currVehicle;
+		if (_obj != objNull) then
+		{
+			if (local _obj) then
+			{
+				_fuel = ((fuel _obj) - _fuelAmount);	
+				if (_fuel < 0) then {_fuel = 0;};
+				_obj setFuel _fuel;
+				
+				defuelVehicle = ["",0];
+				publicVariable "defuelVehicle";
+			};
 		};
 	};
 };

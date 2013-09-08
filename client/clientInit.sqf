@@ -17,16 +17,46 @@ diag_log format["****** clientInit Started ******"];
 "clockCycle" addPublicVariableEventHandler {hint format["Day Night Cycle %1", clockCycle];};
 
 "refuelVehicle" addPublicVariableEventHandler {
-	_currVehicle = _this select 0;
-	_fuelAmount = _this select 1;
-	if (_currVehicle != objNull) then
+
+	
+	_data = _this select 1;
+	_currVehicle = _data select 0;
+	_fuelAmount = _data select 1;
+	if (_currVehicle != "") then 
 	{
-		if (local _currVehicle) then
+		_obj = objectFromNetId _currVehicle;
+		if (_obj != objNull) then
 		{
-			hint "refueling...";
-			_currVehicle setFuel ((fuel _currVehicle) + _fuelAmount);	
-			refuelVehicle = [objNull,0];
-			publicVariable "refuelVehicle";
+			if (local _obj) then
+			{
+				_fuel = ((fuel _obj) + _fuelAmount);	
+				if (_fuel > 1) then {_fuel = 1;};
+				_obj setFuel _fuel;
+				refuelVehicle = ["",0];
+				publicVariable "refuelVehicle";
+			};
+		};
+	};
+};
+"defuelVehicle" addPublicVariableEventHandler {
+	
+	_data = _this select 1;
+	_currVehicle = _data select 0;
+	_fuelAmount = _data select 1;
+	if (_currVehicle != "") then 
+	{
+		_obj = objectFromNetId _currVehicle;
+		if (_obj != objNull) then
+		{
+			if (local _obj) then
+			{
+				_fuel = ((fuel _obj) - _fuelAmount);	
+				if (_fuel < 0) then {_fuel = 0;};
+				_obj setFuel _fuel;
+				
+				defuelVehicle = ["",0];
+				publicVariable "defuelVehicle";
+			};
 		};
 	};
 };
@@ -135,16 +165,16 @@ finalFatigue = 0; // damage: 0=good, 1=bad | thirst=100:good, 0=bad
 		_damage = (damage player) / 2;
 		_minfatigue = ((_thirst max _hunger) max (_damage));  
 		
-		if (isStandSprinting || isKneelSprinting || isStandRunning || isKneelRunning) then
+		if ((isStandSprinting || isKneelSprinting || isStandRunning || isKneelRunning) && (vehicle player == player)) then
 		{
 			if (finalFatigue < 1) then {
 				if (isStandSprinting || isKneelSprinting) then
 				{
-					finalFatigue = finalFatigue + 0.002;
+					finalFatigue = finalFatigue + 0.02;
 				};
 				if (isStandRunning || isKneelRunning) then
 				{
-					finalFatigue = finalFatigue + 0.001;
+					finalFatigue = finalFatigue + 0.01;
 				};
 			} 
 			else 
@@ -156,7 +186,7 @@ finalFatigue = 0; // damage: 0=good, 1=bad | thirst=100:good, 0=bad
 		{
 			if (finalFatigue > _minfatigue) then 
 			{
-				finalFatigue = finalFatigue - 0.01;
+				finalFatigue = finalFatigue - 0.1;
 			} 
 			else 
 			{
@@ -167,7 +197,7 @@ finalFatigue = 0; // damage: 0=good, 1=bad | thirst=100:good, 0=bad
 		//hint format["fatigue: %1, %2, %3, %4, %5", finalFatigue, isStandSprinting, isKneelSprinting, isStandRunning, isKneelRunning];
 		player setFatigue finalFatigue;
 		
-		sleep 0.1;
+		sleep 1;
 	};
 };
 

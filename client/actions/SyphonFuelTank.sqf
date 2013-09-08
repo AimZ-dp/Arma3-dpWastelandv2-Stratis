@@ -18,9 +18,17 @@ if (fuel _car > 0) then
 {
 	if (player distance _car < 4) then 
 	{
-		_fuel = (fuel _car) - _fuelAmount;
-		if (_fuel < 0) then {_fuel = 0;};
-		_car setFuel _fuel;
+        if(!(local _car)) then 
+		{
+			defuelVehicle = [netId _car,_fuelAmount];
+			publicVariable "defuelVehicle";	
+		} 
+		else 
+		{
+			_fuel = (fuel _car) - _fuelAmount;
+			if (_fuel < 0) then {_fuel = 0;};
+			_car setFuel _fuel;
+		};
 		
 		player setVariable ["fuelFull",1,false]; 
 		player setVariable["fuelEmpty",0,false];

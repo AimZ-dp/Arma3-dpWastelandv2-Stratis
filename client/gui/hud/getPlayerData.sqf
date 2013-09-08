@@ -4,8 +4,8 @@ if (isnil "pvmkr") then {pvmkr = 0;};
 
 while {true} do
 {
-	iconArray = [];
-	nameArray = [];
+	_iconArray = [];
+	_nameArray = [];
 	{  
 		_uid = getPlayerUID player;		
 		if (pvmkr == 1 && _uid in serverdpAdministrators) then 
@@ -16,13 +16,13 @@ while {true} do
 				_playerDistance = _playerPos distance player;
 				if (_playerDistance <= 1500) then
 				{
-					iconArray set [count iconArray, _x];
+					_iconArray set [count _iconArray, _x];
 				};
 			
 				_target = cursorTarget;
 				if (_playerDistance <= 1500 && _target == _x && player == vehicle player) then
 				{	
-					nameArray set [count nameArray, _x];				
+					_nameArray set [count _nameArray, _x];				
 				};
 			};
 		}
@@ -56,28 +56,22 @@ while {true} do
 					
 					if ((scanningInProgress || allowPlayerIcons == "ON") && _playerDistance <= _maxDistance) then
 					{
-						iconArray set [count iconArray, _x];
+						_iconArray set [count _iconArray, _x];
 					};
 				
 					_target = cursorTarget;
 					if (_playerDistance <= 400 && _target == _x && player == vehicle player) then
 					{	
-						nameArray set [count nameArray, _x];				
+						_nameArray set [count _nameArray, _x];				
 					};
 				};
 			};	
 		};
+		sleep 0.1;
 	} forEach allUnits;
+
+	iconArray = + _iconArray;
+	nameArray = + _nameArray;
 	
-/*
-	if (allowPlayerIcons == "OFF") then 
-	{
-		sleep 15;
-	}
-	else
-	{
-		sleep 5;
-	};
-*/
 	sleep 1;
 };

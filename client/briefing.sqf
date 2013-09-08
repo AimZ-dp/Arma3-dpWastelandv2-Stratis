@@ -12,6 +12,13 @@ player createDiaryRecord["changelog",
 [
 "=(dp)=",
 "
+<br/>2.3<br/>
+		[Update] Performance tweaks.<br/>
+		[Update] Reset store guys.<br/>
+		[Fixes] Fatigue whilst driving.<br/>
+		[Fixes] Slowed down thirst and hunger.<br/>
+		[Fixes] Fixed refueling of none local vehicles.<br/>
+		[Fixes] Fixed repairing of none local vehicles.<br/>
 <br/>2.2<br/>
 		[Update] New base building objects.<br/>
 		[Update] New fatigue system.<br/>

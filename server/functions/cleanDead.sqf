@@ -17,48 +17,41 @@ while {true} do
 	{ 
 		if (!(isNull _x)) then 
 		{
-			/*
-			_bodyCount = _x getVariable ["newBodyCount",0];
-			_timeout = _x getVariable ["timeout", time + 480];
-
-			if (_bodyCount == 0) then 
-			{
-				diag_log format["TAG dead %1",typeOf _x];
-				_bodyCount = _bodyCount + 1;
-				_x setVariable ["newBodyCount",_bodyCount,true];
-				_x setVariable ["timeout", time + 480, true];
-			};
-			if(time > _timeout) then  
-			{
-				deleteVehicle _x;
-			};
-			*/
-			
 			if (_x isKindOf "CAManBase" && !(alive _x) && !(isPlayer _x)) then
 			{
-				diag_log format["Found Dead Body..."];
-
 				_bodyCount = _x getVariable ["newBodyCount",0];
-				_timeout = _x getVariable ["timeout", time + 480];
-				_bodyPos = _x getVariable ["bodyPos",getPosATL _x];
+				_timeout = _x getVariable ["timeout", time + 300];
+				_bodyPos = _x getVariable ["bodyPos", getPosATL _x];
 				
 				_x setVariable ["last_timeout", time, true];
-			
-				// make sure things stay above ground...
-				//_bodyPos set [2, 0];
-				_x setPosATL _bodyPos;
 				
+				// initialise the body check..
 				if (_bodyCount == 0) then 
 				{
-					diag_log format["Dead Body Count..."];
 					_bodyCount = _bodyCount + 1;
 					_x setVariable ["newBodyCount",_bodyCount,true];
-					_x setVariable ["timeout", time + 480, true];
+					_x setVariable ["timeout", time + 300, true];
 					_x setVariable ["bodyPos",_bodyPos,true];
 				};
+				
+				// make sure things stay above ground...
+				/*
+				_stillMoving = false;
+				_vel = velocity _x;
+				{
+					if (_x > 0.01) then {_stillMoving = true;}; 
+				} foreach _vel;
+				if (!_stillMoving) then
+				{
+					_x setVariable ["bodyPos",_bodyPos,true];
+				};
+				*/
+				_x setVelocity [0,0,0];
+				_x setPosATL _bodyPos;
+				
+				// Clean up time...
 				if(time > _timeout) then  
 				{
-					diag_log format["Dead Body Delete..."];
 					_x removeAllEventHandlers "GetIn";
 					_x removeAllEventHandlers "killed";
 					_x removeAllEventHandlers "HandleDamage";
@@ -66,6 +59,8 @@ while {true} do
 				};
 			};
 		};
+		
+		sleep 1;
 	} forEach allDeadMen;
 
 	sleep 1;

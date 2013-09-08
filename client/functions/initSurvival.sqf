@@ -8,11 +8,11 @@ diag_log format["*** initSurvival Started ***"];
 
 while {true} do
 {
-	sleep 30;
+	sleep 1;
 	_thirstLevel = player getVariable "thirst";
 	_hungerLevel = player getVariable "hunger";
 
-	_thirstLevel = _thirstLevel - 1.5;
+	_thirstLevel = _thirstLevel - 0.02;
 	if (_thirstLevel < 5) then {_thirstLevel = 0};
 	player setVariable["thirst",_thirstLevel,true];
 	switch (true) do 
@@ -22,7 +22,7 @@ while {true} do
 		case (_thirstLevel <= 30 && _thirstLevel >= 25): {hint format["You haven't drank anything in awhile, your thirst level is %1\n\nYou should find something to drink soon.", _thirstLevel];};
 		case (_thirstLevel <= 50 && _thirstLevel >= 45): {hint format["You haven't drank anything in awhile, your thirst level is %1", _thirstLevel];};
 	};
-	_hungerLevel = _hungerLevel - 1;
+	_hungerLevel = _hungerLevel - 0.015;
 	if (_hungerLevel < 5) then {_hungerLevel = 0};
 	player setVariable["hunger",_hungerLevel,true];
 	switch (true) do {
@@ -35,7 +35,7 @@ while {true} do
 	if (_hungerLevel < 2 || _thirstLevel < 2) then 
 	{
 		_damage = damage player;
-		_damage = _damage + 0.1337;
+		_damage = _damage + 0.01337;
 		if (_damage > 0.9) then {_damage = 1.1337};
 		player setDamage _damage; 
 		

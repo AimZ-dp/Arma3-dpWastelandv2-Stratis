@@ -89,7 +89,7 @@ for "_iteration" from 1 to _iterationAmount do {
 		player setVariable["fuelEmpty",1,true];
 
         if(!(local _currVehicle)) then {
-			refuelVehicle = [_currVehicle,_fuelAmount];
+			refuelVehicle = [netId _currVehicle,_fuelAmount];
 			publicVariable "refuelVehicle";	
 		} else {
 			_currVehicle setFuel ((fuel _currVehicle) + _fuelAmount);

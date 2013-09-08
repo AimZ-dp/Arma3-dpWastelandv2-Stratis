@@ -1,7 +1,8 @@
 // HUD graphics - should only have 1 script.. for player info, player names, player icons etc
 iconArray = [];
 nameArray = [];
-debugArray = [];
+vehicleDebugArray = [];
+deadDebugArray = [];
 
 if (isnil "pvmkr") then {pvmkr = 0;};
 
@@ -80,7 +81,25 @@ addMissionEventHandler ["Draw3D", {
 				
 				drawIcon3D ["", [1,1,1,_scannerStrength], _objectPos, 0, 0, 0, format["respawn in %1s", floor(_timeLeft)], 0, 0.03, "PuristaLight"];		
 
-			} foreach debugArray;
+			} foreach vehicleDebugArray;
+			
+			{
+				_objectPos = visiblePosition _x;
+				_objectPosATL = getPosATL _x;
+				_objectPos set [2, (_objectPosATL select 2) + 0.2];
+				
+				// 400 meters
+				_scannerStrength = (-0.002 * (_objectPos distance player)) + 1;
+				if (_scannerStrength > 1) then {_scannerStrength = 1;};
+				if (_scannerStrength < 0) then {_scannerStrength = 0;};
+				
+				_timeOut = _x getVariable ["timeout", time];
+				_lastTimeOut = _x getVariable ["last_timeout", time];
+				_timeLeft = _timeOut - _lastTimeOut;
+				
+				drawIcon3D ["", [1,1,1,_scannerStrength], _objectPos, 0, 0, 0, format["respawn in %1s", floor(_timeLeft)], 0, 0.03, "PuristaLight"];		
+
+			} foreach deadDebugArray;
 		}
 		else
 		{

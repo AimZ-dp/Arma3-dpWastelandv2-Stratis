@@ -21,11 +21,6 @@ _corpse removeAction playerMenuId;
 	_corpse removeAction _x;
 } forEach aActionsIDs;
 
-// make sure bodies are above ground as they seem to be disappearing.
-_position = getPosATL _corpse;
-_position set [2, 0];
-_corpse setPosATL _position;
-
 // **************************************
 _player = player;
 if((_player != _killer) && (vehicle _player != vehicle _killer) && (playerSide == side _killer) && (str(playerSide) in ["WEST", "EAST"])) then {

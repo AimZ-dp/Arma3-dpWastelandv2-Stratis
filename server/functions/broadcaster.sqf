@@ -32,7 +32,7 @@ while {true} do
 		_localClockCycle = clockCycle;
 	};
 
-    sleep 1; 
+    sleep 2; 
 };
 
 diag_log format["*** broadcaster Finished ***"];

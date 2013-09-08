@@ -24,7 +24,7 @@ while {true} do
 	_health = round (_health * (10 ^ _decimalPlaces)) / (10 ^ _decimalPlaces);
 	_health = 100 - (_health * 100);
 	
-	_vitals ctrlSetStructuredText parseText format ["%1 <img size='1.0' image='client\ui\icons\health.paa'/><br/>%2 <img size='1.0' image='client\ui\icons\water.paa'/><br/>%3 <img size='1.0' image='client\ui\icons\food.paa'/><br/>%4 <img size='1.0' image='client\ui\icons\money.paa'/>", _health, player getVariable ["thirst",0], player getVariable ["hunger",0], player getVariable ["cmoney",0]];
+	_vitals ctrlSetStructuredText parseText format ["%1 <img size='1.0' image='client\ui\icons\health.paa'/><br/>%2 <img size='1.0' image='client\ui\icons\water.paa'/><br/>%3 <img size='1.0' image='client\ui\icons\food.paa'/><br/>%4 <img size='1.0' image='client\ui\icons\money.paa'/>", _health, round (player getVariable ["thirst",0]), round (player getVariable ["hunger",0]), player getVariable ["cmoney",0]];
 	_vitals ctrlCommit 0;
 
 	_scanning = "...";

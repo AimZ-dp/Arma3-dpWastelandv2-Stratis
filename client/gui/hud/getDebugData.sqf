@@ -2,7 +2,7 @@
 // collect all debug info to draw...
 while {true} do
 {
-	debugArray = [];
+	_vehicleDebugArray = [];
 	{
 		if (!(isNull _x) && alive player) then
 		{
@@ -14,11 +14,14 @@ while {true} do
 			//if (_target == _x && _timeout > -1 && _objectDistance <= 400 && _status == "alive") then
 			if (_timeout > -1 && _objectDistance <= 400) then
 			{
-				debugArray set [count debugArray, _x];
+				_vehicleDebugArray set [count _vehicleDebugArray, _x];
 			};
 		};
+		sleep 0.1;
 	} foreach vehicles;	
+	vehicleDebugArray = + _vehicleDebugArray;
 
+	_deadDebugArray = [];
 	{
 		if (!(isNull _x)) then 
 		{
@@ -28,11 +31,13 @@ while {true} do
 							
 			if (_timeout > -1 && _objectDistance <= 400) then
 			{
-				debugArray set [count debugArray, _x];
+				_deadDebugArray set [count _deadDebugArray, _x];
 			};
 		};
+		sleep 0.1;
 	} forEach allDeadMen;
-
+	deadDebugArray = + _deadDebugArray;
+	
 	sleep 1;
 };
 

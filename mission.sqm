@@ -1055,7 +1055,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="gunStore1";
-					init="this addEventHandler['HandleDamage', {false}]; [this, 'Store_Gun_1'] execVM 'server\functions\controlStoreGuy.sqf';";
+					init="this addEventHandler['HandleDamage', {false}]; [netId this, 'Store_Gun_1'] execVM 'server\functions\controlStoreGuy.sqf';";
 				};
 			};
 		};
@@ -1075,7 +1075,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="gunStore2";
-					init="this addEventHandler['HandleDamage', {false}]; [this, 'Store_Gun_2'] execVM 'server\functions\controlStoreGuy.sqf';";
+					init="this addEventHandler['HandleDamage', {false}]; [netId this, 'Store_Gun_2'] execVM 'server\functions\controlStoreGuy.sqf';";
 				};
 			};
 		};
@@ -1095,7 +1095,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="gunStore3";
-					init="this addEventHandler['HandleDamage', {false}]; [this, 'Store_Gun_3'] execVM 'server\functions\controlStoreGuy.sqf';";
+					init="this addEventHandler['HandleDamage', {false}]; [netId this, 'Store_Gun_3'] execVM 'server\functions\controlStoreGuy.sqf';";
 				};
 			};
 		};
@@ -1115,7 +1115,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="generalStore1";
-					init="this addEventHandler['HandleDamage', {false}]; [this, 'General_Store_1'] execVM 'server\functions\controlStoreGuy.sqf';";
+					init="this addEventHandler['HandleDamage', {false}]; [netId this, 'General_Store_1'] execVM 'server\functions\controlStoreGuy.sqf';";
 				};
 			};
 		};
@@ -1135,7 +1135,7 @@ class Mission
 					leader=1;
 					skill=0.2;
 					text="generalStore2";
-					init="this addEventHandler['HandleDamage', {false}]; [this, 'General_Store_2'] execVM 'server\functions\controlStoreGuy.sqf';";
+					init="this addEventHandler['HandleDamage', {false}]; [netId this, 'General_Store_2'] execVM 'server\functions\controlStoreGuy.sqf';";
 				};
 			};
 		};
@@ -1156,7 +1156,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="generalStore3";
-					init="this addEventHandler['HandleDamage', {false}]; [this, 'General_Store_3'] execVM 'server\functions\controlStoreGuy.sqf';";
+					init="this addEventHandler['HandleDamage', {false}]; [netId this, 'General_Store_3'] execVM 'server\functions\controlStoreGuy.sqf';";
 				};
 			};
 		};
@@ -1177,7 +1177,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="constructionStore1";
-					init="this addEventHandler['HandleDamage', {false}]; [this, 'Construction_Store_1'] execVM 'server\functions\controlStoreGuy.sqf';";
+					init="this addEventHandler['HandleDamage', {false}]; [netId this, 'Construction_Store_1'] execVM 'server\functions\controlStoreGuy.sqf';";
 				};
 			};
 		};
@@ -1198,7 +1198,7 @@ class Mission
 					leader=1;
 					skill=0.60000002;
 					text="constructionStore2";
-					init="this addEventHandler['HandleDamage', {false}]; [this, 'Construction_Store_2'] execVM 'server\functions\controlStoreGuy.sqf';";
+					init="this addEventHandler['HandleDamage', {false}]; [netId this, 'Construction_Store_2'] execVM 'server\functions\controlStoreGuy.sqf';";
 				};
 			};
 		};
