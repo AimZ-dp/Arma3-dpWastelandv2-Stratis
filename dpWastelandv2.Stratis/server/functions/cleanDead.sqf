@@ -21,7 +21,7 @@ while {true} do
 			{
 				_bodyCount = _x getVariable ["newBodyCount",0];
 				_timeout = _x getVariable ["timeout", time + 300];
-				_bodyPos = _x getVariable ["bodyPos", getPosATL _x];
+				//_bodyPos = _x getVariable ["bodyPos", getPosATL _x];
 				
 				_x setVariable ["last_timeout", time, true];
 				
@@ -31,7 +31,7 @@ while {true} do
 					_bodyCount = _bodyCount + 1;
 					_x setVariable ["newBodyCount",_bodyCount,true];
 					_x setVariable ["timeout", time + 300, true];
-					_x setVariable ["bodyPos",_bodyPos,true];
+					//_x setVariable ["bodyPos",_bodyPos,true];
 				};
 				
 				// make sure things stay above ground...
@@ -46,8 +46,11 @@ while {true} do
 					_x setVariable ["bodyPos",_bodyPos,true];
 				};
 				*/
-				_x setVelocity [0,0,0];
-				_x setPosATL _bodyPos;
+				//_x setVelocity [0,0,0];
+				//_x setPosATL _bodyPos;
+				_bodyPos = getPos player;
+				_bodyPos set [2, 0.1];
+				_x setPosATL _bodyPos; 
 				
 				// Clean up time...
 				if(time > _timeout) then  
@@ -60,7 +63,7 @@ while {true} do
 			};
 		};
 		
-		sleep 1;
+		sleep 0.1;
 	} forEach allDeadMen;
 
 	sleep 1;

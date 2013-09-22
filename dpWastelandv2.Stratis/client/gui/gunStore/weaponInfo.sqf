@@ -29,8 +29,8 @@ _gunpicture ctrlSettext _picture;
 _gunlisttext ctrlSetText format [""];	
 
 //Check Items Price
-{if(_itemText == _x select 0) then{
-	_weap_type = _x select 1; 
+{if(_itemText == _x select 1) then{
+	_weap_type = _x select 0; 
 	_price = _x select 2;
     
 	_weapon = (configFile >> "cfgWeapons" >> _weap_type);
@@ -42,8 +42,8 @@ _gunlisttext ctrlSetText format [""];
 	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
 }}forEach weaponsArray;
 
-{if(_itemText == _x select 0) then{
-	_weap_type = _x select 1; 
+{if(_itemText == _x select 1) then{
+	_weap_type = _x select 0; 
 	_price = _x select 2;
     
     _weapon = (configFile >> "cfgMagazines" >> _weap_type);
@@ -56,8 +56,8 @@ _gunlisttext ctrlSetText format [""];
 	_gunlisttext ctrlSetText format ["Price: $%1", _price];	
 }}forEach ammoArray;
 
-{if(_itemText == _x select 0) then{
-	_weap_type = _x select 1; 
+{if(_itemText == _x select 1) then{
+	_weap_type = _x select 0; 
 	_price = _x select 2;
     
 	_weapon = (configFile >> "cfgWeapons" >> _weap_type);

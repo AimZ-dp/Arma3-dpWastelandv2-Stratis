@@ -7,7 +7,9 @@ _class = _data select 0;
 _position = _data select 1;
 _player = _data select 2;
 
-_object = [_position, _class, false, 15, false] call baseObjectCreation;	
+_object = [_position, _class, false, 30, false] call baseObjectCreation;	
+
+_object setVariable["R3F_LOG_disabled",false];
 
 if (_object isKindOf "ReammoBox_F") then
 {

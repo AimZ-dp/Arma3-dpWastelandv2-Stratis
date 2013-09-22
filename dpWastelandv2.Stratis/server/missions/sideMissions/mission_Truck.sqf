@@ -14,7 +14,7 @@ private ["_result","_missionMarkerName","_missionType","_startTime","_returnData
 //Mission Initialization.
 _result = 0;
 _missionMarkerName = "Truck_Marker";
-_missionType = "Abandoned Truck";
+_missionType = "Abandoned Vehicle";
 _startTime = floor(time);
 
 //Get Mission Location
@@ -26,10 +26,14 @@ _randomIndex = _returnData select 1;
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-//_vehicleClass = militaryVehicles call BIS_fnc_selectRandom;
-//Vehicle Class, Posistion, Fuel, Ammo, Damage
-//_vehicle = [_vehicleClass,_randomPos,1,1,0,"NONE"] call createMissionVehicle;
-_vehicle = [_randomPos, militaryVehicles, false, 10, false] call vehicleCreation;
+_type = floor (random 4);
+switch (_type) do 
+{ 
+	case 0: {_vehicle = [_randomPos, Quadbikes, false, 10, false] call vehicleCreation;}; 
+	case 1: {_vehicle = [_randomPos, Cars, false, 10, false] call vehicleCreation;}; 
+	case 2: {_vehicle = [_randomPos, Trucks, false, 10, false] call vehicleCreation;}; 
+	case 3: {_vehicle = [_randomPos, UnarmedMRAPVehicles, false, 10, false] call vehicleCreation;}; 
+};
 _vehicle setVehicleLock "LOCKED";
 _vehicle setVariable ["R3F_LOG_disabled", true, true];
 

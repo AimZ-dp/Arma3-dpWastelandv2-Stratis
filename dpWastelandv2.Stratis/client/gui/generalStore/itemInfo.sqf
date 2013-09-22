@@ -39,8 +39,8 @@ if(_switchText == "Buy") then
 		}
 	}forEach generalStore;
 	{
-		if(_itemText == _x select 0) then{
-			_weap_type = _x select 1; 
+		if(_itemText == _x select 1) then{
+			_weap_type = _x select 0; 
 			_price = _x select 2;
     
 			_weapon = (configFile >> "cfgWeapons" >> _weap_type);

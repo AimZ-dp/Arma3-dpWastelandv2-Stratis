@@ -10,12 +10,6 @@ _killer = _this select 1; // killed player (could be objNull)
 _respawn = _this select 2; 
 _respawnDelay = _this select 3;
 
-_corpse setVariable["canfood",player getVariable ["canfood",0],true];
-_corpse setVariable["water",player getVariable ["water",0],true];
-_corpse setVariable["repairkits",player getVariable ["repairkits",0],true];
-_corpse setVariable["medkits",player getVariable ["medkits",0],true];
-_corpse setVariable["cmoney",player getVariable ["cmoney",0],true];
-
 _corpse removeAction playerMenuId;
 {
 	_corpse removeAction _x;
@@ -23,6 +17,8 @@ _corpse removeAction playerMenuId;
 
 // **************************************
 _player = player;
+_suspects = [];
+
 if((_player != _killer) && (vehicle _player != vehicle _killer) && (playerSide == side _killer) && (str(playerSide) in ["WEST", "EAST"])) then {
 	pvar_PlayerTeamKiller = objNull;
 	if(_killer isKindOf "CAManBase") then {
@@ -43,7 +39,6 @@ if((_player != _killer) && (vehicle _player != vehicle _killer) && (playerSide =
 			};
 		};
 		_ignore = ["SmokeLauncher", "FlareLauncher", "CMFlareLauncher", "CarHorn", "BikeHorn", "TruckHorn", "TruckHorn2", "SportCarHorn", "MiniCarHorn", "Laserdesignator_mounted"];
-		_suspects = [];
 		{
 			_weps = (_veh weaponsTurret _x) - _ignore;
 			if(count _weps > 0) then {
@@ -60,6 +55,23 @@ if((_player != _killer) && (vehicle _player != vehicle _killer) && (playerSide =
 			pvar_PlayerTeamKiller = _suspects select 0;
 		};
 	};
+};
+
+if ((_player != _killer) && (count _suspects == 0)) then 
+{
+	_corpse setVariable["canfood",player getVariable ["canfood",0],true];
+	_corpse setVariable["water",player getVariable ["water",0],true];
+	_corpse setVariable["repairkits",player getVariable ["repairkits",0],true];
+	_corpse setVariable["medkits",player getVariable ["medkits",0],true];
+	_corpse setVariable["cmoney",player getVariable ["cmoney",0],true];
+}
+else
+{
+	_corpse setVariable["canfood",0,true];
+	_corpse setVariable["water",0,true];
+	_corpse setVariable["repairkits",0,true];
+	_corpse setVariable["medkits",0,true];
+	_corpse setVariable["cmoney",0,true];
 };
 
 if(!isNull(pvar_PlayerTeamKiller)) then {

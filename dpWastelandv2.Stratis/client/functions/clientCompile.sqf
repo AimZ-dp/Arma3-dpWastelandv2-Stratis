@@ -20,6 +20,7 @@ createMenuActions = compileFinal preprocessFileLineNumbers "client\functions\cre
 initPlayer = compileFinal preprocessFileLineNumbers "client\functions\initPlayer.sqf";
 playerSetup = compileFinal preprocessFileLineNumbers "client\functions\playerSetup.sqf";
 initSurvival = compileFinal preprocessFileLineNumbers "client\functions\initSurvival.sqf";
+cleanLocalObjects = compileFinal preprocessFileLineNumbers "client\functions\cleanLocalObjects.sqf";
 
 // Player spawn functionality
 playerSpawn = compileFinal preprocessFileLineNumbers "client\functions\playerSpawn\playerSpawn.sqf";

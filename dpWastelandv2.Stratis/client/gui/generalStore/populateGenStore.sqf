@@ -46,7 +46,7 @@ switch(_switch) do
 
 		// Populate the gun shop weapon list
 		{
-			_itemlistIndex = _itemlist lbAdd format["%1",_x select 0];
+			_itemlistIndex = _itemlist lbAdd format["%1",_x select 1];
 		} forEach uniformArray;	
 	};
 };

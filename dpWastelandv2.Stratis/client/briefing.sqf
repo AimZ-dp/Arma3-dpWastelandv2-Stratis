@@ -1,8 +1,6 @@
 
 diag_log format["*** briefing Started ***"];
 
-waitUntil {!isNull player && isPlayer player};
-
 player createDiarySubject ["changelog", "Change Log"];
 player createDiarySubject ["rules", "Rules"];
 player createDiarySubject ["info", "Info"];
@@ -12,6 +10,15 @@ player createDiaryRecord["changelog",
 [
 "=(dp)=",
 "
+<br/>2.4.1<br/>
+		[Fixed] Changed scanner strength out of debug, now 5 percent chance for enemies.<br/>
+		[Fixed] Client side indestructible buildings.<br/>
+<br/>2.4<br/>
+		[Update] Added new weapons and vehicles.<br/>
+		[Update] Updated missions for new vehicles.<br/>
+		[Fixes] Stopped map buildings from moved.<br/>
+		[Fixes] Delay with tags showing on fresh spawns.<br/>
+		[Investigating] Spawn with full loadout.<br/>
 <br/>2.3<br/>
 		[Update] Performance tweaks.<br/>
 		[Update] Reset store guys.<br/>

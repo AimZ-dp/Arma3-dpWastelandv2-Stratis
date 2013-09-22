@@ -168,7 +168,7 @@ class w_RscListBox
     colorActive[] = {0,0,0,1};
     colorDisabled[] = {0,0,0,0.3};
     font = "PuristaMedium";
-    sizeEx = 0.023;
+    sizeEx = 0.030;//0.023;
     soundSelect[] = {"",0.1,1};
     soundExpand[] = {"",0.1,1};
     soundCollapse[] = {"",0.1,1};

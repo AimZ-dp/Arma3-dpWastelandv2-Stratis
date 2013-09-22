@@ -50,18 +50,13 @@ while {true} do
 						_unit setDamage 1;
 						_unit setVariable ["status", "burn", true];
 						_unit setVariable ["timeout", (time + burningTimeLimit), true];
-						//_unit setVariable ["objPos", getPosATL _unit, true];
 					};
 				}; 
 				case "burn": 
 				{
 					_curtime = time;
 					_timeout = _unit getVariable ["timeout", (time + burningTimeLimit)];
-					
-					// make sure things stay above ground...
-					//_objPos = _unit getVariable ["objPos", getPosATL _unit];
-					//_unit setPosATL _objPos;
-					
+				
 					if (_curtime > _timeout) then
 					{
 						_unit setVariable ["status", "respawn", true];
@@ -87,12 +82,13 @@ while {true} do
 							deleteVehicle _unit;
 							
 							_position = getMarkerPos format ["Spawn_%1", floor (random 118) + 1];					
-							_type = floor (random 2);
+							_type = floor (random 4);
 							switch (_type) do 
 							{ 
-							  case 0: {[_position, civilianVehicles, true, 50, true] call vehicleCreation;}; 
-							  case 1: {[_position, militaryVehicles, true, 50, true] call vehicleCreation;}; 
-							  case 2: {[_position, armedMilitaryVehicles, true, 50, true] call vehicleCreation;}; 
+							  case 0: {[_position, Quadbikes, true, 50, true] call vehicleCreation;}; 
+							  case 1: {[_position, Cars, true, 50, true] call vehicleCreation;}; 
+							  case 2: {[_position, Trucks, true, 50, true] call vehicleCreation;}; 
+							  case 3: {[_position, UnarmedMRAPVehicles, true, 50, true] call vehicleCreation;}; 
 							};
 						};
 						if (_unit isKindOf "ReammoBox_F") then
@@ -113,7 +109,12 @@ while {true} do
 							deleteVehicle _unit;
 							
 							_position = getMarkerPos format ["heliSpawn_%1", floor (random 24) + 1];			
-							[_position, militaryHelis, true, 50, true] call HeliCreation;	
+							_type = floor (random 2);
+							switch (_type) do 
+							{ 
+							  case 0: {[_position, LightHelicopters, true, 50, true] call vehicleCreation;}; 
+							  case 1: {[_position, TransportHelicopters, true, 50, true] call vehicleCreation;}; 
+							};
 						};
 						if ((typeof _unit) in survivalObjectList) then
 						{

@@ -4,8 +4,6 @@ diag_log format["*** initialisePlayer Started ***"];
 // Create the blackout
 //titleText ["Welcome to =(dp)= Wasteland, please wait for your player to setup", "BLACK", 0];
 
-waitUntil {!(isNull player)};
-
 // Remove player from Group
 if(count units group player > 1) then
 {  

@@ -42,40 +42,102 @@ publicVariable "refuelVehicle";
 defuelVehicle = ["",0];
 publicVariable "defuelVehicle";
 
-//Civilian Vehicle List - Random Spawns
-civilianVehicles = [
-	"C_Offroad_01_F", 
-	"C_Quadbike_01_F",
-	"C_Offroad_01_F", 
-	"B_Quadbike_01_F", 
-	"C_Offroad_01_F", 
-	"O_Quadbike_01_F",
-	"C_Offroad_01_F", 	
-	"I_Quadbike_01_F" 
+//Sea
+/*
+Boat_Armed_01_base_F
+    "O_Boat_Armed_01_hmg_F","Speedboat HMG"
+Boat_Armed_01_minigun_base_F
+    "B_Boat_Armed_01_minigun_F","Speedboat Minigun"
+    "I_Boat_Armed_01_minigun_F","Speedboat Minigun"
+Rubber_duck_base_F
+    "B_Boat_Transport_01_F","Assault Boat"
+    "O_Boat_Transport_01_F","Assault Boat"
+    "I_Boat_Transport_01_F","Assault Boat"
+Rescue_duck_base_F
+    "B_Lifeboat","Rescue Boat"
+    "O_Lifeboat","Rescue Boat"
+    "C_Rubberboat","Rescue Boat"
+SDV_01_base_F
+    "B_SDV_01_F","SDV"
+    "O_SDV_01_F","SDV"
+    "I_SDV_01_F","SDV"
+Boat_Civil_01_base_F
+    "C_Boat_Civil_01_F","Motorboat"
+    "C_Boat_Civil_01_rescue_F","Motorboat (Rescue)"
+    "C_Boat_Civil_01_police_F","Motorboat (Police)"
+I_G_Boat_Transport_01_F
+    "B_G_Boat_Transport_01_F","Assault Boat"
+*/
+//Air
+LightHelicopters = [
+    "B_Heli_Light_01_F",
+    "B_Heli_Light_01_armed_F",
+    "O_Heli_Light_02_F",
+    "O_Heli_Light_02_unarmed_F"
 ];
-
-//Military Vehicle List - Random Spawns
-militaryVehicles = [
+TransportHelicopters = [
+    "B_Heli_Transport_01_F",
+    "B_Heli_Transport_01_camo_F",
+    "I_Heli_Transport_02_F"
+];
+AttackHelicopters = [
+    "B_Heli_Attack_01_F",
+    "O_Heli_Attack_02_F",
+    "O_Heli_Attack_02_black_F"
+];
+ArmedFighterPlanes = [
+	"I_Plane_Fighter_03_CAS_F",
+    "I_Plane_Fighter_03_AA_F"
+];
+//Ground
+Quadbikes = [
+    "B_Quadbike_01_F",
+    "O_Quadbike_01_F",
+    "C_Quadbike_01_F",
+    "I_Quadbike_01_F",
+	"B_G_Quadbike_01_F"
+];
+Cars = [
+    "C_Offroad_01_F",
+	"B_G_Offroad_01_F",
+	"B_G_Offroad_01_armed_F",
+	"C_SUV_01_F",
+	"C_Hatchback_01_F",
+    "C_Hatchback_01_sport_F"
+];
+Trucks = [
+    "B_Truck_01_transport_F",
+    "B_Truck_01_covered_F",
+    "B_Truck_01_mover_F",
+    "B_Truck_01_medical_F",
+	"B_Truck_01_box_F",
+	"B_Truck_01_Repair_F",
+    "B_Truck_01_ammo_F",
+    "B_Truck_01_fuel_F",
+    "O_Truck_02_covered_F",
+    "O_Truck_02_transport_F",
+	"O_Truck_02_medical_F",
+    "O_Truck_02_box_F",
+    "O_Truck_02_Ammo_F",
+    "O_Truck_02_fuel_F",
+    "I_Truck_02_covered_F",
+    "I_Truck_02_transport_F",
+	"I_Truck_02_medical_F",	
+    "I_Truck_02_ammo_F",
+    "I_Truck_02_box_F",
+    "I_Truck_02_fuel_F",
+    "C_Van_01_transport_F",
+    "C_Van_01_box_F",
+    "C_Van_01_fuel_F",
+    "B_G_Van_01_transport_F",
+    "B_G_Van_01_fuel_F"
+];
+UnarmedMRAPVehicles = [
 	"B_MRAP_01_F", 
-	"B_Truck_01_transport_F", 
-	"B_Truck_01_covered_F", 
 	"O_MRAP_02_F", 
-	"O_Truck_02_transport_F", 
-	"O_Truck_02_covered_F", 
-	"I_MRAP_03_F", // issue: LODShape::AddLoadHandler: Handler not present in shape [a3\weapons_f\empty.p3d]
-	"I_Truck_02_transport_F",
-	"I_Truck_02_covered_F"
+	"I_MRAP_03_F"
 ];
-militaryHelis = [
-	"B_Heli_Light_01_F", 
-	"O_Heli_Light_02_unarmed_F", // issue: HUD: bone Target not found, HUD: bone HorizonBank2 not found
-	"B_Heli_Transport_01_F", 
-	"B_Heli_Transport_01_camo_F", // issue: Heli_Transport_01_skeleton: Invalid parent bone 'otochlavne' for 'zasleh'
-	"I_Heli_Transport_02_F"
-];
-
-//Armed Military Vehicle List - Random Spawns
-armedMilitaryVehicles = [
+ArmedMRAPVehicles = [
 	"B_MRAP_01_gmg_F", 
 	"B_MRAP_01_hmg_F", 
 	"O_MRAP_02_gmg_F", 
@@ -83,20 +145,42 @@ armedMilitaryVehicles = [
 	"I_MRAP_03_gmg_F", 
 	"I_MRAP_03_hmg_F"
 ];
-APCVehicles = [
-	"B_APC_Wheeled_01_cannon_F", 
-	"O_APC_Wheeled_02_rcws_F"
+ArmouredPersonnelCarriers = [
+    "B_APC_Wheeled_01_cannon_F",
+    "O_APC_Wheeled_02_rcws_F",
+    "I_APC_Wheeled_03_cannon_F",
+    "B_APC_Tracked_01_rcws_F",
+    "B_APC_Tracked_01_CRV_F",
+    "B_APC_Tracked_01_AA_F",
+    "O_APC_Tracked_02_cannon_F",
+    "O_APC_Tracked_02_AA_F"	
 ];
-LightTankVehicles = [
-	"O_APC_Tracked_02_cannon_F", 
-	"B_APC_Tracked_01_rcws_F"
+MainBattleTanks = [
+    "B_MBT_01_cannon_F",
+    "B_MBT_01_arty_F",
+    "B_MBT_01_mlrs_F",
+    "O_MBT_02_cannon_F",
+    "O_MBT_02_arty_F"
 ];
-armedMilitaryHelis = [
-	"B_Heli_Light_01_armed_F", 
-	"O_Heli_Light_02_F", 
-	"B_Heli_Attack_01_F", 
-	"O_Heli_Attack_02_F", 
-	"O_Heli_Attack_02_black_F"
+//Unmanned
+UnmannedAirVehicles = [
+    "B_UAV_01_F",
+    "O_UAV_01_F",
+    "I_UAV_01_F",
+    "B_UAV_02_F",
+    "O_UAV_02_F",
+    "I_UAV_02_F",
+    "B_UAV_02_CAS_F",
+    "O_UAV_02_CAS_F",
+    "I_UAV_02_CAS_F"
+];
+UnmannedGroundVehicles = [
+    "B_UGV_01_F",
+    "O_UGV_01_F",
+    "I_UGV_01_F",
+    "B_UGV_01_rcws_F",
+    "O_UGV_01_rcws_F",
+    "I_UGV_01_rcws_F"
 ];
 
 //Object List - Random Spawns.
@@ -125,72 +209,175 @@ baseObjectList = [
 survivalObjectList = [
 	"Land_Sacks_goods_F",
 	"Land_MetalBarrel_F",
-	//"Land_CanisterFuel_F",
 	"Land_CanisterPlastic_F"
 ];
 
 //Random Weapon List - Change this to what you want to spawn in cars.
 vehicleWeapons = [
 	"arifle_SDAR_F",
-	//"arifle_MXM_F",
 	"arifle_TRG21_F",
 	"arifle_TRG20_F",
 	"arifle_TRG21_GL_F",
-	//"arifle_MXC_F",
-	//"arifle_MX_SW_F",
-	//"arifle_MX_GL_F",
-	//"arifle_MX_F",
-	//"arifle_Katiba_F",
-	//"arifle_Katiba_C_F",
-	//"arifle_Katiba_GL_F",
-	//"srifle_EBR_F",
 	"arifle_Mk20_F",
 	"arifle_Mk20C_F",
 	"arifle_Mk20_GL_F",
 	"SMG_01_F",
 	"SMG_02_F",
-	//"LMG_Mk200_F",
-	//"LMG_Zafir_F",
 	"hgun_P07_F", // issue: causes server errors when this pistol is used
 	"hgun_Rook40_F",
-	"hgun_ACPC2_F"
+	"hgun_ACPC2_F",
+	"hgun_PDW2000_F"
 ];
-
+//weapons to remove from ammo crates
 removeWeapons = [	
-	"hgun_P07_F",
-	"arifle_Mk20_GL_ACO_F",
-	"arifle_Mk20_Holo_F",
-	"arifle_Mk20C_ACO_F",
-	"srifle_LRR_F",
-	"srifle_GM6_F",
-	"LMG_Zafir_F",
-	"srifle_EBR_F"
+    //"launch_NLAW_F",
+    //"launch_RPG32_F",
+    "LMG_Mk200_F",
+    "LMG_Zafir_F",
+    "srifle_EBR_F",
+    "srifle_EBR_ACO_F",
+    "srifle_EBR_MRCO_pointer_F",
+    "srifle_EBR_SOS_F",
+    "srifle_EBR_ARCO_pointer_F",
+    "srifle_EBR_ARCO_pointer_snds_F",
+    "srifle_GM6_F",
+    "srifle_GM6_SOS_F",
+    "srifle_LRR_F",
+    "srifle_LRR_SOS_F",
+    "LMG_Mk200_MRCO_F",
+    "LMG_Mk200_pointer_F",
+    //"hgun_P07_F",
+    //"hgun_Rook40_F",
+    //"hgun_ACPC2_F",
+    "hgun_P07_snds_F",
+    "hgun_Rook40_snds_F",
+    //"arifle_Katiba_F",
+    //"arifle_Katiba_C_F",
+    //"arifle_Katiba_GL_F",
+    "arifle_Katiba_C_ACO_pointer_F",
+    "arifle_Katiba_C_ACO_F",
+    "arifle_Katiba_C_ACO_pointer_snds_F",
+    "arifle_Katiba_ACO_F",
+    "arifle_Katiba_ACO_pointer_F",
+    "arifle_Katiba_ARCO_F",
+    "arifle_Katiba_ARCO_pointer_F",
+    "arifle_Katiba_ACO_pointer_snds_F",
+    "arifle_Katiba_ARCO_pointer_snds_F",
+    "arifle_Katiba_GL_ACO_F",
+    "arifle_Katiba_GL_ARCO_pointer_F",
+    "arifle_Katiba_GL_ACO_pointer_F",
+    "arifle_Katiba_GL_Nstalker_pointer_F",
+    "arifle_Katiba_GL_ACO_pointer_snds_F",
+    //"arifle_MXC_F",
+    //"arifle_MX_F",
+    //"arifle_MX_GL_F",
+    //"arifle_MX_SW_F",
+    //"arifle_MXM_F",
+    "arifle_MX_pointer_F",
+    "arifle_MX_Holo_pointer_F",
+    "arifle_MX_Hamr_pointer_F",
+    "arifle_MX_ACO_pointer_F",
+    "arifle_MX_ACO_F",
+    "arifle_MX_ACO_pointer_snds_F",
+    "arifle_MX_RCO_pointer_snds_F",
+    "arifle_MX_GL_ACO_F",
+    "arifle_MX_GL_ACO_pointer_F",
+    "arifle_MX_GL_Hamr_pointer_F",
+    "arifle_MX_GL_Holo_pointer_snds_F",
+    "arifle_MXC_Holo_F",
+    "arifle_MXC_Holo_pointer_F",
+    "arifle_MXC_ACO_F",
+    "arifle_MXC_Holo_pointer_snds_F",
+    "arifle_MXC_SOS_point_snds_F",
+    "arifle_MXC_ACO_pointer_snds_F",
+    "arifle_MXC_ACO_pointer_F",
+    "arifle_MX_SW_pointer_F",
+    "arifle_MX_SW_Hamr_pointer_F",
+    "arifle_MXM_Hamr_pointer_F",
+    "arifle_MXM_SOS_pointer_F",
+    "arifle_MXM_RCO_pointer_snds_F",
+    //"arifle_SDAR_F",
+    //"arifle_TRG21_F",
+    //"arifle_TRG20_F",
+    //"arifle_TRG21_GL_F",
+    "arifle_TRG21_ACO_pointer_F",
+    "arifle_TRG21_ARCO_pointer_F",
+    "arifle_TRG21_MRCO_F",
+    "arifle_TRG20_Holo_F",
+    "arifle_TRG20_ACO_pointer_F",
+    "arifle_TRG20_ACO_Flash_F",
+    "arifle_TRG20_ACO_F",
+    "arifle_TRG21_GL_MRCO_F",
+    "arifle_TRG21_GL_ACO_pointer_F",
+    "launch_B_Titan_F",
+    "launch_I_Titan_F",
+    "launch_O_Titan_F",
+    "launch_Titan_F",
+    "launch_B_Titan_short_F",
+    "launch_I_Titan_short_F",
+    "launch_O_Titan_short_F",
+    "launch_Titan_short_F",
+    "LMG_Zafir_pointer_F",
+    "hgun_ACPC2_snds_F",
+    //"arifle_Mk20_F",
+    //"arifle_Mk20C_F",
+    //"arifle_Mk20_GL_F",
+    //"arifle_Mk20_plain_F",
+    "arifle_Mk20_pointer_F",
+    "arifle_Mk20_Holo_F",
+    "arifle_Mk20_ACO_F",
+    "arifle_Mk20_ACO_pointer_F",
+    "arifle_Mk20_MRCO_F",
+    "arifle_Mk20_MRCO_pointer_F",
+    //"arifle_Mk20C_plain_F",
+    "arifle_Mk20C_ACO_F",
+    "arifle_Mk20C_ACO_pointer_F",
+    //"arifle_Mk20_GL_plain_F",
+    "arifle_Mk20_GL_MRCO_pointer_F",
+    "arifle_Mk20_GL_ACO_F",
+    "arifle_Mk20_MRCO_plain_F",
+    //"SMG_01_F",
+    "SMG_01_Holo_F",
+    "SMG_01_Holo_pointer_snds_F",
+    "SMG_01_ACO_F",
+    //"SMG_02_F",
+    "SMG_02_ACO_F",
+    "SMG_02_ARCO_pointg_F",
+    //"hgun_PDW2000_F",
+    "hgun_PDW2000_snds_F",
+    "hgun_PDW2000_Holo_F",
+    "hgun_PDW2000_Holo_snds_F"
 ];
 removeAmmo = [	
 	"MiniGrenade", 
 	"HandGrenade"
 ];
-
 vehicleAddition = [
-	"Zasleh2",
 	"muzzle_snds_H",
 	"muzzle_snds_M",
 	"muzzle_snds_L",
 	"muzzle_snds_B",
 	"muzzle_snds_H_MG",
 	"muzzle_snds_acp",
-	"optic_Arco",
-	"optic_Hamr", 
-	"optic_Aco", 
-	"optic_ACO_grn", 
-	"optic_Holosight", 
-	"optic_MRCO",
-	"optic_SOS",
+    "optic_Arco",
+    "optic_Hamr",
+    "optic_Aco",
+    "optic_ACO_grn",
+    "optic_Aco_smg",
+    "optic_ACO_grn_smg",
+    "optic_Holosight",
+    "optic_Holosight_smg",
+    "optic_SOS",
+    "acc_flashlight",
+    "acc_pointer_IR",
+    "optic_MRCO",
+    "optic_NVS",
+    "optic_Nightstalker",
+    "optic_tws",
+    "optic_tws_mg",	
 	"acc_flashlight", 
 	"acc_pointer_IR",
-	"Medikit",
-	"FirstAidKit",
-	"ToolKit"
+	"Laserdesignator_mounted"
 ];
 
 vehicleAddition2 = [
@@ -198,6 +385,19 @@ vehicleAddition2 = [
 	"Chemlight_red",
 	"Chemlight_green",
 	"Chemlight_yellow"
+];
+
+vehicleAddition3 = [
+	"Medikit",
+	"FirstAidKit",
+	"ToolKit",
+	"MineDetector",
+	"Rangefinder",
+	"Binocular",
+    "NVGoggles",
+	"NVGoggles_OPFOR",
+    "NVGoggles_INDEP",
+    "Laserdesignator"
 ];
  
 ammoBoxes = [
@@ -232,14 +432,14 @@ ammoBoxes = [
 missionAmmoBoxes = [
 	"Box_NATO_Ammo_F",
 	"Box_NATO_Wps_F",
-	"Box_NATO_Wps_F",
 	//"Box_NATO_Grenades_F",	// too many granade spamming happening, these only hold nades and smoke
 	"Box_NATO_WpsLaunch_F",	// too many launchers in game, need to give the helis a chance
 	"Box_NATO_AmmoOrd_F",
 	"Box_NATO_WpsSpecial_F",
 	"Box_NATO_Support_F",
+	//"Box_NATO_AmmoVeh_F", 
+	
 	"Box_East_Ammo_F",
-	"Box_East_Wps_F",
 	"Box_East_Wps_F",
 	//"Box_East_Grenades_F",	// too many granade spamming happening, these only hold nades and smoke
 	"Box_East_WpsLaunch_F",	// too many launchers in game, need to give the helis a chance
@@ -247,9 +447,9 @@ missionAmmoBoxes = [
 	"Box_East_WpsSpecial_F",
 	"Box_East_Support_F",
 	//"Box_East_AmmoVeh_F", 
+	
 	"Box_IND_Ammo_F",
 	"Box_IND_Wps_F",  			// issue: LODShape::AddLoadHandler: Handler not present in shape [a3\weapons_f\empty.p3d]
-	"Box_IND_Wps_F",
 	//"Box_IND_Grenades_F",		// too many granade spamming happening, these only hold nades and smoke
 	"Box_IND_WpsLaunch_F",		// too many launchers in game, need to give the helis a chance
 	"Box_IND_AmmoOrd_F",
@@ -259,9 +459,10 @@ missionAmmoBoxes = [
 ];
 
 supplyCrate = [
+	"B_supplyCrate_F",
 	"I_supplyCrate_F",
 	"O_supplyCrate_F",
-	"B_supplyCrate_F"
+	"IG_supplyCrate_F"
 ];
  
 MissionSpawnMarkers = [

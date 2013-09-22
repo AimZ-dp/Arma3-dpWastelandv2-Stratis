@@ -60,6 +60,7 @@ diag_log format["****** SERVER init Started ******"];
 	_objects = nearestObjects [getMarkerPos "Town_1", ["House_F"], 8000];
 	{
 		_x allowDamage false;
+		_x setVariable ["R3F_LOG_disabled", true, true];
 	} foreach _objects;
 };
 

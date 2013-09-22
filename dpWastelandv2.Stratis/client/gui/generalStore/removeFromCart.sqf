@@ -32,9 +32,9 @@ if (local player) then {
 	if(_switchText == "Buy") then
 	{
 		{if(_itemText == _x select 0) then{_price = _x select 4;};}forEach generalStore;
-		{if(_itemText == _x select 0) then{_price = _x select 2;}}forEach uniformArray;
+		{if(_itemText == _x select 1) then{_price = _x select 2;}}forEach uniformArray;
 	} else {
-		{if(_x select 0 == _itemText) then{_price = _x select 5;};}forEach generalStore;
+		{if(_itemText == _x select 0) then{_price = _x select 5;};}forEach generalStore;
 		_itemlistIndex = _itemlist lbAdd format["%1",_itemText];
 	};
 

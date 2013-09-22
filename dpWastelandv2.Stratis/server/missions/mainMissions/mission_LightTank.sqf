@@ -14,7 +14,7 @@ private ["_result","_missionMarkerName","_missionType","_startTime","_returnData
 //Mission Initialization.
 _result = 0;
 _missionMarkerName = "LightTank_Marker";
-_missionType = "Immobile Light Tank";
+_missionType = "Immobile Tank";
 _startTime = floor(time);
 
 //Get Mission Location
@@ -26,10 +26,7 @@ _randomIndex = _returnData select 1;
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-//_vehicleClass = LightTankVehicles call BIS_fnc_selectRandom;
-//Vehicle Class, Posistion, Fuel, Ammo, Damage
-//_vehicle = [_vehicleClass,_randomPos,0.1,1,0.75,"NONE"] call createMissionVehicle;
-_vehicle = [_randomPos, LightTankVehicles, false, 10, false] call vehicleCreation;
+_vehicle = [_randomPos, MainBattleTanks, false, 10, false] call vehicleCreation;
 _vehicle setVehicleLock "LOCKED";
 _vehicle setVariable ["R3F_LOG_disabled", true, true];
 

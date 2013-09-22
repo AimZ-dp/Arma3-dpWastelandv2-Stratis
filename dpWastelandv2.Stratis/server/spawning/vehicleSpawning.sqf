@@ -18,12 +18,13 @@ _end = 118;
 for "_i" from _start to _end step _step do
 {
 	_position = getMarkerPos format ["Spawn_%1", _i];
-	_type = floor (random 2);
+	_type = floor (random 4);
 	switch (_type) do 
 	{ 
-	  case 0: {[_position, civilianVehicles, true, 50, true] call vehicleCreation;}; 
-	  case 1: {[_position, militaryVehicles, true, 50, true] call vehicleCreation;}; 
-	  case 2: {[_position, armedMilitaryVehicles, true, 50, true] call vehicleCreation;}; 
+	  case 0: {[_position, Quadbikes, true, 50, true] call vehicleCreation;}; 
+	  case 1: {[_position, Cars, true, 50, true] call vehicleCreation;}; 
+	  case 2: {[_position, Trucks, true, 50, true] call vehicleCreation;}; 
+	  case 3: {[_position, UnarmedMRAPVehicles, true, 50, true] call vehicleCreation;}; 
 	};
 		
 	_counter = _counter + 1;

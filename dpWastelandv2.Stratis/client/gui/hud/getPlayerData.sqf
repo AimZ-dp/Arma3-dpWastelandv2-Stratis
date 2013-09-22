@@ -39,19 +39,15 @@ while {true} do
 				
 				_isFriendly = ((playerSide != resistance && side _x == playerSide) || (playerSide == resistance && _x in units player));
 
-				if (_isFriendly || (!_isFriendly && _randomDetection > 98)) then
+				if (_isFriendly || (!_isFriendly && _randomDetection > 95)) then
 				{
 					_playerPos = visiblePosition _x;
 					_playerDistance = _playerPos distance player;
 
 					_maxDistance = 1000;
-					if (allowPlayerIcons == "OFF") then 
+					if (allowPlayerIcons == "OFF" || !_isFriendly) then 
 					{
-						_maxDistance = 400;
-					};
-					if (!_isFriendly && _randomDetection > 98) then 
-					{
-						_maxDistance = 300;
+						_maxDistance = 600;
 					};
 					
 					if ((scanningInProgress || allowPlayerIcons == "ON") && _playerDistance <= _maxDistance) then
@@ -60,16 +56,16 @@ while {true} do
 					};
 				
 					_target = cursorTarget;
-					if (_playerDistance <= 400 && _target == _x && player == vehicle player) then
+					if (_playerDistance <= 600 && _target == _x && player == vehicle player) then
 					{	
 						_nameArray set [count _nameArray, _x];				
 					};
 				};
 			};	
 		};
-		sleep 0.1;
-	} forEach allUnits;
-
+	//} forEach allUnits;
+	} forEach playableUnits;
+	
 	iconArray = + _iconArray;
 	nameArray = + _nameArray;
 	

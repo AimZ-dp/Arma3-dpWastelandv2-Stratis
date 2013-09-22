@@ -117,9 +117,9 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
         };
 	};
 	{
-		if(_itemText == _x select 0) then
+		if(_itemText == _x select 1) then
 		{
-			_class = _x select 1;
+			_class = _x select 0;
 			switch((_x select 3)) do
 			{
 				case "vest":
@@ -132,7 +132,7 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
 					else
 					{
 						_price = 0;
-					   {if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach uniformArray;
+					   {if(_x select 0 == _class) then{_price = _x select 2; _name = _x select 1;};}forEach uniformArray;
 						genStoreCart = genStoreCart - _price;
 						hint format["You have already have a vest please drop it before buying a new one"]; 
 					};
@@ -147,7 +147,7 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
 					else
 					{
 						_price = 0;
-					   {if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach uniformArray;
+					   {if(_x select 0 == _class) then{_price = _x select 2; _name = _x select 1;};}forEach uniformArray;
 						genStoreCart = genStoreCart - _price;
 						hint format["You have already have a uniform on please drop it before buying a new one"]; 
 					};
@@ -162,7 +162,7 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
 					else
 					{
 						_price = 0;
-					   {if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach uniformArray;
+					   {if(_x select 0 == _class) then{_price = _x select 2; _name = _x select 1;};}forEach uniformArray;
 						genStoreCart = genStoreCart - _price;
 						hint format["You have something in the headgear slot please drop it before buying a new one"]; 
 					};
@@ -177,7 +177,7 @@ for [{_x=0},{_x<=_size},{_x=_x+1}] do
 					else
 					{
 						_price = 0;
-					   {if(_x select 1 == _class) then{_price = _x select 2; _name = _x select 0;};}forEach uniformArray;
+					   {if(_x select 0 == _class) then{_price = _x select 2; _name = _x select 1;};}forEach uniformArray;
 						genStoreCart = genStoreCart - _price;
 						hint format["You have something in the backpack slot please drop it before buying a new one"]; 
 					};

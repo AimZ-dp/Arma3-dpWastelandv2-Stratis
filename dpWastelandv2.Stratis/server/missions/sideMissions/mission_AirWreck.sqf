@@ -9,7 +9,7 @@ if(!isServer) exitwith {};
 
 #include "sideMissionDefines.sqf";
 
-private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_vehicleClass","_box","_box2","_vehicle","_picture","_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive","_missionEnd"];
+private ["_result","_missionMarkerName","_missionType","_startTime","_returnData","_randomPos","_randomIndex","_vehicleClass","_box1","_box2","_vehicle","_picture","_vehicleName","_hint","_currTime","_playerPresent","_unitsAlive","_missionEnd"];
 
 //Mission Initialization.
 _result = 0;
@@ -26,21 +26,11 @@ _randomIndex = _returnData select 1;
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-//Vehicle Class, Posistion, Fuel, Ammo, Damage
-//_vehicle = [militaryHelis call BIS_fnc_selectRandom,[(_randomPos select 0) + 50, (_randomPos select 1) + 50,0],0,0,1,"NONE"] call createMissionVehicle;
-//_vehicle setVariable["newVehicle",vChecksum,true];
-_vehicle = [[(_randomPos select 0) + 50, (_randomPos select 1) + 50,0], militaryHelis, false, 10, false, true] call HeliCreation;	
+_vehicle = [[(_randomPos select 0) + 50, (_randomPos select 1) + 50,0], TransportHelicopters, false, 10, false, true] call HeliCreation;	
 _vehicle setVehicleLock "LOCKED";
 _vehicle setVariable ["R3F_LOG_disabled", true, true];
 
-//_boxtype = floor (random (count missionAmmoBoxes));
-//_box = createVehicle [missionAmmoBoxes select _boxtype,[(_randomPos select 0),(_randomPos select 1),0],[],0,"NONE"];
-//_box setVariable["newVehicle",vChecksum,true];
-_box = [[(_randomPos select 0),(_randomPos select 1),0], missionAmmoBoxes, false, 2, false] call boxCreation;	
-
-//_boxtype = floor (random (count missionAmmoBoxes));
-//_box2 = createVehicle [missionAmmoBoxes select _boxtype,[(_randomPos select 0),(_randomPos select 1)-10,0],[],0,"NONE"];
-//_box2 setVariable["newVehicle",vChecksum,true];
+_box1 = [[(_randomPos select 0),(_randomPos select 1),0], missionAmmoBoxes, false, 2, false] call boxCreation;	
 _box2 = [[(_randomPos select 0),(_randomPos select 1)-10,0], missionAmmoBoxes, false, 2, false] call boxCreation;	
 		
 _picture = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "picture");
@@ -61,9 +51,9 @@ while {!_missionEnd} do
 	_playerPresent = false;
     _currTime = floor(time);
     if(_currTime - _startTime >= sideMissionTimeout) then {_result = 1;};
-    {if((isPlayer _x) AND (_x distance _box <= missionRadiusTrigger)) then {_playerPresent = true};sleep 0.1;}forEach playableUnits;
+    {if((isPlayer _x) AND (_x distance _box1 <= missionRadiusTrigger)) then {_playerPresent = true};sleep 0.1;}forEach playableUnits;
     _unitsAlive = ({alive _x} count units CivGrpS);
-    if ((_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1)) OR ((damage _box) == 1)) then
+    if ((_result == 1) OR ((_playerPresent) AND (_unitsAlive < 1)) OR ((damage _box1) == 1)) then
 	{
 		_missionEnd = true;
 	};
@@ -72,7 +62,7 @@ while {!_missionEnd} do
 if(_result == 1) then
 {
 	//Mission Failed.
-    deleteVehicle _box;
+    deleteVehicle _box1;
     deleteVehicle _box2;
     deleteVehicle _vehicle;
 	{

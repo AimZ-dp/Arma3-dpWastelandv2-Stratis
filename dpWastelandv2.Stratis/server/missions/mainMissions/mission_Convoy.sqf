@@ -50,11 +50,11 @@ _createVehicle = {
 };
 
 // Create vehicles
-_target = militaryVehicles call BIS_fnc_selectRandom;
+_target = ArmouredPersonnelCarriers call BIS_fnc_selectRandom;
 _vehicles = [];
-_vehicles set [0, [armedMilitaryVehicles call BIS_fnc_selectRandom, 1, [3272.0862, 6818.0166, 4.1839767], 110, _group] call _createVehicle];
+_vehicles set [0, [ArmedMRAPVehicles call BIS_fnc_selectRandom, 1, [3272.0862, 6818.0166, 4.1839767], 110, _group] call _createVehicle];
 _vehicles set [1, [_target, 0, [3256.6409, 6823.4746, 3.8003173], 110, _group] call _createVehicle];
-_vehicles set [2, [armedMilitaryVehicles call BIS_fnc_selectRandom, 1, [3240.3447, 6829.6089, 4.275979], 110, _group] call _createVehicle];
+_vehicles set [2, [ArmedMRAPVehicles call BIS_fnc_selectRandom, 1, [3240.3447, 6829.6089, 4.275979], 110, _group] call _createVehicle];
 
 // Set the driver of the first vehicle as leader
 _leader = driver (_vehicles select 0);

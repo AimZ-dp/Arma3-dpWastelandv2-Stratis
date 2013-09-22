@@ -58,19 +58,19 @@ switch (playerSide) do
 		player addHeadgear "H_Cap_blu";
 	};
 	case east: {
-		//player addUniform "U_O_SpecopsUniform_ocamo";
-		player addUniform "U_B_CombatUniform_mcam_tshirt";
+		//player addUniform "U_B_CombatUniform_mcam_tshirt";
+		player addUniform "U_O_SpecopsUniform_ocamo";
 		player addHeadgear "H_Cap_red";
 	};
 	case resistance: {
-		//player addUniform "U_I_CombatUniform_tshirt";
-		player addUniform "U_B_CombatUniform_mcam_tshirt";
+		//player addUniform "U_B_CombatUniform_mcam_tshirt";
+		player addUniform "U_I_CombatUniform_tshirt";
 		player addHeadgear "H_Cap_grn";
 	};
 };
 
 player addVest "V_Rangemaster_belt";
-player addBackpack "b_assaultpack_blk";
+player addBackpack "B_AssaultPack_blk";
 
 player addItem "ItemMap"; 
 player assignItem "ItemMap"; 

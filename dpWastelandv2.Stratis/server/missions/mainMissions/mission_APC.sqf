@@ -26,10 +26,7 @@ _randomIndex = _returnData select 1;
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-//_vehicleClass = APCVehicles call BIS_fnc_selectRandom;
-//Vehicle Class, Posistion, Fuel, Ammo, Damage
-//_vehicle = [_vehicleClass,_randomPos,0.1,1,0.75,"NONE"] call createMissionVehicle;
-_vehicle = [_randomPos, APCVehicles, false, 10, false] call vehicleCreation;
+_vehicle = [_randomPos, ArmouredPersonnelCarriers, false, 10, false] call vehicleCreation;
 _vehicle setVehicleLock "LOCKED";
 _vehicle setVariable ["R3F_LOG_disabled", true, true];
 

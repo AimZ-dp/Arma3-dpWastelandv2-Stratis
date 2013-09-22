@@ -15,13 +15,13 @@ _magazine = currentMagazine player;
 if(_primary == "") exitWith {hint "You don't have a current weapon in your hand to sell!";};
 
 {
-	if(_x select 1 == _primary) then 
+	if(_x select 0 == _primary) then 
 	{
 		_weapon_value = _weapon_value + (_x select 3);
 	};
 } forEach weaponsArray;
 {
-	if(_x select 1 == _magazine) then 
+	if(_x select 0 == _magazine) then 
 	{
 		_weapon_value = _weapon_value + (_x select 3);
 	};

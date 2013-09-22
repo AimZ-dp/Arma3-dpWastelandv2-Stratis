@@ -17,11 +17,7 @@ diag_log format["****** clientInit Started ******"];
 "clockCycle" addPublicVariableEventHandler {hint format["Day Night Cycle %1", clockCycle];};
 
 "refuelVehicle" addPublicVariableEventHandler {
-
-	
-	_data = _this select 1;
-	_currVehicle = _data select 0;
-	_fuelAmount = _data select 1;
+	_data = _this select 1;_currVehicle = _data select 0;_fuelAmount = _data select 1;
 	if (_currVehicle != "") then 
 	{
 		_obj = objectFromNetId _currVehicle;
@@ -29,8 +25,11 @@ diag_log format["****** clientInit Started ******"];
 		{
 			if (local _obj) then
 			{
-				_fuel = ((fuel _obj) + _fuelAmount);	
-				if (_fuel > 1) then {_fuel = 1;};
+				_fuel = ((fuel _obj) + _fuelAmount);
+				if (_fuel > 1) then 
+				{
+					_fuel = 1;
+				};
 				_obj setFuel _fuel;
 				refuelVehicle = ["",0];
 				publicVariable "refuelVehicle";
@@ -39,7 +38,6 @@ diag_log format["****** clientInit Started ******"];
 	};
 };
 "defuelVehicle" addPublicVariableEventHandler {
-	
 	_data = _this select 1;
 	_currVehicle = _data select 0;
 	_fuelAmount = _data select 1;
@@ -61,10 +59,15 @@ diag_log format["****** clientInit Started ******"];
 	};
 };
 
-
 // Initialise
 [] call clientVars;
 [] call briefing;
+
+// wait for the player to be ingame before continuing
+waitUntil {!(isNull player)};
+waitUntil {vehicle player == player};
+waitUntil {!visibleMap};
+sleep 2;
 
 // One time only setup
 [] call initPlayer;	
@@ -97,57 +100,50 @@ diag_log format["****** clientInit Started ******"];
 [] spawn getPlayerData;
 [] spawn getDebugData;
 
+[] spawn cleanLocalObjects;
+
 isStandRunning = false;
 isKneelRunning = false;
 isStandSprinting = false;
 isKneelSprinting = false;
 player addEventHandler ["AnimStateChanged","
-
 	_str_sprint1 = toArray 'amovpercmeva';
 	_str_sprint2 = toArray 'amovpknlmeva';
 	_str_run1 = toArray 'amovpercmrun';
 	_str_run2 = toArray 'amovpknlmrun';
-	
 	_str_anim = toArray (_this select 1);
-
 	if (count _str_anim < 12) then 
 	{
 		_str_anim = 'amovpercxxxx';
 	};
-	
 	_isStandRunning = true;
 	_isKneelRunning = true;
 	_isStandSprinting = true;
 	_isKneelSprinting = true;
-	
 	{
 		if (_x != _str_anim select _forEachIndex) then
 		{
 			_isStandRunning = false;
 		};
 	} foreach _str_run1;
-	
 	{
 		if (_x != _str_anim select _forEachIndex) then
 		{
 			_isKneelRunning = false;
 		};
 	} foreach _str_run2;
-	
 	{
 		if (_x != _str_anim select _forEachIndex) then
 		{
 			_isStandSprinting = false;
 		};
 	} foreach _str_sprint1;
-	
 	{
 		if (_x != _str_anim select _forEachIndex) then
 		{
 			_isKneelSprinting = false;
 		};
 	} foreach _str_sprint2;
-	
 	isStandRunning = _isStandRunning;
 	isKneelRunning = _isKneelRunning;	
 	isStandSprinting = _isStandSprinting;
@@ -193,10 +189,8 @@ finalFatigue = 0; // damage: 0=good, 1=bad | thirst=100:good, 0=bad
 				finalFatigue = _minfatigue;
 			};
 		};
-		
 		//hint format["fatigue: %1, %2, %3, %4, %5", finalFatigue, isStandSprinting, isKneelSprinting, isStandRunning, isKneelRunning];
 		player setFatigue finalFatigue;
-		
 		sleep 1;
 	};
 };

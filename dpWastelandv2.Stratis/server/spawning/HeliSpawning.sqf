@@ -19,7 +19,13 @@ _end = 24;
 for "_i" from _start to _end step _step do
 {
 	_position = getMarkerPos format ["heliSpawn_%1", _i];
-   	[_position, militaryHelis, true, 50, true] call HeliCreation;	
+	_type = floor (random 2);
+	switch (_type) do 
+	{ 
+	  case 0: {[_position, LightHelicopters, true, 50, true] call HeliCreation;}; 
+	  case 1: {[_position, TransportHelicopters, true, 50, true] call HeliCreation;}; 
+	  case 2: diag_log format["ERROR WITH RANDOM SELECTION"];
+	};
 
 	_counter = _counter + 1;
 };

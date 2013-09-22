@@ -24,7 +24,8 @@ addMissionEventHandler ["Draw3D", {
 			if (allowPlayerIcons == "OFF") then 
 			{
 				// 400 meters
-				_scannerStrength = (scannerBattery * ((-0.002 * (_playerPos distance player)) + 1)) / 100;
+				//_scannerStrength = (scannerBattery * ((-0.002 * (_playerPos distance player)) + 1)) / 100;
+				_scannerStrength = (scannerBattery * ((-0.0015 * (_playerPos distance player)) + 1)) / 100;
 			}
 			else
 			{
@@ -58,7 +59,7 @@ addMissionEventHandler ["Draw3D", {
 				_playerPos set [2, (_playerPosATL select 2) + 0.2];
 				
 				// 1500 meters
-				_scannerStrength = (-0.0025 * (_playerPos distance player)) + 1;
+				_scannerStrength = (-0.0015 * (_playerPos distance player)) + 1;
 				if (_scannerStrength > 1) then {_scannerStrength = 1;};
 				if (_scannerStrength < 0) then {_scannerStrength = 0;};
 			
@@ -71,7 +72,7 @@ addMissionEventHandler ["Draw3D", {
 				_objectPos set [2, (_objectPosATL select 2) + 0.2];
 				
 				// 400 meters
-				_scannerStrength = (-0.002 * (_objectPos distance player)) + 1;
+				_scannerStrength = (-0.0015 * (_objectPos distance player)) + 1;
 				if (_scannerStrength > 1) then {_scannerStrength = 1;};
 				if (_scannerStrength < 0) then {_scannerStrength = 0;};
 				
@@ -89,7 +90,7 @@ addMissionEventHandler ["Draw3D", {
 				_objectPos set [2, (_objectPosATL select 2) + 0.2];
 				
 				// 400 meters
-				_scannerStrength = (-0.002 * (_objectPos distance player)) + 1;
+				_scannerStrength = (-0.0015 * (_objectPos distance player)) + 1;
 				if (_scannerStrength > 1) then {_scannerStrength = 1;};
 				if (_scannerStrength < 0) then {_scannerStrength = 0;};
 				
@@ -112,11 +113,11 @@ addMissionEventHandler ["Draw3D", {
 				_scannerStrength = 1;
 				if (allowPlayerIcons == "OFF") then 
 				{
-					_scannerStrength = (scannerBattery * ((-0.002 * (_playerPos distance player)) + 1)) / 100;
+					_scannerStrength = (scannerBattery * ((-0.0015 * (_playerPos distance player)) + 1)) / 100;
 				}
 				else
 				{
-					_scannerStrength = (-0.002 * (_playerPos distance player)) + 1;
+					_scannerStrength = (-0.0015 * (_playerPos distance player)) + 1;
 				};
 				if (_scannerStrength > 1) then {_scannerStrength = 1;};
 				if (_scannerStrength < 0) then {_scannerStrength = 0;};

@@ -27,10 +27,7 @@ _randomIndex = _returnData select 1;
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-//_vehicleClass = armedMilitaryHelis call BIS_fnc_selectRandom;
-//Vehicle Class, Posistion, Fuel, Ammo, Damage
-//_vehicle = [_vehicleClass,_randomPos,0.25,1,0.50,"NONE"] call createMissionVehicle;
-_vehicle = [_randomPos, armedMilitaryHelis, true, 10, false] call HeliCreation;	
+_vehicle = [_randomPos, AttackHelicopters, true, 10, false] call HeliCreation;	
 _vehicle setVehicleLock "LOCKED";
 _vehicle setVariable ["R3F_LOG_disabled", true, true];
 
