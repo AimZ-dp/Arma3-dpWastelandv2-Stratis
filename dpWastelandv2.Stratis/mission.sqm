@@ -2794,7 +2794,7 @@ class Mission
 	};	
 	class Markers
 	{
-		items=201;
+		items=202;
 		class Item0
 		{
 			position[]={4832.4385,119.27303,6527.7388};
@@ -4096,6 +4096,13 @@ class Mission
 			text="FORBIDDEN ZONE";
 			type="mil_box";
 			colorName="ColorBlack";
+		};
+		class Item201
+		{
+			position[]={18195.857,22.225668,8859.4434};
+			name="Construction_Store_3";
+			type="Empty";
+			colorName="ColorBrown";
 		};
 	};
 };

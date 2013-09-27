@@ -80,10 +80,11 @@ sleep 2;
 [] call updateMissionsMarkers; 
 
 [] spawn {
-	_objects = nearestObjects [getMarkerPos "Town_1", ["House_F"], 8000];
+	_objects = nearestObjects [getMarkerPos "Town_1", ["House_F"], 28000];
 	{
 		_x allowDamage false;
 		_x enableSimulation false;
+		sleep 0.01;
 	} foreach _objects;
 };
 

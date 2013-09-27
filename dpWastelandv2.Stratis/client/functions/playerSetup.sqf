@@ -45,12 +45,6 @@ removeGoggles player;
 removeAllAssignedItems player;
 removeAllContainers player;
 
-//_uid = getPlayerUID player;
-//if (_uid in serverdpAdministrators) then 
-//{
-//	player addHeadgear "H_Booniehat_ocamo";
-//}
-
 switch (playerSide) do
 {
 	case west: {
@@ -58,13 +52,13 @@ switch (playerSide) do
 		player addHeadgear "H_Cap_blu";
 	};
 	case east: {
-		//player addUniform "U_B_CombatUniform_mcam_tshirt";
-		player addUniform "U_O_SpecopsUniform_ocamo";
+		//player addUniform "U_O_SpecopsUniform_ocamo";
+		player addUniform "U_B_CombatUniform_mcam_tshirt";
 		player addHeadgear "H_Cap_red";
 	};
 	case resistance: {
-		//player addUniform "U_B_CombatUniform_mcam_tshirt";
-		player addUniform "U_I_CombatUniform_tshirt";
+		//player addUniform "U_I_CombatUniform_tshirt";
+		player addUniform "U_B_CombatUniform_mcam_tshirt";
 		player addHeadgear "H_Cap_grn";
 	};
 };

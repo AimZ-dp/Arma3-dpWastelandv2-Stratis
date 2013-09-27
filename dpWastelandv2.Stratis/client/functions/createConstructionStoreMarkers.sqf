@@ -1,5 +1,5 @@
 
-_constructionStores = ["constructionStore1","constructionStore2"];
+_constructionStores = ["constructionStore1","constructionStore2","constructionStore3"];
 
 //Creates the markers around general stores.
 {

@@ -57,11 +57,12 @@ diag_log format["****** SERVER init Started ******"];
 [] spawn broadcaster;
 
 [] spawn {
-	_objects = nearestObjects [getMarkerPos "Town_1", ["House_F"], 8000];
+	_objects = nearestObjects [getMarkerPos "Town_1", ["House_F"], 28000];
 	{
 		_x allowDamage false;
 		_x enableSimulation false;
 		_x setVariable ["R3F_LOG_disabled", true, true];
+		sleep 0.01;
 	} foreach _objects;
 };
 
