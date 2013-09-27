@@ -9,6 +9,7 @@
 #define hud_status_idc 3600
 #define hud_vehicle_idc 3601
 #define hud_scanner_idc 3602
+#define hud_website_idc 3603
 
 class WastelandHud {
 	idd = -1;
@@ -52,6 +53,24 @@ class WastelandHud {
 			colorText[] = {1,1,1,1};
 			shadow = 2;
 			text = "100 Status";
+			class Attributes {
+				align = "right";
+			};
+		};
+		class WastelandHud_Website:w_RscText
+		{
+			idc = hud_website_idc;
+			type = CT_STRUCTURED_TEXT;
+			size = 0.040;
+			x = safeZoneX + (safeZoneW * (1 - (0.66 / SafeZoneW)));
+            y = safeZoneY + (safeZoneH * (1 - (0.04 / SafeZoneH)));
+			w = 0.64; 
+			h = 0.10;
+			lineSpacing = 6;
+			colorBackground[] = {0,0,0,0};
+			colorText[] = {1,1,1,1};
+			shadow = 2;
+			text = "<t color='#17AA41' shadow='2' size='1.0'>=(dp)= Wasteland - http://dp-clan.enjin.com</t>";
 			class Attributes {
 				align = "right";
 			};

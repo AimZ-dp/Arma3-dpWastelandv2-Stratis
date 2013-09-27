@@ -79,7 +79,7 @@ while {true} do
 		// 4:00pm
 		if (_updateTime) then 
 		{
-			_hours = 16;
+			_hours = 17;
 			_minutes = 00;
 			_dateStamp set [3, _hours];
 			_dateStamp set [4, _minutes];

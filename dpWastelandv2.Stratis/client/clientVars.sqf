@@ -220,7 +220,11 @@ accessoriesArray = [
 	["optic_NVS","NVS", 350,"item"], 
 	["optic_Nightstalker","Nightstalker", 350,"item"], 
 	["optic_tws","TWS", 350,"item"], 
-	["optic_tws_mg","TWS MG", 350,"item"]
+	["optic_tws_mg","TWS MG", 350,"item"],
+
+	["B_UavTerminal","UAV Terminal [NATO]", 450,"item"],
+	["O_UavTerminal","UAV Terminal [CSAT]", 450,"item"],
+	["I_UavTerminal","UAV Terminal [AAF]", 450,"item"]
 ];
 
 uniformArray = [	
@@ -499,9 +503,9 @@ uniformArray = [
 	
 //	["B_Mortar_01_support_F","Folded Mk6 Mortar Bipod",1000,"backpack"],
 //    ["B_HMG_01_support_F","Folded Tripod",1000,"backpack"],
-	["O_UAV_01_backpack_F","UAV Bag",1000,"backpack"],
-	["I_UAV_01_backpack_F","UAV Bag",1000,"backpack"],
-	["B_UAV_01_backpack_F","UAV Bag",1000,"backpack"]
+	["O_UAV_01_backpack_F","UAV Bag [CSAT]",1000,"backpack"],
+	["I_UAV_01_backpack_F","UAV Bag [AAF]",1000,"backpack"],
+	["B_UAV_01_backpack_F","UAV Bag [NATO]",1000,"backpack"]
 //    ["B_Mortar_01_weapon_F","Folded Mk6 Mortar Tube",1000,"backpack"],
 //    ["B_HMG_01_weapon_F","Dismantled Mk30 HMG",1000,"backpack"],
 //    ["B_HMG_01_high_weapon_F","Dismantled Mk30 HMG (Raised)",1000,"backpack"],

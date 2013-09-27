@@ -83,6 +83,7 @@ sleep 2;
 	_objects = nearestObjects [getMarkerPos "Town_1", ["House_F"], 8000];
 	{
 		_x allowDamage false;
+		_x enableSimulation false;
 	} foreach _objects;
 };
 

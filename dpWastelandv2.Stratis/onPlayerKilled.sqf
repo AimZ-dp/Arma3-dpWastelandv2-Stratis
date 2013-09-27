@@ -57,13 +57,17 @@ if((_player != _killer) && (vehicle _player != vehicle _killer) && (playerSide =
 	};
 };
 
-if ((_player != _killer) && (count _suspects == 0)) then 
+if ((_player != _killer) && (isNull pvar_PlayerTeamKiller)) then 
 {
 	_corpse setVariable["canfood",player getVariable ["canfood",0],true];
 	_corpse setVariable["water",player getVariable ["water",0],true];
 	_corpse setVariable["repairkits",player getVariable ["repairkits",0],true];
 	_corpse setVariable["medkits",player getVariable ["medkits",0],true];
 	_corpse setVariable["cmoney",player getVariable ["cmoney",0],true];
+	_corpse setVariable["fuelFull", 0, true];
+	_corpse setVariable["fuelEmpty", 0, true];
+	_corpse setVariable["spawnBeacon",0,true];
+	_corpse setVariable["camonet",0,true];
 }
 else
 {
@@ -72,6 +76,10 @@ else
 	_corpse setVariable["repairkits",0,true];
 	_corpse setVariable["medkits",0,true];
 	_corpse setVariable["cmoney",0,true];
+	_corpse setVariable["fuelFull", 0, true];
+	_corpse setVariable["fuelEmpty", 0, true];
+	_corpse setVariable["spawnBeacon",0,true];
+	_corpse setVariable["camonet",0,true];
 };
 
 if(!isNull(pvar_PlayerTeamKiller)) then {

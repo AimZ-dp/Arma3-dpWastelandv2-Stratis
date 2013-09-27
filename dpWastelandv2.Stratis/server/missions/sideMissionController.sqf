@@ -14,7 +14,8 @@ private ["_SMarray","_lastMission","_randomIndex","_mission","_missionType","_ne
 //Side Mission Array
 _SMarray = [[mission_WepCache,"mission_WepCache"],      
             [mission_AirWreck,"mission_AirWreck"],
-			[mission_Truck,"mission_Truck"]];
+			[mission_Truck,"mission_Truck"],
+			[mission_UAV,"mission_UAV"]];
 			
 //_lastMission = "nomission";
 while {true} do

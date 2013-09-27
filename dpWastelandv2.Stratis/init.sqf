@@ -2,7 +2,7 @@
 //	Author: AimZ =(dp)=
 
 diag_log format["******** MISSION init Started ********"];
-versionName = "v2.4.1";
+versionName = "v2.4.2";
 modVersion = "build-2f3a045";
 vChecksum = 1;
 {vChecksum = vChecksum + _x;} forEach (toArray modVersion); 

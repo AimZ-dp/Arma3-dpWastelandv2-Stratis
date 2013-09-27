@@ -121,8 +121,11 @@ switch(_switch) do
 
 					if (player canAdd _class) then 
 					{
+						hint "can Add!";
 						if (_x select 3 == "binoc") then 
 						{
+							sleep 1;
+							hint "Add Weapon - binoc!";
 							player addWeapon _class;
 						};
 						if (_x select 3 == "item") then 

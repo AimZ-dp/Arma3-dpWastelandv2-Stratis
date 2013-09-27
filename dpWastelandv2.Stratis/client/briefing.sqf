@@ -10,6 +10,11 @@ player createDiaryRecord["changelog",
 [
 "=(dp)=",
 "
+<br/>2.4.2<br/>
+		[Fixed] Fixed money bug with UAV Backpacks.<br/>
+		[Fixed] Removed ammo truck.<br/>
+		[Fixed] Changed wording of the abandoned vehicle mission.<br/>
+		[Update] Added website name.<br/>
 <br/>2.4.1<br/>
 		[Fixed] Changed scanner strength out of debug, now 5 percent chance for enemies.<br/>
 		[Fixed] Client side indestructible buildings.<br/>

@@ -53,6 +53,7 @@ sideMissionController = compileFinal preprocessFileLineNumbers "server\missions\
 mission_AirWreck = compileFinal preprocessFileLineNumbers "server\missions\sideMissions\mission_AirWreck.sqf";
 mission_WepCache = compileFinal preprocessFileLineNumbers "server\missions\sideMissions\mission_WepCache.sqf";
 mission_Truck = compileFinal preprocessFileLineNumbers "server\missions\sideMissions\mission_Truck.sqf";
+mission_UAV = compileFinal preprocessFileLineNumbers "server\missions\sideMissions\mission_UAV.sqf";
 
 //Factory Compiles
 createMissionLocation = compileFinal preprocessFileLineNumbers "server\missions\factoryMethods\createMissionLocation.sqf";
