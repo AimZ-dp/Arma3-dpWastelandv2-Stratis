@@ -24,7 +24,6 @@ for "_i" from _start to _end step _step do
 	{ 
 	  case 0: {[_position, LightHelicopters, true, 50, true] call HeliCreation;}; 
 	  case 1: {[_position, TransportHelicopters, true, 50, true] call HeliCreation;}; 
-	  case 2: diag_log format["ERROR WITH RANDOM SELECTION"];
 	};
 
 	_counter = _counter + 1;

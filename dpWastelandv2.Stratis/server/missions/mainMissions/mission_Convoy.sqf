@@ -153,10 +153,7 @@ if(_failed) then
     deleteGroup _group;
 	
     // Spawn loot at last marker position
-	//_boxtype = floor (random (count missionAmmoBoxes));
-    //_ammobox = (missionAmmoBoxes select _boxtype) createVehicle getMarkerPos _marker;
-	//_ammobox setVariable["newVehicle",vChecksum,true];
-	_ammobox = [getMarkerPos _marker, missionAmmoBoxes, false, 2, false] call boxCreation;	
+    _ammobox = [getMarkerPos _marker, missionAmmoBoxes, true, 2, false] call boxCreation;	
     
     _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Objective Complete</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>The convoy has been sucessfully stopped. Now the weapons and cars are yours.</t>", _missionType, _picture, _vehicleName, successMissionColor, subTextColor];
     messageSystem = _hint;

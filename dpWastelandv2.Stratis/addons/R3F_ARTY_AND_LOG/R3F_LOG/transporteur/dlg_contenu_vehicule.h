@@ -105,10 +105,10 @@ class R3F_LOG_dlg_contenu_vehicule
 		period = 0.4;
 		font = "Zeppelin32";
 		
-		soundEnter[] = {"\A3\ui_f\data\Sound\MOUSE2", 0.09, 1};
-		soundPush[] = {"\A3\ui_f\data\Sound\NEW1", 0.09, 1};
-		soundClick[] = {"\A3\ui_f\data\Sound\MOUSE3", 0.07, 1};
-		soundEscape[] = {"\A3\ui_f\data\Sound\MOUSE1", 0.09, 1};
+	soundEnter[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEnter", 0.09, 1};
+	soundPush[] = {"\A3\ui_f\data\sound\RscButtonMenuOK\soundPush", 0.09, 1};
+	soundClick[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundClick", 0.07, 1};
+	soundEscape[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEscape", 0.09, 1};
 		
 		class Attributes 
 		{

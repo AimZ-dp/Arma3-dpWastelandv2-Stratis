@@ -43,7 +43,6 @@ removeHeadgear player;
 removeGoggles player;
 
 removeAllAssignedItems player;
-removeAllContainers player;
 
 switch (playerSide) do
 {

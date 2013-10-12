@@ -30,6 +30,9 @@ _heli setDir (random 360);
 _position = [_position,1,_coverArea,1,0,0,0] call BIS_fnc_findSafePos;
 _heli setPos _position;
 
+//_heli allowDamage false;
+//_heli enableSimulation false;
+
 if (_restrictContent) then
 {
 	//Clear Inventory

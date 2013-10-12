@@ -19,6 +19,12 @@ while {true} do
 	{
 		if (!(isNull _x)) then 
 		{
+			if (!(isPlayer _x) && !(_x isKindOf "CAManBase") && !(_x isKindOf "LandVehicle") && !(_x isKindOf "Helicopter")  && !(_x isKindOf "ReammoBox_F") && !(_x isKindOf "WeaponHolderSimulated") && !(_x isKindOf "GroundWeaponHolder")) then 
+			{
+				_x allowDamage false;
+				_x enableSimulation false;
+			};
+		
 			if (local _x) then 
 			{
 				//_x setVariable ["last_timeout", time, true];

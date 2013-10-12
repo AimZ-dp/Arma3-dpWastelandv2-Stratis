@@ -27,8 +27,8 @@ class constructionshopd {
 
 			x = 0.502604 * safezoneW + safezoneX;
 			y = 0.236111 * safezoneH + safezoneY;
-			w = 0.0891668 * safezoneW;
-			h = 0.0753702 * safezoneH;
+			w = 0.0753702 * safezoneW;
+			h = 0.0953702 * safezoneH;
 		};
 
 		class ItemSelectedInfo: w_RscStructuredText

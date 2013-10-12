@@ -13,7 +13,7 @@ private ["_MMarray","_lastMission","_randomIndex","_mission","_missionType","_ne
 //Main Mission Array
 _MMarray = [
 	[mission_APC,"mission_APC"],
-    [mission_LightTank,"mission_LightTank"],
+	[mission_LightTank,"mission_LightTank"],
 	[mission_ArmedHeli,"mission_ArmedHeli"],
 	[mission_LightArmVeh,"mission_LightArmVeh"],
 	[mission_CivHeli,"mission_CivHeli"],

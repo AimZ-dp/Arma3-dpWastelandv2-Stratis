@@ -396,7 +396,26 @@ R3F_LOG_CFG_objets_transportables =  [
 	["Land_Cargo_HQ_V1_F", 5],
 	["Land_Cargo_Patrol_V1_F", 5],
 	["I_supplyCrate_F", 5],	
-	["Land_BarGate_F", 5]
+	["Land_BarGate_F", 5],
+	["Land_RampConcrete_F", 5],	
+	["Land_RampConcreteHigh_F", 5],	
+	["Land_Obstacle_Bridge_F", 5],	
+	["Land_New_WiredFence_10m_F", 5],	
+	["Land_BagBunker_Large_F", 5],	
+	["Land_BagBunker_Tower_F", 5],	
+	["Land_CncBarrier_stripes_F", 5],	
+	["Land_CncShelter_F", 5],	
+	["Land_Concrete_SmallWall_4m_F", 5],	
+	["Land_Concrete_SmallWall_8m_F", 5],	
+	["Land_HBarrierWall_corner_F", 5],
+	["Land_HBarrierWall4_F", 5],	
+	["Land_HBarrierWall6_F", 5],	
+	["Land_HBarrierWall_corridor_F", 5],	
+	["Land_HBarrierTower_F", 5],	
+	["Land_i_Garage_V1_F", 5],	
+	["Land_dp_smallTank_F", 5],	
+	["Land_dp_bigTank_F", 5],	
+	["Land_ReservoirTower_F", 5]
 ];
 
 /****** MOVABLE-BY-PLAYER OBJECTS / OBJETS DEPLACABLES PAR LE JOUEUR ******/
@@ -461,7 +480,26 @@ R3F_LOG_CFG_objets_deplacables = [
 	"Land_Cargo_HQ_V1_F",
 	"Land_Cargo_Patrol_V1_F",
 	"I_supplyCrate_F",
-	"Land_BarGate_F"
+	"Land_BarGate_F",
+	"Land_RampConcrete_F",
+	"Land_RampConcreteHigh_F",
+	"Land_Obstacle_Bridge_F",
+	"Land_New_WiredFence_10m_F",
+	"Land_BagBunker_Large_F",
+	"Land_BagBunker_Tower_F",
+	"Land_CncBarrier_stripes_F",
+	"Land_CncShelter_F",
+	"Land_Concrete_SmallWall_4m_F",
+	"Land_Concrete_SmallWall_8m_F",
+	"Land_HBarrierWall_corner_F",
+	"Land_HBarrierWall4_F",
+	"Land_HBarrierWall6_F",
+	"Land_HBarrierWall_corridor_F",
+	"Land_HBarrierTower_F",
+	"Land_i_Garage_V1_F",
+	"Land_dp_smallTank_F",
+	"Land_dp_bigTank_F",	
+	"Land_ReservoirTower_F"
 ];
 
 /*

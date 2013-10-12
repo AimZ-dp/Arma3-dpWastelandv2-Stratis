@@ -25,6 +25,9 @@ _box setDir (random 360);
 _position = [_position,1,_coverArea,1,0,0,0] call BIS_fnc_findSafePos;
 _box setPos _position;
 
+//_box allowDamage false;
+//_box enableSimulation false;
+
 if (_restrictContent) then
 {
 	// remove weapons

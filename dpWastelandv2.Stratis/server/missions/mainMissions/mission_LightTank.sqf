@@ -26,7 +26,7 @@ _randomIndex = _returnData select 1;
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-_vehicle = [_randomPos, MainBattleTanks, false, 10, false] call vehicleCreation;
+_vehicle = [_randomPos, MainBattleTanks, true, 10, false] call vehicleCreation;
 _vehicle setVehicleLock "LOCKED";
 _vehicle setVariable ["R3F_LOG_disabled", true, true];
 

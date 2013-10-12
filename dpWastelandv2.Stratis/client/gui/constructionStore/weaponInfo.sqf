@@ -30,7 +30,8 @@ _conlisttext ctrlSetText format [""];
 	_weapon = (configFile >> "cfgWeapons" >> _weap_type);
     _conInfo ctrlSetStructuredText parseText (format ["%1<br/>%2",getText(_weapon >> "displayName"),getText(_weapon >> "descriptionShort")]);
     
-    _picture = getText(_weapon >> "picture");
+    //_picture = getText(_weapon >> "picture");
+	_picture = _x select 3;
 	_conpicture ctrlSettext _picture;
     
 	_conlisttext ctrlSetText format ["Price: $%1", _price];	

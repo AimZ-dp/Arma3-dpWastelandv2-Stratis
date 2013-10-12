@@ -10,6 +10,13 @@ player createDiaryRecord["changelog",
 [
 "=(dp)=",
 "
+<br/>2.4.4<br/>
+		[Update] Relocated gun stores<br/>
+		[Update] Added a third construction store<br/>
+		[Update] Added base building items<br/>
+		[Update] Removed broken uniform items<br/>
+<br/>2.4.3<br/>
+		[Update] Tweaks for the crashes... unknown outcome!<br/>
 <br/>2.4.2<br/>
 		[Fixed] Fixed money bug with UAV Backpacks.<br/>
 		[Fixed] Removed ammo truck.<br/>

@@ -4,98 +4,123 @@ class Mission
 	addOns[]=
 	{
 		"A3_Characters_F_BLUFOR",
-		"a3_map_stratis",
-		"A3_Characters_F_OPFOR",
-		"A3_Soft_F_Quadbike",
-		"A3_Data_F", 
-		"A3_Weapons_F",
-		"A3_Weapons_F_Ammoboxes",
-		"A3_Weapons_F_Explosives",
-		"A3_Structures_F_Civ_Market",
-		"A3_Structures_F_Civ_Constructions",
-		"A3_Structures_F_Items_Vessels",
-		"A3_Structures_F_Civ_Camping",
-		"A3_Structures_F_Ind_Cargo",
-		"A3_Structures_F_Mil_BagFence",
-		"A3_Structures_F_Mil_BagBunker",
-		"A3_Structures_F_Walls",
-		"A3_Structures_F_Mil_Fortification",
-		"a3_structures_f_civ_lamps",
-		"A3_Structures_F_Items_Cans",
-		"A3_Structures_F_Items_Luggage",
-		"A3_Characters_F_Civil",
-		"a3_structures_f_training",
-		"a3_characters_f_beta",
-		"A3_Characters_F_INDEP",
-		"a3_weapons_f_beta_ammoboxes",
-		"A3_Boat_F_Boat_Transport_01",
-		"A3_Soft_F_HEMTT",
-		"A3_Soft_F_MRAP_01",
-		"A3_Soft_F_MRAP_02",
-		"A3_Soft_F_TruckHeavy",
-		"A3_Soft_F_Offroad_01",
-		"a3_soft_f_beta_quadbike",
-		"A3_Soft_F_MRAP_03",
+		"A3_Air_F_Gamma_Plane_Fighter_03",
 		"A3_Air_F_Heli_Light_01",
 		"A3_Air_F_Beta_Heli_Attack_01",
-		"A3_Air_F_Beta_Heli_Transport_01",
+		"A3_Air_F_Beta_Heli_Transport_02",
 		"A3_Air_F_Beta_Heli_Attack_02",
 		"A3_Air_F_Heli_Light_02",
-		"A3_Air_F_Beta_Heli_Transport_02",
+		"A3_Air_F_Beta_Heli_Transport_01",
+		"A3_Armor_F_T100K",
+		"A3_Armor_F_APC_Wheeled_03",
 		"A3_Armor_F_AMV",
 		"A3_armor_f_beta_APC_Tracked_02",
 		"A3_Armor_F_Panther",
-		"A3_Armor_F_Marid"
+		"A3_Armor_F_Slammer",
+		"A3_Armor_F_Marid",
+		"A3_Air_F_Gamma_UAV_01",
+		"A3_Air_F_Gamma_UAV_02",
+		"A3_Soft_F_Crusher_UGV",
+		"A3_Soft_F_Car",
+		"A3_Soft_F_Gamma_HEMTT",
+		"A3_Soft_F_HEMTT",
+		"A3_Soft_F_MRAP_01",
+		"A3_Soft_F_MRAP_02",
+		"A3_Soft_F_Offroad_01",
+		"a3_soft_f_gamma_offroad",
+		"A3_Soft_F_Quadbike",
+		"a3_soft_f_beta_quadbike",
+		"a3_soft_f_gamma_quadbike",
+		"A3_Soft_F_MRAP_03",
+		"A3_Soft_F_SUV",
+		"A3_Soft_F_Truck",
+		"A3_Soft_F_TruckHeavy",
+		"A3_Soft_F_Gamma_TruckHeavy",
+		"A3_Structures_F_Mil_BagBunker",
+		"A3_Structures_F_Mil_Fortification",
+		"A3_Structures_F_Civ_Constructions",
+		"a3_map_stratis",
+		"A3_Characters_F_OPFOR",
+		"A3_Characters_F_INDEP",
+		"A3_Characters_F_Civil",
+		"A3_Weapons_F_Ammoboxes",
+		"a3_weapons_f_beta_ammoboxes",
+		"a3_weapons_f_gamma_ammoboxes",
+		"a3_characters_f_gamma",
+		"a3_uav_f_characters_f_gamma",
+		"A3_Structures_F_Items_Vessels",
+		"A3_Structures_F_Mil_BagFence",
+		"A3_Structures_F_Walls",
+		"A3_Structures_F_Civ_Market",
+		"A3_Weapons_F_Explosives",
+		"A3_Weapons_F",
+		"A3_Static_F",
+		"a3_static_f_gamma",
+		"a3_uav_f_weapons_f_gamma_ammoboxes",
+		"a3_characters_f_beta"
 	};
 	addOnsAuto[]=
 	{
 		"A3_Characters_F_BLUFOR",
-		"a3_characters_f_beta",
 		"A3_Characters_F_OPFOR",
-		"A3_Characters_F_Civil",
 		"A3_Characters_F_INDEP",
-		"A3_Data_F", 
-		"A3_Weapons_F",
+		"A3_Characters_F_Civil",
+		"a3_characters_f_gamma",
+		"a3_uav_f_characters_f_gamma",
+		"a3_characters_f_beta",
+		"A3_Air_F_Gamma_Plane_Fighter_03",
+		"A3_Air_F_Heli_Light_01",
+		"A3_Air_F_Beta_Heli_Attack_01",
+		"A3_Air_F_Beta_Heli_Transport_02",
+		"A3_Air_F_Beta_Heli_Attack_02",
+		"A3_Air_F_Heli_Light_02",
+		"A3_Air_F_Beta_Heli_Transport_01",
+		"A3_Armor_F_T100K",
+		"A3_Armor_F_APC_Wheeled_03",
+		"A3_Armor_F_AMV",
+		"A3_armor_f_beta_APC_Tracked_02",
+		"A3_Armor_F_Panther",
+		"A3_Armor_F_Slammer",
+		"A3_Armor_F_Marid",
+		"A3_Air_F_Gamma_UAV_01",
+		"A3_Air_F_Gamma_UAV_02",
+		"A3_Soft_F_Crusher_UGV",
+		"A3_Soft_F_Car",
+		"A3_Soft_F_Gamma_HEMTT",
+		"A3_Soft_F_HEMTT",
+		"A3_Soft_F_MRAP_01",
+		"A3_Soft_F_MRAP_02",
+		"A3_Soft_F_Offroad_01",
+		"a3_soft_f_gamma_offroad",
+		"A3_Soft_F_Quadbike",
+		"a3_soft_f_beta_quadbike",
+		"a3_soft_f_gamma_quadbike",
+		"A3_Soft_F_MRAP_03",
+		"A3_Soft_F_SUV",
+		"A3_Soft_F_Truck",
+		"A3_Soft_F_TruckHeavy",
+		"A3_Soft_F_Gamma_TruckHeavy",
 		"A3_Weapons_F_Ammoboxes",
 		"a3_weapons_f_beta_ammoboxes",
-		"A3_Weapons_F_Explosives",
-		"A3_Structures_F_Civ_Market",
+		"a3_weapons_f_gamma_ammoboxes",
 		"A3_Structures_F_Civ_Constructions",
 		"A3_Structures_F_Items_Vessels",
-		"A3_Structures_F_Civ_Camping",
-		"A3_Structures_F_Ind_Cargo",
 		"A3_Structures_F_Mil_BagFence",
 		"A3_Structures_F_Mil_BagBunker",
 		"A3_Structures_F_Walls",
 		"A3_Structures_F_Mil_Fortification",
-		"a3_structures_f_civ_lamps",
-		"A3_Structures_F_Items_Cans",
-		"A3_Structures_F_Items_Luggage",
-		"A3_Boat_F_Boat_Transport_01",
-		"A3_Soft_F_HEMTT",
-		"A3_Soft_F_MRAP_01",
-		"A3_Soft_F_Quadbike",
-		"A3_Soft_F_MRAP_02",
-		"A3_Soft_F_TruckHeavy",
-		"A3_Soft_F_Offroad_01",
-		"a3_soft_f_beta_quadbike",
-		"A3_Soft_F_MRAP_03",
-		"A3_Air_F_Heli_Light_01",
-		"A3_Air_F_Beta_Heli_Attack_01",
-		"A3_Air_F_Beta_Heli_Transport_01",
-		"A3_Air_F_Beta_Heli_Attack_02",
-		"A3_Air_F_Heli_Light_02",
-		"A3_Air_F_Beta_Heli_Transport_02",
-		"A3_Armor_F_AMV",
-		"A3_armor_f_beta_APC_Tracked_02",
-		"A3_Armor_F_Panther",
-		"A3_Armor_F_Marid",
+		"A3_Structures_F_Civ_Market",
+		"A3_Weapons_F_Explosives",
+		"A3_Weapons_F",
+		"A3_Static_F",
+		"a3_static_f_gamma",
+		"a3_uav_f_weapons_f_gamma_ammoboxes",
 		"a3_map_stratis"
 	};
 	randomSeed=4593667;
 	class Intel
 	{
-		briefingName="dp Wasteland v2.4.2";
+		briefingName="dp Wasteland v2.4.4";
 		briefingDescription="A harsh survival sandbox";
 		resistanceWest=0;
 		timeOfChanges=1800.0002;
@@ -118,7 +143,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=74;
+		items=75;
 		class Item0
 		{
 			side="WEST";
@@ -1047,8 +1072,8 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={4147.7075,157.70811,3307.1665};
-					azimut=157;
+					position[]={2978.4141,170.91025,1901.6763};
+					azimut=195.98579;
 					id=60;
 					side="LOGIC";
 					vehicle="C_man_polo_4_F";
@@ -1067,7 +1092,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={5522.9912,77.353127,4698.0908};
+					position[]={5208.9995,222.98445,4991.4463};
 					azimut=352;
 					id=61;
 					side="LOGIC";
@@ -1087,7 +1112,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2461.834,74.109291,5692.9746};
+					position[]={2462.1133,74.088615,5692.375};
 					azimut=173;
 					id=62;
 					side="LOGIC";
@@ -1127,8 +1152,8 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={4274.9199,4.6652369,2695.9058};
-					azimut=-35.609699;
+					position[]={5385.6304,4.8574314,3786.0869};
+					azimut=123.62624;
 					id=64;
 					side="LOGIC";
 					vehicle="C_man_polo_6_F";
@@ -1147,8 +1172,8 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2166.8755,3.1407411,1888.6836};
-					azimut=242.59;
+					position[]={2047.7673,6.1454158,2689.769};
+					azimut=267.29291;
 					offsetY=1;
 					id=65;
 					side="LOGIC";
@@ -1189,7 +1214,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2036.1029,2.9148161,2735.7163};
+					position[]={4275.9409,5.5825806,2704.3501};
 					azimut=-44.965099;
 					offsetY=1;
 					id=67;
@@ -2306,6 +2331,27 @@ class Mission
 				};
 			};
 		};
+		class Item74
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={6584.6016,61.275078,5104.1719};
+					azimut=-340.18109;
+					offsetY=1;
+					id=140;
+					side="LOGIC";
+					vehicle="C_man_polo_5_F";
+					leader=1;
+					skill=0.60000002;
+					text="constructionStore3";
+					init="this addEventHandler['HandleDamage', {false}]; [netid this, 'Construction_Store_3'] execVM 'server\functions\controlStoreGuy.sqf';";
+				};
+			};
+		};
 	};
 	class Vehicles
 	{
@@ -3307,7 +3353,7 @@ class Mission
 		};
 		class Item85
 		{
-			position[]={4142.811,169.6871,3358.5151};
+			position[]={4159.4521,167.6503,3349.5542};
 			name="Spawn_85";
 			type="Empty";
 		};
@@ -3403,7 +3449,7 @@ class Mission
 		};
 		class Item101
 		{
-			position[]={5241.209,223.38669,5043.1841};
+			position[]={5283.6733,211.25777,5158.6147};
 			name="Spawn_101";
 			type="Empty";
 		};
@@ -3728,7 +3774,7 @@ class Mission
 		};
 		class Item150
 		{
-			position[]={5014.8281,58.343174,3995.3354};
+			position[]={4991.2256,123.86642,3805.9502};
 			name="Mission_8";
 			type="Empty";
 			colorName="ColorOrange";
@@ -3805,7 +3851,7 @@ class Mission
 		};
 		class Item161
 		{
-			position[]={5800.9336,26.945276,4578.8354};
+			position[]={5153.9287,158.05269,4290.8828};
 			name="Mission_19";
 			type="Empty";
 			colorName="ColorOrange";
@@ -3931,14 +3977,14 @@ class Mission
 		};
 		class Item179
 		{
-			position[]={4277.5957,1.6207373,2656.3608};
+			position[]={4278.1016,2.6232715,2681.0444};
 			name="Town_17";
 			type="Empty";
 			colorName="ColorBrown";
 		};
 		class Item180
 		{
-			position[]={2983.8628,171.39999,1874.3081};
+			position[]={2637.3291,65.359268,630.87451};
 			name="Town_18";
 			type="Empty";
 			colorName="ColorBrown";
@@ -3980,28 +4026,28 @@ class Mission
 		};
 		class Item186
 		{
-			position[]={5239.9946,223.34746,5023.4946};
+			position[]={5517.9272,77.877098,4710.7539};
 			name="Town_24";
 			type="Empty";
 			colorName="ColorBrown";
 		};
 		class Item187
 		{
-			position[]={4147.6982,157.70564,3307.1978};
+			position[]={2978.4094,170.90987,1901.6846};
 			name="Store_Gun_1";
 			type="Empty";
 			colorName="ColorBrown";
 		};
 		class Item188
 		{
-			position[]={5522.9795,77.35244,4698.1113};
+			position[]={5208.9878,222.98453,4991.4668};
 			name="Store_Gun_2";
 			type="Empty";
 			colorName="ColorBrown";
 		};
 		class Item189
 		{
-			position[]={2462.5205,74.092567,5692.7407};
+			position[]={2462.1169,74.088951,5692.3892};
 			name="Store_Gun_3";
 			type="Empty";
 			colorName="ColorBrown";
@@ -4015,14 +4061,14 @@ class Mission
 		};
 		class Item191
 		{
-			position[]={4274.9199,4.6652369,2695.9058};
+			position[]={5385.627,4.8530889,3786.0659};
 			name="General_Store_2";
 			type="Empty";
 			colorName="ColorBrown";
 		};
 		class Item192
 		{
-			position[]={2166.8755,3.1407411,1888.6836};
+			position[]={2047.7394,6.1433358,2689.7544};
 			name="General_Store_3";
 			type="Empty";
 			colorName="ColorBrown";
@@ -4060,7 +4106,7 @@ class Mission
 		};
 		class Item197
 		{
-			position[]={2036.1029,2.9148161,2735.7163};
+			position[]={4275.6191,5.6327662,2704.5073};
 			name="Construction_Store_2";
 			type="Empty";
 			colorName="ColorBrown";
@@ -4099,7 +4145,7 @@ class Mission
 		};
 		class Item201
 		{
-			position[]={18195.857,22.225668,8859.4434};
+			position[]={6584.6001,61.274742,5104.1631};
 			name="Construction_Store_3";
 			type="Empty";
 			colorName="ColorBrown";

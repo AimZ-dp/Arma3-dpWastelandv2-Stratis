@@ -70,23 +70,23 @@ I_G_Boat_Transport_01_F
 */
 //Air
 LightHelicopters = [
-    "B_Heli_Light_01_F",
-    "B_Heli_Light_01_armed_F",
-    "O_Heli_Light_02_F",
-    "O_Heli_Light_02_unarmed_F"
+    "B_Heli_Light_01_F",        // MH-9 - Hummingbird
+    "B_Heli_Light_01_armed_F",  // AH-9 - Pawnee
+    "O_Heli_Light_02_F",         // PO-30 - Ocra
+    "O_Heli_Light_02_unarmed_F" // PO-30 - Ocra
 ];
 TransportHelicopters = [
-    "B_Heli_Transport_01_F",
-    "B_Heli_Transport_01_camo_F",
-    "I_Heli_Transport_02_F"
+    "B_Heli_Transport_01_F",      // UH-80 - Ghosthawk
+    "B_Heli_Transport_01_camo_F", // UH-80 - Ghosthawk
+    "I_Heli_Transport_02_F"	  // CH-49 - Mohawk
 ];
 AttackHelicopters = [
-    "B_Heli_Attack_01_F",
-    "O_Heli_Attack_02_F",
-    "O_Heli_Attack_02_black_F"
+    "B_Heli_Attack_01_F",       // AH-99 - Blackfoot
+    "O_Heli_Attack_02_F",      // Mi-48 - Kajman
+    "O_Heli_Attack_02_black_F" // Mi-48 - Kajman
 ];
 ArmedFighterPlanes = [
-	"I_Plane_Fighter_03_CAS_F",
+    "I_Plane_Fighter_03_CAS_F",
     "I_Plane_Fighter_03_AA_F"
 ];
 //Ground
@@ -95,42 +95,42 @@ Quadbikes = [
     "O_Quadbike_01_F",
     "C_Quadbike_01_F",
     "I_Quadbike_01_F",
-	"B_G_Quadbike_01_F"
+    "B_G_Quadbike_01_F"
 ];
 Cars = [
     "C_Offroad_01_F",
-	"B_G_Offroad_01_F",
-	"B_G_Offroad_01_armed_F",
-	"C_SUV_01_F",
-	"C_Hatchback_01_F",
+    "B_G_Offroad_01_F",
+    "B_G_Offroad_01_armed_F",
+    "C_SUV_01_F",
+    "C_Hatchback_01_F",
     "C_Hatchback_01_sport_F"
 ];
 Trucks = [
     "B_Truck_01_transport_F",
     "B_Truck_01_covered_F",
     "B_Truck_01_mover_F",
-    "B_Truck_01_medical_F",
-	"B_Truck_01_box_F",
-	"B_Truck_01_Repair_F",
+    //"B_Truck_01_medical_F",
+    "B_Truck_01_box_F",
+    //"B_Truck_01_Repair_F",
     //"B_Truck_01_ammo_F",
-    "B_Truck_01_fuel_F",
+    //"B_Truck_01_fuel_F",
     "O_Truck_02_covered_F",
     "O_Truck_02_transport_F",
-	"O_Truck_02_medical_F",
+    //"O_Truck_02_medical_F",
     "O_Truck_02_box_F",
     //"O_Truck_02_Ammo_F",
-    "O_Truck_02_fuel_F",
+    //"O_Truck_02_fuel_F",
     "I_Truck_02_covered_F",
     "I_Truck_02_transport_F",
-	"I_Truck_02_medical_F",	
+    //"I_Truck_02_medical_F",	
     //"I_Truck_02_ammo_F",
     "I_Truck_02_box_F",
-    "I_Truck_02_fuel_F",
+    //"I_Truck_02_fuel_F",
     "C_Van_01_transport_F",
     "C_Van_01_box_F",
-    "C_Van_01_fuel_F",
-    "B_G_Van_01_transport_F",
-    "B_G_Van_01_fuel_F"
+    //"C_Van_01_fuel_F",
+    "B_G_Van_01_transport_F"
+    //"B_G_Van_01_fuel_F"
 ];
 UnarmedMRAPVehicles = [
 	"B_MRAP_01_F", 
@@ -157,10 +157,10 @@ ArmouredPersonnelCarriers = [
 ];
 MainBattleTanks = [
     "B_MBT_01_cannon_F",
-    "B_MBT_01_arty_F",
-    "B_MBT_01_mlrs_F",
-    "O_MBT_02_cannon_F",
-    "O_MBT_02_arty_F"
+    //"B_MBT_01_arty_F",
+    //"B_MBT_01_mlrs_F",
+    "O_MBT_02_cannon_F"
+    //"O_MBT_02_arty_F"
 ];
 //Unmanned
 UnmannedAirVehicles = [
@@ -203,8 +203,6 @@ baseObjectList = [
 	"Land_HBarrier_5_F",
 	"Land_HBarrierBig_F",
 	"Land_HBarrier_1_F"
-	//"Land_Crash_barrier_F"
-	//"Land_LampHalogen_F"
 ];
 survivalObjectList = [
 	"Land_Sacks_goods_F",
@@ -322,17 +320,17 @@ removeWeapons = [
     //"arifle_Mk20_F",
     //"arifle_Mk20C_F",
     //"arifle_Mk20_GL_F",
-    //"arifle_Mk20_plain_F",
+    "arifle_Mk20_plain_F",
     "arifle_Mk20_pointer_F",
     "arifle_Mk20_Holo_F",
     "arifle_Mk20_ACO_F",
     "arifle_Mk20_ACO_pointer_F",
     "arifle_Mk20_MRCO_F",
     "arifle_Mk20_MRCO_pointer_F",
-    //"arifle_Mk20C_plain_F",
+    "arifle_Mk20C_plain_F",
     "arifle_Mk20C_ACO_F",
     "arifle_Mk20C_ACO_pointer_F",
-    //"arifle_Mk20_GL_plain_F",
+    "arifle_Mk20_GL_plain_F",
     "arifle_Mk20_GL_MRCO_pointer_F",
     "arifle_Mk20_GL_ACO_F",
     "arifle_Mk20_MRCO_plain_F",
@@ -353,12 +351,12 @@ removeAmmo = [
 	"HandGrenade"
 ];
 vehicleAddition = [
-	"muzzle_snds_H",
-	"muzzle_snds_M",
-	"muzzle_snds_L",
-	"muzzle_snds_B",
-	"muzzle_snds_H_MG",
-	"muzzle_snds_acp",
+    "muzzle_snds_H",
+    "muzzle_snds_M",
+    "muzzle_snds_L",
+    "muzzle_snds_B",
+    "muzzle_snds_H_MG",
+    "muzzle_snds_acp",
     "optic_Arco",
     "optic_Hamr",
     "optic_Aco",
@@ -375,9 +373,9 @@ vehicleAddition = [
     "optic_Nightstalker",
     "optic_tws",
     "optic_tws_mg",	
-	"acc_flashlight", 
-	"acc_pointer_IR",
-	"Laserdesignator_mounted"
+    "acc_flashlight", 
+    "acc_pointer_IR",
+    "Laserdesignator_mounted"
 ];
 
 vehicleAddition2 = [
@@ -388,16 +386,16 @@ vehicleAddition2 = [
 ];
 
 vehicleAddition3 = [
-	"Medikit",
-	"FirstAidKit",
-	"ToolKit",
-	"MineDetector",
-	"Rangefinder",
-	"Binocular",
-    "NVGoggles",
-	"NVGoggles_OPFOR",
-    "NVGoggles_INDEP",
-    "Laserdesignator"
+    "Medikit",
+    "FirstAidKit",
+    "ToolKit",
+    "MineDetector"
+    //"Rangefinder",
+    //"Binocular",
+    //"NVGoggles",
+    //"NVGoggles_OPFOR",
+    //"NVGoggles_INDEP",
+    //"Laserdesignator"
 ];
  
 ammoBoxes = [

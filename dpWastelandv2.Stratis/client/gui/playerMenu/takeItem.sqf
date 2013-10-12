@@ -29,7 +29,8 @@ if (player distance _corpse < 5 && !alive _corpse) then
 
 	mutexScriptInProgress = true;
 	_currPlayerState = animationState player;
-	player playMoveNow "AmovPknlMstpSrasWpstDnon_Gear_AmovPknlMstpSrasWpstDnon";
+	//player playMoveNow "AmovPknlMstpSrasWpstDnon_Gear_AmovPknlMstpSrasWpstDnon";
+	player playMoveNow "AinvPknlMstpSnonWnonDnon_Putdown_AinvPknlMstpSnonWnonDnon";
 	sleep 1;
 	
 	switch(_data) do 

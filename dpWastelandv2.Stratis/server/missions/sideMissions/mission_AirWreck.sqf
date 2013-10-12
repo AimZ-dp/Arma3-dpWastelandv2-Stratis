@@ -30,9 +30,9 @@ _vehicle = [[(_randomPos select 0) + 50, (_randomPos select 1) + 50,0], Transpor
 _vehicle setVehicleLock "LOCKED";
 _vehicle setVariable ["R3F_LOG_disabled", true, true];
 
-_box1 = [[(_randomPos select 0),(_randomPos select 1),0], missionAmmoBoxes, false, 2, false] call boxCreation;	
-_box2 = [[(_randomPos select 0),(_randomPos select 1)-10,0], missionAmmoBoxes, false, 2, false] call boxCreation;	
-		
+_box1 = [[(_randomPos select 0),(_randomPos select 1),0], missionAmmoBoxes, true, 2, false] call boxCreation;	
+_box2 = [[(_randomPos select 0),(_randomPos select 1)-10,0], missionAmmoBoxes, true, 2, false] call boxCreation;	
+			
 _picture = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "picture");
 _vehicleName = getText (configFile >> "cfgVehicles" >> typeOf _vehicle >> "displayName");
 _hint = parseText format ["<t align='center' color='%4' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%4'>------------------------------</t><br/><t align='center' color='%5' size='1.25'>%1</t><br/><t align='center'><img size='5' image='%2'/></t><br/><t align='center' color='%5'>A<t color='%4'> %3</t>, has come down under enemy fire!</t>", _missionType, _picture, _vehicleName, sideMissionColor, subTextColor];

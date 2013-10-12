@@ -25,7 +25,8 @@ _obj setDir (random 360);
 _position = [_position,1,_coverArea,1,0,0,0] call BIS_fnc_findSafePos;
 _obj setPos _position;
 	
-_obj addEventHandler ["HandleDamage", {false}]; 
+//_obj allowDamage false;
+//_obj enableSimulation false;
 
 // Set Attributes
 if(_objtype == "Land_CanisterPlastic_F") then 

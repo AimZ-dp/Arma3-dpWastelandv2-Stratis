@@ -5,7 +5,7 @@ class Header
 	maxPlayers = 132;
 };
 
-OnLoadName = "dp Wasteland v2.4.2";
+OnLoadName = "dp Wasteland v2.4.4";
 author = "=(dp)= Server (AimZ)";
 loadScreen = "Loading.jpg";
 OnLoadMission = "Wasteland is a harsh survival sandbox where 2 teams and independent players fight for survival";

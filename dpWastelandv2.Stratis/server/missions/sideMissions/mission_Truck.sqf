@@ -29,10 +29,10 @@ _randomIndex = _returnData select 1;
 _type = floor (random 4);
 switch (_type) do 
 { 
-	case 0: {_vehicle = [_randomPos, Quadbikes, false, 10, false] call vehicleCreation;}; 
-	case 1: {_vehicle = [_randomPos, Cars, false, 10, false] call vehicleCreation;}; 
-	case 2: {_vehicle = [_randomPos, Trucks, false, 10, false] call vehicleCreation;}; 
-	case 3: {_vehicle = [_randomPos, UnarmedMRAPVehicles, false, 10, false] call vehicleCreation;}; 
+	case 0: {_vehicle = [_randomPos, Quadbikes, true, 10, false] call vehicleCreation;}; 
+	case 1: {_vehicle = [_randomPos, Cars, true, 10, false] call vehicleCreation;}; 
+	case 2: {_vehicle = [_randomPos, Trucks, true, 10, false] call vehicleCreation;}; 
+	case 3: {_vehicle = [_randomPos, UnarmedMRAPVehicles, true, 10, false] call vehicleCreation;}; 
 };
 _vehicle setVehicleLock "LOCKED";
 _vehicle setVariable ["R3F_LOG_disabled", true, true];

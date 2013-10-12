@@ -26,8 +26,9 @@ _randomIndex = _returnData select 1;
 
 [_missionMarkerName,_randomPos,_missionType] call createClientMarker;
 
-_box1 = [[(_randomPos select 0),(_randomPos select 1),0], missionAmmoBoxes, false, 2, false] call boxCreation;	
-_box2 =[[(_randomPos select 0),(_randomPos select 1)-10,0], missionAmmoBoxes, false, 2, false] call boxCreation;	
+
+_box1 = [[(_randomPos select 0),(_randomPos select 1),0], missionAmmoBoxes, true, 2, false] call boxCreation;	
+_box2 = [[(_randomPos select 0),(_randomPos select 1)-10,0], missionAmmoBoxes, true, 2, false] call boxCreation;	
 
 _hint = parseText format ["<t align='center' color='%2' shadow='2' size='1.75'>Side Objective</t><br/><t align='center' color='%2'>------------------------------</t><br/><t align='center' color='%3' size='1.25'>%1</t><br/><t align='center' color='%3'>A supply drop has been spotted near the marker</t>", _missionType,  sideMissionColor, subTextColor];
 messageSystem = _hint;

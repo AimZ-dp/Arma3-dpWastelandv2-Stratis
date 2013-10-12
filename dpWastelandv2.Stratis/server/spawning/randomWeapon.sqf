@@ -14,9 +14,6 @@ private ["_car","_additionArray","_weapon","_magArray","_mag","_additionOne","_a
 _car = _this select 0;
 if (random 1 < 0.25) then { _car addWeaponCargoGlobal ["Binocular", 1]};
 if (random 1 < 0.25) then { _car addItemCargoGlobal ["NVGoggles", 1]};
-if (random 1 < 0.25) then { _car addItemCargoGlobal ["NVGoggles", 1]};
-if (random 1 < 0.25) then { _car addItemCargoGlobal ["NVGoggles", 1]};
-if (random 1 < 0.25) then { _car addItemCargoGlobal ["NVGoggles", 1]};
 
 //Get Random Gun From randomWeapons Array.
 _weapon = vehicleWeapons select floor(random (count vehicleWeapons));

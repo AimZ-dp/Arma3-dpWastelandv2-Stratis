@@ -29,6 +29,9 @@ _car setDir (random 360);
 _position = [_position,1,_coverArea,1,0,0,0] call BIS_fnc_findSafePos;
 _car setPos _position;
 
+//_car allowDamage false;
+//_car enableSimulation false;
+
 if (_restrictContent) then
 {
 	//Clear Inventory

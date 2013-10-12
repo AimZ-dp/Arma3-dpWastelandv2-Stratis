@@ -168,7 +168,7 @@ class w_RscListBox
     colorActive[] = {0,0,0,1};
     colorDisabled[] = {0,0,0,0.3};
     font = "PuristaMedium";
-    sizeEx = 0.030;//0.023;
+    sizeEx = 0.027;//0.023;
     soundSelect[] = {"",0.1,1};
     soundExpand[] = {"",0.1,1};
     soundCollapse[] = {"",0.1,1};
@@ -310,10 +310,10 @@ class w_RscButtonBase {
 	sizeEx = 0.026;
 	text = "";
 	
-	soundEnter[] = {"\A3\ui_f\data\Sound\MOUSE2", 0.09, 1};
-	soundPush[] = {"\A3\ui_f\data\Sound\NEW1", 0.09, 1};
-	soundClick[] = {"\A3\ui_f\data\Sound\MOUSE3", 0.07, 1};
-	soundEscape[] = {"\A3\ui_f\data\Sound\MOUSE1", 0.09, 1};
+	soundEnter[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEnter", 0.09, 1};
+	soundPush[] = {"\A3\ui_f\data\sound\RscButtonMenuOK\soundPush", 0.09, 1};
+	soundClick[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundClick", 0.07, 1};
+	soundEscape[] = {"\A3\ui_f\data\sound\RscButtonMenu\soundEscape", 0.09, 1};
 	
 	action = "";
 	

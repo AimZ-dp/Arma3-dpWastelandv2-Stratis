@@ -106,6 +106,7 @@ if (_uid in serverdpAdministrators) then {
 	            if(_check != vChecksum) then 
 	            {
 				    _vehicleType = Format["%1",typeOf _x];
+					_mapbuilding = _x getVariable ["mapbuilding",false];
 					if(!(_vehicleType isKindOf "CAManBase") and !(_vehicleType isKindOf "Logic") and !((_x isKindOf "Wall" || _x isKindOf "House") && _mapbuilding)) then {
 						_vehicleSummary = format["[Type: %1] [time left: %2]",_vehicleType, objectTimeOut - (_x getVariable ["newVehicleCount",0])];
 						_index = _vehicleListBox lbAdd format["%1",_vehicleSummary];
